@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css" />
 
 </head>
-<body>
+<body class="main_index">
 <jsp:include page="../Common/top.jsp"></jsp:include>
 <div id="wrap">
 	<section id="film"><img src="../../images/Main/film.jpg" width="360" height="300"></section>

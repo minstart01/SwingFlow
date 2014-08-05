@@ -8,8 +8,8 @@
 </head>
 <body>
 <header id="header">
-	<nav>
-		<table width="auto">
+	<nav class="top_nav">
+		<table width="auto" class="top_table">
       	<tr>
         	<th><a href="#">홈</a></th>
             <th><a href="#">필름</a></th>
