@@ -1,0 +1,150 @@
+@CHARSET "UTF-8";
+
+body{
+	margin-left:0px;
+}
+nav{
+	left:0px;
+	width:100%;	
+	background: #0043A8;
+  	background: -moz-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -o-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
+	 
+}
+
+table tr th{
+	width:100px;
+
+  
+}
+table tr th a{
+	display:block;
+	text-decoration:none;	
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;	
+	 text-shadow: 1px 1px #000;
+ 	 background: transparent; 
+  	 color: #FFF;
+}
+table tr th a:hover{
+color: white;
+  text-shadow: 1px 1px #43A9FF;
+}
+
+#header {
+	/* margin-bottom: 30px; */
+ 	height:21px;
+ 	width: 100%;
+ 	position: fixed!important;
+ 	top: 0px;
+ /*	position: relative;*/
+	z-index: 9999;
+	background-color: white;
+	
+ }
+#wrap{
+	/* border: solid 1px black; */
+	   /*1250px width:1150px;*/
+	width:1265px;
+	height:auto;
+	margin: 0 auto;
+	position:absolute;
+	/*top:37px;*/
+		
+	}
+footer{
+	position:absolute;	
+	top:1060px;
+
+	width:1100px;
+	height:auto;
+	margin:30px 0 30px 100px;
+	
+}
+footer #copy_link{
+	float:left;
+	font-size:13px;
+	width:600px;
+	margin-bottom:5px;
+	word-spacing:7px;
+	
+}
+#copy_link a{
+	text-decoration:none;
+	margin-right:5px;	
+}
+footer #copy{
+	line-height:20px;
+	font-size:13px;
+	width:600px;
+	
+
+}
+
+footer #social{
+	width:130px;
+	margin:20px 20px 0 0;
+	float:right;
+}
+footer #social img{
+	margin: 0 7px;
+}
+hr{
+	position:relative;
+	top:1060px;
+	width: 1150px;
+	
+}
+/*#login{
+	border:solid 1px black;
+	width:378px;
+	margin-bottom:5px;
+	height:120px;
+}
+#bt_login{
+	height:50px;	
+	margin-left:5px;
+	float:right;
+	margin-right:80px;
+}
+#main_login{
+	width:300px;
+	height:105px;
+	margin: 15px 15px 0 15px;	
+}
+#id, #password{
+	float:left;	
+}
+#login_a{
+	clear:left;	
+}
+#login_a a{
+	margin-top:10px;
+	text-decoration:none;
+	font-size:10px;
+}
+#login_a>a{
+	margin-right:20px;	
+	
+}
+#login{
+	float:left;	
+}
+*/
+#film, #air, #travel{
+	float:left;
+	height:300px;	
+}
+#film, #air{
+	margin-right:10px;	
+}
+#movie{
+	margin-right:10px;	
+}
+#movie, #shop{
+	float:left;
+	margin-top:10px;
+		
+}
