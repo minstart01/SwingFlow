@@ -1,0 +1,397 @@
+html
+{ height: 100%;}
+
+*
+{ margin: 0;
+  padding: 0;}
+#header h3 {
+	margin-left:15px;
+	}
+body
+{
+	background: #FFF;
+	color: #1D1D1D;
+	font-family: arial, sans-serif;
+	font-size: 0.7em;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+}
+
+p
+{ padding: 0 0 20px 0;
+  line-height: 1.7em;}
+  
+img
+{ border: 0;}
+
+h2, h3, h4, h5, h6 
+{ font: bold 175% arial, sans-serif;
+  color: #03AFF7;
+  letter-spacing: -1px;
+  margin: 0 0 10px 0;
+  padding: 15px 0 0 0;}
+
+h2
+{ font: bold 165% arial, sans-serif;}
+
+h3
+{ font: bold 125% arial, sans-serif;
+  padding: 0 0 5px 0;
+  color: #03AFF7;}
+
+h4, h5, h6
+{ margin: 0;
+  padding: 0 0 5px 0;
+  font: bold 110% arial, sans-serif;
+  color: #1D1D1D;
+  line-height: 1.5em;}
+
+h5, h6
+{ font: italic 95% arial, sans-serif;
+  color: #1D1D1D;
+  padding-bottom: 15px;}
+
+h6
+{ color: #362C20;}
+
+a, a:hover
+{ background: transparent;
+  outline: none;
+  text-decoration: underline;
+  color: #5D5D5D;}
+
+a:hover
+{ text-decoration: underline;
+  color: #1D1D1D;}
+
+ul
+{ margin: 2px 0 22px 17px;}
+
+ul li
+{ margin: 2px 0 15px 17px;}
+
+ol
+{ margin: 8px 0 22px 20px;}
+
+ol li
+{ margin: 0 0 11px 0;}
+
+#main, #header, #banner, #menubar, #site_content, #footer, #contact, #footer_content
+{ margin-left: auto; 
+  margin-right: auto;}
+
+#header
+{
+	width: 1000px;
+	height: 70px;
+	padding-top: 20px;
+	background: transparent;
+  }
+
+#banner_image {
+    margin: 0 auto;
+	width: 920px;
+}
+#slider-wrapper {
+    height: 250px;
+	background: transparent;
+	width: 920px;
+}
+#slider {
+	background: url("../images/loading.gif") no-repeat scroll 50% 50% transparent;
+	height: 300px;
+	position: relative;
+	width: 920px;
+}
+#slider img {
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+#slider a {
+    border: 0 none;
+    display: block;
+}
+.nivoSlider {
+    position: relative;
+}
+.nivoSlider img {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.nivoSlider a.nivo-imageLink {
+    border: 0 none;
+    display: none;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 6;
+}
+.nivo-slice {
+    display: block;
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+}
+.nivo-box {
+    display: block;
+    position: absolute;
+    z-index: 5;
+}
+.nivo-caption {
+    background: none repeat scroll 0 0 #000000;
+    bottom: 0;
+    color: #FFFFFF;
+    font-family: arial;
+    left: 0;
+    position: absolute;
+    text-transform: uppercase;
+    width: 100%;
+    z-index: 8;
+}
+.nivo-caption p {
+    margin: 0;
+    padding: 5px;
+}
+.nivo-caption a {
+    color: red;
+    display: inline !important;
+    text-decoration: none;
+}
+.nivo-caption a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+.nivo-html-caption {
+    display: none;
+}
+.nivo-directionNav a {
+    background: url("../images/arrows.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    position: absolute;
+    text-indent: -9999px;
+    top: 45%;
+    width: 30px;
+    z-index: 9;
+}
+a.nivo-prevNav {
+    left: 15px;
+}
+a.nivo-nextNav {
+    background-position: -30px 50%;
+    right: 15px;
+}
+.nivo-controlNav {
+    bottom: -30px;
+    left: 50%;
+    margin-left: -40px;
+    position: absolute;
+}
+.nivo-controlNav a {
+    cursor: pointer;
+    float: left;
+    height: 22px;
+    margin-top: 250px;
+    position: relative;
+    text-indent: -9999px;
+    width: 22px;
+    z-index: 9;
+}
+.nivo-controlNav a.active {
+    background-position: 0 -22px;
+}
+  
+span
+{ color: #1D1D1D;}
+
+#header H2
+{ width: 1000px;
+  font: normal 450% arial, sans-serif;
+  color: #1D1D1D;
+  letter-spacing: -1px;
+  margin-top: -5px;
+  background: transparent;}
+
+#menubar
+{ width: 960px;
+  height: 50px;
+  color: #000;
+  background: transparent url(../images/menubar.png) no-repeat;} 
+  
+#contact{
+  width: 230px;
+  float: left;
+  height: 40px;
+  background: transparent;
+  padding: 10px 0 10px 20px;
+}
+
+#site_content
+{ width: 960px;
+  overflow: hidden;
+  margin-top: 20px;
+  background: transparent url(../images/pattern.png) repeat;}  
+
+.sidebar_container
+{ float: left;
+  width: 260px;
+  margin: 20px 0 20px 0;}
+
+.sidebar
+{ float: right;
+  width: 240px;
+  padding-left: 10px;
+  margin-bottom: 10px;}
+
+.sidebar_item
+{ font: normal 100% arial, sans-serif;
+  padding: 0 15px 0 0;
+  margin-bottom: 20px;
+  width: 201px;}
+
+.sidebar h2
+{ height: 20px;
+  padding: 0 0 5px 5px;
+  color: #FFF;
+  background: #03AFF7;}  
+  
+.sidebar h4
+{ font-size: 125%;
+  color: #1D1D1D;}
+
+.sidebar p
+{ color: #1D1D1D;}
+
+.sidebar a
+{ color: #03AFF7;}
+
+.sidebar a:hover
+{ text-decoration: none;}
+
+.sidebar ul li, .sidebar ul li.selected
+{ list-style: none; 
+  margin: 15px 0;
+  padding: 0;}
+
+.sidebar li.selected, .sidebar li:hover
+{ color: #5D5D5D;
+  text-decoration: none;} 
+
+#content
+{ text-align: left;
+  width: 960px;
+  padding: 0;
+  margin: 0 0 0 20px;
+  float: left;}
+  
+.content_item
+{ width: 920px;
+  margin: 0 20px 20px 0;
+  float: left;}
+
+.content_photo
+{ width: 960px;
+  text-align: center;
+  margin: 20px 0 20px 0;
+  float: left;}
+
+.content_image
+{ width: 298px;
+  margin-right: 10px;
+  float: left;
+  border: 1px solid #DDD;
+  background: #FFF;}
+
+.content_text
+{ width: 278px;
+  padding: 0 10px 0 10px;
+  float: left;}
+  
+#footer
+{ width: 960px;
+  font: normal 100% arial, sans-serif;
+  height: 200px;
+  margin-bottom: 40px;
+  padding: 20px 0 0px 0;
+  text-align: center; 
+  background: transparent url(../images/footer.png) no-repeat;
+  color: #FFF;}
+
+#footer a, #footer a:hover
+{ color: #FFF;
+  text-decoration: underline;}
+
+#footer a:hover
+{ text-decoration: none;}
+
+.footer_content
+{ width: 960px;
+  text-align: center;
+  margin: 0 0 20px 20px;
+  float: left;}
+  
+.footer_content h2
+{ color: #FFF;}
+
+.footer_text
+{ width: 298px;
+  margin-right: 10px;
+  float: left;}
+  
+/* from here: http://www.gmarwaha.com/blog/2007/08/23/lavalamp-for-jquery-lovers */
+.lavaLampWithImage {
+	position: relative;
+	height: 18px;
+	overflow: hidden;
+	width: 1000px;
+	margin-top: 0;
+	margin-right: 0px;
+	margin-bottom: 0;
+	margin-left: 0;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 5px;
+	padding-left: 0;
+}
+
+.lavaLampWithImage li {
+  float: right;
+  list-style: none;
+}
+
+.lavaLampWithImage li.back {
+  background: #CCC;
+  height: 28px;
+  z-index: 8;
+  position: absolute;
+}
+
+.lavaLampWithImage li a {
+	text-decoration: none;
+	color: #09F;
+	z-index: 10;
+	display: block;
+	height: 60px;
+	padding: 5px 0px 0px 5px;
+	position: relative;
+	overflow: hidden;
+	font-family: arial, sans-serif;
+	font-size: 95%;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	margin-right:45px;
+}
+
+.lavaLampWithImage li a:hover, .lavaLampWithImage li a:active, .lavaLampWithImage li a:visited {
+  border: none;
+}
