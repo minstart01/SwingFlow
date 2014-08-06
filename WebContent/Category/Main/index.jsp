@@ -26,7 +26,8 @@
  
   <section id="movie"><img src="../../images/Main/movie.png" width="555" height="300" ></section>
   <section id="shop"><img src="../../images/Main/shop.gif" width="700" height="300"></section>
+ 
 </div>
-<jsp:include page="../Common/footer.jsp"></jsp:include>
+ <jsp:include page="../Common/footer.jsp"></jsp:include>
 </body>
 </html>

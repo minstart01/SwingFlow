@@ -9,6 +9,7 @@
 <body>
 
 <footer class="footer">
+<div id="footer_div">
 	<div id="footer_copy">
   <div id="copy_link">
     	<a href="#">이용약관</a>|
@@ -25,6 +26,7 @@
      <div id="social">
     	<a href="#"><img src="../../images/Main/facebook.gif" width="33" height="33" alt="Facebook"></a>
         <a href="#"><img src="../../images/Main/twitter.gif" width="33" height="34" alt="Twitterz"></a>
+    </div>
     </div>
 </footer>
 </body>
