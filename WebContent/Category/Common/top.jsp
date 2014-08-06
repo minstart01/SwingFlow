@@ -11,7 +11,7 @@
 	<nav class="top_nav">
 		<table width="auto" class="top_table">
       	<tr>
-        	<th><a href="#">홈</a></th>
+        	<th><a href="/SwingFlow/Category/Main/index.jsp">홈</a></th>
             <th><a href="/SwingFlow/Category/Film1080/Index.jsp">필름</a></th>
             <th><a href="/SwingFlow/Category/Shopping/Index.jsp">쇼핑</a></th>
             <th><a href="/SwingFlow/Category/Movie/Index.jsp">영화</a></th>

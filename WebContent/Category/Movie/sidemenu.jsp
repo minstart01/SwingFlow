@@ -60,30 +60,33 @@
 <body>
 <nav id="sidebar" class="column-left">
 		<ul>
-        <h2>메뉴1</h2>
-			<li class="li"><a href="#">서브메뉴1</a></li>
-			<li><a href="#">서브메뉴2</a></li>
-			<li><a href="#">서브메뉴3</a></li>
-			<li><a href="#">서브메뉴4</a></li>
-			<li><a href="#">서브메뉴5</a></li>
+        <h2>영화</h2>
+			<li class="li"><a href="#">박스오피스</a></li>
+			<li><a href="#">현재상영작</a></li>
+			<li><a href="#">영화정보</a></li>
+			<li><a href="#">뉴스</a></li>
 		</ul>
 		<ul>
-		<h2>메뉴2</h2>
-			<li class="li"><a href="#">서브메뉴1</a></li>
-		  	<li><a href="#">서브메뉴2</a></li>
-			 <li><a href="#">서브메뉴3</a></li>
-			 <li><a href="#">서브메뉴4</a></li>
-			 <li><a href="#">서브메뉴15</a></li>
+		<h2>예매</h2>
+			<li class="li"><a href="#">예매하기</a></li>
+		  	<li><a href="#">예매확인/취소</a></li>
+			 <li><a href="#">상영시간표</a></li>
+			 
 		</ul>
 		<ul>
-		<h2>메뉴3</h2>
-			<li class="li"><a href="#">서브메뉴1</a></li>
+		<h2>영화관</h2>
+			<li class="li"><a href="#">영화관 정보</a></li>
 		  	<li><a href="#">서브메뉴2</a></li>
-			 <li><a href="#">서브메뉴3</a></li>
-			 <li><a href="#">서브메뉴4</a></li>
-			 <li><a href="#">서브메뉴15</a></li>
+			
 		</ul>
-		
+		<ul>
+		<h2>고객센터</h2>
+			<li class="li"><a href="#">공지사항</a></li>
+		  	<li><a href="#">이용안내</a></li>
+		  	<li><a href="#">Q&A</a></li>
+		  	<li><a href="#">단체관람문의</a></li>
+			
+		</ul>
 		</nav>
 </body>
 </html>
