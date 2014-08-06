@@ -12,11 +12,11 @@
 		<table width="auto" class="top_table">
       	<tr>
         	<th><a href="#">홈</a></th>
-            <th><a href="/SwingFlow/Category/Film1080/Index.jsp">필름</a></th>
-            <th><a href="/SwingFlow/Category/Shopping/Index.jsp">쇼핑</a></th>
-            <th><a href="/SwingFlow/Category/Movie/Index.jsp">영화</a></th>
-            <th><a href="/SwingFlow/Category/Airline/Index.jsp">항공</a></th>
-            <th><a href="/SwingFlow/Category/Inn/Index.jsp">여행</a></th>
+            <th><a href="/SwingFlow/Category/Film1080/index.jsp">필름</a></th>
+            <th><a href="/SwingFlow/Category/Shopping/index.jsp">쇼핑</a></th>
+            <th><a href="/SwingFlow/Category/Movie/index.jsp">영화</a></th>
+            <th><a href="/SwingFlow/Category/Airline/index.jsp">항공</a></th>
+            <th><a href="/SwingFlow/Category/Inn/index.jsp">여행</a></th>
             <th><a href="#">로그인</a></th>
             <th><a href="#">회원가입</a></th>
         </tr>
