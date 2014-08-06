@@ -9,11 +9,14 @@
 <meta name="description" content="Just another Open Designs template." />
 <meta name="robots" content="noodp,noydir" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" id="child-theme-css" href="css/style.css" type="text/css" media="all" />
-<link rel="stylesheet" id="responsive-main-css-css" href="css/responsive-main.min.css" type="text/css" media="all" />
-<link rel="stylesheet" id="responsive-css-css" href="css/responsive.css" type="text/css" media="all" />
-<link rel="stylesheet" id="tb_styles-css" href="css/tb-styles.min.css" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css" href="Css/Main2.css" />
+<!-- <link rel="stylesheet" id="child-theme-css" href="../../Css/Inn/style.css" type="text/css" media="all" /> -->
+<link rel="stylesheet" id="child-theme-css" href="../../Css/Inn/style.css" type="text/css" media="all" />
+<link rel="stylesheet" id="responsive-main-css-css" href="../../Css/Inn/responsive-main.min.css" type="text/css" media="all" />
+<link rel="stylesheet" id="responsive-css-css" href="../../Css/Inn/responsive.css" type="text/css" media="all" />
+<link rel="stylesheet" id="tb_styles-css" href="../../Css/Inn/tb-styles.min.css" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="../../Css/Inn/Main.css" />
+<link rel="stylesheet" type="text/css" href="../../Css/Inn/Main2.css" />
+
 
 <script type="text/javascript" src="js/jquery.js"></script>
 
@@ -92,8 +95,10 @@
 				<div id="content" class="hfeed">
 				<div class="post-5 post type-post status-publish format-standard hentry category-featured category-parent-category-i entry feature feature">
 
-		<p><a href="#" title="Welcome to Bigg"><img width="660" height="370" src="images/go.jpg" class="alignleft post-image" alt="1" /></a>		</p>
-		<p>&nbsp;</p>
+		<p>
+		<a href="#" title="Welcome to Bigg"><img width="660" height="370" src="../../images/Inn/go.jpg" class="alignleft post-image" alt="1" /></a>		
+		</p>
+	<p>&nbsp;</p> 
 		<h2 class="entry-title"><a href="#" title="Welcome to Bigg" rel="bookmark">내린천으로 놀러가요~</a></h2> 
 		
 				<div class="entry-content">
@@ -106,7 +111,7 @@
     <div align="right"><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p><select><option>인기순</option><option>최신순</option></select></p></div>
 				<div class="post-1 post type-post status-publish format-standard hentry category-featured category-uncategorized entry fourcol first one-third teaser first">
 				  
-				  <a href="#" title="Hello world!"><img width="300" height="168" src="images/a300.jpg" class="alignleft post-image" alt="2" /></a>		<h2 class="entry-title"><a href="#" title="Hello world!" rel="bookmark">드루와~!!!</a></h2> 
+				  <a href="#" title="Hello world!"><img width="300" height="168" src="../../images/Inn/a300.jpg" class="alignleft post-image" alt="2" /></a>		<h2 class="entry-title"><a href="#" title="Hello world!" rel="bookmark">드루와~!!!</a></h2> 
 		
 				<div class="entry-content">
 			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
@@ -117,7 +122,7 @@
 		<!-- end .postclass -->
 		<div class="post-63 post type-post status-publish format-standard hentry category-child-category-i category-featured category-parent-category-i category-parent-category-ii tag-tag2 tag-tag5 tag-tag6 entry fourcol one-third teaser">
 
-		<a href="#" title="Another Post with Everything"><img width="300" height="168" src="images/b300.jpg" class="alignleft post-image" alt="3" /></a>		<h2 class="entry-title"><a href="#" title="Another Post with Everything In It" rel="bookmark">해운대로 고고</a></h2> 
+		<a href="#" title="Another Post with Everything"><img width="300" height="168" src="../../images/Inn/b300.jpg" class="alignleft post-image" alt="3" /></a>		<h2 class="entry-title"><a href="#" title="Another Post with Everything In It" rel="bookmark">해운대로 고고</a></h2> 
 		
 				<div class="entry-content">
 			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
@@ -127,7 +132,7 @@
 	</div><!-- end .postclass -->
 		<div class="post-61 post type-post status-publish format-standard hentry category-featured category-uncategorized entry fourcol one-third teaser">
 
-		<a href="#" title="An Ordered List Post"><img width="300" height="168" src="images/c300.jpg" class="alignleft post-image" alt="4" /></a>		<h2 class="entry-title"><a href="#" title="An Ordered List Post" rel="bookmark">즐거운 해루질</a></h2> 
+		<a href="#" title="An Ordered List Post"><img width="300" height="168" src="../../images/Inn/c300.jpg" class="alignleft post-image" alt="4" /></a>		<h2 class="entry-title"><a href="#" title="An Ordered List Post" rel="bookmark">즐거운 해루질</a></h2> 
 		
 				<div class="entry-content">
 			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
@@ -137,7 +142,7 @@
 	</div><!-- end .postclass -->
 		<div class="post-56 post type-post status-publish format-standard hentry category-child-category-iii category-featured category-parent-category-iii tag-tag1 tag-tag3 tag-tag6 entry fourcol first last one-third teaser first">
 
-		<a href="#" title="A Simple Text Post"><img width="300" height="168" src="images/d300.jpg" class="alignleft post-image" alt="5" /></a>		<h2 class="entry-title"><a href="#" title="A Simple Text Post" rel="bookmark">졸라 시원하다 와~</a></h2> 
+		<a href="#" title="A Simple Text Post"><img width="300" height="168" src="../../images/Inn/d300.jpg" class="alignleft post-image" alt="5" /></a>		<h2 class="entry-title"><a href="#" title="A Simple Text Post" rel="bookmark">졸라 시원하다 와~</a></h2> 
 		
 				<div class="entry-content">
 			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
@@ -147,7 +152,7 @@
 	</div><!-- end .postclass -->
 		<div class="post-53 post type-post status-publish format-standard hentry category-featured category-uncategorized entry fourcol one-third teaser">
 
-		<a href="#" title="Hello world!"><img width="300" height="168" src="images/e300.jpg" class="alignleft post-image" alt="6" /></a>		<h2 class="entry-title"><a href="#" title="Hello world!" rel="bookmark">벨기에 필수 코스!</a></h2> 
+		<a href="#" title="Hello world!"><img width="300" height="168" src="../../images/Inn/e300.jpg" class="alignleft post-image" alt="6" /></a>		<h2 class="entry-title"><a href="#" title="Hello world!" rel="bookmark">벨기에 필수 코스!</a></h2> 
 		
 				<div class="entry-content">
 			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
@@ -157,7 +162,7 @@
 	</div><!-- end .postclass -->
 		<div class="post-51 post type-post status-publish format-standard hentry category-child-category-ii category-featured category-grandchild-category-i category-parent-category-i category-parent-category-ii tag-tag1 tag-tag2 tag-tag5 tag-tag7 entry fourcol one-third teaser">
 
-		<a href="#" title="A Post With Everything In It"><img width="300" height="168" src="images/f300.jpg" class="alignleft post-image" alt="7" /></a>		<h2 class="entry-title"><a href="#" title="A Post With Everything In It" rel="bookmark">체코의 아름다운 광경</a></h2> 
+		<a href="#" title="A Post With Everything In It"><img width="300" height="168" src="../../images/Inn/f300.jpg" class="alignleft post-image" alt="7" /></a>		<h2 class="entry-title"><a href="#" title="A Post With Everything In It" rel="bookmark">체코의 아름다운 광경</a></h2> 
 		
 				<div class="entry-content">
 			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
@@ -167,7 +172,7 @@
 	</div><!-- end .postclass -->
 		<div class="post-49 post type-post status-publish format-standard hentry category-featured category-uncategorized tag-tag2 tag-tag5 tag-tag7 entry fourcol first one-third teaser first">
 
-		<a href="#" title="Quotes Time!"><img width="300" height="168" src="images/g300.jpg" class="alignleft post-image" alt="8" /></a>		<h2 class="entry-title"><a href="#" title="Quotes Time!" rel="bookmark">역시 스위스!</a></h2> 
+		<a href="#" title="Quotes Time!"><img width="300" height="168" src="../../images/Inn/g300.jpg" class="alignleft post-image" alt="8" /></a>		<h2 class="entry-title"><a href="#" title="Quotes Time!" rel="bookmark">역시 스위스!</a></h2> 
 		
 				<div class="entry-content">
 			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
@@ -177,7 +182,7 @@
 	</div><!-- end .postclass -->
 		<div class="post-47 post type-post status-publish format-standard hentry category-featured category-parent-category-ii category-parent-category-iii tag-tag2 tag-tag4 tag-tag7 entry fourcol one-third teaser">
 
-		<a href="#" title="Left-Aligned Image"><img width="300" height="168" src="images/h300.jpg" class="alignleft post-image" alt="9" /></a>		<h2 class="entry-title"><a href="#" title="A Post With a Left-Aligned Image" rel="bookmark">스웨덴에서 아침식사</a></h2> 
+		<a href="#" title="Left-Aligned Image"><img width="300" height="168" src="../../images/Inn/h300.jpg" class="alignleft post-image" alt="9" /></a>		<h2 class="entry-title"><a href="#" title="A Post With a Left-Aligned Image" rel="bookmark">스웨덴에서 아침식사</a></h2> 
 		
 				<div class="entry-content">
 			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
@@ -187,7 +192,7 @@
 	</div><!-- end .postclass -->
 		<div class="post-45 post type-post status-publish format-standard hentry category-child-category-ii category-featured category-grandchild-category-i category-parent-category-i entry fourcol one-third teaser">
 
-		<a href="#" title="Another Text-Only Post"><img width="300" height="168" src="images/10-300x168.jpg" class="alignleft post-image" alt="10" /></a>		<h2 class="entry-title"><a href="#" title="Another Text-Only Post" rel="bookmark">와우!</a></h2> 
+		<a href="#" title="Another Text-Only Post"><img width="300" height="168" src="../../images/Inn/10-300x168.jpg" class="alignleft post-image" alt="10" /></a>		<h2 class="entry-title"><a href="#" title="Another Text-Only Post" rel="bookmark">와우!</a></h2> 
 		
 				<div class="entry-content">
 			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
