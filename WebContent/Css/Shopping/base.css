@@ -1,0 +1,172 @@
+@charset "utf-8";
+
+.lymSec { overflow-y: scroll; visibility: visible;}
+.lymSec .layerOn { overflow: none !important; }
+
+/* body { */
+.lymSec {	
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	color: #61676b;
+	line-height: 136%;
+	font-size: 13px;
+	text-align: left;
+
+	font-family: Arial,'Apple SD Gothic Neo','애플 SD 고딕 Neo','Malgun Gothic','맑은 고딕','NanumBarunGothic','나눔바른고딕','NanumGothic','나눔고딕', 'dotum', sans-serif;
+	/* for ie7 */
+	*font-family: 'Apple SD Gothic Neo','애플 SD 고딕 Neo','Malgun Gothic','맑은 고딕','NanumBarunGothic','나눔바른고딕','NanumGothic','나눔고딕', 'dotum', sans-serif;
+}
+.lymSec iframe { margin: 0; }
+
+.lymSec h1,h2,h3,h4,h5,h6 { margin: 0; padding: 0; font-size: 13px; }
+.lymSec form, fieldset, p{
+	margin: 0;
+	padding: 0;
+}
+.lymSec input, select, textarea {
+	font-family: Arial,'Apple SD Gothic Neo','애플 SD 고딕 Neo','Malgun Gothic','맑은 고딕','NanumBarunGothic','나눔바른고딕','NanumGothic','나눔고딕', 'dotum', sans-serif;
+	/* for ie7 */
+	*font-family: 'Apple SD Gothic Neo','애플 SD 고딕 Neo','Malgun Gothic','맑은 고딕','NanumBarunGothic','나눔바른고딕','NanumGothic','나눔고딕', 'dotum', sans-serif;
+
+	vertical-align: middle;
+	font-size: 13px;
+	color: #888;
+	word-spacing: -0.2em;
+	line-height: 136%;
+}
+.lymSec label { cursor: pointer; }
+.lymSec input { margin-top: 2px; margin-bottom: 2px; }
+
+.lymSec textarea.txt3 { border: 1px solid #e1e2d5; padding: 5px; background-color: #fbfaf7;  }
+.lymSec input.inp1 { border: 1px solid #bcbbc3; color: #36393c; padding: 7px 9px 7px 9px; }
+.lymSec textarea.inp1 { border: 1px solid #bcbbc3; color: #36393c; padding: 7px 9px 7px 9px; }
+.lymSec input.file { height: 19px; border: 1px solid #cacaca; padding-left: 5px; }
+.lymSec input.radio { width: 12px; height: 12px; }
+.lymSec img, fieldset { border:0 none transparent;/*'transparent' for Opera7*/ }
+.lymSec ol, ul, dl, dd {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.lymSec table {
+	border: 0;
+	border-collapse: collapse;
+}
+
+.lymSec a:link, a:visited {
+	color: #717171;
+	text-decoration: none;
+	cursor: pointer;
+}
+.lymSec a:hover, a:active {
+	color: #717171;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.lymSec a.ul1:link, a.ul1:visited {
+	color: #549809;
+	text-decoration: underline;
+	cursor: pointer;
+}
+a.ul1:hover, a.ul1:active {
+	color: #65b60b;
+	text-decoration: none;
+	cursor: pointer;
+}
+.underline { text-decoration: underline; }
+.lymSec i, em { font-style: normal; }
+
+.chand, .rollOverImages, .wardrobeViewBtn { cursor: pointer; }
+.disblock { display: block; }
+.disnone { display: none; }
+.noborder { border: none !important; }
+.noborderTop { border-top: none !important; }
+.noborderBtm { border-bottom: none !important; }
+.nobimg { background: none !important; }
+.nbold { font-weight: normal !important; }
+.nwords { word-spacing: 0 !important; }
+
+.hspace1 { clear: both; height:1px; font-size: 0; line-height: 0; }
+
+.lspace1 { letter-spacing: -1px; }
+
+.vmid { vertical-align: middle !important; }
+
+.ft11 { font-size: 11px !important; }
+.ft12 { font-size: 12px !important; }
+.ft13 { font-size: 13px !important; }
+.ft14 { font-size: 14px !important; }
+.ft16 { font-size: 16px !important; }
+.ft18 { font-size: 18px !important; }
+
+
+.pt_1 { color: #6e48d2 !important; }
+.pt_2 { color: #549809 !important; }
+.pt_3 { color: #6cc30c !important; }
+.pt_4 { color: #bcbcbc !important; }
+.pt_5 { color: #ed1c24 !important; }
+.pt_6 { color: #888 !important; }
+.pt_7 { color: #7a7a7a !important; }
+.pt_8 { color: #0097b2 !important; }
+.pt_9 { color: #444 !important; }
+.pt_10 { color: #8a8a8a !important; }
+.pt_11 { color: #11b500 !important; }
+.pt_12 { color: #ff0000 !important; }
+.pt_13 { color: #999!important; }
+.pt_14 { color: #777 !important; }
+.pt_15 { color: #13C800 !important; }
+.pt_16 { color: #7157cd !important; }
+
+.vtop { vertical-align: top; }
+.vmid { vertical-align: middle; }
+
+.fleft { float: left !important; }
+.fright { float: right !important; }
+.cboth { clear: both !important; }
+.cleft { clear: left !important; }
+.tleft { text-align: left !important; }
+.tcenter { text-align: center !important; }
+.tright { text-align: right !important; }
+
+.mgl3 { margin-left: 3px !important; }
+.mgr20 { margin-right: 20px !important; }
+
+.mgb5 { margin-bottom: 5px !important; }
+.mgb10 { margin-bottom: 10px !important; }
+.mgb15 { margin-bottom: 15px !important; }
+.mgb20 { margin-bottom: 20px !important; }
+.mgb25 { margin-bottom: 25px !important; }
+.mgb30 { margin-bottom: 30px !important; }
+.mgb35 { margin-bottom: 35px !important; }
+.mgb40 { margin-bottom: 40px !important; }
+.mgb50 { margin-bottom: 50px !important; }
+.mgt60 { margin-top: 60px !important; }
+
+.mgl5 { margin-left: 5px !important; }
+.mgl10 { margin-left: 10px !important; }
+
+.pdr10 { padding-right: 10px !important; }
+
+.pdl5 { padding-left: 5px !important; }
+.pdr5 { padding-right: 5px !important; }
+
+.pdt2 { padding-top: 2px !important; }
+.pdt4 { padding-top: 4px !important; }
+.pdt10 { padding-top: 10px !important; }
+.pdt15 { padding-top: 15px !important; }
+.pdt20 { padding-top: 20px !important; }
+.pdt25 { padding-top: 25px !important; }
+.pdt30 { padding-top: 30px !important; }
+.pdt40 { padding-top: 40px !important; }
+.pdt50 { padding-top: 50px !important; }
+.pdb0 { padding-bottom: 0px !important; }
+.pdb15 { padding-bottom: 15px !important; }
+.pdb30 { padding-bottom: 30px !important; }
+
+.pdl0 { padding-left: 0 !important; }
+
+.lymSec .container {height:1%;} /* IE6 및 하위 버전 브라우저 대응 Hack */
+.lymSec:first-child+html .container {height:1%;} /* IE7 대응 Hack */
+.lymSec .container:after {display:block;clear:both;height:0;content:" ";visibility:hidden;} /* 표준계열 브라우저에 대응하는 float 해제용 가상 엘리먼트의 생성 */
