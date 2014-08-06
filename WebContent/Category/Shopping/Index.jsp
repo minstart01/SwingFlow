@@ -389,7 +389,7 @@
 			<!-- 			</div> -->
 			<div id="sidebarSec" class="column-left">
 				<ul>
-					<li><h4></h4>
+					<li><h3>MENU</h3>
 						<ul>
 							<li><a href="#" title="할인쇼핑">할인쇼핑</a></li>
 							<li><a href="#" title="여성 상품">여성 상품</a></li>
@@ -399,14 +399,19 @@
 							<li><a href="#" title="브랜드샾 대형몰 순위">브랜드샾 대형몰 순위</a></li>
 						</ul></li>
 					<li>
-						<h4></h4>
+						<h3>Info</h3>
 						<ul>
 							<li><a href="#" title="공지사항">공지사항</a></li>
 							<li><a href="#" title="이벤트">이벤트</a></li>
-							<li><a href="#" title="여성샵 순위">여성샵 순위</a></li>
 						</ul>
 					</li>
-
+					<li>
+						<h3>관리자 화면</h3>
+						<ul>
+							<li><a href="#" title="공지사항">쇼핑몰관리</a></li>
+							<li><a href="#" title="이벤트">포인트관리</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 			<div class="itemListSec itemListWid" style="width: 968px;">
