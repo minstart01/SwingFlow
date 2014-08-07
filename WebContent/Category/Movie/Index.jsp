@@ -121,10 +121,10 @@
 
 <div id="main_content">
 	<div id="poster">
-	<img src="../../images/Movie/poster.png" width="900"/>
+	<img src="../../images/Movie/Main/poster.png" width="900"/>
 </div>
 <div id="logo" align="center">
-	<img src="../../images/Movie/logo.png"/>
+	<img src="../../images/Movie/Main/logo.png"/>
 </div>
  	<section>
 	<article id="main_rank"><p>영화예매순위</p>
@@ -196,7 +196,7 @@
 </section>
 <section id="section_two">
 	<article id="main_event">
-		<img src="../../images/Movie/event.jpg" />
+		<img src="../../images/Movie/Main/event.jpg" />
 	</article>
 	<article id="main_notice">
 		<p>공지사항</p>
@@ -229,29 +229,29 @@
 <br>
 <br>
 <div id="special">
-<img src="../../images/Movie/bt_special.gif">
+<img src="../../images/Movie/Main/bt_special.gif">
 </div>
 <div id="special_img">
-<a href="#"><img src="../../images/Movie/special01.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/special02.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/special03.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/special04.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/special05.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/special06.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/special07.gif" width="128"/></a>
+<a href="#"><img src="../../images/Movie/Main/special01.gif" width="128"/></a>
+<a href="#"><img src="../../images/Movie/Main/special02.gif" width="128"/></a>
+<a href="#"><img src="../../images/Movie/Main/special03.gif" width="128"/></a>
+<a href="#"><img src="../../images/Movie/Main/special04.gif" width="128"/></a>
+<a href="#"><img src="../../images/Movie/Main/special05.gif" width="128"/></a>
+<a href="#"><img src="../../images/Movie/Main/special06.gif" width="128"/></a>
+<a href="#"><img src="../../images/Movie/Main/special07.gif" width="128"/></a>
 </div>
 
 
 <img src="../../images/Movie/poster1.png" width="900" />
 <div id="footer_award">
-<img src="../../images/Movie/footer_award01.gif" width="112"/>
-<img src="../../images/Movie/footer_award02.gif" width="112"/>
-<img src="../../images/Movie/footer_award03.gif" width="112"/>
-<img src="../../images/Movie/footer_award04.gif" width="112"/>
-<img src="../../images/Movie/footer_award05.gif" width="112"/>
-<img src="../../images/Movie/footer_award06.gif" width="112"/>
-<img src="../../images/Movie/footer_award07.gif" width="112"/>
-<img src="../../images/Movie/footer_award08.gif" width="112"/>
+<img src="../../images/Movie/Main/footer_award01.gif" width="112"/>
+<img src="../../images/Movie/Main/footer_award02.gif" width="112"/>
+<img src="../../images/Movie/Main/footer_award03.gif" width="112"/>
+<img src="../../images/Movie/Main/footer_award04.gif" width="112"/>
+<img src="../../images/Movie/Main/footer_award05.gif" width="112"/>
+<img src="../../images/Movie/Main/footer_award06.gif" width="112"/>
+<img src="../../images/Movie/Main/footer_award07.gif" width="112"/>
+<img src="../../images/Movie/Main/footer_award08.gif" width="112"/>
 </div>
 
 </div>
