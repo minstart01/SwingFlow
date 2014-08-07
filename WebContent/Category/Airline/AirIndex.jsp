@@ -13,7 +13,7 @@
   <script type="text/javascript" src="../../images/Airline/jquery.min.js"></script>
   <script type="text/javascript" src="../../images/Airline/jquery.easing.min.js"></script>
   <script type="text/javascript" src="../../images/Airline/jquery.lavalamp.min.js"></script>
-  <script type="text/javascript">
+ <!--   <script type="text/javascript">
     $(function() {
       $("#lava_menu").lavaLamp({
         fx: "backout",
@@ -27,18 +27,36 @@
         $('#slider').nivoSlider();
     });
     </script>
-
+!-->
+<style>
+#wrapper{
+	 
+		height: 700px;
+		width:1250px;
+		clear:both;
+		
+	}
+#main_content{
+	position:absolute;
+	top:30px;
+	left: 275px;
+	width: 950px;
+	
+		
+}	
+</style>
 </head>
 
 <body>
-  <div id="main">	
+<%@include file="../Common/top.jsp" %>
+ <div id="wrapper">
+<jsp:include page="sidemenu.jsp"></jsp:include>
+
+<div id="main_content">
+	<div id="main">	
     <div id="site_content">  
-	  <div id="menubar">
-   <!--  팀공통 top  ====================================================================================-->
-       <%@include file="../Common/top.jsp" %>
-    <!--  팀공통 top  ====================================================================================-->
-	  </div><!--close menubar-->
-      <div id="header">  
+	
+      <div id="air_header">  
       
       <ul class="lavaLampWithImage" id="lava_menu">
       <li class="current"><a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/index.html">LOGIN</a></li>
@@ -110,32 +128,15 @@
 		</div>
 	  </div><!--close content_photo-->		
        <br style="clear:both;">
-      </div><!--close content-->	
-    </div><!--close site_content-->	
+      </div>
+    </div>	
     
-    
- <!--  팀공통 bottom ====================================================================================-->
-    <div id="footer">  
-      <div class="footer_content">
-        <div class="footer_text">
-		  <h2>인터넷 도우미</h2>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique dignissim laoreet.</p>
-		</div>
-		<div class="footer_text">
-		  <h2>
-홈페이지 이용약관
-</h2>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique dignissim laoreet.</p>
-		</div>
-		<div class="footer_text">
-		  <h2>개인정보 취급방침</h2>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique dignissim laoreet.</p>
-		</div>
-		<br style="clear:both">
-	  </div><!--close footer_content-->	   
-      <a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a> | <a href="http://fotogrph.com/">Images</a> | website template by <a href="http://www.araynordesign.co.uk/">ARaynorDesign</a>
-	</div><!--close footer-->	
-  </div><!--close main-->	
+
+
+  </div>
+</div>
+</div>
+ <%@include file="../Common/footer.jsp" %>
 
 
 </body></html>
