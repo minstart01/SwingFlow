@@ -8,17 +8,13 @@
 
 .wrap {  }
 
-.lymSec { background-color: #f1f1f1; visibility: hidden; }
-
-.lymSec label.hd-lab { position: absolute; display: inline-block; line-height: 100%; margin: 0; padding: 0; }
-
 .sys-txt-1 { display: inline-block;  background:  url("/SwingFlow/images/Shopping/txt_1.gif?_20140711")  no-repeat;  font-size: 0; text-indent: -1px; overflow: hidden; letter-spacing: -10px; }
 .ico-btn-1 { display: inline-block; background:  url("/SwingFlow/images/Shopping/icon_1.png")  no-repeat;  font-size: 0; text-indent: -10px; overflow: hidden; }
 
 .sys-btn-1 { border: 1px solid #583aa8; background-color: #6e48d2; color: #fff; font-size: 12px; padding: 7px 8px 8px 8px; }
 .sys-btn-2 { border: 1px solid #36393c; background-color: #4b5054; color: #fff; font-size: 12px; padding: 7px 8px 8px 8px; }
 
-.lymSec .widFix { margin: 0 auto; }
+
 .headerSec { position: relative; z-index: 21;  background:  url("/SwingFlow/images/Shopping/gl_1_1.gif")  repeat-x bottom;  background-color: #fff; }
 .headerSec .inSec { /*max-width: 1441px;*/ padding: 0 6px 0 5px; }
 .headerSec .lineSec { position: relative; height: 60px; margin: 0 auto;  background: url("/SwingFlow/images/Shopping/gl_1_4.gif")  repeat-x bottom;  }
@@ -270,7 +266,7 @@
 .subGnbSec_m .alignSec .align li a.on { background-position: right -553px; }
 
 
-.footerSec { position: fixed; width: 100%; bottom: 0; clear: both; border-top: 1px solid #c9c8d2; background-color: #fff; z-index: 10; }
+.footerSec { clear:both; position: absolute; width: 100%; bottom: 0; clear: both; border-top: 1px solid #c9c8d2; background-color: #fff; z-index: 10; }
 .footerSec .inSec { position: relative; /*max-width: 1451px;*/ margin: 0 auto; height: 50px; }
 .footerSec .onSec { height: 228px; }
 .footerSec h1 { position: absolute; left: 5px; top: 11px; overflow: hidden; }
@@ -884,7 +880,7 @@
 .modifyPwSec .label-modify-pw-confirm { left: 174px; top: 171px; }
 .modifyPwSec p.txt { width: 360px; margin: 0 auto; font-size: 12px; color: #36393c; padding: 19px 0; }
 
-.selGenderSec { position: absolute; width: 50px; top: 40px; right: -60px; }
+.selGenderSec { position: absolute; width: 50px; top: 40px; right: -60px; visibility: hidden;}
 .selGenderSec .in { position: fixed; }
 .selGenderSec h3 { width: 49px; height: 34px; background: /* url("/rsc/f/i/s/gd_3.gif") */ no-repeat; font-size: 0; line-height: 0; text-indent: -10px; overflow: hidden; margin-bottom: 11px; } */
 .adGenderSec h3 { background-position: -49px 0; }
@@ -917,38 +913,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', end
 .discountSec i { display: block; padding: 50px 0 0 0; filter: alpha(Opacity=100); -ms-filter: "alpha(Opacity=100)"; opacity:1.0; position: relative; }*/
 
 
-.lymSec div.column-left {
+#sidebarSec{
 	float:left;
-	margin-right:20px;
+	padding-top:20px;
+	padding-bottom:20px;
+	width:250px;
+	
+	
 	background: #0043A8;
   	background: -moz-linear-gradient(#43A9FF, #0043A8);
  	 background: -o-linear-gradient(#43A9FF, #0043A8);
  	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
 }
-.lymSec div#sidebarSec {
-	width:230px;
-	margin:15px;
-	padding:15px;
-}
-.lymSec div#sidebarSec ul {
-	margin:0;
-	padding:0;
+#sidebarSec ul{
 	list-style:none;
+	padding-left:30px;
+	padding-right: 30px;
 }
-.lymSec div#sidebarSec li ul {
-	border-top:1px solid #ddd;
-	margin-bottom:20px;
+#sidebarSec ul li{
+	border-bottom:solid 1px #FFF;	
+	margin-bottom:5px;
 }
-.lymSec div#sidebarSec li ul li {
-	display:block;
-	padding:7px 15px;
-	border-bottom:1px solid #ddd;
-	color:#777;
-}
-.lymSec div#sidebarSec li ul li a {
-/* 	text-decoration:none; */
-/* 	font-family:"Trebuchet MS", Verdana, Arial; */
-/* 	font-weight:bold; */
+#sidebarSec ul li a{
+	padding-top:5px;
+	padding-bottom:5px;
 	display:block;
 	text-decoration:none;	
 	font-size:12px;
@@ -957,20 +945,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', end
 	 text-shadow: 1px 1px #000;
  	 background: transparent; 
   	 color: #FFF;
+	 padding-left:13px;
 }
-.lymSec div#sidebarSec li ul li a:hover {
-/* 	text-decoration:underline; */
-	color: white;
-  text-shadow: 1px 1px #43A9FF;
+#sidebarSec .li{
+	border-top:solid 1px #FFF;
 }
 
-.lymSec div#sidebarSec h3 { 
-	font-family: Arial, Helvetica, sans-serif;
-	font-size:14px;
-	text-transform:uppercase;
+#sidebarSec ul li a:hover{
+	color: white;
+  	text-shadow: 1px 1px #43A9FF;
+}
+#sidebarSec ul h2{
+	color: #FFF;
 	font-weight:bold;
-	margin:0;
-	padding:7px 10px;
-	color:#777;
+	font-size: 1.5em;	
 }
 

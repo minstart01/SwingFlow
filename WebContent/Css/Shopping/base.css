@@ -4,7 +4,23 @@
 .lymSec .layerOn { overflow: none !important; }
 
 /* body { */
-.lymSec {	
+
+/* .lymSec { background-color: #f1f1f1; visibility: hidden; top:30px; left:275px;  position:relative; width:950px} */
+
+/* .lymSec label.hd-lab { position: absolute; display: inline-block; line-height: 100%; margin: 0; padding: 0; } */
+.lymSec sidebarSec div.column-left {
+	float: left;
+	margin-right: 20px;
+}
+.lymSec .widFix { margin: 0 auto; }
+.lymSec {
+	position: relative;
+	top: 5px;
+	left: 5px;
+	overflow-y: scroll;
+/* 	width: 950px; */
+}
+.lymSec {
 	height: 100%;
 	margin: 0;
 	padding: 0;
@@ -19,12 +35,12 @@
 }
 .lymSec iframe { margin: 0; }
 
-.lymSec h1,h2,h3,h4,h5,h6 { margin: 0; padding: 0; font-size: 13px; }
-.lymSec form, fieldset, p{
+.lymSec h1,.lymSec h2,.lymSec h3,.lymSec h4,.lymSec h5,.lymSec h6 { margin: 0; padding: 0; font-size: 13px; }
+.lymSec form, .lymSec fieldset, .lymSec p{
 	margin: 0;
 	padding: 0;
 }
-.lymSec input, select, textarea {
+.lymSec input, .lymSec select, .lymSec textarea {
 	font-family: Arial,'Apple SD Gothic Neo','애플 SD 고딕 Neo','Malgun Gothic','맑은 고딕','NanumBarunGothic','나눔바른고딕','NanumGothic','나눔고딕', 'dotum', sans-serif;
 	/* for ie7 */
 	*font-family: 'Apple SD Gothic Neo','애플 SD 고딕 Neo','Malgun Gothic','맑은 고딕','NanumBarunGothic','나눔바른고딕','NanumGothic','나눔고딕', 'dotum', sans-serif;
@@ -44,7 +60,7 @@
 .lymSec input.file { height: 19px; border: 1px solid #cacaca; padding-left: 5px; }
 .lymSec input.radio { width: 12px; height: 12px; }
 .lymSec img, fieldset { border:0 none transparent;/*'transparent' for Opera7*/ }
-.lymSec ol, ul, dl, dd {
+.lymSec ol, .lymSec ul, .lymSec dl, .lymSec dd {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -54,29 +70,29 @@
 	border-collapse: collapse;
 }
 
-.lymSec a:link, a:visited {
+.lymSec a:link, .lymSec a:visited {
 	color: #717171;
 	text-decoration: none;
 	cursor: pointer;
 }
-.lymSec a:hover, a:active {
+.lymSec a:hover, .lymSec a:active {
 	color: #717171;
 	text-decoration: none;
 	cursor: pointer;
 }
 
-.lymSec a.ul1:link, a.ul1:visited {
+.lymSec a.ul1:link, .lymSec a.ul1:visited {
 	color: #549809;
 	text-decoration: underline;
 	cursor: pointer;
 }
-a.ul1:hover, a.ul1:active {
+a.ul1:hover, .lymSec a.ul1:active {
 	color: #65b60b;
 	text-decoration: none;
 	cursor: pointer;
 }
 .underline { text-decoration: underline; }
-.lymSec i, em { font-style: normal; }
+.lymSec i, .lymSec em { font-style: normal; }
 
 .chand, .rollOverImages, .wardrobeViewBtn { cursor: pointer; }
 .disblock { display: block; }
