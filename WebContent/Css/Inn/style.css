@@ -585,7 +585,7 @@ padding: 4px;
 }
 
 .bigg-read-more {
-	background: url(../images/arrow-right.png) no-repeat 85% 50%;
+	background: url(../images/Inn/arrow-right.png) no-repeat 85% 50%;
 	display: inline-block;
 	background-size: 15px 15px;
 	-webkit-background-size: 15px 15px;
@@ -605,7 +605,7 @@ padding: 4px;
 }
 
 .bigg-read-more:hover {
-	background: url(../images/arrow-right_active.png) no-repeat 95% 50%;
+	background: url(../images/Inn/arrow-right_active.png) no-repeat 95% 50%;
 	background-size: 15px 15px;
 	-webkit-background-size: 15px 15px;
 	text-decoration: none;
