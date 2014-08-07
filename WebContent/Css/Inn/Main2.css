@@ -1,23 +1,8 @@
 @CHARSET "UTF-8";
 
-body{
+.main_index{
 	margin-left:0px;
-	
 }
-
-/* 탑 메뉴 영역 */
-#header {
-	/* margin-bottom: 30px; */
- 	height:21px;
- 	width: 100%;
- 	position: fixed!important;
- 	top: 0px;
- /*	position: relative;*/
-	z-index: 9999;
-	background-color: white;
-	
- }
-
 .top_nav{
 	left:0px;
 	width:100%;	
@@ -48,56 +33,37 @@ color: white;
   text-shadow: 1px 1px #43A9FF;
 }
 
-
-
-
-
-/* 본문 영역 */
+#header {
+	/* margin-bottom: 30px; */
+ 	height:21px;
+ 	width: 100%;
+ 	position: fixed!important;
+ 	top: 0px;
+ /*	position: relative;*/
+	z-index: 9999;
+	background-color: white;
+	
+ }
 #wrap{
 	/* border: solid 1px black; */
 	   /*1250px width:1150px;*/
 	width:1265px;
 	height:auto;
-	
-	position:relative;
+	margin: 0 auto;
+	position:absolute;
 	/*top:37px;*/
 		
 	}
-#film, #air, #travel{
-	float:left;
-	height:300px;	
-}
-#film, #air{
-	margin-right:10px;	
-}
-#movie{
-	margin-right:10px;	
-}
-#movie, #shop{
-	float:left;
-	margin-top:10px;
-		
-}
-
-/* 푸터 영역 */
-
 .footer{
-	position:relative;	
-	clear:both;
+	position:absolute;	
+	top:1060px;
 	width:100%;
 	height:auto;
 	margin:30px 0 30px 0;
-	padding-top: 30px;
-	
-}
-#footer_div{
-	margin: 0 45px 0 45px;	
-	border: solid 1px #c9c8d2;
-	height:95px;
+	border-top: solid 1px #c9c8d2;;	
 }
 #footer_copy{
-	padding-top:10px;
-	margin-left: 80px;
+	margin-left: 100px;
 	margin-top: 10px;
 	float:left;
 	
@@ -129,4 +95,56 @@ color: white;
 }
 .footer #social img{
 	margin: 0 7px;
+}
+
+/*#login{
+	border:solid 1px black;
+	width:378px;
+	margin-bottom:5px;
+	height:120px;
+}
+#bt_login{
+	height:50px;	
+	margin-left:5px;
+	float:right;
+	margin-right:80px;
+}
+#main_login{
+	width:300px;
+	height:105px;
+	margin: 15px 15px 0 15px;	
+}
+#id, #password{
+	float:left;	
+}
+#login_a{
+	clear:left;	
+}
+#login_a a{
+	margin-top:10px;
+	text-decoration:none;
+	font-size:10px;
+}
+#login_a>a{
+	margin-right:20px;	
+	
+}
+#login{
+	float:left;	
+}
+*/
+#film, #air, #travel{
+	float:left;
+	height:300px;	
+}
+#film, #air{
+	margin-right:10px;	
+}
+#movie{
+	margin-right:10px;	
+}
+#movie, #shop{
+	float:left;
+	margin-top:10px;
+		
 }
