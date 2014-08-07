@@ -60,28 +60,22 @@
 <body>
 <nav id="sidebar" class="column-left">
 		<ul>
-        <h2>메뉴1</h2>
-			<li class="li"><a href="#">서브메뉴1</a></li>
-			<li><a href="#">서브메뉴2</a></li>
-			<li><a href="#">서브메뉴3</a></li>
-			<li><a href="#">서브메뉴4</a></li>
-			<li><a href="#">서브메뉴5</a></li>
+        <h2>항공권 예매</h2>
+			<li class="li"><a href="#">국제선</a></li>
+			<li><a href="#">예약조회</a></li>
 		</ul>
 		<ul>
-		<h2>메뉴2</h2>
-			<li class="li"><a href="#">서브메뉴1</a></li>
-		  	<li><a href="#">서브메뉴2</a></li>
-			 <li><a href="#">서브메뉴3</a></li>
-			 <li><a href="#">서브메뉴4</a></li>
-			 <li><a href="#">서브메뉴15</a></li>
-		</ul>
+		<h2>마이페이지</h2>
+		  	<li><a href="#">마일리지 조회</a></li>
+			 <li><a href="#">회원정보</a></li>
+</ul>
 		<ul>
-		<h2>메뉴3</h2>
-			<li class="li"><a href="#">서브메뉴1</a></li>
-		  	<li><a href="#">서브메뉴2</a></li>
-			 <li><a href="#">서브메뉴3</a></li>
-			 <li><a href="#">서브메뉴4</a></li>
-			 <li><a href="#">서브메뉴15</a></li>
+		<h2>운임조회</h2>
+			<li class="li"><a href="#">국제선 운임조회</a></li>
+		</ul>
+				<ul>
+		<h2>스케줄 조회</h2>
+			<li class="li"><a href="#">스케줄 조회</a></li>
 		</ul>
 		
 		</nav>

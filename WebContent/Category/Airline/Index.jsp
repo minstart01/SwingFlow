@@ -10,24 +10,23 @@
   
   <link rel="stylesheet" type="text/css" href="../../Css/Airline/style.css">
   <link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css">
-  <script type="text/javascript" src="../../images/Airline/jquery.min.js"></script>
-  <script type="text/javascript" src="../../images/Airline/jquery.easing.min.js"></script>
-  <script type="text/javascript" src="../../images/Airline/jquery.lavalamp.min.js"></script>
- <!--   <script type="text/javascript">
+  <script type="text/javascript" src="../../Script/Airline/jquery.min.js"></script>
+  <script type="text/javascript" src="../../Script/Airline/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="../../Script/Airline/jquery.lavalamp.min.js"></script>
+ <script type="text/javascript">
     $(function() {
       $("#lava_menu").lavaLamp({
         fx: "backout",
-        speed: 700
+        speed: 800
       });
     });
   </script>
-    <script type="text/javascript" src="../../images/Airline/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript" src="../../Script/Airline/jquery.nivo.slider.pack.js"></script>
     <script type="text/javascript">
     $(window).load(function() {
         $('#slider').nivoSlider();
     });
     </script>
-!-->
 <style>
 #wrapper{
 	 
@@ -58,12 +57,12 @@
 	
       <div id="air_header">  
       
-      <ul class="lavaLampWithImage" id="lava_menu">
-      <li class="current"><a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/index.html">LOGIN</a></li>
-      <li><a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/ourwork.html">JOIN</a></li>
-      <li><a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/testimonials.html">MY PAGE</a></li>
-      </ul>
-      <h3>  HOME &gt; Star AIRLINE     </h3>
+<!--       <ul class="lavaLampWithImage" id="lava_menu"> -->
+<!--       <li class="current"><a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/index.html">LOGIN</a></li> -->
+<!--       <li><a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/ourwork.html">JOIN</a></li> -->
+<!--       <li><a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/testimonials.html">MY PAGE</a></li> -->
+<!--       </ul> -->
+      <h3>  HOME &gt; AIRLINE Service    </h3>
       
       </div>
       <!--close header-->	
@@ -100,7 +99,7 @@
 		<div class="content_image">
 		  <a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/Main.html#"><img style=" border: 10px solid #FFF;" alt="image" src="../../images/Airline/m3.png"></a>
 		  <div class="content_text">
-		    <h2>스케줄 조회</h2>
+		    <h2>마일리지 조회</h2>
 		      <p>선택일 기준 스케줄 조회가 가능합니다.
              <br>
              예약 시 주간스케줄은  
