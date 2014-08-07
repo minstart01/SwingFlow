@@ -20,7 +20,10 @@
 <script type="text/javascript">
 	$(function() {
 		$(".genderSec").css("visibility", "hidden")
-
+		$(".itemListWid").css("width", $(window).width() - 320)
+		$(window).resize(function(e) {
+			$(".itemListWid").css("width", $(window).width() - 320)
+		})
 	})
 </script>
 </head>
@@ -52,19 +55,19 @@
 		</div>
 		<div class="lymSec">
 			<div class="wrap">
-				<div class="itemListSec itemListWid" style="width: 968px;">
-					<div class="selGenderSec" style="top: 100px;">
+				<div class="itemListSec itemListWid">
+					<div class="selGenderSec" >
 						<div class="in" style="position: fixed;">
-							<h3>메인설정</h3>
+							<h3></h3>
 							<ul class="M">
 								<li><a href="javascript:;">여성</a></li>
 								<li class="l"><a href="javascript:;"
 									style="cursor: default;">남성</a></li>
-								<!-- <li class="l"><a href="javascript:;">전체</a></li> -->
+								<li class="l"><a href="javascript:;">전체</a></li> -->
 							</ul>
 						</div>
 					</div>
-					<dl class="quickSec" style="right: 91.5px;">
+					<dl class="quickSec" >
 						<dt>
 							<a href="javascript:;" class="ico-btn-1"><em
 								class="sys-txt-1">TOP</em></a>
