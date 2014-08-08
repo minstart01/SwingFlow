@@ -7,263 +7,30 @@
 <title>Insert title here</title>
 <style>
 #wrapper{
-	 
-		height:850px;
-		width:1250px;
+	
+		height:700px;
+		width:850px;
 		clear:both;
 		
 	}
 #main_content{
-	border:1px solid black;
+	
 	position:absolute;
 	top:30px;
 	left: 275px;
 	width: 950px;
-	height:1000px;
+
 }
 
 
 
 /* 달력 */
-#cal_wrap .cal {
-	padding: 15px 10px 15px 10px;
-}
-/* 달력 */
-#cal_wrap {
-	border: 1px solid #4f4f4f;
-	background-color: #fff;
-	height: 264px;	
-}
-
-/* 달력 테두리 */
-#divPlayDate {
-	width: 210px;
-	height: 275px;
-	
-
-}
-#divSelectArea {
-	height: 445px;
-}
-
-body, h1, h2, h3, h4, input, button {
-	font-family: "돋움",dotum,Helvetica,sans-serif;
-	font-size: 12px;
-	color: #555;
-}
-#cal_wrap .nowcal {
-	font-size: 12px;
-	font-weight: bold;
-	height: 20px;
-}
-#cal_wrap table {
-	clear: both;
-	font: normal 12px/30px verdana;
-	text-align: center;
-	border-left: 0px solid #dbdbdb;
-	border-right: 0px solid #dbdbdb;
-	border-bottom: 1px solid #dbdbdb;
-	border-collapse: collapse;
-	width: 100%;
-}
-#cal_wrap td {
-	border-right: 0px solid #dbdbdb;
-	border-top: 1px solid #dbdbdb;
-	border-bottom: 1px solid #dbdbdb;
-	color: #505050;
-	font-family: verdana;
-	height: 25px;
-	text-align: center;
-}
-#cal_wrap .another_month {
-	color: #b7b3b3;
-	background-color: #fff;
-}
-#cal_wrap .ableDay {
-	font-weight: normal;
-	color: #505050;
-	background-color: #edf1fb;
-	cursor: pointer;
-}
-#cal_wrap .selected {
-	background-color: #8093ce;
-	color: #fff;
-	font-weight: bold;
-}
-#cal_wrap .week td {
-	background-color: #dbdbdb;
-	border: 0px solid red;
-	cursor: default;
-	height: 20px;
-}
-img {
-	border: 0;
-	margin: 0;
-	padding: 0;
-}
-a, img {
-	text-decoration: none;
-	outline: none;
-	overflow: hidden;
-}
-#cal_wrap .prev_month {
-	float: left;
-	width: 17px;
-}
-#cal_wrap .currunt_month {
-	float: left;
-	font-weight: bold;
-	font-family: verdana;
-	text-align: center;
-	width: 150px;
-}
-#cal_wrap .currunt_month {
-	font: bold 11px/13px dotum, Verdana;
-	text-align: center;
-	width: 140px;
-}
-#cal_wrap .next_month {
-	float: right;
-	width: 17px;
-}
-.Hot2 a:visited, a:link {
-	font-size: 12px;
-	font-family: dotum;
-	font-weight: normal;
-	color: #0887e0;
-	text-decoration: none;
-	border: 0;
-	color: #0887e0;
-	cursor: hand;
-	letter-spacing: -1px;
-}
-.Hot2 a:visited, a:link {
-	font-size: 12px;
-	font-family: dotum;
-	font-weight: normal;
-	color: #0887e0;
-	text-decoration: none;
-	border: 0;
-	color: #0887e0;
-	cursor: hand;
-	letter-spacing: -1px;
-}
-#cal_wrap .next_month a {
-	background: url(http://movie-img.yes24.com/reserve/b_date_ar_right.gif) 0 0 no-repeat;
-	width: 14px;
-	height: 13px;
-	display: block;
-}
-h1, h2, h3, h4, p, ul, ol, span {
-	margin: 0px;
-	padding: 0px;
-	border: 0;
-}
-#cal_wrap span {
-	display: none;
-}
-#cal_wrap .prev_month a {
-	background: url(http://movie-img.yes24.com/reserve/b_date_ar_left.gif) 0 0 no-repeat;
-	width: 14px;
-	height: 13px;
-	display: block;
-}
-#moviebox{
-	width:230px;
-	height:450px;	
-}
-#theaterbox{
-	width:200px;
-	height:450px;
-}
-#datebox{
-	width: 210px;
-	height: 265px;	
-}
-
-#moviebox, #theaterbox, #datebox{
-	float:left;	
-	margin-right:10px;
-	border:1px solid black;
-	
-	
-}
-#timebox{
-		border:1px solid black;
-		float:left;
-		width:200px;
-		height: 265px;	
-}
-#sitbox{
-	float:left;
-	
-	border:1px solid black;
-	width:420px;
-	height:148px;
-}
-#sel_movie, #sel_theater, #sel_time{
-	overflow:auto;
-	height:200px;
-	
-		
-}
-#sel_movie ul li, #sel_theater ul li, #sel_time ul li
-{	
-	padding-bottom:5px;	
-}
-
-
-.list{
-	list-style:none;
-	
-		
-}
-.list li{
-	border-bottom:1px solid black;
-	padding-top:5px;
-	padding-left:20px;
-}
-
-/* 상단 이미지 */
-#movie_img, #theater_img, #date_img, #time_img{
-	float:left;	
-
-}
-#movie_img{
-	width:230px;
-	
-}
-#theater_img{
-	width:200px;
-	
-}
-#date_img{
-	width:230px;
-	
-}
-#time_img{
-	width:200px;
-	
-}
-#movie_img, #theater_img, #date_img{
-	margin-right:10px;
-}
-
-.sel_sit td{
-	border:1px solid black;	
-	width:20px;
-	height:20px;
-}
-.sel_choice td{
-	border:1px solid black;	
-	width:80px;
-	height:20px;
-}
-
 
 
 
 </style>
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Movie/reserve.css" />
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 
 
 </head>
@@ -272,17 +39,18 @@ h1, h2, h3, h4, p, ul, ol, span {
 
 
 <div id="wrapper">
+<jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <jsp:include page="sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-	<div id="movie_img"><img src="movie.gif" /></div>
-    <div id="theater_img"><img src="theater.gif" /></div>
-    <div id="date_img"><img src="date.gif" /></div>
-    <div id="time_img"><img src="time.gif" /></div>
+	<div id="movie_img"><img src="/SwingFlow/images/Movie/Reserve/movie.gif" /></div>
+    <div id="theater_img"><img src="/SwingFlow/images/Movie/Reserve/theater.gif" /></div>
+    <div id="date_img"><img src="/SwingFlow/images/Movie/Reserve/date.gif" /></div>
+    <div id="time_img"><img src="/SwingFlow/images/Movie/Reserve/time.gif" /></div>
 	<section id="moviebox">
    	
     <div style="border-bottom:1px solid black; padding:3px 0 3px 3px;">
-    <input type="text" id="search_movie" placeholder="영화명을 입력하세요" size="27"/>
+    <input type="text" id="search_movie" placeholder="영화명을 입력하세요" size="23"/>
     <input type="button" value="검색" id="bt_movie" />
     </div>
 	<div id="sel_movie">
@@ -302,7 +70,7 @@ h1, h2, h3, h4, p, ul, ol, span {
    </section>
    <section id="theaterbox">
  	<div style="border-bottom:1px solid black; padding:3px 0 3px 3px;">
-   <input type="text" id="search_theater" placeholder="극장명을 입력하세요" size="20"/>
+   <input type="text" id="search_theater" placeholder="극장명을 입력하세요" size="18"/>
    <input type="button" value="검색" id="bt_theater" />
    </div>
    <div style="margin-top:10px;">서울</div>
@@ -320,11 +88,11 @@ h1, h2, h3, h4, p, ul, ol, span {
             <li>명량</li>
         </ul>
     </div>  
-    <div>서울</div>
-    <div>서울</div>
-    <div>서울</div>
-    <div>서울</div>
-    <div>서울</div>
+    <div>경기/인천</div>
+    <div>부산/울산/경남</div>
+    <div>대구/경북</div>
+    <div>대전/충청/강원</div>
+    <div>광주/전라/제주</div>
     
    </section>
    <section id="datebox">
@@ -355,7 +123,7 @@ h1, h2, h3, h4, p, ul, ol, span {
         </ul>
         </div>					
 	</section>
-    <div style="float:left; margin-top:10px;"><img src="tit_PersonNum_off.gif" /></div>
+    <div style="float:left; margin-top:10px;"><img src="/SwingFlow/images/Movie/Reserve/tit_PersonNum_off.gif" /></div>
     <section id="sitbox">
     	<div style="float:left; margin-top:10px; margin-left:10px;" >
        	<table cellspacing="6" class="sel_choice">
@@ -399,16 +167,74 @@ h1, h2, h3, h4, p, ul, ol, span {
             </tr>
         </table>
         </div>
-        <div style="float:left; margin-top:15px; margin-left:10px; padding-top:8px; border-top:1px solid black; width:380px;">선택하신 영화는 '전체 관람가' 영화입니다.</div>
+        <div class="sel_age">선택하신 영화는 '전체 관람가' 영화입니다.</div>
     </section>
-    <div style="float:left; margin-top:10px; width:442px; border:1px solid black;"><img src="tit_SelectMovieInfo.gif" /></div>
-       <div style="float:left; margin-top:10px; width:420px; border:1px solid black; margin-left:10px;"><img src="tit_PayInfo_off.gif" /></div>
-    <section id="info" style="width:300px; height:400px; border:1px solid black; float:left">
+    <div class="sel_reserve_info"><img src="/SwingFlow/images/Movie/Reserve/tit_SelectMovieInfo.gif" alt="선택하신 예매정보" /></div>
+       <div class="sel_pay_ino"><img src="/SwingFlow/images/Movie/Reserve/tit_PayInfo_off.gif" alt="관련요금정보"/></div>
     
+    <section id="info_reserve">
+    	<div class="poster_img"><img src="/SwingFlow/images/Movie/Reserve/poster.gif"/></div>
+        <div style=" margin-top: 8px; float:left; height:130px;">
+        	<table>
+            	<tr>
+                	<th>명량</th>
+                	<td width="250" align="right"><img src="/SwingFlow/images/Movie/Reserve/b_MovieInfo.gif" alt="영화정보"/></td>
+               	</tr>
+                <tr>
+                	<td><img src="/SwingFlow/images/Movie/Reserve/img_TheaterList_on.gif" /></td>
+                    <td>CGV</td>
+                </tr>
+                <tr>
+                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PlayDate_on.gif" /></td>
+                    <td>2014-08-08(금)</td>
+                </tr>
+                <tr>
+                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PlayTime_on.gif" /></td>
+                    <td>15:40</td>
+                </tr>
+                <tr>
+                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PersonNum_on.gif" /></td>
+                    <td>성인 1명</td>
+                </tr>
+                <tr>
+                	<td><img src="/SwingFlow/images/Movie/Reserve/img_SeatArea_on.gif" /></td>
+                    <td>??</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    
+    <section id="info_pay">
+    	<div style="margin:20px 0 0 20px; font-size:18px;">
+        <table cellpadding="10">
+        	<tr>
+            	<td width="100">티켓금액</td>
+                <td >9,000원</td>
+            </tr>
+            <tr>
+            	<td>할인금액</td>
+                <td>0원</td>
+            </tr>
+        </table>
+        <table cellpadding="10" style="border-top:1px solid black;">
+        <tr>
+           	<td width="100">총결제금액</td>
+            <td>9,000원</td>
+        </tr>
+        </table>
+    	</div>
+    </section>
+    <section id="bt">
+    	<div>
+        <input type="button" class="bt" value="처음부터"/>
+        </div>
+        <div style="padding-top:10px;">
+        <input type="button" class="bt" value="예약하기"/>
+        </div>
     </section>
 </div>
 </div>
-
+<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 
 
 </body>

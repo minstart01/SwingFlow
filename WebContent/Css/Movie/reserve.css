@@ -1,0 +1,264 @@
+@charset "utf-8";
+/* CSS Document */
+
+#cal_wrap .cal {
+	padding: 15px 10px 15px 10px;
+}
+/* 달력 */
+#cal_wrap {
+	border: 1px solid #4f4f4f;
+	background-color: #fff;
+	height: 264px;	
+}
+
+/* 달력 테두리 */
+#divPlayDate {
+	width: 210px;
+	height: 275px;
+	
+
+}
+#divSelectArea {
+	height: 445px;
+}
+
+
+#cal_wrap .nowcal {
+	font-size: 12px;
+	font-weight: bold;
+	height: 20px;
+}
+#cal_wrap table {
+	clear: both;
+	font: normal 12px/30px verdana;
+	text-align: center;
+	border-left: 0px solid #dbdbdb;
+	border-right: 0px solid #dbdbdb;
+	border-bottom: 1px solid #dbdbdb;
+	border-collapse: collapse;
+	width: 100%;
+}
+#cal_wrap td {
+	border-right: 0px solid #dbdbdb;
+	border-top: 1px solid #dbdbdb;
+	border-bottom: 1px solid #dbdbdb;
+	color: #505050;
+	font-family: verdana;
+	height: 25px;
+	text-align: center;
+}
+#cal_wrap .another_month {
+	color: #b7b3b3;
+	background-color: #fff;
+}
+#cal_wrap .ableDay {
+	font-weight: normal;
+	color: #505050;
+	background-color: #edf1fb;
+	cursor: pointer;
+}
+#cal_wrap .selected {
+	background-color: #8093ce;
+	color: #fff;
+	font-weight: bold;
+}
+#cal_wrap .week td {
+	background-color: #dbdbdb;
+	border: 0px solid red;
+	cursor: default;
+	height: 20px;
+}
+
+
+#cal_wrap .prev_month {
+	float: left;
+	width: 17px;
+}
+#cal_wrap .currunt_month {
+	float: left;
+	font-weight: bold;
+	font-family: verdana;
+	text-align: center;
+	width: 150px;
+}
+#cal_wrap .currunt_month {
+	font: bold 11px/13px dotum, Verdana;
+	text-align: center;
+	width: 140px;
+}
+#cal_wrap .next_month {
+	float: right;
+	width: 17px;
+}
+#cal_wrap .next_month a {
+	background: url(http://movie-img.yes24.com/reserve/b_date_ar_right.gif) 0 0 no-repeat;
+	width: 14px;
+	height: 13px;
+	display: block;
+}
+.list
+{
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+}
+#cal_wrap span {
+	display: none;
+}
+#cal_wrap .prev_month a {
+	background: url(http://movie-img.yes24.com/reserve/b_date_ar_left.gif) 0 0 no-repeat;
+	width: 14px;
+	height: 13px;
+	display: block;
+}
+#moviebox{
+	width:230px;
+	height:450px;	
+}
+#theaterbox{
+	width:200px;
+	height:450px;
+}
+#datebox{
+	width: 210px;
+	height: 265px;	
+	float:left;	
+	margin-right:10px;
+}
+
+#moviebox, #theaterbox{
+	float:left;	
+	margin-right:10px;
+	border:1px solid black;
+	
+	
+}
+#timebox{
+		border:1px solid black;
+		float:left;
+		width:200px;
+		height: 265px;	
+}
+#sitbox{
+	float:left;
+	
+	border:1px solid black;
+	width:420px;
+	height:148px;
+}
+#sel_movie, #sel_theater, #sel_time{
+	overflow:auto;
+	height:200px;
+	
+		
+}
+#sel_movie ul li, #sel_theater ul li, #sel_time ul li
+{	
+	padding-bottom:5px;	
+}
+
+
+.list{
+	list-style:none;
+		
+}
+.list li{
+	border-bottom:1px solid black;
+	padding-top:5px;
+	padding-left:20px;
+}
+
+/* 상단 이미지 */
+#movie_img, #theater_img, #date_img, #time_img{
+	float:left;	
+
+}
+#movie_img{
+	width:230px;
+	
+}
+#theater_img{
+	width:200px;
+	
+}
+#date_img{
+	width:230px;
+	
+}
+#time_img{
+	width:200px;
+	
+}
+#movie_img, #theater_img, #date_img{
+	margin-right:10px;
+}
+
+
+/*관람인원 선택 */
+.sel_sit td{
+	border:1px solid black;	
+	width:20px;
+	height:20px;
+	font-size:12px;
+}
+.sel_choice td{
+	border:1px solid black;	
+	width:80px;
+	height:20px;
+	font-size:12px;
+}
+.sel_age{
+	float:left;
+	margin-top:15px;
+	margin-left:10px; 
+	padding-top:8px; 
+	border-top:1px solid black; 
+	width:380px;
+}
+
+
+
+/* 선택하신 예매정보 */
+.sel_reserve_info{
+	float:left;
+	margin-top:10px; 
+	width:442px;
+}
+#info_reserve
+{
+	 width:442px; 
+	 height:150px; 
+	 border:1px solid black; 
+	 float:left;	 	
+}
+.poster_img{
+	 float:left;
+	 margin:8px 8px 8px 8px;
+}
+
+/* 관람요금 정보 */
+#info_pay{
+	 border:1px solid black; 
+	 float:left; 
+	 margin-left:10px; 
+	 width:288px; 
+	 height:150px;
+}
+.sel_pay_ino{
+	float:left;
+	margin-top:10px; 
+	width:420px; 
+	margin-left:10px;
+}
+#bt div{
+	padding: 0 0 0 10px;	
+}
+.bt{
+	width:120px;	
+	height:71px;
+}
+#bt{
+	float:left;
+	width:138px; 
+	height:150px;	
+}

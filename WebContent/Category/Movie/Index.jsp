@@ -242,7 +242,7 @@
 </div>
 
 
-<img src="../../images/Movie/poster1.png" width="900" />
+<img src="../../images/Movie/Main/poster1.png" width="900" />
 <div id="footer_award">
 <img src="../../images/Movie/Main/footer_award01.gif" width="112"/>
 <img src="../../images/Movie/Main/footer_award02.gif" width="112"/>

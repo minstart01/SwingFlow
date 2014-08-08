@@ -68,7 +68,7 @@
 		</ul>
 		<ul>
 		<h2>예매</h2>
-			<li class="li"><a href="#">예매하기</a></li>
+			<li class="li"><a href="Reserve.jsp">예매하기</a></li>
 		  	<li><a href="#">예매확인/취소</a></li>
 			 <li><a href="#">상영시간표</a></li>
 			 
