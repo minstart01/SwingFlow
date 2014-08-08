@@ -8,7 +8,7 @@
 <style>
 #wrapper{
 	
-		height:700px;
+		height:950px;
 		width:850px;
 		clear:both;
 		
@@ -40,13 +40,13 @@
 
 <div id="wrapper">
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
-<jsp:include page="sidemenu.jsp"></jsp:include>
+<jsp:include page="/Category/Movie/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-	<div id="movie_img"><img src="/SwingFlow/images/Movie/Reserve/movie.gif" /></div>
-    <div id="theater_img"><img src="/SwingFlow/images/Movie/Reserve/theater.gif" /></div>
-    <div id="date_img"><img src="/SwingFlow/images/Movie/Reserve/date.gif" /></div>
-    <div id="time_img"><img src="/SwingFlow/images/Movie/Reserve/time.gif" /></div>
+	<div id="movie_img"><img src="/SwingFlow/images/Movie/Reserve/movie.gif" alt="영화선택"/></div>
+    <div id="theater_img"><img src="/SwingFlow/images/Movie/Reserve/theater.gif" alt="극장선택"/></div>
+    <div id="date_img"><img src="/SwingFlow/images/Movie/Reserve/date.gif" alt="극장선택"/></div>
+    <div id="time_img"><img src="/SwingFlow/images/Movie/Reserve/time.gif" alt="시간선택"/></div>
 	<section id="moviebox">
    	
     <div style="border-bottom:1px solid black; padding:3px 0 3px 3px;">
@@ -123,7 +123,7 @@
         </ul>
         </div>					
 	</section>
-    <div style="float:left; margin-top:10px;"><img src="/SwingFlow/images/Movie/Reserve/tit_PersonNum_off.gif" /></div>
+    <div style="float:left; margin-top:10px;"><img src="/SwingFlow/images/Movie/Reserve/tit_PersonNum_off.gif" alt="관람인원선택"/></div>
     <section id="sitbox">
     	<div style="float:left; margin-top:10px; margin-left:10px;" >
        	<table cellspacing="6" class="sel_choice">
@@ -181,23 +181,23 @@
                 	<td width="250" align="right"><img src="/SwingFlow/images/Movie/Reserve/b_MovieInfo.gif" alt="영화정보"/></td>
                	</tr>
                 <tr>
-                	<td><img src="/SwingFlow/images/Movie/Reserve/img_TheaterList_on.gif" /></td>
+                	<td><img src="/SwingFlow/images/Movie/Reserve/img_TheaterList_on.gif" alt="영화관" /></td>
                     <td>CGV</td>
                 </tr>
                 <tr>
-                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PlayDate_on.gif" /></td>
+                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PlayDate_on.gif" alt="관람일"/></td>
                     <td>2014-08-08(금)</td>
                 </tr>
                 <tr>
-                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PlayTime_on.gif" /></td>
+                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PlayTime_on.gif" alt="시간"/></td>
                     <td>15:40</td>
                 </tr>
                 <tr>
-                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PersonNum_on.gif" /></td>
+                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PersonNum_on.gif" alt="인원정보"/></td>
                     <td>성인 1명</td>
                 </tr>
                 <tr>
-                	<td><img src="/SwingFlow/images/Movie/Reserve/img_SeatArea_on.gif" /></td>
+                	<td><img src="/SwingFlow/images/Movie/Reserve/img_SeatArea_on.gif" alt="좌석정보"/></td>
                     <td>??</td>
                 </tr>
             </table>

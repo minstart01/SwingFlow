@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css" />
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <style>
 #wrapper{
 	 
@@ -114,17 +114,17 @@
 </style>
 </head>
 <body>
-<jsp:include page="../Common/top.jsp"></jsp:include>
+<jsp:include page="/Category/Common/top.jsp"></jsp:include>
 
 <div id="wrapper">
 <jsp:include page="sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
 	<div id="poster">
-	<img src="../../images/Movie/Main/poster.png" width="900"/>
+	<img src="/SwingFlow/images/Movie/Main/poster.png" width="900" alt="포스터"/>
 </div>
 <div id="logo" align="center">
-	<img src="../../images/Movie/Main/logo.png"/>
+	<img src="/SwingFlow/images/Movie/Main/logo.png" alt="로고"/>
 </div>
  	<section>
 	<article id="main_rank"><p>영화예매순위</p>
@@ -196,7 +196,7 @@
 </section>
 <section id="section_two">
 	<article id="main_event">
-		<img src="../../images/Movie/Main/event.jpg" />
+		<img src="/SwingFlow/images/Movie/Main/event.jpg" alt="이벤트"/>
 	</article>
 	<article id="main_notice">
 		<p>공지사항</p>
@@ -229,34 +229,34 @@
 <br>
 <br>
 <div id="special">
-<img src="../../images/Movie/Main/bt_special.gif">
+<img src="/SwingFlow/images/Movie/Main/bt_special.gif" alt="스페셜상영관">
 </div>
 <div id="special_img">
-<a href="#"><img src="../../images/Movie/Main/special01.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/Main/special02.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/Main/special03.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/Main/special04.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/Main/special05.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/Main/special06.gif" width="128"/></a>
-<a href="#"><img src="../../images/Movie/Main/special07.gif" width="128"/></a>
+<a href="#"><img src="/SwingFlow/images/Movie/Main/special01.gif" width="128" alt="스페셜상영관"/></a>
+<a href="#"><img src="/SwingFlow/images/Movie/Main/special02.gif" width="128" alt="스페셜상영관"/></a>
+<a href="#"><img src="/SwingFlow/images/Movie/Main/special03.gif" width="128" alt="스페셜상영관"/></a>
+<a href="#"><img src="/SwingFlow/images/Movie/Main/special04.gif" width="128" alt="스페셜상영관"/></a>
+<a href="#"><img src="/SwingFlow/images/Movie/Main/special05.gif" width="128" alt="스페셜상영관"/></a>
+<a href="#"><img src="/SwingFlow/images/Movie/Main/special06.gif" width="128" alt="스페셜상영관"/></a>
+<a href="#"><img src="/SwingFlow/images/Movie/Main/special07.gif" width="128" alt="스페셜상영관"/></a>
 </div>
 
 
-<img src="../../images/Movie/Main/poster1.png" width="900" />
+<img src="/SwingFlow/images/Movie/Main/poster1.png" width="900" alt="하단 포스터"/>
 <div id="footer_award">
-<img src="../../images/Movie/Main/footer_award01.gif" width="112"/>
-<img src="../../images/Movie/Main/footer_award02.gif" width="112"/>
-<img src="../../images/Movie/Main/footer_award03.gif" width="112"/>
-<img src="../../images/Movie/Main/footer_award04.gif" width="112"/>
-<img src="../../images/Movie/Main/footer_award05.gif" width="112"/>
-<img src="../../images/Movie/Main/footer_award06.gif" width="112"/>
-<img src="../../images/Movie/Main/footer_award07.gif" width="112"/>
-<img src="../../images/Movie/Main/footer_award08.gif" width="112"/>
+<img src="/SwingFlow/images/Movie/Main/footer_award01.gif" width="112" alt="수상"/>
+<img src="/SwingFlow/images/Movie/Main/footer_award02.gif" width="112" alt="수상"/>
+<img src="/SwingFlow/images/Movie/Main/footer_award03.gif" width="112" alt="수상"/>
+<img src="/SwingFlow/images/Movie/Main/footer_award04.gif" width="112" alt="수상"/>
+<img src="/SwingFlow/images/Movie/Main/footer_award05.gif" width="112" alt="수상"/>
+<img src="/SwingFlow/images/Movie/Main/footer_award06.gif" width="112" alt="수상"/>
+<img src="/SwingFlow/images/Movie/Main/footer_award07.gif" width="112" alt="수상"/>
+<img src="/SwingFlow/images/Movie/Main/footer_award08.gif" width="112" alt="수상"/>
 </div>
 
 </div>
 </div>
 
- <jsp:include page="../Common/footer.jsp"></jsp:include>
+ <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 </body>
 </html>

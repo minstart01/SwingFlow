@@ -68,7 +68,7 @@
 		</ul>
 		<ul>
 		<h2>예매</h2>
-			<li class="li"><a href="Reserve.jsp">예매하기</a></li>
+			<li class="li"><a href="/SwingFlow/Category/Movie/Reserve/Reserve.jsp">예매하기</a></li>
 		  	<li><a href="#">예매확인/취소</a></li>
 			 <li><a href="#">상영시간표</a></li>
 			 
@@ -85,6 +85,14 @@
 		  	<li><a href="#">이용안내</a></li>
 		  	<li><a href="#">Q&A</a></li>
 		  	<li><a href="#">단체관람문의</a></li>
+			
+		</ul>
+		<ul>
+		<h2>관리자 메뉴</h2>
+			<li class="li"><a href="/SwingFlow/Category/Movie/Admin/MovieManage/InsertMovie.jsp">영화관리</a></li>
+		  	<li><a href="#">영화관관리</a></li>
+		  	<li><a href="#">게시판관리</a></li>
+		  	<li><a href="#">회원관리</a></li>
 			
 		</ul>
 		</nav>
