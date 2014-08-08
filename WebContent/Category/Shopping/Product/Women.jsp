@@ -24,6 +24,15 @@
 		$(window).resize(function(e) {
 			$(".itemListWid").css("width", $(window).width() - 313)
 		})
+		$()
+		$("#sidebarSec li").each(function(para) {
+			$(this).hover(function(e) {
+				$(this).find(".sub").css("top", e.pageY - 30);
+				$(this).find(".sub").show();
+			}, function(e) {
+				$(this).find(".sub").hide();
+			});
+		});
 	})
 </script>
 </head>
@@ -32,27 +41,7 @@
 		<jsp:include page="/Category/Common/top.jsp"></jsp:include>
 	</div>
 	<div id="midSec">
-		<div id="sidebarSec" class="column-left">
-			<ul>
-				<h2>메 뉴</h2>
-				<li class="li"><a href="#" title="할인쇼핑">할인쇼핑</a></li>
-				<li><a href="#" title="여성 상품">여성 상품</a></li>
-				<li><a href="#" title="여성샵 순위">여성샵 순위</a></li>
-				<li><a href="#" title="남성상품">남성 상품</a></li>
-				<li><a href="#" title="남성샾순위">남성샾 순위</a></li>
-				<li><a href="#" title="브랜드샾 대형몰 순위">브랜드샾 대형몰 순위</a></li>
-			</ul>
-			<ul>
-				<h2>정 보</h2>
-				<li class="li"><a href="#" title="공지사항">공지사항</a></li>
-				<li><a href="#" title="이벤트">이벤트</a></li>
-			</ul>
-			<ul>
-				<h2>관리자 화면</h2>
-				<li class="li"><a href="#" title="공지사항">쇼핑몰관리</a></li>
-				<li><a href="#" title="이벤트">포인트관리</a></li>
-			</ul>
-		</div>
+		<jsp:include page="/Category/Shopping/Sidebar.jsp"></jsp:include>
 		<div class="lymSec">
 			<div class="wrap">
 				<div class="itemListSec itemListWid">
@@ -82,291 +71,20 @@
 						</dd>
 					</dl>
 					<ul class="itemList" id="itemPrintProd">
-						<li class="item sec1 m" seq="214605">
-							<div class="img">
-								<div class="icon">
-									<p class="sale">
-										<em>할인상품</em>
-									</p>
-								</div>
-								<div class="btnSec" style="display: none;">
-									<ul>
-										<li><a href="javascript:;" class="b1"
-											onclick="similarView($(this), 214605, 'prod'); return false;">비슷한상품</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b2"
-											onclick="favorProdSave($(this),214605); return false;">관심담기</a><em></em></li>
-										<li><a href="javascript:;" class="b3"
-											onclick="snsControl('FB', 'prod', $(this), 544); return false;">페이스북
-												공유</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b4"
-											onclick="snsControl('TW', 'prod', $(this), 544); return false;">트위터
-												공유</a><em></em></li>
-									</ul>
-								</div>
-								<p>
-									<a href="javascript:;"
-										onclick="itemLinkUrl('prod', 544, 214605, $(this)); return false;"><img
-										src="http://img.sta1.info/_up/prod/thmb/2014/08/06/1407308611124_230x340.jpg"
-										data-original="http://img.sta1.info/_up/prod/thmb/2014/08/06/1407308611124_230x340.jpg"
-										class="itemImg" alt="" style="display: inline;"></a>
-								</p>
-							</div>
-							<div class="info c1">
-								<div class="in">
-									<a href="javascript:;" class="shop"
-										onclick="itemLinkUrl('prod', 544, 214605, $(this)); return false;">붐스타일</a>
-									<a href="javascript:;" class="sbj"
-										onclick="itemLinkUrl('prod', 544, 214605, $(this)); return false;">하울
-										단가라 카라티</a> <a href="javascript:;" class="price"
-										onclick="itemLinkUrl('prod', 544, 214605, $(this)); return false;"><strong>7,900<i>원</i></strong><s>22,000원</s></a>
-								</div>
-								<div class="pCate">
-									<p>
-										<a href="/shopping/men?cs=2010000"> 티셔츠 </a><a
-											href="/shopping/men?cs=2010600" class="ico-btn-1"> 카라티</a>
-									</p>
-								</div>
-							</div>
-						</li>
+					
+						<li class="item sec1 w" seq="215600">	<div class="img">		<div class="btnSec" style="display: block;">			<ul>				<li><a href="javascript:;" class="b1" onclick="similarView($(this), 215600, 'prod'); return false;">비슷한상품</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b2" onclick="favorProdSave($(this),215600); return false;">관심담기</a><em></em></li>				<li><a href="javascript:;" class="b3" onclick="snsControl('FB', 'prod', $(this), 1525); return false;">페이스북 공유</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b4" onclick="snsControl('TW', 'prod', $(this), 1525); return false;">트위터 공유</a><em></em></li>			</ul>		</div>		<p><a href="javascript:;" onclick="itemLinkUrl('prod', 1525, 215600, $(this)); return false;"><img src="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407479374747_230x340.jpg" data-original="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407479374747_230x340.jpg" class="itemImg" alt="" style="display: inline;"></a></p>	</div>	<div class="info c1"><div class="in">		<a href="javascript:;" class="shop" onclick="itemLinkUrl('prod', 1525, 215600, $(this)); return false;">커먼유니크</a>		<a href="javascript:;" class="sbj" onclick="itemLinkUrl('prod', 1525, 215600, $(this)); return false;">오픈 나그랑 티셔츠</a>		<a href="javascript:;" class="price" onclick="itemLinkUrl('prod', 1525, 215600, $(this)); return false;"><strong>10,900<i>원</i></strong></a>	</div>		<div class="pCate"><p><a href="/shopping/women?cs=1010000"> 티셔츠 </a><a href="/shopping/women?cs=1010500" class="ico-btn-1"> 라운드넥</a>		</p></div>	</div></li>	
+						
+						<li class="item sec1 w" seq="215420">	<div class="img">		<div class="btnSec" style="display: block;">			<ul>				<li><a href="javascript:;" class="b1" onclick="similarView($(this), 215420, 'prod'); return false;">비슷한상품</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b2" onclick="favorProdSave($(this),215420); return false;">관심담기</a><em></em></li>				<li><a href="javascript:;" class="b3" onclick="snsControl('FB', 'prod', $(this), 1148); return false;">페이스북 공유</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b4" onclick="snsControl('TW', 'prod', $(this), 1148); return false;">트위터 공유</a><em></em></li>			</ul>		</div>		<p><a href="javascript:;" onclick="itemLinkUrl('prod', 1148, 215420, $(this)); return false;"><img src="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407466967058_230x340.jpg" data-original="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407466967058_230x340.jpg" class="itemImg" alt="" style="display: inline;"></a></p>	</div>	<div class="info c1"><div class="in">		<a href="javascript:;" class="shop" onclick="itemLinkUrl('prod', 1148, 215420, $(this)); return false;">메롱샵</a>		<a href="javascript:;" class="sbj" onclick="itemLinkUrl('prod', 1148, 215420, $(this)); return false;">단추 티셔츠</a>		<a href="javascript:;" class="price" onclick="itemLinkUrl('prod', 1148, 215420, $(this)); return false;"><strong>5,500<i>원</i></strong></a>	</div>		<div class="pCate"><p><a href="/shopping/women?cs=1020000"> 반팔티 </a><a href="/shopping/women?cs=1020100" class="ico-btn-1"> 스트라이프</a>		</p></div>	</div></li>
+						
+						<li class="item sec1 w" seq="215354">	<div class="img">		<div class="btnSec" style="display: none;">			<ul>				<li><a href="javascript:;" class="b1" onclick="similarView($(this), 215354, 'prod'); return false;">비슷한상품</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b2" onclick="favorProdSave($(this),215354); return false;">관심담기</a><em></em></li>				<li><a href="javascript:;" class="b3" onclick="snsControl('FB', 'prod', $(this), 582); return false;">페이스북 공유</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b4" onclick="snsControl('TW', 'prod', $(this), 582); return false;">트위터 공유</a><em></em></li>			</ul>		</div>		<p><a href="javascript:;" onclick="itemLinkUrl('prod', 582, 215354, $(this)); return false;"><img src="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407463228825_230x340.jpg" data-original="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407463228825_230x340.jpg" class="itemImg" alt="" style="display: inline;"></a></p>	</div>	<div class="info c1"><div class="in">		<a href="javascript:;" class="shop" onclick="itemLinkUrl('prod', 582, 215354, $(this)); return false;">로렌하이</a>		<a href="javascript:;" class="sbj" onclick="itemLinkUrl('prod', 582, 215354, $(this)); return false;">오프닝 차이나 셔츠</a>		<a href="javascript:;" class="price" onclick="itemLinkUrl('prod', 582, 215354, $(this)); return false;"><strong>39,900<i>원</i></strong></a>	</div>		<div class="pCate"><p><a href="/shopping/women?cs=1060000"> 블라우스/셔츠 </a><a href="/shopping/women?cs=1060300" class="ico-btn-1"> 쉬폰블라우스</a>		</p></div>	</div></li>
+						
+						<li class="item sec1 w" seq="215209">	<div class="img">		<div class="btnSec">			<ul>				<li><a href="javascript:;" class="b1" onclick="similarView($(this), 215209, 'prod'); return false;">비슷한상품</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b2" onclick="favorProdSave($(this),215209); return false;">관심담기</a><em></em></li>				<li><a href="javascript:;" class="b3" onclick="snsControl('FB', 'prod', $(this), 1084); return false;">페이스북 공유</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b4" onclick="snsControl('TW', 'prod', $(this), 1084); return false;">트위터 공유</a><em></em></li>			</ul>		</div>		<p><a href="javascript:;" onclick="itemLinkUrl('prod', 1084, 215209, $(this)); return false;"><img src="http://img.sta1.info/_up/prod/thmb/2014/08/07/1407398189098_230x340.jpg" data-original="http://img.sta1.info/_up/prod/thmb/2014/08/07/1407398189098_230x340.jpg" class="itemImg" alt="" style="display: inline;"></a></p>	</div>	<div class="info c1"><div class="in">		<a href="javascript:;" class="shop" onclick="itemLinkUrl('prod', 1084, 215209, $(this)); return false;">헬로우스위티</a>		<a href="javascript:;" class="sbj" onclick="itemLinkUrl('prod', 1084, 215209, $(this)); return false;">아이스 쿠쿠 니트</a>		<a href="javascript:;" class="price" onclick="itemLinkUrl('prod', 1084, 215209, $(this)); return false;"><strong>32,000<i>원</i></strong></a>	</div>		<div class="pCate"><p><a href="/shopping/women?cs=1080000"> 니트/스웨터 </a><a href="/shopping/women?cs=1080300" class="ico-btn-1"> 스트라이프니트</a>		</p></div>	</div></li>
+						
+						<li class="item sec1 w" seq="215626">	<div class="img">		<div class="btnSec">			<ul>				<li><a href="javascript:;" class="b1" onclick="similarView($(this), 215626, 'prod'); return false;">비슷한상품</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b2" onclick="favorProdSave($(this),215626); return false;">관심담기</a><em></em></li>				<li><a href="javascript:;" class="b3" onclick="snsControl('FB', 'prod', $(this), 772); return false;">페이스북 공유</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b4" onclick="snsControl('TW', 'prod', $(this), 772); return false;">트위터 공유</a><em></em></li>			</ul>		</div>		<p><a href="javascript:;" onclick="itemLinkUrl('prod', 772, 215626, $(this)); return false;"><img src="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407481168283_230x340.jpg" data-original="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407481168283_230x340.jpg" class="itemImg" alt="" style="display: inline;"></a></p>	</div>	<div class="info c1"><div class="in">		<a href="javascript:;" class="shop" onclick="itemLinkUrl('prod', 772, 215626, $(this)); return false;">스타일티바</a>		<a href="javascript:;" class="sbj" onclick="itemLinkUrl('prod', 772, 215626, $(this)); return false;">스윗플라워 랩스커트</a>		<a href="javascript:;" class="price" onclick="itemLinkUrl('prod', 772, 215626, $(this)); return false;"><strong>36,600<i>원</i></strong></a>	</div>		<div class="pCate"><p><a href="/shopping/women?cs=1120000"> 스커트 </a><a href="/shopping/women?cs=1120400" class="ico-btn-1"> 미니스커트</a>		</p></div>	</div></li>
 
-						<li class="item sec1 w" seq="215417">
-							<div class="img">
-								<div class="icon">
-									<p class="sale">
-										<em>할인상품</em>
-									</p>
-								</div>
-								<div class="btnSec" style="display: block;">
-									<ul>
-										<li><a href="javascript:;" class="b1"
-											onclick="similarView($(this), 215417, 'prod'); return false;">비슷한상품</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b2"
-											onclick="favorProdSave($(this),215417); return false;">관심담기</a><em></em></li>
-										<li><a href="javascript:;" class="b3"
-											onclick="snsControl('FB', 'prod', $(this), 1148); return false;">페이스북
-												공유</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b4"
-											onclick="snsControl('TW', 'prod', $(this), 1148); return false;">트위터
-												공유</a><em></em></li>
-									</ul>
-								</div>
-								<p>
-									<a href="javascript:;"
-										onclick="itemLinkUrl('prod', 1148, 215417, $(this)); return false;"><img
-										src="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407466823290_230x340.jpg"
-										data-original="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407466823290_230x340.jpg"
-										class="itemImg" alt="" style="display: inline;"></a>
-								</p>
-							</div>
-							<div class="info c1">
-								<div class="in">
-									<a href="javascript:;" class="shop"
-										onclick="itemLinkUrl('prod', 1148, 215417, $(this)); return false;">메롱샵</a>
-									<a href="javascript:;" class="sbj"
-										onclick="itemLinkUrl('prod', 1148, 215417, $(this)); return false;">테니스
-										스커트</a> <a href="javascript:;" class="price"
-										onclick="itemLinkUrl('prod', 1148, 215417, $(this)); return false;"><strong>5,500<i>원</i></strong><s>22,000원</s></a>
-								</div>
-								<div class="pCate">
-									<p>
-										<a href="/shopping/women?cs=1120000"> 스커트 </a><a
-											href="/shopping/women?cs=1120200" class="ico-btn-1">
-											플레어스커트/A라인스커트</a>
-									</p>
-								</div>
-							</div>
-						</li>
+						<li class="item sec1 w" seq="215415">	<div class="img">		<div class="btnSec">			<ul>				<li><a href="javascript:;" class="b1" onclick="similarView($(this), 215415, 'prod'); return false;">비슷한상품</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b2" onclick="favorProdSave($(this),215415); return false;">관심담기</a><em></em></li>				<li><a href="javascript:;" class="b3" onclick="snsControl('FB', 'prod', $(this), 2442); return false;">페이스북 공유</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b4" onclick="snsControl('TW', 'prod', $(this), 2442); return false;">트위터 공유</a><em></em></li>			</ul>		</div>		<p><a href="javascript:;" onclick="itemLinkUrl('prod', 2442, 215415, $(this)); return false;"><img src="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407466731367_230x340.jpg" data-original="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407466731367_230x340.jpg" class="itemImg" alt="" style="display: inline;"></a></p>	</div>	<div class="info c1"><div class="in">		<a href="javascript:;" class="shop" onclick="itemLinkUrl('prod', 2442, 215415, $(this)); return false;">단스</a>		<a href="javascript:;" class="sbj" onclick="itemLinkUrl('prod', 2442, 215415, $(this)); return false;">스트립 티</a>		<a href="javascript:;" class="price" onclick="itemLinkUrl('prod', 2442, 215415, $(this)); return false;"><strong>17,000<i>원</i></strong></a>	</div>		<div class="pCate"><p><a href="/shopping/women?cs=1020000"> 반팔티 </a><a href="/shopping/women?cs=1020100" class="ico-btn-1"> 스트라이프</a>		</p></div>	</div></li>
 
-						<li class="item sec1 m" seq="215201">
-							<div class="img">
-								<div class="icon">
-									<p class="sale">
-										<em>할인상품</em>
-									</p>
-								</div>
-								<div class="btnSec">
-									<ul>
-										<li><a href="javascript:;" class="b1"
-											onclick="similarView($(this), 215201, 'prod'); return false;">비슷한상품</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b2"
-											onclick="favorProdSave($(this),215201); return false;">관심담기</a><em></em></li>
-										<li><a href="javascript:;" class="b3"
-											onclick="snsControl('FB', 'prod', $(this), 196); return false;">페이스북
-												공유</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b4"
-											onclick="snsControl('TW', 'prod', $(this), 196); return false;">트위터
-												공유</a><em></em></li>
-									</ul>
-								</div>
-								<p>
-									<a href="javascript:;"
-										onclick="itemLinkUrl('prod', 196, 215201, $(this)); return false;"><img
-										src="http://img.sta1.info/_up/prod/thmb/2014/08/07/1407397925269_230x340.jpg"
-										data-original="http://img.sta1.info/_up/prod/thmb/2014/08/07/1407397925269_230x340.jpg"
-										class="itemImg" alt="" style="display: inline;"></a>
-								</p>
-							</div>
-							<div class="info c1">
-								<div class="in">
-									<a href="javascript:;" class="shop"
-										onclick="itemLinkUrl('prod', 196, 215201, $(this)); return false;">핫붐</a>
-									<a href="javascript:;" class="sbj"
-										onclick="itemLinkUrl('prod', 196, 215201, $(this)); return false;">해지
-										배색 베이스 7부 셔츠</a> <a href="javascript:;" class="price"
-										onclick="itemLinkUrl('prod', 196, 215201, $(this)); return false;"><strong>11,800<i>원</i></strong><s>25,300원</s></a>
-								</div>
-								<div class="pCate">
-									<p>
-										<a href="/shopping/men?cs=2030000"> 셔츠/남방 </a><a
-											href="/shopping/men?cs=2030600" class="ico-btn-1">
-											반팔셔츠/남방</a>
-									</p>
-								</div>
-							</div>
-						</li>
-
-						<li class="item sec1 m" seq="215325">
-							<div class="img">
-								<div class="icon">
-									<p class="sale">
-										<em>할인상품</em>
-									</p>
-								</div>
-								<div class="btnSec">
-									<ul>
-										<li><a href="javascript:;" class="b1"
-											onclick="similarView($(this), 215325, 'prod'); return false;">비슷한상품</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b2"
-											onclick="favorProdSave($(this),215325); return false;">관심담기</a><em></em></li>
-										<li><a href="javascript:;" class="b3"
-											onclick="snsControl('FB', 'prod', $(this), 359); return false;">페이스북
-												공유</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b4"
-											onclick="snsControl('TW', 'prod', $(this), 359); return false;">트위터
-												공유</a><em></em></li>
-									</ul>
-								</div>
-								<p>
-									<a href="javascript:;"
-										onclick="itemLinkUrl('prod', 359, 215325, $(this)); return false;"><img
-										src="http://img.sta1.info/_up/prod/thmb/2014/08/07/1407404657018_230x340.jpg"
-										data-original="http://img.sta1.info/_up/prod/thmb/2014/08/07/1407404657018_230x340.jpg"
-										class="itemImg" alt="" style="display: inline;"></a>
-								</p>
-							</div>
-							<div class="info c1">
-								<div class="in">
-									<a href="javascript:;" class="shop"
-										onclick="itemLinkUrl('prod', 359, 215325, $(this)); return false;">나뽀</a>
-									<a href="javascript:;" class="sbj"
-										onclick="itemLinkUrl('prod', 359, 215325, $(this)); return false;">깅엄
-										체크 반팔남방</a> <a href="javascript:;" class="price"
-										onclick="itemLinkUrl('prod', 359, 215325, $(this)); return false;"><strong>9,500<i>원</i></strong><s>22,000원</s></a>
-								</div>
-								<div class="pCate">
-									<p>
-										<a href="/shopping/men?cs=2030000"> 셔츠/남방 </a><a
-											href="/shopping/men?cs=2030600" class="ico-btn-1">
-											반팔셔츠/남방</a>
-									</p>
-								</div>
-							</div>
-						</li>
-
-						<li class="item sec1 m" seq="214757">
-							<div class="img">
-								<div class="icon">
-									<p class="sale">
-										<em>할인상품</em>
-									</p>
-								</div>
-								<div class="btnSec">
-									<ul>
-										<li><a href="javascript:;" class="b1"
-											onclick="similarView($(this), 214757, 'prod'); return false;">비슷한상품</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b2"
-											onclick="favorProdSave($(this),214757); return false;">관심담기</a><em></em></li>
-										<li><a href="javascript:;" class="b3"
-											onclick="snsControl('FB', 'prod', $(this), 1373); return false;">페이스북
-												공유</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b4"
-											onclick="snsControl('TW', 'prod', $(this), 1373); return false;">트위터
-												공유</a><em></em></li>
-									</ul>
-								</div>
-								<p>
-									<a href="javascript:;"
-										onclick="itemLinkUrl('prod', 1373, 214757, $(this)); return false;"><img
-										src="http://img.sta1.info/_up/prod/thmb/2014/08/06/1407314897355_230x340.jpg"
-										data-original="http://img.sta1.info/_up/prod/thmb/2014/08/06/1407314897355_230x340.jpg"
-										class="itemImg" alt="" style="display: inline;"></a>
-								</p>
-							</div>
-							<div class="info c1">
-								<div class="in">
-									<a href="javascript:;" class="shop"
-										onclick="itemLinkUrl('prod', 1373, 214757, $(this)); return false;">스타일포맨</a>
-									<a href="javascript:;" class="sbj"
-										onclick="itemLinkUrl('prod', 1373, 214757, $(this)); return false;">카모
-										포인트 린넨 자켓</a> <a href="javascript:;" class="price"
-										onclick="itemLinkUrl('prod', 1373, 214757, $(this)); return false;"><strong>69,000<i>원</i></strong><s>79,000원</s></a>
-								</div>
-								<div class="pCate">
-									<p>
-										<a href="/shopping/men?cs=2100000"> 자켓 </a><a
-											href="/shopping/men?cs=2100100" class="ico-btn-1"> 블레이저</a>
-									</p>
-								</div>
-							</div>
-						</li>
-
-						<li class="item sec1 m" seq="214717">
-							<div class="img">
-								<div class="icon">
-									<p class="sale">
-										<em>할인상품</em>
-									</p>
-								</div>
-								<div class="btnSec">
-									<ul>
-										<li><a href="javascript:;" class="b1"
-											onclick="similarView($(this), 214717, 'prod'); return false;">비슷한상품</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b2"
-											onclick="favorProdSave($(this),214717); return false;">관심담기</a><em></em></li>
-										<li><a href="javascript:;" class="b3"
-											onclick="snsControl('FB', 'prod', $(this), 579); return false;">페이스북
-												공유</a><em></em></li>
-										<li class="odd"><a href="javascript:;" class="b4"
-											onclick="snsControl('TW', 'prod', $(this), 579); return false;">트위터
-												공유</a><em></em></li>
-									</ul>
-								</div>
-								<p>
-									<a href="javascript:;"
-										onclick="itemLinkUrl('prod', 579, 214717, $(this)); return false;"><img
-										src="http://img.sta1.info/_up/prod/thmb/2014/08/06/1407313127785_230x340.jpg"
-										data-original="http://img.sta1.info/_up/prod/thmb/2014/08/06/1407313127785_230x340.jpg"
-										class="itemImg" alt="" style="display: inline;"></a>
-								</p>
-							</div>
-							<div class="info c1">
-								<div class="in">
-									<a href="javascript:;" class="shop"
-										onclick="itemLinkUrl('prod', 579, 214717, $(this)); return false;">슈퍼스타아이</a>
-									<a href="javascript:;" class="sbj"
-										onclick="itemLinkUrl('prod', 579, 214717, $(this)); return false;">슬라브
-										헨리넥차이나 루즈티</a> <a href="javascript:;" class="price"
-										onclick="itemLinkUrl('prod', 579, 214717, $(this)); return false;"><strong>9,900<i>원</i></strong><s>18,000원</s></a>
-								</div>
-								<div class="pCate">
-									<p>
-										<a href="/shopping/men?cs=2010000"> 티셔츠 </a><a
-											href="/shopping/men?cs=2010400" class="ico-btn-1"> 라운드넥</a>
-									</p>
-								</div>
-							</div>
-						</li>
-
+						<li class="item sec1 w" seq="215442">	<div class="img">		<div class="btnSec">			<ul>				<li><a href="javascript:;" class="b1" onclick="similarView($(this), 215442, 'prod'); return false;">비슷한상품</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b2" onclick="favorProdSave($(this),215442); return false;">관심담기</a><em></em></li>				<li><a href="javascript:;" class="b3" onclick="snsControl('FB', 'prod', $(this), 909); return false;">페이스북 공유</a><em></em></li>				<li class="odd"><a href="javascript:;" class="b4" onclick="snsControl('TW', 'prod', $(this), 909); return false;">트위터 공유</a><em></em></li>			</ul>		</div>		<p><a href="javascript:;" onclick="itemLinkUrl('prod', 909, 215442, $(this)); return false;"><img src="http://img.sta1.info/rsc/f/i/s/load_item_1.gif" data-original="http://img.sta1.info/_up/prod/thmb/2014/08/08/1407467517236_230x340.jpg" class="itemImg" alt=""></a></p>	</div>	<div class="info c1"><div class="in">		<a href="javascript:;" class="shop" onclick="itemLinkUrl('prod', 909, 215442, $(this)); return false;">데일리먼데이</a>		<a href="javascript:;" class="sbj" onclick="itemLinkUrl('prod', 909, 215442, $(this)); return false;">플라이 롱 티셔츠</a>		<a href="javascript:;" class="price" onclick="itemLinkUrl('prod', 909, 215442, $(this)); return false;"><strong>22,000<i>원</i></strong></a>	</div>		<div class="pCate"><p><a href="/shopping/women?cs=1010000"> 티셔츠 </a><a href="/shopping/women?cs=1010500" class="ico-btn-1"> 라운드넥</a>		</p></div>	</div></li>
 
 					</ul>
 				</div>

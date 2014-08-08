@@ -24,6 +24,15 @@
 		$(window).resize(function(e) {
 			$(".itemListWid").css("width", $(window).width() - 313)
 		})
+		$()
+		$("#sidebarSec li").each(function(para) {
+			$(this).hover(function(e) {
+				$(this).find(".sub").css("top", e.pageY - 30);
+				$(this).find(".sub").show();
+			}, function(e) {
+				$(this).find(".sub").hide();
+			});
+		});
 	})
 </script>
 </head>
@@ -32,27 +41,7 @@
 		<jsp:include page="/Category/Common/top.jsp"></jsp:include>
 	</div>
 	<div id="midSec">
-		<div id="sidebarSec" class="column-left">
-			<ul>
-				<h2>메 뉴</h2>
-				<li class="li"><a href="#" title="할인쇼핑">할인쇼핑</a></li>
-				<li><a href="#" title="여성 상품">여성 상품</a></li>
-				<li><a href="#" title="여성샵 순위">여성샵 순위</a></li>
-				<li><a href="#" title="남성상품">남성 상품</a></li>
-				<li><a href="#" title="남성샾순위">남성샾 순위</a></li>
-				<li><a href="#" title="브랜드샾 대형몰 순위">브랜드샾 대형몰 순위</a></li>
-			</ul>
-			<ul>
-				<h2>정 보</h2>
-				<li class="li"><a href="#" title="공지사항">공지사항</a></li>
-				<li><a href="#" title="이벤트">이벤트</a></li>
-			</ul>
-			<ul>
-				<h2>관리자 화면</h2>
-				<li class="li"><a href="#" title="공지사항">쇼핑몰관리</a></li>
-				<li><a href="#" title="이벤트">포인트관리</a></li>
-			</ul>
-		</div>
+		<jsp:include page="/Category/Shopping/Sidebar.jsp"></jsp:include>
 		<div class="lymSec">
 			<div class="wrap">
 				<div class="itemListSec itemListWid">
