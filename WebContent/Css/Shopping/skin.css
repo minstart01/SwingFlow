@@ -51,6 +51,8 @@
 .headerSec ul li.last { margin: 0; }
 .headerGnbFix { padding-bottom: 100px; }
 
+/* #sidebarSec .menu .g7 */
+
 .gnbSec { position: relative;  background:  url("/SwingFlow/images/Shopping/gl_2_1.gif")  repeat-x bottom; background-color: #fff; z-index: 20; }
 .gnbSec .inSec { /*max-width: 1441px;*/ padding: 0 6px 0 5px; margin: 0 auto; }
 .gnbSec .lineSec { position: relative; height: 100px;  margin: 0 auto;  background:  url("/SwingFlow/images/Shopping/gl_2_2.gif")  repeat-x bottom;  }
@@ -961,3 +963,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', end
 	font-size: 1.5em;	
 }
 
+#sidebarSec li .sub {
+	display: none;
+	position: absolute;
+	width: 300px;
+	left: 200px;
+	top: 80px;
+	border: 1px solid #6f7478;
+	background-color: #fff;
+	z-index: 11;
+	background: #0043A8;
+  	background: -moz-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -o-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
+}
+ #sidebarSec li .sub a{
+	padding-top:5px;
+	padding-bottom:5px;
+	display:block;
+	text-decoration:none;	
+	font-size:16px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;	
+	 text-shadow: 1px 1px #000;
+ 	 background: transparent; 
+  	 color: #FFF;
+	 padding-left:13px;
+}
