@@ -990,3 +990,91 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', end
   	 color: #FFF;
 	 padding-left:13px;
 }
+
+/*
+========================================================================
+엣지북 뉴스  - bbs-news
+========================================================================
+*/
+
+#aboutNews{
+	padding-top: 20px;
+	padding-left: 10px;
+}
+.bbs-news{position:relative;padding:0 20px}
+.bbs-news .bbs-desc{position:absolute;top:-21px;left:40px;letter-spacing:-1px;color:#9a9a9a}
+.bbs-news .tab-w{height:27px;margin-bottom:5px;font-size:11px}
+.bbs-news .tab-w a{width:58px;height:22px;display:block;float:left;background:url(../../images/kr/common/tab_bbs_news_sum.gif) no-repeat 0 0;margin-right:4px;padding:5px 0 0 13px;}
+.bbs-news .tab-w .tab-news-off{background-position:0px 0}
+.bbs-news .tab-w .tab-news-on{background-position:0px -27px}
+.bbs-news .tab-w span{color:#ffffff}
+
+	/* 뉴스 리스트 */
+	/* 뉴스 뷰 */
+	.bbs-news #newsView{color:#444}
+	/* 게시판 상세 - ver-bbs-view01 */
+	.bbs-news #newsView .ver-bbs-view01{border-top:2px solid #e2e2e2;border-bottom:1px solid #e2e2e2}
+	.bbs-news #newsView .ver-bbs-view01 .bg-gray{padding:7px 0px 6px;background:#f2f2f2}
+	.bbs-news #newsView .ver-bbs-view01 .td-body{padding:20px 15px}
+	.bbs-news #newsView .ver-bbs-view01 dl dt, .ver-bbs-view01 dl dd{float:left}
+	.bbs-news #newsView .ver-bbs-view01 dl dt{width:55px;font-weight:bold}
+	.bbs-news #newsView .ver-bbs-view01 dl dd{background:url(../../images/kr/common/bull_news_tit_div.gif) 0 5px no-repeat;width:150px;padding-left:27px}
+	.bbs-news #newsView .bbs-btn-wrap{text-align:right;font-size:0;line-height:0;margin-top:10px}
+	.bbs-news #newsView .bbs-btn-wrap a{margin-left:5px;font-size:0;line-height:0}
+
+	/* page */
+.page-hd{zoom:1;padding-top:16px;border-bottom:2px solid #ececec}
+.page-hd h2{zoom:1;overflow:hidden;font-size:0;line-height:0;border-bottom:1px solid #d9d9d9}
+.page-hd h2 .tit,
+.page-hd h2 .helper{display:inline;float:left;width:auto}
+.page-hd h2 .tit{margin-left:18px;height:18px;margin-right:10px;padding-bottom:13px;font-size:16px;line-height:18px;font-weight:bold;letter-spacing:-2px;color:#3c3d3f}
+.page-hd h2 strong{font-size:16px;line-height:18px;color:#F00B68}
+.page-hd h2 .count,
+.page-hd h2 .txt{position:relative;float:left;top:2px;font-size:12px;line-height:1.5}
+.page-hd h2 .coupon{margin-right:3px}
+
+.page-girl .page-hd h2 .count{color:#f60a6c}
+.page-man .page-hd h2 .count{color:#3753f4}
+.page-missy .page-hd h2 .count{color:#ff900b}
+.page-cosmetics .page-hd h2 .count{color:#1caa6e}
+.page-underwear .page-hd h2 .count{color:#9b23fd}
+.page-shoes .page-hd h2 .count{color:#fd3d63}
+.page-bag .page-hd h2 .count{color:#288bfd}
+.page-jewellery .page-hd h2 .count{color:#646464}
+
+/* 게시판 paging */
+.paging{padding-top:20px;height:17px;text-align:center}
+.paging li{display:inline;font-size:0;line-height:0}
+.paging li a{display:inline-block;width:auto;height:12px;padding:0 7px;vertical-align:top;color:#010101;font-size:14px;line-height:110%;cursor:pointer}
+.paging li a:hover,
+.paging li.now a{font-weight:bold;color:#000;letter-spacing:-1px;text-decoration:none}
+.paging li.now a{cursor:default}
+.paging .pre01 a,
+.paging .pre02 a,
+.paging .next01 a,
+.paging .next02 a{overflow:hidden;width:15px;height:11px;margin-right:3px;margin-top:2px;padding:0;background:#fff url(../../images/kr/btn/btn_paging.gif) no-repeat 0 50%}
+.paging .pre02 a ,
+.paging .next02 a{width:11px}
+.paging .next02 a{margin-left:5px}
+.paging a span{visibility:hidden}
+.paging .pre01 a{background-position:0 0}
+.paging .pre02 a{margin-right:8px;background-position:-15px 0}
+.paging .next01 a{background-position:-37px 0}
+.paging .next02 a{margin-left:8px;background-position:-26px 0}
+
+/* table */
+.table-w{font-size:14px}
+.table-w img{vertical-align:middle}
+.tb-left,
+.tb-center,
+.tb-right{padding:0 5px}
+.tb-left, .tb-l{text-align:left}
+.tb-center, .tb-c{text-align:center}
+.tb-right,.tb-r{text-align:right}
+.tbl-type1{border:1px solid #e2e2e2}
+.tbl-type1 th,
+.tbl-type1 td{padding:7px 0px 6px;border-bottom:1px solid #e2e2e2}
+.tbl-type1 thead th{color:#666;background:#f8f8f8;border-top:2px solid #dadada}
+.tbl-type1 tbody th{color:#666;background:#F2F2F2}
+.tbl-type1 td{color:#212121}
+	

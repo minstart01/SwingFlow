@@ -302,25 +302,25 @@
 		</ul>
 		<ul class="info">
 			<h2>정 보</h2>
-			<li><a href="#" title="공지사항">공지사항</a>
+			<li><a href="/SwingFlow/Category/Shopping/Board/Board.jsp#" title="공지사항">공지사항</a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
-							<a href="" cate="400">공지사항 등록</a>
+							<a href="/SwingFlow/Category/Shopping/Board/Board.jsp#" cate="400">공지사항 등록</a>
 						</dd>
 						<dd>
-							<a href="" cate="401">공지사항 조회</a>
+							<a href="/SwingFlow/Category/Shopping/Board/Board.jsp#" cate="401">공지사항 조회</a>
 						</dd>
 					</dl>
 				</div></li>
-			<li><a href="#" title="이벤트">이벤트</a>
+			<li><a href="/SwingFlow/Category/Shopping/Board/Event.jsp#" title="이벤트">이벤트</a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
-							<a href="" cate="400">이벤트 등록</a>
+							<a href="/SwingFlow/Category/Shopping/Board/Event.jsp#" cate="400">이벤트 등록</a>
 						</dd>
 						<dd>
-							<a href="" cate="401">이벤트 조회</a>
+							<a href="/SwingFlow/Category/Shopping/Board/Event.jsp#" cate="401">이벤트 조회</a>
 						</dd>
 					</dl>
 				</div></li>
