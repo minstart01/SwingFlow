@@ -61,7 +61,7 @@
 <nav id="sidebar" class="column-left">
 		<ul>
         <h2>항공권 예매</h2>
-			<li class="li"><a href="#">국제선</a></li>
+			<li class="li"><a href="R1_Regist.jsp">국제선</a></li>
 			<li><a href="#">예약조회</a></li>
 		</ul>
 		<ul>

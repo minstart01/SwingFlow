@@ -62,7 +62,7 @@
 <!--       <li><a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/ourwork.html">JOIN</a></li> -->
 <!--       <li><a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/testimonials.html">MY PAGE</a></li> -->
 <!--       </ul> -->
-      <h3>  HOME &gt; AIRLINE Service    </h3>
+      <h3>  AIRLINE Service    </h3>
       
       </div>
       <!--close header-->	
@@ -78,7 +78,7 @@
       <div id="content">
       <div class="content_photo">
         <div class="content_image">
-		  <a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/Main.html#"><img style=" border: 10px solid #FFF;" alt="image" src="../../images/Airline/m1.png"></a>
+		  <a href="R1_Regist.jsp"><img style=" border: 10px solid #FFF;" alt="image" src="../../images/Airline/m1.png"></a>
 		  <div class="content_text">
 		    <h2>항공권 예매</h2>
 		     <p>국내선, 국제선 항공권 예매가 가능합니다.
