@@ -24,8 +24,8 @@
     </div>
     </div>
      <div id="social">
-    	<a href="#"><img src="../../images/Main/facebook.gif" width="33" height="33" alt="Facebook"></a>
-        <a href="#"><img src="../../images/Main/twitter.gif" width="33" height="34" alt="Twitterz"></a>
+    	<a href="#"><img src="/SwingFlow/images/Main/facebook.gif" width="33" height="33" alt="Facebook"></a>
+        <a href="#"><img src="/SwingFlow/images/Main/twitter.gif" width="33" height="34" alt="Twitterz"></a>
     </div>
     </div>
 </footer>
