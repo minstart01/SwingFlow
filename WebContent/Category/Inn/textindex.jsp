@@ -24,7 +24,7 @@
 		
 	}
 .read{
-	background: url:
+	background: url(../../images/Inn/go.jpg)
 	}	
 </style>
 </head>
