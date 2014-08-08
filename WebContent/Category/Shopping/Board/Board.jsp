@@ -69,11 +69,11 @@
 								<table border="0" class="tbl-type1">
 									<caption> 뉴스</caption>
 									<colgroup>
-										<col width="50">
-										<col width="100">
+										<col width="70">
+										<col width="120">
 										<col width="*">
-										<col width="100">
-										<col width="100">
+										<col width="120">
+										<col width="120">
 									</colgroup>
 									<thead>
 										<tr>

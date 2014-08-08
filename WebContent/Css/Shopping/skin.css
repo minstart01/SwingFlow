@@ -1001,7 +1001,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', end
 	padding-top: 20px;
 	padding-left: 10px;
 }
-.bbs-news{position:relative;padding:0 20px}
+.bbs-news{position:relative;padding:0 20px;  width:980px;}
 .bbs-news .bbs-desc{position:absolute;top:-21px;left:40px;letter-spacing:-1px;color:#9a9a9a}
 .bbs-news .tab-w{height:27px;margin-bottom:5px;font-size:11px}
 .bbs-news .tab-w a{width:58px;height:22px;display:block;float:left;background:url(../../images/kr/common/tab_bbs_news_sum.gif) no-repeat 0 0;margin-right:4px;padding:5px 0 0 13px;}
@@ -1065,6 +1065,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', end
 /* table */
 .table-w{font-size:14px}
 .table-w img{vertical-align:middle}
+table{width:100%;border-collapse:collapse;border-spacing:0;table-layout:fixed;word-wrap:break-word;word-break:keep-all}
 .tb-left,
 .tb-center,
 .tb-right{padding:0 5px}
