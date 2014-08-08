@@ -9,7 +9,6 @@
 <style>
 #wrapper{
 	 
-		height: 850px;
 		width:1250px;
 		clear:both;
 		
@@ -123,8 +122,8 @@
 	<div id="poster">
 	<img src="/SwingFlow/images/Movie/Main/poster.png" width="900" alt="포스터"/>
 </div>
-<div id="logo" align="center">
-	<img src="/SwingFlow/images/Movie/Main/logo.png" alt="로고"/>
+<div id="logo" align="center"><a href="#">
+	<img src="/SwingFlow/images/Movie/Main/logo.png" alt="로고"/></a>
 </div>
  	<section>
 	<article id="main_rank"><p>영화예매순위</p>

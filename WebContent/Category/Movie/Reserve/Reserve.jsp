@@ -8,7 +8,7 @@
 <style>
 #wrapper{
 	
-		height:950px;
+		
 		width:850px;
 		clear:both;
 		
@@ -43,6 +43,13 @@
 <jsp:include page="/Category/Movie/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
+	<div id="poster">
+	<img src="/SwingFlow/images/Movie/Main/poster.png" width="900" alt="포스터"/>
+</div>
+<div id="logo" align="center"><a href="/SwingFlow/Category/Movie/Index.jsp">
+	<img src="/SwingFlow/images/Movie/Main/logo.png" alt="로고"/></a>
+</div>
+
 	<div id="movie_img"><img src="/SwingFlow/images/Movie/Reserve/movie.gif" alt="영화선택"/></div>
     <div id="theater_img"><img src="/SwingFlow/images/Movie/Reserve/theater.gif" alt="극장선택"/></div>
     <div id="date_img"><img src="/SwingFlow/images/Movie/Reserve/date.gif" alt="극장선택"/></div>
