@@ -18,7 +18,7 @@
 	top:30px;
 	left: 275px;
 	width: 950px;
-	
+
 		
 }	
 #main_reserve div{
@@ -184,7 +184,7 @@
     </article>
 	<article id="main_login">
 	<br /><br />
-		<input type="text" id="id" placeholder="아이디">	
+		<input type="text" id="id" placeholder="아이디" autofocus>	
 		<input type="password" id="password" placeholder="비밀번호">
         <input type="submit" value="로그인" id="bt_login">
 		<div id="join">
@@ -252,6 +252,7 @@
 <img src="/SwingFlow/images/Movie/Main/footer_award07.gif" width="112" alt="수상"/>
 <img src="/SwingFlow/images/Movie/Main/footer_award08.gif" width="112" alt="수상"/>
 </div>
+
 
 </div>
 </div>

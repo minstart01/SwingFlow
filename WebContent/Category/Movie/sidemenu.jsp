@@ -11,6 +11,7 @@
 	padding-top:20px;
 	padding-bottom:20px;
 	width:250px;
+	position:relative;
 
 	
 	background: #0043A8;
