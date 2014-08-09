@@ -74,15 +74,26 @@
             <td class="input_td"><input type="text" size="30"/><input type="button" value="찾기" /></td>
         </tr>
         <tr>
-        	<td width="100" align="center"> <label for="pay">요금</label></td>
+        	<td width="100" align="center"><label for="theater">관람등급</label></td>
+            <td class="input_td">
+            	<select>
+                	<option>전체 관람가</option>
+                    <option>12세이상 관람가</option>
+                    <option>15세이상 관람가</option>
+                    <option>청소년관람불가</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+        	<td width="100" align="center"> <label for="pay">관람요금</label></td>
             <td class="input_td"><input type="text" size="30" /></td>
         </tr>
          <tr>
-        	<td width="100" align="center"><label for="date">관람일</label></td>
+        	<td width="100" align="center"><label for="date">상영기간</label></td>
             <td class="input_td"><input type="date" />&nbsp;~&nbsp;<input type="date" /></td>
         </tr>
          <tr>
-        	<td width="100" align="center"><label for="time">시간</label></td>
+        	<td width="100" align="center"><label for="time">상영시간</label></td>
             <td class="input_td">
             <select>
             	<option>1</option>
