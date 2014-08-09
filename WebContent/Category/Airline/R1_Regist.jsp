@@ -32,7 +32,7 @@
 	
 		
 }
-header, section, article, footer, nav, aside {
+header, section, article, nav, aside {
 	display: block;
 }
 #containerBox #container #containerBody {
@@ -2962,5 +2962,5 @@ caption, legend, #accessibility, .hidden {
 
 							
   </div>
-</form> <%@include file="../Common/footer.jsp" %></body>
+</form></div></div> <%@include file="../Common/footer.jsp" %></body>
 </html>

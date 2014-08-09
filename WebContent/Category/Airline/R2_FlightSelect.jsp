@@ -2330,11 +2330,8 @@ table
 
 <section id="containerBody">
 						
-<h3 class="h3_type01">
- 국제선 예매
-</h3>
-
-						
+<h3 class="h3_type01"> 국제선 예매</h3>
+					
 <ul class="rv_stepBox">
   <li class="step02_on">
     <p class="hidden">
@@ -2398,15 +2395,7 @@ table
    
    								
   </div>
-  
-  								
-  <!-- //선택한 여정 --><!-- 											</tbody>
-  										</table>
-  									</div>
-  								</div> -->
-  
-  								
-  <div class="tableBox02">
+<div class="tableBox02">
     
     
     <h4 class="h4_type01">
@@ -2897,18 +2886,6 @@ table
    <div class="priceInner">
     
     									
-    <div class="h4_type01Box">
-     
-     										
-     <h4>
-      예상 총액 운임
-     </h4>
-     
-     										<span class="btnType06 btn_CpopupLayer" id="btnCurrencyCalcurate" style="cursor: pointer;"><a href="#none">환율 계산기</a></span>
-     									
-    </div>
-    
-    									
     <div class="listCt">
      
      
@@ -3086,16 +3063,7 @@ table
    </li>
    
    							
-  </ul>
-  
-
-  
-  						
+  </ul>						
  </div>
- 
- 					
 </div>
-
-			
-
 </section></div></div></div></section></div></form></body></html>
