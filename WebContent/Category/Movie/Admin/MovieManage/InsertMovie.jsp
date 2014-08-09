@@ -14,7 +14,7 @@
 		
 	}
 #main_content{
-	
+	border:1px solid black;
 	position:absolute;
 	top:30px;
 	left: 275px;
@@ -23,14 +23,14 @@
 }
 
 .insert_title{
-	margin-left:50px;	
+	margin-left:10px;	
 	margin-top:15px;
 }
 
 
 .div_table table
 {
-	margin:10px 0 0 50px;	
+	margin:10px 0 0 10px;	
 }
 .input_td{
 	padding: 5px 5px 5px 5px;	
@@ -83,12 +83,33 @@
         </tr>
          <tr>
         	<td width="100" align="center"><label for="time">시간</label></td>
-            <td class="input_td"><input type="time"  /><input type="button" value="추가"/></td>
+            <td class="input_td">
+            <select>
+            	<option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+            :
+            <select>
+            	<option>10</option>
+                <option>20</option>
+                <option>30</option>
+                <option>40</option>
+                <option>50</option>
+                </select>
+            <input type="button" value="추가"/></td>
         </tr>
     </table>
     <div class="div_button">
 	<input type="submit" value="등록하기" />
-  	<input type="reset" value="뒤로가기" />
+  	<input type="button" value="뒤로가기" />
 	</div>
 
 </div>
@@ -97,5 +118,4 @@
 
 </body>
 
-</body>
 </html>
