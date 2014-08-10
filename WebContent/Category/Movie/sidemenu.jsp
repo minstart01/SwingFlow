@@ -11,8 +11,8 @@
 	padding-top:20px;
 	padding-bottom:20px;
 	width:250px;
-	position:relative;
-
+/* 	position:relative; */
+	float:left;
 	
 	background: #0043A8;
   	background: -moz-linear-gradient(#43A9FF, #0043A8);
@@ -62,7 +62,7 @@
 <nav id="sidebar" class="column-left">
 		<ul>
         <h2>영화</h2>
-			<li class="li"><a href="#">박스오피스</a></li>
+			<li class="li"><a href="/SwingFlow/Category/Movie/Movies/BoxOffice.jsp">박스오피스</a></li>
 			<li><a href="#">현재상영작</a></li>
 			<li><a href="#">영화정보</a></li>
 			<li><a href="#">뉴스</a></li>
