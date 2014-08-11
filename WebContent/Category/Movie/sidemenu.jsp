@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <style>
 #sidebar{
 	
@@ -63,14 +64,14 @@
 		<ul>
         <h2>영화</h2>
 			<li class="li"><a href="/SwingFlow/Category/Movie/Movies/BoxOffice.jsp">박스오피스</a></li>
-			<li><a href="#">현재상영작</a></li>
+			<li><a href="/SwingFlow/Category/Movie/Movies/NowMovie.jsp">현재상영작</a></li>
 			<li><a href="#">영화정보</a></li>
 			<li><a href="#">뉴스</a></li>
 		</ul>
 		<ul>
 		<h2>예매</h2>
 			<li class="li"><a href="/SwingFlow/Category/Movie/Reserve/Reserve.jsp">예매하기</a></li>
-		  	<li><a href="#">예매확인/취소</a></li>
+		  	<li><a href="/SwingFlow/Category/Movie/Reserve/ReserveCheck.jsp">예매확인/취소</a></li>
 			 <li><a href="#">상영시간표</a></li>
 			 
 		</ul>
@@ -82,7 +83,7 @@
 		</ul>
 		<ul>
 		<h2>고객센터</h2>
-			<li class="li"><a href="#">공지사항</a></li>
+			<li class="li"><a href="/SwingFlow/Category/Movie/Support/Notice.jsp">공지사항</a></li>
 		  	<li><a href="#">이용안내</a></li>
 		  	<li><a href="#">Q&A</a></li>
 		  	<li><a href="#">단체관람문의</a></li>
