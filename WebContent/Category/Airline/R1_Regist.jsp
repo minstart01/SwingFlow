@@ -9,11 +9,54 @@
  <link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  
   <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+
   <script>
   $(function() {
     $( "#radio" ).buttonset();
   });
+  
+  function _cal_arrival_reset(tripType) {
+		if (tripType == "OW") {
+//			$jQ('#'+__strEDateField).val("");
+//			$jQ('#__strEDate').val("");
+//			$jQ('#'+__strEDateVArea).text("");
+			$jQ('[id^="E_"]').each(function() {
+				if ($jQ(this).hasClass('click')) {
+					$jQ(this).removeClass('click');
+					$jQ(this).addClass('hover');
+				}
+			});
+			$jQ('#CalendarBox').addClass('oneWay');
+			$jQ('#eCalArea').hide();
+			$jQ('.boxType01.reType02 .getIn').hide();
+
+			_tripType = tripType;
+
+		} else {
+			$jQ('.boxType01.reType02 .getIn').show();
+			$jQ('#eCalArea').show();
+			$jQ('#CalendarBox').removeClass('oneWay');
+
+			_tripType = tripType;
+		}
+	}
+$(function(){
+	$('#radio2').click(function(){
+		$('#getIn01').hide();
+	});
+});
   </script>
 </head>
 <style>
@@ -1497,31 +1540,15 @@ caption, legend, #accessibility, .hidden {
 									<ul class="list-choice">
 									  <div id="radio">
 
-    <input type="radio" id="radio1" name="radio"><label for="radio1"><strong>왕 복</strong></label>
+    <input type="radio" id="radio1" name="radio"><label for="radio1">왕 복</label>
 
-    <input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2"><strong>편 도</strong></label>
+    <input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">편 도</label>
+
+
 
   </div>
 									</ul>
-									
-									<ul class="RCul-type-1" id="openjawHelp" style="display: none;">
-									  <li>도착지와 연결되는 출발지가 다른 여정, 또는 출발지와 도착지가 다른 여정을 선택하실 수 있습니다.(open-jaw trip)</li>
-										<li>
-											유형 1) 출발 : 인천 - 나리타 / 도착 : 오사카 - 인천<br>
-											유형 2) 출발 : 인천 - 베이징 / 도착 : 베이징 - 부산
-										</li>
-								  </ul>
-									
-									<!-- 20130726 추가 -->
-									<ul class="RCul-type-1" id="multiCityHelp" style="display: none;">
-										<!--CR4-2 문구추가-->
-										<li>다구간 예약은 목적까지 1개 이상의 도시에서 체류 (STOPOVER)하는 경우에 해당하며 (예 제주-인천-뉴욕-보스턴-인천)<br> 한국출발 일정은 최대 6개 구간까지 선택하실 수 있습니다.</li>
-										<li>부산↔인천노선은 환승 전용 내항기로 서울에서 체류(STOPOVER) 할 수 없으며, 인천공항밖으로 나올수 없으므로 다구간에서는 구매하실 수 없습니다.</li>
-										<!--CR4-2 문구추가-->
-										
-										<!-- <br><span class="plan-btnType-3"> [ <a href="#none" id="targetOJ">출국/귀국편 출발지역이 다른 여정 바로가기</a> ]</span> -->
-										</li>
-									</ul>
+
 									<!-- //20130726 추가 -->
 									<div class="boxType01 reType00" id="tripTypeSame">
 										<div class="takeOff restore">
@@ -1678,46 +1705,7 @@ caption, legend, #accessibility, .hidden {
 										<div class="getIn">
 											<div class="tTitle">
 												<strong>출국 시 도착</strong>
-												<!--
-												<div class="chBoxRight width-type-1" style="text-align:right;">
-													<script>
-													$jQ(document).ready(function(){
-														// 도움말 Layer
-														$jQ('.Js-help').mouseover(function(){
-															$jQ(this).next().css({"top":"-7px"});
-														});
-														$jQ('.Js-help').mouseleave(function(){
-															$jQ(this).next().css({"top":"-10000px"});
-														});
-														$jQ('.Js-help').focusin(function(){
-															$jQ(this).next().css({"top":"-7px"});
-														});
-														$jQ('.Js-help').focusout(function(){
-															$jQ(this).next().css({"top":"-10000px"});
-														});
-													});
-	
-													</script>
-													<span class="btnType17" id="openJawType02"><a href="#none">왕복여정 조회하기</a></span>
-													<div class="tripBox">
-														<a id="IDhover" href="#none" class="Js-help"><img class="imgHover" alt="도착 도움말" src="/images/bl/bl_help.gif"></a>
-														<div class="hoverBox" id="IDhoverOpen">
-															<div class="hoverInner">
-																<div class="hoverCt" style="text-align:left;">
-																	<p class="tripTitle"><strong>기타 여정(open-jaw trip)</strong></p>
-																	<p class="tripSubT">도착지와 연결되는 출발지가 다른 여정 또는 출발지와 도착지가 다른 여정을 선택할 수 있습니다. </p>
-																	<dl class="dType">
-																		<dt>- 유형 1)</dt>
-																		<dd>출발 : 인천 - 나리타 / <br>도착 : 오사카 - 인천 </dd>
-																		<dt>- 유형 2)</dt>
-																		<dd>출발 : 인천 - 베이징 / <br>도착 : 베이징 - 부산</dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												-->
+											
 											</div>
 											<div>
 												<div class="selectBox">
@@ -1841,7 +1829,7 @@ caption, legend, #accessibility, .hidden {
 											  <a class="btn_close2" href="javascript:_cal_close('nextCalendarFocusA');"></a>
 											</div>
 									  </div>
-										<div class="getIn">
+										<div class="getIn" id="getIn01">
 											<div class="tTitle">
 												<p><strong>오는 날</strong></p>
                                             </div>
@@ -2012,237 +2000,12 @@ caption, legend, #accessibility, .hidden {
 									</div>
 									<!-- 다구간 출/도착 End -->
 
-									<!-- 다구간 여정구간 추가 Start -->
-									<div class="manyBox" id="div_add_multi_segment" style="display: none;">
-										<div class="addBox">
-											<span class="Sbtn_TType04_2" id="btn_add_segment"><a href="#none">여정구간 추가</a></span>
-											<span class="intext">* 최대 6 구간까지 가능</span>
-										</div>
-										<!-- 6 구간일 경우 -->
-										<div class="fullIntro" style="display: none;">
-											<span class="point">* 홈페이지를 통한 다구간 여정은 최대 6 구간만 예약 가능합니다.</span><br>
-											초과 구간 예약을 원하시는 경우 고객센터(1588-8000) 또는 대리점, 지점에 문의하시기 바랍니다.[ <a class="btnLink" href="#none">전국 아시아나 대리점 및 지점 안내</a> ]
-										</div>
-									</div>
-									<!-- 다구간 여정구간 추가 End -->
+
 
 									<!-- 다구간 여정 처리 Script Start -->
 
 								  <script type="text/javascript">
-									//<![CDATA[
-
-										//**********************************************************************************************************************************************************
-										// 다구간 출/도착 지역 기본 설정
-										//**********************************************************************************************************************************************************
-										$jQ(document).ready(function () {
-											
-											//CR4 수정건 
-											//- First Row Setting
-											//setMultiSegmentDepArr("hid_MT_DepArea1", "hid_MT_DepAirport1", "", "hid_MT_ArrArea1", "hid_MT_ArrAirport1", "txt_MT_ArrAirport1", "", "btn_MT_ArrAirport1");
-											setMultiSegmentDepArr("hid_MT_DepArea1", "hid_MT_DepAirport1", "txt_MT_DepAirport1", "hid_MT_ArrArea1", "hid_MT_ArrAirport1", "txt_MT_ArrAirport1", "btn_MT_DepAirport1", "btn_MT_ArrAirport1");
-											
-											//Second Row  Setting
-											setMultiSegmentDepArr("hid_MT_DepArea2", "hid_MT_DepAirport2", "txt_MT_DepAirport2", "hid_MT_ArrArea2", "hid_MT_ArrAirport2", "txt_MT_ArrAirport2", "btn_MT_DepAirport2", "btn_MT_ArrAirport2");
-										});
-
-										var getRowSeqNo = function(baseId) {
-											return Number(baseId.replace(/[_a-zA-Z]/g, ""));
-										};
-
-										
-										var initMultiSegRule = function(baseId) {
-											
-											// 미국 취항지 노선 (로스앤젤레스,샌프란시스코,뉴욕,시애틀,시카고,하와이)
-											var directUsList = "LAX,SFO,JFK,SEA,ORD,HNL".split(",");
-											
-											//CR4 추가시작
-											// 유럽 취항지 노선 (런던(LHR) ,이스탄불(IST),파리(CDG),프랑크푸르트(FRA) )-
-											var directEuList = "LHR,IST,CDG,FRA".split(",");
-											//CR4 추가끝
-
-											var rule = {};
-											rule.depOnlyArea      = new Array();
-											rule.depOnlyAirport   = new Array();
-											rule.depExceptArea    = new Array();
-											rule.depExceptAirport = new Array();
-
-											rule.arrOnlyArea      = new Array();
-											rule.arrOnlyAirport   = new Array();
-											rule.arrExceptArea    = new Array();
-											rule.arrExceptAirport = new Array();
-
-											rule.rowSeqNo = getRowSeqNo(baseId);
-
-											rule.hasNextPhase = true;
-
-
-											rule.addOnParam = "";
-
-											rule.depAirportId = "hid_MT_DepAirport" + rule.rowSeqNo;
-											rule.arrAirportId = "hid_MT_ArrAirport" + rule.rowSeqNo;
-
-											rule.depAreaId = "hid_MT_DepArea" + rule.rowSeqNo;
-											rule.arrAreaId = "hid_MT_ArrArea" + rule.rowSeqNo;
-
-											rule.depAirport = $jQ("#" + rule.depAirportId).val();
-											rule.arrAirport = $jQ("#" + rule.arrAirportId).val();
-
-											rule.depArea = $jQ("#" + rule.depAreaId).val();
-											rule.arrArea = $jQ("#" + rule.arrAreaId).val();
-
-											
-											
-											if (rule.rowSeqNo == 1) {
-												rule.depInitAirport = "ICN";
-												//rule.depTargetArea = "KR";
-												//rule.depOnlyArea = "KR";
-
-												//rule.depOnlyAirport.push("GMP");
-												//rule.depOnlyAirport.push("ICN");
-												
-												rule.arrInitAirport = "NRT";
-
-												rule.addOnParam = "ARR|D|KR|||";
-
-											} else {
-
-												//CR4 추가코드
-												if (rule.rowSeqNo == 3) {
-													rule.addOnParam = "ARR|D|KR|||";	
-												}
-												
-												// 이전 Seg의 상태값을 알고 있어야 적용 가능한 로직들이 존재함
-												var prevRowSeqno = rule.rowSeqNo - 1;
-												var prevDepAirport = $jQ("#hid_MT_DepAirport" + prevRowSeqno).val();
-												var prevArrAirport = $jQ("#hid_MT_ArrAirport" + prevRowSeqno).val();
-
-												var prevDepArea = $jQ("#hid_MT_DepArea" + prevRowSeqno).val();
-												var prevArrArea = $jQ("#hid_MT_ArrArea" + prevRowSeqno).val();
-
-												// 최종 Seg 여부를 확인해야 함
-												var manyBoxLen = $jQ("div[id^=div_Multi_DepArr]").length;
-												rule.isLastSeg = manyBoxLen == rule.rowSeqNo ? true : false;
-
-												// 이전 여정이 국내선 구간일 경우 여정이 종료됨을 의미함
-												if ((prevDepArea == "KR" && prevArrArea == "KR") && rule.rowSeqNo > 2) {
-													rule.hasNextPhase = false;
-												}
-
-												
-												// CR4-2 해외출발 이고  이전 여정 도착이 국제선 구간일 경우 여정이 종료됨을 의미함
-												if (($jQ("#hid_MT_DepArea1").val()!="KR" && prevArrArea != "KR") && rule.rowSeqNo > 2) {
-													rule.hasNextPhase = false;
-												}
-												
-												  
-												//이전 Seg 여정이 국내선일 경우 출발지는 해당 공항에서만 출발이 가능함 (OJ 불가)
-												//CR4 수정- 국내출발인 경우만 적용
-												if (prevDepArea == "KR" && prevArrArea == "KR" && $jQ("#hid_MT_DepArea1").val() == "KR") {
-													
-													rule.depOnlyAirport.push(prevArrAirport);
-													
-													if (prevArrAirport == "GMP" || prevArrAirport == "ICN") {
-														rule.depOnlyAirport.push("GMP");
-														rule.depOnlyAirport.push("ICN");
-													}
-												}
-
-												// 마지막 여정이 국내선일 경우 해당 공항에서만 출발이 가능함 
-												if (prevDepArea != "KR" && prevArrArea == "KR") {
-													if (prevArrAirport == "GMP" || prevArrAirport == "ICN") {
-														rule.depOnlyAirport.push("GMP");
-														rule.depOnlyAirport.push("ICN");
-													}
-
-													rule.depOnlyAirport.push(prevArrAirport);
-
-													rule.arrOnlyArea.push("KR");
-													rule.addOnParam = "ARR|D|KR|||";
-												}
-												
-												
-												// CR4 추가- 해외발 여정의 이전여정의 출도착이 국내선이고 현재여정이 3번째 여정이면 출도착지 한국으로 한정 06/30
-												if (rule.rowSeqNo == 3 &&  prevDepArea == "KR" && prevArrArea == "KR" && $jQ("#hid_MT_DepArea1").val() != "KR") {
-													if (prevArrAirport == "GMP" || prevArrAirport == "ICN") {
-														rule.depOnlyAirport.push("GMP");
-														rule.depOnlyAirport.push("ICN");
-													}
-
-													rule.arrOnlyArea.push($jQ("#hid_MT_DepArea1").val());
-													rule.addOnParam = "ARR|I|" + $jQ("#hid_MT_DepArea1").val() + "|||";														
-
-													rule.arrOnlyArea.push("KR");
-													rule.addOnParam = "ARR|D|KR|||";
-												}
-												
-												
-												// CR4-2 추가 -해외발 여정의 2이상 여정의 도착지 대구간은 출발지는 1seg 대구간으로 설정한다
-												if (rule.rowSeqNo > 1 && $jQ("#hid_MT_DepArea1").val() != "KR"  ) {
-													rule.arrOnlyArea.push($jQ("#hid_MT_DepArea1").val());
-													
-													if (prevArrAirport == "GMP" || prevArrAirport == "ICN") {
-														rule.depOnlyAirport.push("GMP");
-														rule.depOnlyAirport.push("ICN");
-													}
-												}											
-
-												
-												//<<---- 미주 구간 룰 정의 시작
-													if (prevDepArea == "KR" && prevArrArea == "US") {
-														rule.depOnlyArea.push("US");
-
-														var isPrevArrDirectUs = _.indexOf(directUsList, prevArrAirport) >= 0;
-														var isDepDirectUs = _.indexOf(directUsList, rule.depAirport) >= 0;
-
-														if (isPrevArrDirectUs && isDepDirectUs) {
-															if (prevArrAirport == rule.depAirport) {
-																rule.arrOnlyArea.push("KR");
-
-																rule.addOnParam = "DEP|I|US|||" + directUsList.join(",");
-															} else {
-																rule.arrOnlyArea.push("KR");
-															}
-														} else if (isPrevArrDirectUs && !isDepDirectUs) {
-															rule.arrOnlyArea.push("KR");
-
-															rule.addOnParam = "DEP|I|US|" + directUsList.join(",") + "||";
-														} else if (!isPrevArrDirectUs && isDepDirectUs) {
-															rule.arrOnlyArea.push("KR");
-
-														} else {
-															rule.arrOnlyArea.push("KR");
-															rule.addOnParam = "DEP|I|US|" + directUsList.join(",") + "||";
-														}
-
-													} else if (prevDepArea == "US" && prevArrArea == "US") {
-
-														var isPrevDepDirectUs = _.indexOf(directUsList, prevDepAirport) >= 0;
-														var isPrevArrDirectUs = _.indexOf(directUsList, prevArrAirport) >= 0;
-														var isDepDirectUs = _.indexOf(directUsList, rule.depAirport) >= 0;
-
-														if (isPrevDepDirectUs && !isPrevArrDirectUs) {
-															rule.depOnlyArea.push("US");
-
-															if (isDepDirectUs) {
-																rule.arrOnlyArea.push("KR");
-															} else {
-																rule.arrOnlyArea.push("KR");
-
-																rule.addOnParam = "DEP|I|US|" + directUsList.join(",") + "||";
-															}
-
-														} else if (!isPrevDepDirectUs && isPrevArrDirectUs) {
-															rule.depOnlyAirport.push(prevArrAirport);
-
-															rule.arrOnlyArea.push("KR");
-														}
-													} else if (prevDepArea == "US" && prevArrArea == "KR") {
-														rule.depOnlyAirport.push(prevArrAirport);
-
-														rule.arrOnlyArea.push("KR");
-														rule.addOnParam = "ARR|D|KR|||";
-													}
-												//---->> 미주 구간 룰 정의 종료
+									
 
 												
 												//CR4 추가시작
@@ -2804,35 +2567,7 @@ caption, legend, #accessibility, .hidden {
 											setMultiSegmentDepArr(hid_MT_DepArea, hid_MT_DepAirport, txt_MT_DepAirport, hid_MT_ArrArea, hid_MT_ArrAirport, txt_MT_ArrAirport, btn_MT_DepAirport, btn_MT_ArrAirport);
 										});
 
-
-										//**********************************************************************************************************************************************************
-										// 구간제외 버튼을 클릭한 경우. (동적으로 생성된 element 처리를 위해 event를 줄때 on function을 사용한다.)
-										//**********************************************************************************************************************************************************
-										$jQ(document).on('click','.exemption a',function(addEvent) {
-											$jQ(this).parents('.manyBox').remove();
-											renumberOfMultiSeg();
-
-											// 삭제한 이후의 여정의 갯수가 5개인 경우 - '여정 추가' div 구성
-											if ($jQ('div[id^=div_Multi_DepArr]').length == 5) {
-												$jQ('#div_add_multi_segment .addBox').css("display", "block");
-												$jQ('#div_add_multi_segment .fullIntro').css("display", "none");
-											}
-
-											var lastManyBox  = $jQ('div[id^=div_Multi_DepArr]').last();
-											$jQ(lastManyBox).find(".exemption").show();
-										});
-
-										//**********************************************************************************************************************************************************
-										// 다구간 여정선택의 Row번호들을 다시 설정한다.
-										//**********************************************************************************************************************************************************
-										var renumberOfMultiSeg = function() {
-											$jQ("div[id^=div_Multi_DepArr]").each(function(idx) {	// id가 div_add_multi_segment 아닌 모든 manyBox 선택
-												var rowNumber = idx + 1;
-												var manyBox = $jQ(this);
-
-												$jQ(manyBox).find("span").first().html(rowNumber);
-											});
-										};
+										
 
 									//]]>
 									</script>
