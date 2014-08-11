@@ -22,8 +22,14 @@
   <tr>
     <td width="147">이름</td>
     <td width="257">홍길동</td>
-    <td width="147">연락처</td>
-    <td colspan="3">010-4644-6165</td>
+    <td width="147">왕복/편도</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>연락처</td>
+    <td>010-4644-6165</td>
+    <td>&nbsp;</td>
+    <td colspan="3">&nbsp;</td>
   </tr>
   <tr>
     <td>출발지</td>
@@ -51,20 +57,10 @@
     <td> 예약상태</td>
     <td colspan="3">예약접수</td>
   </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td colspan="4">&nbsp;</td>
-  </tr>
 </table>
-    <div class="div_button">
+<div class="div_button">
 	<input type="submit" value="수정" />
   	<input type="reset" value="닫기" />
-	</div>
-
-</table>
-왕복/편도 
-출발시각
-
+</div>
 </body>
 </html>

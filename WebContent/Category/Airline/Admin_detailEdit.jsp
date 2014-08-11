@@ -43,15 +43,16 @@
   </tr>
   <tr>
     <td>가는날</td>
-    <td colspan="3"><input type="date"></td>
+    <td colspan="3"><input type="date">&nbsp;<input type="time"></td>
   </tr>
   <tr>
     <td>오는날</td>
-    <td colspan="3"><input type="date"></td>
+    <td colspan="3"><input type="date">&nbsp;<input type="time"></td>
   </tr>
   <tr>
     <td>예약금액</td>
-    <td colspan="3">18,689,000 원</td>
+    <td colspan="2">성인: 1,300,000 원</td>
+    <td>소아:500,000 원</td>
   </tr>
   <tr>
     <td>예약인원</td>
@@ -60,11 +61,15 @@
   <tr>
     <td>&nbsp;</td>
     <td width="119">성인 : 11명</td>
-    <td width="74">소아:</td>
-    <td width="98">유아:</td>
+    <td width="74">소아: 11명</td>
+    <td width="98">유아: 11명</td>
   </tr>
   <tr>
-    <td>출발지역</td>
+    <td>예상금액</td>
+    <td colspan="3">18,689,000 원</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
     <td colspan="3">&nbsp;</td>
   </tr>
   <tr>
@@ -80,7 +85,7 @@
     <div class="div_button">
 	<input type="submit" value="저장" />&nbsp;
   	<input type="reset" value="뒤로" />
-	</div>
+</div>
 
 
 </body>

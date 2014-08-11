@@ -746,7 +746,8 @@ table
 }
 
 </style></head>
-<body id="FDFF"><form name="frmUpsell" id="frmUpsell" method="post"><div id="wrap_container"><section id="main_container"><div class="reservationBox" id="containerBox"><div id="container"><div id="skipCt"><section id="containerBody"><div class="itineraryBoxPs fareBox" style="border:1px solid #9933FF;border-radius:20px" ;><div class="fareInner">
+<body id="FDFF"><form name="frmUpsell" id="frmUpsell" method="post"><div id="wrap_container"><section id="main_container"><div class="reservationBox" id="containerBox"><div id="container">
+  <div id="skipCt"><section id="containerBody"><div class="itineraryBoxPs fareBox" style="border:1px solid #9933FF;border-radius:20px" ;><div class="fareInner">
 
 <div class="priceBox" id="totalPriceBox" style="display: block;">
  
@@ -780,7 +781,7 @@ table
        <div class="box-intro">
          	<strong>2014/08/11/월 18:10 </strong> 	
         <div class="abPosi">
-          		<span class="btn_CpopupLayer"><strong>(<a href="#none">OZ108</a> <img alt="" src="/images/bl/bl_blue.gif" />)</strong></span> 		
+          		<span class="btn_CpopupLayer"><strong>(<a href="#none">OZ108</a>)</strong></span> 		
          <div class="abroadBox2 BoxClose">
            			
           <div class="abroadInner">
@@ -811,7 +812,7 @@ table
        <div class="box-intro">
          	<strong>2014/08/16/토 19:00 </strong> 	
         <div class="abPosi">
-          		<span class="btn_CpopupLayer"><strong>(<a href="#none">OZ105</a> <img alt="" src="/images/bl/bl_blue.gif" />)</strong></span> 		
+          		<span class="btn_CpopupLayer"><strong>(<a href="#none">OZ105</a>)</strong></span> 		
          <div class="abroadBox2 BoxClose">
            			
           <div class="abroadInner">
@@ -1002,6 +1003,7 @@ table
             <td headers="go eachTotal01">
              <strong>1,259,600</strong> <span class="sm">원</span>
             </td>
+
            </tr>
            <tr class="tr_price">
             	
@@ -1142,9 +1144,11 @@ table
 </div>
 
 </div></div>
- <ul >
-<li style="padding-top:15px;"><span style="margin-left:15px;" ><a id="" href="R2_FlightSelect.jsp">이전단계</a></span></li>
-<li style="padding-top:15px;"><span style="margin-left:600px;" ><a id="" href="#">계속하기</a></span></li>
-</ul>
+              <p>&nbsp;</p>
+              <div ><span style="margin-left:50px;">
+                <a id="" href="R2_FlightSelect.jsp">이전단계</a></span>
+                <span style="margin-left:500px;"><a id="" href="#">계속하기</a></span>
+              </div>
+              
 
 </section></div></div></div></section></div></form></body></html>

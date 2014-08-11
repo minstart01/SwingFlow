@@ -25,35 +25,7 @@
   <script>
   $(function() {
     $( "#radio" ).buttonset();
-  });
-  
-  function _cal_arrival_reset(tripType) {
-		if (tripType == "OW") {
-//			$jQ('#'+__strEDateField).val("");
-//			$jQ('#__strEDate').val("");
-//			$jQ('#'+__strEDateVArea).text("");
-			$jQ('[id^="E_"]').each(function() {
-				if ($jQ(this).hasClass('click')) {
-					$jQ(this).removeClass('click');
-					$jQ(this).addClass('hover');
-				}
-			});
-			$jQ('#CalendarBox').addClass('oneWay');
-			$jQ('#eCalArea').hide();
-			$jQ('.boxType01.reType02 .getIn').hide();
-
-			_tripType = tripType;
-
-		} else {
-			$jQ('.boxType01.reType02 .getIn').show();
-			$jQ('#eCalArea').show();
-			$jQ('#CalendarBox').removeClass('oneWay');
-
-			_tripType = tripType;
-		}
-	}
-
-  
+  });  
 $(function(){
 	$('#radio2').click(function(){
 		$('#getIn01').hide();
@@ -64,6 +36,9 @@ $(function(){
 		$('#getIn01').show();
 	});
 });
+
+
+
   </script>
 </head>
 <style>
@@ -1529,6 +1504,7 @@ caption, legend, #accessibility, .hidden {
 <div id="main_content">
 <form name="travelRegistForm" id="travelRegistForm" onsubmit="return false;" method="post"><div id="wrap_container"><section id="main_container"><div class="reservationBox" id="containerBox"><div id="container"><div id="skipCt"><section id="containerBody">
 						<h3 class="h3_type01">항공권 예매</h3>
+						<p>Date: <input type="text" id="datepicker"></p>
 <p ><strong>1. 여정선택</strong></p>
 						<p class="h4_type01">&nbsp;</p>
 			  <div class="itineraryBoxPs">
@@ -1842,7 +1818,7 @@ caption, legend, #accessibility, .hidden {
                                             </div>
 											<p>
 											  <a class="btn_close2" href="javascript:_cal_close('nextCalendarFocusB');"><img alt="오는날 달력 레이어 팝업 닫기" src="../../images/Airline/reserv/btn_calendar.gif"></a>
-											  <input title="귀국일 선택" class="text01 inputFocusin01" id="viewEDate" type="text" readonly value="귀국일 선택">
+											  <input type="text" id="datepicker" title="귀국일 선택" class="text01 inputFocusin01"  >
 										  </p>
 										  <div class="CalendarBox" id="CalendarBox2">
 

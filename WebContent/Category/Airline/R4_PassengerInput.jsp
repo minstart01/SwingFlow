@@ -1620,33 +1620,6 @@ a
  </ul>
  
  						
- <p class="helpOp">&nbsp;</p>
- 
- 						
- <div class="errorBox" id="errorBox" style="display: none;">
-  
-  							
-  <div class="errorInner">
-   
-   								
-   <div class="noticeBl">
-    
-    									
-    <p>
-     <strong>입력하신 탑승자 정보 중 아시아나클럽번호 또는 회원 이름을 확인하시기 바랍니다. (아시아나클럽 문의 전화 : 1588-8180)</strong>
-    </p>
-    
-    									<span>위 문제로 인해 예약을 진행하지 못하였습니다. <br />내용을 확인하시고 다시 시도하세요.</span>
-    								
-   </div>
-   
-   							
-  </div>
-  
-  						
- </div>
- 
- 						
  <div class="itineraryBoxPs fareBox">
   
   							
@@ -1656,221 +1629,34 @@ a
    								
    <!-- selectITbox3 -->
    
-   								<section class="selectITbox3">
-   									
-   <div class="selectITinner3">
-    
-    										
-    <ul>
-     
-     											
-     <li class="liType01 totalIntro">
-      
-      												<strong class="sTitle">총 인원 5명</strong> (<span>성인&nbsp;2명</span>&nbsp;<span>:&nbsp;소아&nbsp;1명</span>&nbsp;<span>:&nbsp;유아&nbsp;2명</span>)
-      
-      
-      												
-      <div class="tBoxD">
-       
-       													
-       <p class="start">
-        <strong>인천</strong><br /><span>(인천,ICN)</span>
-       </p>
-       
-       													
-       <p class="end">
-        <strong>도쿄/나리타</strong><br /><span>(도쿄/나리타,NRT)</span>
-       </p>
-       
-       												
-      </div>
-      
-      
-      											
-     </li>
-     
-     
-     
-     
-     											
-     <!-- 가는 여정 정보 -->
-     
-     											
-     <li class="liType01 selectStart">
-      
-      												<strong class="sTitle">가는 날</strong>
-      
-      												
-      <div class="pType01">
-       
-       													<strong>2014/08/10/일  <br />09:00 출발</strong><br />
-       
-       
-       
-       														
-       <!-- layerPopup -->
-       
-       														
-       <div class="abPosi">
-        
-        															<span class="btn_CpopupLayer"><a href="#none"><strong>OZ102</strong></a></span>
-        															
-        <div class="abroadBox2 BoxClose">
-         
-         																
-         <div class="abroadInner">
-          
-          																	
-          <div class="aTitle">
-           
-           																		
-           <p>
-            
-            																			<strong>OZ102 안내</strong>
-            																		
-           </p>
-           
-           																	
-          </div>
-          
-          																	
-          <div class="abroadCt">
-           
-           																		<strong>출발</strong> : 2014/08/10/일, 09:00, 인천<br />
-           																		<strong>도착</strong> : 2014/08/10/일, 11:10, 도쿄/나리타<br />
-           
-           																		<strong>운항</strong> : 아시아나항공<br />
-           																		<strong>기종</strong> : 388 <a id="searchFlightInfo" href="#none" fltno="102" fltcrrcd="OZ" fltdate="20140810090000" fltdepairport="ICN">[좌석배치도 보기]</a><br />
-           
-           																	
-          </div>
-          
-          																
-         </div>
-         
-         																<a class="btn_close" href="#none"><img alt="안내 팝업 닫기" src="/images/btn/btn_close.gif" /></a>
-         															
-        </div>
-        
-        														
-       </div>
-       
-       														
-       <!-- //layerPopup -->
-       
-       														<br />
-       
-       
-       												
-      </div>
-      
-      											
-     </li>
-     
-     
-     											
-     <!-- 가는 여정 정보 -->
-     
-     											
-     <li class="liType01 selectEnd">
-      
-      												<strong class="sTitle">오는 날</strong>
-      
-      												
-      <div class="pType01">
-       
-       													<strong>2014/08/15/금  <br />13:10 출발</strong><br />
-       
-       
-       
-       														
-       <!-- layerPopup -->
-       
-       														
-       <div class="abPosi">
-        
-        															<span class="btn_CpopupLayer"><a href="#none"><strong>OZ101</strong></a></span>
-        															
-        <div class="abroadBox2 BoxClose">
-         
-         																
-         <div class="abroadInner">
-          
-          																	
-          <div class="aTitle">
-           
-           																		
-           <p>
-            
-            																			<strong>OZ101 안내</strong>
-            																		
-           </p>
-           
-           																	
-          </div>
-          
-          																	
-          <div class="abroadCt">
-           
-           																		<strong>출발</strong> : 2014/08/15/금, 13:10, 도쿄/나리타<br />
-           																		<strong>도착</strong> : 2014/08/15/금, 15:40, 인천<br />
-           
-           																		<strong>운항</strong> : 아시아나항공<br />
-           																		<strong>기종</strong> : 388 <a id="searchFlightInfo" href="#none" fltno="101" fltcrrcd="OZ" fltdate="20140815131000" fltdepairport="NRT">[좌석배치도 보기]</a><br />
-           
-           																	
-          </div>
-          
-          																
-         </div>
-         
-         																<a class="btn_close" href="#none"><img alt="안내 팝업 닫기" src="/images/btn/btn_close.gif" /></a>
-         															
-        </div>
-        
-        														
-       </div>
-       
-       														
-       <!-- //layerPopup -->
-       
-       														<br />
-       
-       
-       												
-      </div>
-      
-      											
-     </li>
-     
-     												
-     											
-     											
-     <li class="liType01 selectSeat">
-      
-      												<strong class="sTitle">좌석</strong>
-      												
-      <p class="pType01">
-       
-       													
-       <!-- 25.	Display 항목 정리 – 
-       													a.	좌석 : 트래블(2석)
-       													CR023 다국어 작업 필요 -->
-       
-       													<strong>트래블</strong><br />
-       												
-      </p>
-      
-      											
-     </li>
-     
-     										
-    </ul>
-    
-    									
-   </div>
-   
-   								</section>
+   								<table width="556" height="154" border="1" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="66" height="53">인천 </td>
+    <td width="35">&lt;=&gt;</td>
+    <td width="207"> 도쿄/나리타</td>
+    <td width="95">가는 날</td>
+    <td width="95">오는 날</td>
+    <td width="44">좌석</td>
+  </tr>
+  <tr>
+    <td height="62">(인천,ICN)</td>
+    <td>&nbsp;</td>
+    <td>(도쿄/나리타,NRT) </td>
+    <td>2014/08/10/일 <br />
+09:00 출발</td>
+    <td>2014/08/10/일 <br />
+      09:00 출발</td>
+    <td>트래블</td>
+  </tr>
+  <tr>
+    <td height="37">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>OZ102 </td>
+    <td>OZ102 </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
    								
    <!-- //selectITbox3 -->
    
@@ -1940,7 +1726,7 @@ a
      										
      <div class="passengerBody">
       										
-      											<span class="hidden">탑승자</span><strong class="pCnt">2</strong><span class="hidden">성인</span>
+      											<span class="hidden">탑승자</span><strong class="pCnt">1</strong><span class="hidden">성인</span>
       											<input name="paxType1" type="hidden" value="ADT" />																	
       											
       <div class="entryBox">
@@ -2147,9 +1933,7 @@ a
      
      										
      										
-     <p class="sTitle">
-      <strong>성인</strong>
-     </p>
+
      
      										
      <div class="passengerInner" style="z-index: 90;">
@@ -2705,29 +2489,7 @@ a
          
          													
         </div>
-
-
-
-
-
-
-
-
-
-        
-        													
-        <!-- //select 수정 -->
-        
-        												
-       </div>
-       
-       											
-      </div>
-      	
-      											
-      											
-      <div class="paragraph bB0">
-        <div class="entry" style="padding-bottom:15px">
+<div class="entry">
          
          														
          <!-- select 수정 -->
@@ -2804,7 +2566,71 @@ a
          <!-- //select 수정 -->
          
          														<input name="ffpNo1" title="회원번호" class="text01 inputFocusin01" id="ffpNo1" onclick="javascript:clear_ffp_comment(this);" onblur="javascript:set_ffp_comment(this);" type="text" maxlength="9" value="회원인 경우 입력" />																									
-					  <span class="ffp">FFP</span><!-- hover --></div>
+         														<span class="ffp">FFP</span><!-- hover -->
+         
+         														
+         <div class="hoverBox ffpLayer IDhoverOpen">
+          
+          															
+          <div class="hoverInner">
+           
+           																
+           <div class="hoverCt">
+            
+            																	
+            <p class="tripTitle">
+             <strong>마일리지 적립항공사</strong>
+            </p>
+            
+            																	
+            <p class="tripSubT">
+             
+             																		* 전자항공권의 클래스에 따라 마일리지 적립이 불가하거나 적립율이 상이할 수 있으며, 실제 운항하는 항공사의 적립율에 의해 적립이 이루어집니다. <br />
+             																		* 실제 운항항공사가 스타얼라이언스 및 마일리지 제휴항공사가 아닌 공동운항편은 아시아나 클럽 계좌로 사후 적립만 가능합니다 <br />
+             																		* 해당 항공사 마일리지 적립 규정상 적립이 불가한 경우에 해당되면 회원번호를 입력하셔도 적립이 되지 않습니다. 
+             																	
+            </p>
+            
+            																
+           </div>
+           
+           															
+          </div>
+          
+          														
+         </div>
+         
+         														<span class="system_warning" id="warningffpNo1" style="display: none;">회원번호 오류</span>
+         														
+         <!-- //hover -->
+         
+         													
+        </div>
+
+
+
+
+
+
+
+
+        
+        													
+        <!-- //select 수정 -->
+        
+        												
+       </div>
+       
+       											
+      </div>
+      	
+      											
+      											
+      <div class="paragraph bB0">
+        <div class="entry" style="padding-bottom:15px">
+         
+         														
+         <!-- select 수정 --><!-- hover --></div>
          
          														<span class="system_warning" id="warningffpNo1" style="display: none;">회원번호 오류</span>
          														
@@ -2836,48 +2662,70 @@ a
    </div>
    
    								
-   <div class="passengerInner" style="z-index: 84;">
+   <div class="passengerInner" style="z-index: 86;">
     
     									
     <p class="sTitle">
-     <strong>유아</strong>
+     <strong>소아</strong>
     </p>
     
     									
     <div class="passengerBody">
      
      										<strong class="pCnt">4</strong>
-     										<input name="paxType3" type="hidden" value="INF" />	
+     										<input name="paxType2" type="hidden" value="CHD" />	
      										
      <div class="entryBox">
+      
+      											
+      <!-- 리뷰 수정 -->
       
       											
       <div class="paragraph double">
        
        												
        <div class="text gap-1">
-        <label for="tt_name1_1"><strong>성</strong>(family name)</label><img class="essentialImg" alt="필수 입력" src="/images/bl/bl_arrow4.gif" />
+        <label for="tt_name1_1"><strong>성</strong>(family name)</label>
        </div>
        
        												
        <div class="entry z2">
         
-        													<input name="familyName3" class="text01" id="familyName3" style="width: 153px; text-transform: uppercase; ime-mode: disabled;" onclick="javascript:clear_name_comment(this);" onblur="javascript:set_name_comment(this);" type="text" value="영문으로 입력" />
+        													<input name="familyName2" class="text01" id="familyName2" style="width: 153px; text-transform: uppercase; ime-mode: disabled;" onclick="javascript:clear_name_comment(this);" onblur="javascript:set_name_comment(this);" type="text" value="영문으로 입력" />
         												
        </div>
        
        												
        <div class="text gap-2">
-        <label for="tt_name1_2"><strong>이름</strong>(first name)</label><img class="essentialImg" alt="필수 입력" src="/images/bl/bl_arrow4.gif" />
+        <label for="tt_name1_2"><strong>이름</strong>(first name)</label>
        </div>
        
        												
        <div class="entry z2">
         
-        													<input name="givenName3" class="text01" id="givenName3" style="width: 153px; text-transform: uppercase; ime-mode: disabled;" onclick="javascript:clear_name_comment(this);" onblur="javascript:set_name_comment(this);" type="text" value="영문으로 입력" />
+        													<input name="givenName2" class="text01" id="givenName2" style="width: 153px; text-transform: uppercase; ime-mode: disabled;" onclick="javascript:clear_name_comment(this);" onblur="javascript:set_name_comment(this);" type="text" value="영문으로 입력" />
         												
        </div>
        
+       											
+      </div>
+      
+      											
+      <div class="paragraph">
+       
+       												
+       <div class="text">
+        <strong>성별</strong></div>
+       
+       												
+       <div class="entry z3">
+        
+        													<input name="paxGender2" id="paxGender1" type="radio" checked="" value="M" /> <label for="paxGender1">남</label>
+        													<input name="paxGender2" id="paxGender2" type="radio" value="F" /> <label for="paxGender2">여</label>
+        												
+       </div>
+       
+
        											
       </div>
       
@@ -2887,29 +2735,7 @@ a
        
        												
        <div class="text">
-        <strong>성별</strong><img class="essentialImg" alt="필수 입력" src="/images/bl/bl_arrow4.gif" />
-       </div>
-       
-       												
-       <div class="entry z3">
-        
-        													<input name="paxGender3" id="paxGender1" type="radio" checked="" value="M" /> <label for="paxGender1">남</label>
-        													<input name="paxGender3" id="paxGender2" type="radio" value="F" /> <label for="paxGender2">여</label>
-        												
-       </div>
-       
-       											
-      </div>
-      
-      											
-      												
-      											
-      <div class="paragraph bB0">
-       
-       												
-       <div class="text">
-        <strong>생년월일</strong><img class="essentialImg" alt="필수 입력" src="/images/bl/bl_arrow4.gif" />
-       </div>
+        <strong>생년월일</strong></div>
        
        												
        <div class="entry z4">
@@ -2918,23 +2744,36 @@ a
         <!-- select 수정 -->
         
         													
-        <div class="selectStyle" style="width: 100px; height: 24px; display: inline-block; zoom: 1;">
-         
-         														<span class="span-select" style="height: 24px;">
-         															<input name="txt_ageCalYear3" id="txt_ageCalYear3" style="height: 24px; line-height: 24px;" type="text" readonly value="2014" />
-         															<select name="ageCalYear3" title="선택" id="ageCalYear3" style="width: 130px !important; margin-top: -5px;">
+<select name="ageCalYear2" title="선택" id="ageCalYear2" style="width: 130px !important; margin-top: -5px;">
          														
-         																	<option value="2014" selected="">2014년</option>
+																  <option value="2014">2014년</option>
          														
          																	<option value="2013">2013년</option>
          														
-         																	<option value="2012">2012년</option>
+         																	<option value="2012" selected="">2012년</option>
          														
-         															</select>
-         														</span>
-         													
-        </div>
-        
+         																	<option value="2011">2011년</option>
+         														
+         																	<option value="2010">2010년</option>
+         														
+         																	<option value="2009">2009년</option>
+         														
+         																	<option value="2008">2008년</option>
+         														
+         																	<option value="2007">2007년</option>
+         														
+         																	<option value="2006">2006년</option>
+         														
+         																	<option value="2005">2005년</option>
+         														
+         																	<option value="2004">2004년</option>
+         														
+         																	<option value="2003">2003년</option>
+         														
+         																	<option value="2002">2002년</option>
+         														
+						</select>
+
         													
         <!-- //select 수정 -->
         
@@ -2942,13 +2781,9 @@ a
         <!-- select 수정 -->
         
         													
-        <div class="selectStyle" style="width: 100px; height: 24px; display: inline-block; zoom: 1;">
-         
-         														<span class="span-select" style="height: 24px;">
-         															<input name="txt_ageCalMonth3" id="txt_ageCalMonth3" style="height: 24px; line-height: 24px;" type="text" readonly value="1" />
-         															<select name="ageCalMonth3" title="선택" id="ageCalMonth3" style="width: 120px !important; margin-top: -5px;">
+  <select name="ageCalMonth2" title="선택" id="ageCalMonth2" style="width: 120px !important; margin-top: -5px;">
          														
-         																	<option value="1" selected="">1월</option>
+																  <option value="1" selected="">1월</option>
          														
          																	<option value="2">2월</option>
          														
@@ -2972,10 +2807,8 @@ a
          														
          																	<option value="12">12월</option>
          														
-         															</select>
-         														</span>
-         													
-        </div>
+						</select>
+
         
         													
         <!-- //select 수정 -->
@@ -2984,13 +2817,10 @@ a
         <!-- select 수정 -->
         
         													
-        <div class="selectStyle" style="width: 100px; height: 24px; display: inline-block; zoom: 1;">
-         
-         														<span class="span-select" style="height: 24px;">
-         															<input name="txt_ageCalDay3" id="txt_ageCalDay3" style="height: 24px; line-height: 24px;" type="text" readonly value="1" />
-         															<select name="ageCalDay3" title="선택" id="ageCalDay3" style="width: 120px !important; margin-top: -5px;">
+
+         														<select name="ageCalDay2" title="선택" id="ageCalDay2" style="width: 120px !important; margin-top: -5px;">
          														
-         																	<option value="1" selected="">1일</option>
+																  <option value="1" selected="">1일</option>
          														
          																	<option value="2">2일</option>
          														
@@ -3052,10 +2882,176 @@ a
          														
          																	<option value="31">31일</option>
          														
-         															</select>
-         														</span>
+       															</select>
+							  </span>
          													
         </div>
+    <div class="text">
+         
+         														<strong>항공사 회원번호</strong><!-- hover -->
+         
+         														
+         <div class="hoverBox IDhoverOpen">
+          
+          															
+          <div class="hoverInner">
+           
+           																
+           <div class="hoverCt">
+            
+            																	
+            <p class="tripTitle">
+             <strong>마일리지 적립항공사</strong>
+            </p>
+            
+            																	
+            <p class="tripSubT">
+             
+             																		* 아시아나항공, 스타얼라이언스 회원사에 대한 마일리지 적립이 가능합니다. <br />
+             																		* 마일리지는 탑승 완료 후 적립되며, 항공사마다 적립 시기에 차이가 있을 수 있습니다. <br />
+             																		* 아시아나클럽 회원이 아니신 경우, 탑승 전 회원 가입을 해주셔야 적립이 가능합니다. 
+             																	
+            </p>
+            
+            																
+           </div>
+           
+           															
+          </div>
+          
+          														
+         </div>
+         
+         														
+         <!-- //hover -->
+         
+         													
+        </div>
+<div class="entry">
+         
+         														
+         <!-- select 수정 -->
+         
+         														
+
+          
+          			
+          																<select name="carrierCode1" title="선택하세요" id="carrierCode1" >
+          															
+          																		<option value="OZ" idx="1">아시아나항공</option>
+          															
+          																		<option value="JP" idx="1">아드리아항공</option>
+          															
+          																		<option value="A3" idx="1">에게안항공</option>
+          															
+          																		<option value="AC" idx="1">에어 캐나다</option>
+          															
+          																		<option value="CA" idx="1">에어 차이나</option>
+          															
+          																		<option value="NZ" idx="1">에어 뉴질랜드</option>
+          															
+          																		<option value="NH" idx="1">ANA 항공</option>
+          															
+          																		<option value="OS" idx="1">오스트리아항공</option>
+          															
+          																		<option value="AV" idx="1">아비앙카항공</option>
+          															
+          																		<option value="SN" idx="1">브뤼셀항공</option>
+          															
+          																		<option value="CM" idx="1">코파항공</option>
+          															
+          																		<option value="OU" idx="1">크로아티아항공</option>
+          															
+          																		<option value="MS" idx="1">이집트항공</option>
+          															
+          																		<option value="ET" idx="1">에티오피아항공</option>
+          															
+          																		<option value="BR" idx="1">에바항공</option>
+          															
+          																		<option value="LO" idx="1">폴란드항공</option>
+          															
+          																		<option value="LH" idx="1">루프트한자</option>
+          															
+          																		<option value="SK" idx="1">스칸디나비아항공</option>
+          															
+          																		<option value="ZH" idx="1">심천항공</option>
+          															
+          																		<option value="SQ" idx="1">싱가포르항공</option>
+          															
+          																		<option value="SA" idx="1">남아프리카항공</option>
+          															
+          																		<option value="LX" idx="1">스위스항공</option>
+          															
+          																		<option value="JJ" idx="1">탐항공</option>
+          															
+          																		<option value="TP" idx="1">탑포르투갈</option>
+          															
+          																		<option value="TG" idx="1">타이항공</option>
+          															
+          																		<option value="TK" idx="1">터키항공</option>
+          															
+          																		<option value="UA" idx="1">유나이티드항공</option>
+          															
+
+          																		<option value="US" idx="1">US 에어웨이</option>
+          															
+          																		<option value="AI" idx="1">에어인디아</option>
+          															
+          																</select>
+
+         
+         														
+         <!-- //select 수정 -->
+         
+         														<input name="ffpNo1" title="회원번호" class="text01 inputFocusin01" id="ffpNo1" onclick="javascript:clear_ffp_comment(this);" onblur="javascript:set_ffp_comment(this);" type="text" maxlength="9" value="회원인 경우 입력" />																									
+         														<span class="ffp">FFP</span><!-- hover -->
+         
+         														
+         <div class="hoverBox ffpLayer IDhoverOpen">
+          
+          															
+          <div class="hoverInner">
+           
+           																
+           <div class="hoverCt">
+            
+            																	
+            <p class="tripTitle">
+             <strong>마일리지 적립항공사</strong>
+            </p>
+            
+            																	
+            <p class="tripSubT">
+             
+             																		* 전자항공권의 클래스에 따라 마일리지 적립이 불가하거나 적립율이 상이할 수 있으며, 실제 운항하는 항공사의 적립율에 의해 적립이 이루어집니다. <br />
+             																		* 실제 운항항공사가 스타얼라이언스 및 마일리지 제휴항공사가 아닌 공동운항편은 아시아나 클럽 계좌로 사후 적립만 가능합니다 <br />
+             																		* 해당 항공사 마일리지 적립 규정상 적립이 불가한 경우에 해당되면 회원번호를 입력하셔도 적립이 되지 않습니다. 
+             																	
+            </p>
+            
+            																
+           </div>
+           
+           															
+          </div>
+          
+          														
+         </div>
+         
+         														<span class="system_warning" id="warningffpNo1" style="display: none;">회원번호 오류</span>
+         														
+         <!-- //hover -->
+         
+         													
+        </div>
+
+
+
+
+
+
+
+
         
         													
         <!-- //select 수정 -->
@@ -3065,18 +3061,37 @@ a
        
        											
       </div>
-      
-      										
-     </div>
-     
-     									
-    </div>
-    
-    								
-   </div>
+      	
+      											
+      											
+      <div class="paragraph bB0">
+        <div class="entry" style="padding-bottom:15px">
+         
+         														
+         <!-- select 수정 --><!-- hover --></div>
+         
+         														<span class="system_warning" id="warningffpNo1" style="display: none;">회원번호 오류</span>
+         														
+         <!-- //hover -->
+         
+         													
+        </div>
+        
+        													
+        <!-- //select 수정 -->
+        
+        													</span>
+        													
+        <!-- //hover -->
+        
+        												
+       </div>
+       
+       											
+      </div>
    
    								
-   <div class="passengerInner" style="z-index: 83;">
+   <div class="passengerInner" style="z-index: 86;">
     
     									
     <p class="sTitle">
@@ -3086,38 +3101,60 @@ a
     									
     <div class="passengerBody">
      
-     										<strong class="pCnt">5</strong>
-     										<input name="paxType4" type="hidden" value="INF" />	
+     										<strong class="pCnt">3</strong>
+     										<input name="paxType2" type="hidden" value="CHD" />	
      										
      <div class="entryBox">
+      
+      											
+      <!-- 리뷰 수정 -->
       
       											
       <div class="paragraph double">
        
        												
        <div class="text gap-1">
-        <label for="tt_name1_1"><strong>성</strong>(family name)</label><img class="essentialImg" alt="필수 입력" src="/images/bl/bl_arrow4.gif" />
+        <label for="tt_name1_1"><strong>성</strong>(family name)</label>
        </div>
        
        												
        <div class="entry z2">
         
-        													<input name="familyName4" class="text01" id="familyName4" style="width: 153px; text-transform: uppercase; ime-mode: disabled;" onclick="javascript:clear_name_comment(this);" onblur="javascript:set_name_comment(this);" type="text" value="영문으로 입력" />
+        													<input name="familyName2" class="text01" id="familyName2" style="width: 153px; text-transform: uppercase; ime-mode: disabled;" onclick="javascript:clear_name_comment(this);" onblur="javascript:set_name_comment(this);" type="text" value="영문으로 입력" />
         												
        </div>
        
        												
        <div class="text gap-2">
-        <label for="tt_name1_2"><strong>이름</strong>(first name)</label><img class="essentialImg" alt="필수 입력" src="/images/bl/bl_arrow4.gif" />
+        <label for="tt_name1_2"><strong>이름</strong>(first name)</label>
        </div>
        
        												
        <div class="entry z2">
         
-        													<input name="givenName4" class="text01" id="givenName4" style="width: 153px; text-transform: uppercase; ime-mode: disabled;" onclick="javascript:clear_name_comment(this);" onblur="javascript:set_name_comment(this);" type="text" value="영문으로 입력" />
+        													<input name="givenName2" class="text01" id="givenName2" style="width: 153px; text-transform: uppercase; ime-mode: disabled;" onclick="javascript:clear_name_comment(this);" onblur="javascript:set_name_comment(this);" type="text" value="영문으로 입력" />
         												
        </div>
        
+       											
+      </div>
+      
+      											
+      <div class="paragraph">
+       
+       												
+       <div class="text">
+        <strong>성별</strong></div>
+       
+       												
+       <div class="entry z3">
+        
+        													<input name="paxGender2" id="paxGender1" type="radio" checked="" value="M" /> <label for="paxGender1">남</label>
+        													<input name="paxGender2" id="paxGender2" type="radio" value="F" /> <label for="paxGender2">여</label>
+        												
+       </div>
+       
+
        											
       </div>
       
@@ -3127,29 +3164,7 @@ a
        
        												
        <div class="text">
-        <strong>성별</strong><img class="essentialImg" alt="필수 입력" src="/images/bl/bl_arrow4.gif" />
-       </div>
-       
-       												
-       <div class="entry z3">
-        
-        													<input name="paxGender4" id="paxGender1" type="radio" checked="" value="M" /> <label for="paxGender1">남</label>
-        													<input name="paxGender4" id="paxGender2" type="radio" value="F" /> <label for="paxGender2">여</label>
-        												
-       </div>
-       
-       											
-      </div>
-      
-      											
-      												
-      											
-      <div class="paragraph bB0">
-       
-       												
-       <div class="text">
-        <strong>생년월일</strong><img class="essentialImg" alt="필수 입력" src="/images/bl/bl_arrow4.gif" />
-       </div>
+        <strong>생년월일</strong></div>
        
        												
        <div class="entry z4">
@@ -3158,23 +3173,36 @@ a
         <!-- select 수정 -->
         
         													
-        <div class="selectStyle" style="width: 100px; height: 24px; display: inline-block; zoom: 1;">
-         
-         														<span class="span-select" style="height: 24px;">
-         															<input name="txt_ageCalYear4" id="txt_ageCalYear4" style="height: 24px; line-height: 24px;" type="text" readonly value="2014" />
-         															<select name="ageCalYear4" title="선택" id="ageCalYear4" style="width: 130px !important; margin-top: -5px;">
+<select name="ageCalYear2" title="선택" id="ageCalYear2" style="width: 130px !important; margin-top: -5px;">
          														
-         																	<option value="2014" selected="">2014년</option>
+																  <option value="2014">2014년</option>
          														
          																	<option value="2013">2013년</option>
          														
-         																	<option value="2012">2012년</option>
+         																	<option value="2012" selected="">2012년</option>
          														
-         															</select>
-         														</span>
-         													
-        </div>
-        
+         																	<option value="2011">2011년</option>
+         														
+         																	<option value="2010">2010년</option>
+         														
+         																	<option value="2009">2009년</option>
+         														
+         																	<option value="2008">2008년</option>
+         														
+         																	<option value="2007">2007년</option>
+         														
+         																	<option value="2006">2006년</option>
+         														
+         																	<option value="2005">2005년</option>
+         														
+         																	<option value="2004">2004년</option>
+         														
+         																	<option value="2003">2003년</option>
+         														
+         																	<option value="2002">2002년</option>
+         														
+						</select>
+
         													
         <!-- //select 수정 -->
         
@@ -3182,13 +3210,9 @@ a
         <!-- select 수정 -->
         
         													
-        <div class="selectStyle" style="width: 100px; height: 24px; display: inline-block; zoom: 1;">
-         
-         														<span class="span-select" style="height: 24px;">
-         															<input name="txt_ageCalMonth4" id="txt_ageCalMonth4" style="height: 24px; line-height: 24px;" type="text" readonly value="1" />
-         															<select name="ageCalMonth4" title="선택" id="ageCalMonth4" style="width: 120px !important; margin-top: -5px;">
+  <select name="ageCalMonth2" title="선택" id="ageCalMonth2" style="width: 120px !important; margin-top: -5px;">
          														
-         																	<option value="1" selected="">1월</option>
+																  <option value="1" selected="">1월</option>
          														
          																	<option value="2">2월</option>
          														
@@ -3212,10 +3236,8 @@ a
          														
          																	<option value="12">12월</option>
          														
-         															</select>
-         														</span>
-         													
-        </div>
+						</select>
+
         
         													
         <!-- //select 수정 -->
@@ -3224,13 +3246,10 @@ a
         <!-- select 수정 -->
         
         													
-        <div class="selectStyle" style="width: 100px; height: 24px; display: inline-block; zoom: 1;">
-         
-         														<span class="span-select" style="height: 24px;">
-         															<input name="txt_ageCalDay4" id="txt_ageCalDay4" style="height: 24px; line-height: 24px;" type="text" readonly value="1" />
-         															<select name="ageCalDay4" title="선택" id="ageCalDay4" style="width: 120px !important; margin-top: -5px;">
+
+         														<select name="ageCalDay2" title="선택" id="ageCalDay2" style="width: 120px !important; margin-top: -5px;">
          														
-         																	<option value="1" selected="">1일</option>
+																  <option value="1" selected="">1일</option>
          														
          																	<option value="2">2일</option>
          														
@@ -3292,10 +3311,176 @@ a
          														
          																	<option value="31">31일</option>
          														
-         															</select>
-         														</span>
+       															</select>
+							  </span>
          													
         </div>
+    <div class="text">
+         
+         														<strong>항공사 회원번호</strong><!-- hover -->
+         
+         														
+         <div class="hoverBox IDhoverOpen">
+          
+          															
+          <div class="hoverInner">
+           
+           																
+           <div class="hoverCt">
+            
+            																	
+            <p class="tripTitle">
+             <strong>마일리지 적립항공사</strong>
+            </p>
+            
+            																	
+            <p class="tripSubT">
+             
+             																		* 아시아나항공, 스타얼라이언스 회원사에 대한 마일리지 적립이 가능합니다. <br />
+             																		* 마일리지는 탑승 완료 후 적립되며, 항공사마다 적립 시기에 차이가 있을 수 있습니다. <br />
+             																		* 아시아나클럽 회원이 아니신 경우, 탑승 전 회원 가입을 해주셔야 적립이 가능합니다. 
+             																	
+            </p>
+            
+            																
+           </div>
+           
+           															
+          </div>
+          
+          														
+         </div>
+         
+         														
+         <!-- //hover -->
+         
+         													
+        </div>
+<div class="entry">
+         
+         														
+         <!-- select 수정 -->
+         
+         														
+
+          
+          			
+          																<select name="carrierCode1" title="선택하세요" id="carrierCode1" >
+          															
+          																		<option value="OZ" idx="1">아시아나항공</option>
+          															
+          																		<option value="JP" idx="1">아드리아항공</option>
+          															
+          																		<option value="A3" idx="1">에게안항공</option>
+          															
+          																		<option value="AC" idx="1">에어 캐나다</option>
+          															
+          																		<option value="CA" idx="1">에어 차이나</option>
+          															
+          																		<option value="NZ" idx="1">에어 뉴질랜드</option>
+          															
+          																		<option value="NH" idx="1">ANA 항공</option>
+          															
+          																		<option value="OS" idx="1">오스트리아항공</option>
+          															
+          																		<option value="AV" idx="1">아비앙카항공</option>
+          															
+          																		<option value="SN" idx="1">브뤼셀항공</option>
+          															
+          																		<option value="CM" idx="1">코파항공</option>
+          															
+          																		<option value="OU" idx="1">크로아티아항공</option>
+          															
+          																		<option value="MS" idx="1">이집트항공</option>
+          															
+          																		<option value="ET" idx="1">에티오피아항공</option>
+          															
+          																		<option value="BR" idx="1">에바항공</option>
+          															
+          																		<option value="LO" idx="1">폴란드항공</option>
+          															
+          																		<option value="LH" idx="1">루프트한자</option>
+          															
+          																		<option value="SK" idx="1">스칸디나비아항공</option>
+          															
+          																		<option value="ZH" idx="1">심천항공</option>
+          															
+          																		<option value="SQ" idx="1">싱가포르항공</option>
+          															
+          																		<option value="SA" idx="1">남아프리카항공</option>
+          															
+          																		<option value="LX" idx="1">스위스항공</option>
+          															
+          																		<option value="JJ" idx="1">탐항공</option>
+          															
+          																		<option value="TP" idx="1">탑포르투갈</option>
+          															
+          																		<option value="TG" idx="1">타이항공</option>
+          															
+          																		<option value="TK" idx="1">터키항공</option>
+          															
+          																		<option value="UA" idx="1">유나이티드항공</option>
+          															
+
+          																		<option value="US" idx="1">US 에어웨이</option>
+          															
+          																		<option value="AI" idx="1">에어인디아</option>
+          															
+          																</select>
+
+         
+         														
+         <!-- //select 수정 -->
+         
+         														<input name="ffpNo1" title="회원번호" class="text01 inputFocusin01" id="ffpNo1" onclick="javascript:clear_ffp_comment(this);" onblur="javascript:set_ffp_comment(this);" type="text" maxlength="9" value="회원인 경우 입력" />																									
+         														<span class="ffp">FFP</span><!-- hover -->
+         
+         														
+         <div class="hoverBox ffpLayer IDhoverOpen">
+          
+          															
+          <div class="hoverInner">
+           
+           																
+           <div class="hoverCt">
+            
+            																	
+            <p class="tripTitle">
+             <strong>마일리지 적립항공사</strong>
+            </p>
+            
+            																	
+            <p class="tripSubT">
+             
+             																		* 전자항공권의 클래스에 따라 마일리지 적립이 불가하거나 적립율이 상이할 수 있으며, 실제 운항하는 항공사의 적립율에 의해 적립이 이루어집니다. <br />
+             																		* 실제 운항항공사가 스타얼라이언스 및 마일리지 제휴항공사가 아닌 공동운항편은 아시아나 클럽 계좌로 사후 적립만 가능합니다 <br />
+             																		* 해당 항공사 마일리지 적립 규정상 적립이 불가한 경우에 해당되면 회원번호를 입력하셔도 적립이 되지 않습니다. 
+             																	
+            </p>
+            
+            																
+           </div>
+           
+           															
+          </div>
+          
+          														
+         </div>
+         
+         														<span class="system_warning" id="warningffpNo1" style="display: none;">회원번호 오류</span>
+         														
+         <!-- //hover -->
+         
+         													
+        </div>
+
+
+
+
+
+
+
+
         
         													
         <!-- //select 수정 -->
@@ -3305,15 +3490,34 @@ a
        
        											
       </div>
-      
-      										
-     </div>
-     
-     									
-    </div>
-    
-    								
-   </div>
+      	
+      											
+      											
+      <div class="paragraph bB0">
+        <div class="entry" style="padding-bottom:15px">
+         
+         														
+         <!-- select 수정 --><!-- hover --></div>
+         
+         														<span class="system_warning" id="warningffpNo1" style="display: none;">회원번호 오류</span>
+         														
+         <!-- //hover -->
+         
+         													
+        </div>
+        
+        													
+        <!-- //select 수정 -->
+        
+        													</span>
+        													
+        <!-- //hover -->
+        
+        												
+       </div>
+       
+       											
+      </div>
    
    															
    								
@@ -3341,10 +3545,7 @@ a
        
        												
        <div>
-        
-        													<a class="btnType14 btn_CpopupLayer" id="btn_find_country_callNo" href="#none"><strong>국번찾기</strong></a>
-        
-        													<input name="tt_phoneRsv" title="국번" class="text01 number" id="tt_phoneRsv" type="text" /> -
+  										
         													<input name="phoneNo1" title="휴대전화 앞번호" class="text01" id="phoneNo1" style="width: 95px;" onkeypress="keyNumber()" type="text" maxlength="4" /> -
         													<input name="phoneNo2" title="가운데번호" class="text01" id="phoneNo2" style="width: 95px;" onkeypress="keyNumber()" type="text" maxlength="4" /> -
         													<input name="phoneNo3" title="끝번호" class="text01" id="phoneNo3" style="width: 95px;" onkeypress="keyNumber()" type="text" maxlength="4" />												
@@ -3409,21 +3610,11 @@ a
     
     								
    </ul>
-   <ul class="btnBoxType01">
-     
-     
-     <li>
-     <a href="javascript:history.back();">이전 단계</a>
-    </li>
-    
-    									
-    <li class="right">
-     <span><a href="javascript:nextStep();">계속하기</a></span>
-    </li>
-    
-    									
-    								
- </ul>
+              <p>&nbsp;</p>
+              <div ><span style="margin-left:50px;">
+                <a id="" href="R2_FlightSelect.jsp">이전단계</a></span>
+                <span style="margin-left:700px;"><a id="" href="#">계속하기</a></span>
+              </div>
    		
    							
   </div>
