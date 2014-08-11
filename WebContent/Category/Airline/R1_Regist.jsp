@@ -52,9 +52,16 @@
 			_tripType = tripType;
 		}
 	}
+
+  
 $(function(){
 	$('#radio2').click(function(){
 		$('#getIn01').hide();
+	});
+});
+$(function(){
+	$('#radio1').click(function(){
+		$('#getIn01').show();
 	});
 });
   </script>

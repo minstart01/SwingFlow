@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 <style>
 #wrapper{
-	border:1px solid black;
+
 	width:1200px;
 	/* clear:both; */
+
 		
 	}
 #main_content{
@@ -18,7 +19,7 @@
 	float:left;
 	width:900px;
 	margin-top: 25px;
-	margin-left: 30px;
+	margin-left: 25px;
 	/* top:30px;
 	left: 275px;
 	width: 950px;

@@ -18,7 +18,7 @@
 	/* position:absolute; */
 	float:left;
 	margin-top: 25px;
-	margin-left: 30px;
+	margin-left: 25px;
 	/* top:30px;
 	left: 275px;
 	width: 950px;
@@ -149,9 +149,9 @@ ul.main_menu li:hover {
 
 <div class="box"><!-- 전체 메뉴를 .box 를 통해서 둘러 쌉니다. -->
     <ul class="main_menu">
-        <li class="active">예매순</li>
-        <li><a href="#">관람순</a></li>
-        <li>평점순</li>
+        <li class="active"><a href="/SwingFlow/Category/Movie/Movies/BoxOffice.jsp">예매순</a></li>
+        <li><a href="/SwingFlow/Category/Movie/Movies/ViewOffice.jsp">관람순</a></li>
+        <li><a href="/SwingFlow/Category/Movie/Movies/PointOffice.jsp">평점순</a></li>
  	 </ul>
 </div>
 <div class="reserve_rank">
@@ -188,7 +188,7 @@ ul.main_menu li:hover {
       	</div>
         <div class="percentbox">
         <div>
-        	<strong>예매율 59%</strong>
+        	<strong>관람율 59%</strong>
         </div>
         <div>
         	<input type="button" value="예매하기" />
@@ -231,7 +231,7 @@ ul.main_menu li:hover {
       	</div>
         <div class="percentbox">
         <div>
-        	<strong>예매율 59%</strong>
+        	<strong>관람율 59%</strong>
         </div>
         <div>
         	<input type="button" value="예매하기" />
@@ -274,7 +274,7 @@ ul.main_menu li:hover {
       	</div>
         <div class="percentbox">
         <div>
-        	<strong>예매율 59%</strong>
+        	<strong>관람율 59%</strong>
         </div>
         <div>
         	<input type="button" value="예매하기" />

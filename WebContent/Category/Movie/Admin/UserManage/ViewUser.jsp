@@ -7,19 +7,22 @@
 <title>Insert title here</title>
 <style>
 #wrapper{
-	 
-		height:850px;
+	
+		
 		width:1250px;
-		clear:both;
+		/* clear:both; */
 		
 	}
 #main_content{
 	border:1px solid black;
-	position:absolute;
-	top:30px;
+	/* position:absolute; */
+	float:left;
+	margin-top: 25px;
+	margin-left: 25px;
+	/* top:30px;
 	left: 275px;
 	width: 950px;
-	height:1000px;
+ */
 }
 
 .insert_title{

@@ -8,18 +8,22 @@
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <style>
 #wrapper{
-	 
-		width:1250px;
-		clear:both;
+	
+	width:1250px;
+	/* clear:both; */
 		
 	}
 #main_content{
-	position:absolute;
-	top:30px;
+	
+	/* position:absolute; */
+	float:left;
+	width:950px;
+	margin-top: 25px;
+	margin-left: 25px;
+	/* top:30px;
 	left: 275px;
 	width: 950px;
-
-		
+ */
 }	
 #main_reserve div{
 	width:50px;	

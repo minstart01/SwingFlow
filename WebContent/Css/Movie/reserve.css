@@ -149,8 +149,6 @@
 #sel_movie, #sel_theater, #sel_time{
 	overflow:auto;
 	height:200px;
-	
-		
 }
 #sel_movie ul li, #sel_theater ul li, #sel_time ul li
 {	
@@ -182,7 +180,7 @@
 	
 }
 #date_img{
-	width:230px;
+	width:209px;
 	
 }
 #time_img{
