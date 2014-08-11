@@ -41,9 +41,9 @@
 
 <body>
 
-
-<div id="wrapper">
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
+<div id="wrapper">
+
 <jsp:include page="/Category/Movie/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">

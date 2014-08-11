@@ -274,17 +274,17 @@
     <div class="page">
 	<table align="center">
     	<tr>
-        <td><a href="#">1</td>
-        <td><a href="#">2</td>
-        <td><a href="#">3</td>
-        <td><a href="#">4</td>
-        <td><a href="#">5</td>
-        <td><a href="#">6</td>
-        <td><a href="#">7</td>
-        <td><a href="#">8</td>
-        <td><a href="#">9</td>
-        <td><a href="#">10</td>
-        <td><a href="#">다음</td>
+        <td><a href="#">1</a></td>
+        <td><a href="#">2</a></td>
+        <td><a href="#">3</a></td>
+        <td><a href="#">4</a></td>
+        <td><a href="#">5</a></td>
+        <td><a href="#">6</a></td>
+        <td><a href="#">7</a></td>
+        <td><a href="#">8</a></td>
+        <td><a href="#">9</a></td>
+        <td><a href="#">10</a></td>
+        <td><a href="#">다음</a></td>
         </tr>
     </table>
     </div>
@@ -296,7 +296,7 @@
     <input type="text" /><input type="button" value="검색"/>
     </div>
 </div>
-
+</div>
 
 <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 
