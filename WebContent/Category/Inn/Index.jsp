@@ -206,13 +206,20 @@
 	img{
 		border:0
 	}
+	/* ------------------------------------------------include--------------------------------------------------------- */
+	#common_bot{
+		border: 1px solid black;
+		margin-top: 200px;
+		display: block;
+		clear: both;
+	}
 </style>
 </head>
 <body>
-<jsp:include page="../Common/top.jsp"></jsp:include>
+<jsp:include page="../Inn/Support/top.jsp"></jsp:include>
 
 <div id="wrapper">
-<jsp:include page="sidemenu.jsp"></jsp:include>
+<jsp:include page="../Inn/Support/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
 <div id="top_all">
@@ -298,5 +305,6 @@
 </div>
 <br/><br/><br/><br/>
 </div>
+<div id="common_bot"><jsp:include page="../Inn/Support/footer.jsp"></jsp:include></div>
 </body>
 </html>
