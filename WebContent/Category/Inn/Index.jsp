@@ -208,6 +208,8 @@
 	}
 	/* ------------------------------------------------include--------------------------------------------------------- */
 	#common_bot{
+		position: absolute;
+		bottom: 50px;
 		border: 1px solid black;
 		margin-top: 200px;
 		display: block;
@@ -216,7 +218,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="../Inn/Support/top.jsp"></jsp:include>
+<%@include file="./Support/top.jsp" %>
 
 <div id="wrapper">
 <jsp:include page="../Inn/Support/sidemenu.jsp"></jsp:include>
@@ -304,7 +306,8 @@
 </div>
 </div>
 <br/><br/><br/><br/>
+
 </div>
-<div id="common_bot"><jsp:include page="../Inn/Support/footer.jsp"></jsp:include></div>
+<%-- <div id="common_bot"><jsp:include page="../Inn/Support/footer.jsp"></jsp:include></div> --%>
 </body>
 </html>
