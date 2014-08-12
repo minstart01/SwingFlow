@@ -25,18 +25,18 @@
  */
 }
 .list_title{
-	margin-left:10px;	
+	
 	margin-top:15px;
 	border:1px solid black;
 }
 .div_table{
-	margin:10px 0 0 10px;	
+	margin:10px 0 0 0;	
 	border:1px solid black;
 }
 .list_bt{
-	width:911px;
+	
 	height:27px;
-	margin:5px 0 0 10px;
+	margin:5px 0 0 0;
 	border:1px solid black;	
 }
 .delete_bt
@@ -49,15 +49,14 @@
 }
 .page
 {
-	margin:5px 0 0 10px;
+	margin:5px 0 0 0;
 	border:1px solid black;
-	width:911px;
+	
 }
 .search
 {
-	margin:5px 0 0 10px;
-	border:1px solid black;
-	width:911px;
+	margin:5px 0 0 0;
+	
 	text-align:center;
 }
 

@@ -8,9 +8,11 @@
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <style>
 .join_form
-{
-	padding-top: 120px;
+{	
 	
+	width:780px;
+	padding-top: 120px;
+	margin-bottom: 200px;	
 }
 .join_table{
 	font-size:17px;	
@@ -44,10 +46,9 @@
 	font-weight:bold;	
 }
 .bt_box
-{
-	
+{	
 	margin-top:20px;
-	margin-bottom: 200px;	
+	
 }
 .bt_box input{
 	font-size:17px;	
@@ -67,7 +68,13 @@ margin-right:15px;
 
 <body>
 <jsp:include page="top.jsp"></jsp:include>
-<div class="join_form" align="center">
+
+<center><div class="join_form">
+
+<div align="center" style="margin-bottom:30px; width:100%;" >
+<div style="float: left; margin-left: 25px;"><h1>회원가입</h1></div>
+<hr style="width:720px; border:1px solid #d9d9d9;" />
+</div>
 	<table class="join_table" cellpadding="6">
     	<tr>
         	<td class="first_td"><label for="id">아이디</label></td>
@@ -160,13 +167,15 @@ margin-right:15px;
             <td><input type="radio" name="smscheck" checked="checked"/>수신함<input type="radio" name="smscheck"/>수신안함</td>
         </tr>
     </table>
-</div>
-<div align="center" style="margin-top:30px; width:100%;" >
+    <div align="center" style="margin-top:30px; width:100%;" >
 <hr style="width:720px; border:1px solid #d9d9d9;" />
 </div>
 <div class="bt_box" align="center">
 	<input type="submit" value="가입하기"/><input type="button" value="다시입력" />
 </div>
+</div>
+
+</center>
  <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 </body>
 </html>
