@@ -16,8 +16,8 @@
             <th><a href="/SwingFlow/Category/Movie/Index.jsp">영화</a></th>
             <th><a href="/SwingFlow/Category/Airline/Index.jsp">항공</a></th>
             <th><a href="/SwingFlow/Category/Inn/Index.jsp">여행</a></th>
-            <th><a href="#">로그인</a></th>
-            <th><a href="#">회원가입</a></th>
+            <th><a href="/SwingFlow/Category/Common/Login.jsp">로그인</a></th>
+            <th><a href="/SwingFlow/Category/Common/Join.jsp">회원가입</a></th>
         </tr>
         </table>
 	</nav>
