@@ -9,6 +9,15 @@
 	
 </script>
 <style type="text/css">
+
+	#wrapper{
+	 	
+		height:2000px;
+		width:1250px;
+		clear:both;
+		
+	}
+	
 	#main_content{
 		/* 
 		vertical-align: middle;
@@ -200,6 +209,11 @@
 </style>
 </head>
 <body>
+<jsp:include page="../Common/top.jsp"></jsp:include>
+
+<div id="wrapper">
+<jsp:include page="sidemenu.jsp"></jsp:include>
+
 <div id="main_content">
 <div id="top_all">
 <div id="top_pic"><img src="../../images/Inn/top.jpg">
@@ -283,6 +297,6 @@
 </div>
 </div>
 <br/><br/><br/><br/>
-
+</div>
 </body>
 </html>
