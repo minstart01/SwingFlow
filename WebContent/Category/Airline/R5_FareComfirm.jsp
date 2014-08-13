@@ -150,14 +150,14 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td colspan="2" align="right"><img src="vimg.png" /></td>
+    <td colspan="2" align="right"><img src="/SwingFlow/images/Airline/reserv/vimg.png" /></td>
     <td>&nbsp;</td>
   </tr>
 </table>
 <p>&nbsp;</p>
               <div ><span style="margin-left:50px;">
-                <a id="" href="R2_FlightSelect.jsp">이전단계</a></span>
-                <span style="margin-left:700px;"><a id="" href="#">계속하기</a></span>
+                <a id="" href="R5_FareComfirm.jsp">이전단계</a></span>
+                <span style="margin-left:700px;"><a id="" href="R6_Complete.jsp">계속하기</a></span>
               </div>
 </body>
 </html>
