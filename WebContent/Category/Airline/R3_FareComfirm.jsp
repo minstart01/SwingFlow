@@ -1147,7 +1147,7 @@ table
               <p>&nbsp;</p>
               <div ><span style="margin-left:50px;">
                 <a id="" href="R2_FlightSelect.jsp">이전단계</a></span>
-                <span style="margin-left:500px;"><a id="" href="#">계속하기</a></span>
+                <span style="margin-left:500px;"><a id="" href="R4_PassengerInput.jsp">계속하기</a></span>
               </div>
               
 

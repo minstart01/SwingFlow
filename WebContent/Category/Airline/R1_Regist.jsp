@@ -6,21 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
- <link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-  
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css">
 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-
-  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-
-  <link rel="stylesheet" href="/resources/demos/style.css">
-
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 
   <script>
   $(function() {
@@ -36,6 +28,33 @@ $(function(){
 		$('#getIn01').show();
 	});
 });
+/* 달력 ============================================================================================  */
+ 
+  $(function() {
+
+    $( "#datepicker" ).datepicker({
+    	dateFormat: "yy-mm-dd",
+ showOn: "button",
+  buttonImage: "/SwingFlow/images/Airline/reserv/calendar.png",
+  buttonImageOnly: true,
+  changeMonth: true,
+  changeYear: true
+    });
+  });
+  $(function() {
+
+	    $( "#datepicker01" ).datepicker({
+	    	dateFormat: "yy-mm-dd",
+	 showOn: "button",
+	  buttonImage: "/SwingFlow/images/Airline/reserv/calendar.png",
+	  buttonImageOnly: true,
+	  changeMonth: true,
+	  changeYear: true
+	    });
+	  });
+
+
+
 
 
 
@@ -1504,7 +1523,7 @@ caption, legend, #accessibility, .hidden {
 <div id="main_content">
 <form name="travelRegistForm" id="travelRegistForm" onsubmit="return false;" method="post"><div id="wrap_container"><section id="main_container"><div class="reservationBox" id="containerBox"><div id="container"><div id="skipCt"><section id="containerBody">
 						<h3 class="h3_type01">항공권 예매</h3>
-						<p>Date: <input type="text" id="datepicker"></p>
+						
 <p ><strong>1. 여정선택</strong></p>
 						<p class="h4_type01">&nbsp;</p>
 			  <div class="itineraryBoxPs">
@@ -1797,18 +1816,13 @@ caption, legend, #accessibility, .hidden {
 
 										<div class="takeOff">
 										  <p class="tTitle">
+		<!-- 달력시작 =============================================================================================-->
 												<strong>가는 날</strong>
 											</p>
-											<p>
-											  <a class="btn_close2" href="javascript:_cal_close('nextCalendarFocusA');"><img alt="가는날 달력 레이어 팝업 닫기" src="../../images/Airline/reserv/btn_calendar.gif"></a>
-											  <input title="출국일 선택" class="text01 inputFocusin01" id="viewSDate" type="text" readonly value="출국일 선택">
-										  </p>
+<p>Date: <input type="text" id="datepicker"></p>
+										 
 										  <div class="CalendarBox" id="CalendarBox1">
-
-												<!-- 가는 날 - 달력 -->
-											<div class="CalendarInner bg_start" id="sCalArea">
-											  </div>
-											  <!-- //가는 날 - 달력 -->
+  <!-- //가는 날 - 달력 -->
 											  <a class="btn_close2" href="javascript:_cal_close('nextCalendarFocusA');"></a>
 											</div>
 									  </div>
@@ -1816,10 +1830,7 @@ caption, legend, #accessibility, .hidden {
 											<div class="tTitle">
 												<p><strong>오는 날</strong></p>
                                             </div>
-											<p>
-											  <a class="btn_close2" href="javascript:_cal_close('nextCalendarFocusB');"><img alt="오는날 달력 레이어 팝업 닫기" src="../../images/Airline/reserv/btn_calendar.gif"></a>
-											  <input type="text" id="datepicker" title="귀국일 선택" class="text01 inputFocusin01"  >
-										  </p>
+<p>Date: <input type="text" id="datepicker01"></p>
 										  <div class="CalendarBox" id="CalendarBox2">
 
 												<!-- 가는 날 - 달력 -->
@@ -2672,9 +2683,10 @@ caption, legend, #accessibility, .hidden {
 									<dd>편도 및 다구간 여정 시 국적에 따라 <span class="nPoint">경유지 및 목적지 출입국 시 비자를 소지하지 않을 경우에는 해당 국가로 출국이 거절될 수 있습니다. </span>무비자 입국이 가능한 나라일지라도 편도 입국은 불가하오니 반드시 해당 대사관을 통하여 확인하시기 바랍니다.</dd>
 								</dl>
 							</div>
+	<!-- //조회하기 버튼 ===============================================================-->	
 							<ul class="btnBoxType01">
 								<li><span ><a id="btnReset" href="javascript:;">다시 입력</a></span></li>
-								<li class="right"><span ><a id="btnSendNext" href="javascript:;">조회하기</a></span></li>
+								<li class="right"><span ><a id="btnSendNext" href="R2_FlightSelect.jsp">조회하기</a></span></li>
 							</ul>
 
 

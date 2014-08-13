@@ -5,6 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css">
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
+
+  <script>
+  $(function(){
+	  $('#FareComfirm').click(function(e){
+		  $('#dvResult').empty();
+		  $('#dvResult').load("R3_FareComfirm.jsp");
+	  });
+  });
+  
+  </script>
 <style>
 body, table, input, textarea, select, button
 {
@@ -2184,6 +2202,7 @@ table
 {
 	margin-top: 4px;
 	margin-right: 0px;
+
 	margin-bottom: 10px;
 	margin-left: 0px;
 }
@@ -2358,6 +2377,7 @@ table
    
    									
    <div class="selectITinner4">
+
     
     										
     <div class="sLeft">
@@ -3058,12 +3078,13 @@ table
    </li>
    
    								
-   <li class="right">
-    <span ><a href="R3_FareComfirm.jsp">운임확인</a></span>
+   <li class="right" id="FareComfirm">
+    <span ><a>운임확인</a></span>
    </li>
    
    							
   </ul>						
  </div>
 </div>
+<div id="dvResult"></div>
 </section></div></div></div></section></div></form></body></html>

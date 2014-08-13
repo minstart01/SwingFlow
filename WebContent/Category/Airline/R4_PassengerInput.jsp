@@ -1628,8 +1628,7 @@ a
    							
    								
    <!-- selectITbox3 -->
-   
-   								<table width="556" height="154" border="1" cellpadding="0" cellspacing="0">
+   <table width="556" height="154" border="1" cellpadding="0" cellspacing="0">
   <tr>
     <td width="66" height="53">인천 </td>
     <td width="35">&lt;=&gt;</td>
