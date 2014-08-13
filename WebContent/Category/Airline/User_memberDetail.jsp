@@ -19,7 +19,7 @@
 <body>
 <h2>회원정보수정</h2>
 
-<table width="600" height="100" border="1" cellpadding="0" cellspacing="0">
+<table width="650" height="400" border="1" cellpadding="0" cellspacing="0">
   <tr>
     <td>한글이름</td>
     <td colspan="2">임유경</td>
@@ -84,7 +84,10 @@
       @
       <input type="text"></td>
   </tr>
-
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
 </table>
    <div class="div_button">
 	<input type="submit" value="저장" />&nbsp;

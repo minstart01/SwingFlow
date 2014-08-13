@@ -97,7 +97,7 @@
 		  </div>
 		</div>
 		<div class="content_image">
-		  <a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/Main.html#"><img style=" border: 10px solid #FFF;" alt="image" src="../../images/Airline/m3.png"></a>
+		  <a href="M1_MileageSearch.jsp"><img style=" border: 10px solid #FFF;" alt="image" src="../../images/Airline/m3.png"></a>
 		  <div class="content_text">
 		    <h2>마일리지 조회</h2>
 		      <p>선택일 기준 스케줄 조회가 가능합니다.
@@ -112,7 +112,7 @@
 		  </div>		
 		</div>
 		<div class="content_image">
-		  <a href="file:///D:/project/Blue%20Ripples%202/blue_ripples_2/Main.html#"><img style=" border: 10px solid #FFF;" alt="image" src="../../images/Airline/m2.png"></a>
+		  <a href="S1_searchFare.jsp"><img style=" border: 10px solid #FFF;" alt="image" src="../../images/Airline/m2.png"></a>
 		  <div class="content_text">
 		    <h2>운임 조회</h2>
 		    <p>국내선, 국제선 운임조회가 가능합니다.

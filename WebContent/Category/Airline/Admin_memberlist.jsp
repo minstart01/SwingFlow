@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>회원목록</h2>
-<table width="1008" height="93" border="1" cellpadding="0" cellspacing="0" >
+<table width="1000" height="100" border="1" cellpadding="0" cellspacing="0" >
 	  <tr align="center">
 	    <td width="500"><input type="date"> ~ <input type="date"></td>
 	    <td><input type="submit" name="button2" id="button2" value="오늘날짜">

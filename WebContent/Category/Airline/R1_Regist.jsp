@@ -41,7 +41,7 @@ $(function(){
   $(function() {
 
 	    $( "#datepicker01" ).datepicker({
-	    	dateFormat: "yy-mm-dd",
+	    	dateFormat: "yymmdd",
 	 showOn: "button",
 	  buttonImage: "/SwingFlow/images/Airline/reserv/calendar.png",
 	  buttonImageOnly: true,
