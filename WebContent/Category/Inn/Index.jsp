@@ -1,245 +1,313 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script>
+	
+</script>
+<style type="text/css">
 
-<title>Bigg &raquo; Just another Open Designs template</title>
-<meta name="description" content="Just another Open Designs template." />
-<meta name="robots" content="noodp,noydir" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- <link rel="stylesheet" id="child-theme-css" href="../../Css/Inn/style.css" type="text/css" media="all" /> -->
-<link rel="stylesheet" id="child-theme-css" href="../../Css/Inn/style.css" type="text/css" media="all" />
-<link rel="stylesheet" id="responsive-main-css-css" href="../../Css/Inn/responsive-main.min.css" type="text/css" media="all" />
-<link rel="stylesheet" id="responsive-css-css" href="../../Css/Inn/responsive.css" type="text/css" media="all" />
-<link rel="stylesheet" id="tb_styles-css" href="../../Css/Inn/tb-styles.min.css" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css" href="../../Css/Inn/Main.css" />
-<link rel="stylesheet" type="text/css" href="../../Css/Inn/Main2.css" />
-
-
-<script type="text/javascript" src="js/jquery.js"></script>
-
-<script type="text/javascript">
-  jQuery(window).scroll(function (event) {
-	  	
-		var top = jQuery('#popular-upcoming').offset().top - jQuery(document).scrollTop();;
-		// what the y position of the scroll is
-		var y = jQuery(this).scrollTop();
-		// whether that's below the form
-		if (y >= top)  {
-		// if so, add the active class to popular-upcoming and remove from content
-		jQuery('.page-nav-popular-posts').addClass('active');
-		jQuery('.page-nav-top-posts').removeClass('active');
-		} else {
-		// otherwise remove it
-		jQuery('.page-nav-popular-posts').removeClass('active');
-		jQuery('.page-nav-top-posts').addClass('active');
-	   }
-  });
-  
-  jQuery(document).ready(function (){
-  jQuery('#popular-scroll').click(function (){
-            //jQuery(this).animate(function(){
-                jQuery('html, body').animate({
-                    scrollTop: jQuery('#popular-upcoming').offset().top
-                     }, 2000);
-            //});
-        });
+	#wrapper{
+	 	
+		height:2000px;
+		width:1250px;
+		clear:both;
 		
-		jQuery('#feature-scroll').click(function (){
-            //jQuery(this).animate(function(){
-                jQuery('html, body').animate({
-                    scrollTop: jQuery('#inner').offset().top
-                     }, 2000);
-            //});
-        });
-		  });
-	  </script>
+	}
+	
+	#main_content{
+		/* 
+		vertical-align: middle;
+		text-align: center;
+		cursor: pointer;
+		 */
+		position:absolute;
+		top:30px;
+		left: 275px;
+		width: 960px;
+		height: auto;
+		z-index: 0;
+	}
+	
+	#top_all{
+		border-top: 3px solid #ddd;
+		/* text-shadow: 5px 2px 2px black, -2px -2px 2px black; */
+		/* border-bottom: 1px solid #ddd; */
+		width: 960px;
+		height: 427px;
+		display: block;
+		padding-top: 15px;
+		z-index: 0;
+	}
+	
+	#top_pic{
+		width: 950px;
+		height: 412px;
+		float:left;
+		z-index: 0;
+	}
+	
+	#top_search{
+		position:absolute;
+		top:360px;
+		opacity:0.8;
+		width:960px;
+		height:70px;
+		background-color: #B2CCFF;
+		z-index: 100;
+	}
+	
+	#top_search_type {
+		padding: 20px 100px;
+	}
+	
+	#top_search_type_1 {
+		width: 250px;
+	}
+	
+	#top_search_type_2 {
+		width: 150px;
+	}
+	
+	#top_search_type_3 {
+		width: 150px;
+	}
+	
+	#top_search_type_4 {
+		width: 150px;
+		background-color: #FF8383;
+	}
+
+	#txt_a{
+		font-family: 맑은 고딕;
+		font-size: 23px;
+		text-align: center;
+		
+	}
+	
+	#txt_b{
+		font-family: 맑은 고딕;
+		font-size: 18px;
+		text-align: center;
+	}
+	
+	
+	
+	/* ------------------------------------------------top--------------------------------------------------------- */
+	
+	#mid_all{
+		/* border-top: 1px solid #ddd; */
+		/* border-bottom: 1px solid #ddd; */
+		width: 960px;
+		height: 900px;
+		display: block;
+		margin-top: 30px;
+		padding-bottom: 30px;
+	}
+	
+	.mid_pic{
+		float:left;
+		margin-right: 35px;
+
+	}
+
+	.mid_title_top{
+	position: absolute;
+		color: white;
+		font-family: 맑은 고딕;
+		font-size: 28px;
+		padding-left: 110px;
+		bottom:1090px;
+		text-shadow: 2px 2px 2px black, -2px -2px 2px black;
+	}
+	
+	.mid_title_mid{
+	position: absolute;
+		color: white;
+		font-family: 맑은 고딕;
+		font-size: 28px;
+		padding-left: 110px;
+		bottom:830px;
+		text-shadow: 2px 2px 2px black, -2px -2px 2px black;
+	}
+	
+	.mid_title_bot{
+		position: absolute;
+		color: white;
+		font-family: 맑은 고딕;
+		font-size: 28px;
+		padding-left: 110px;
+		bottom:570px;
+		text-shadow: 2px 2px 2px black, -2px -2px 2px black;
+	} 
+	
+	.mid_each{
+
+	}
+	
+	.mid_img{
+		width: 280px;
+		height: 205px;
+	}
+	
+	/* ------------------------------------------------mid--------------------------------------------------------- */
+	#bot_title h2{
+		font-family: 맑은 고딕;
+		font-size: 34px;
+		text-align: center;
+		padding-bottom: 0px;
+		padding-top: 0px;
+	}
+	#bot_all{
+		border-top: 3px solid #ddd;
+		border-bottom: 3px solid #ddd;
+		width: 960px;
+		height: 480px;
+		display: block;
+		clear: both;
+		/* margin-left:20px; */
+	}
+
+	.bot_sub{
+		width: 280px;
+		height: 350px;
+		float: left;
+		padding-left:20px;
+		margin-right: 15px;
+	}
+	
+	.bot_sub_title{
+		position: absolute;
+		font-family: 맑은 고딕;
+		font-size: 32px;
+		color:white;
+		text-shadow: 2px 2px 2px black, -2px -2px 2px black;
+/* 		text-shadow: x y blur color;
+					x offset , y offset, blur, color */
+		bottom: 150px;
+		padding-left: 70px;
+	}
+	/* ------------------------------------------------bot--------------------------------------------------------- */
+	
+	#mid_top, #mid_mid, #mid_bot{
+		border-top: 1px solid #ddd;
+		padding-left: 20px;
+		padding-top: 20px;
+		height:	240px;
+		width: 960px;
+	}
+	a:hover{
+		 color:black;
+	}
+	
+	img{
+		border:0
+	}
+	/* ------------------------------------------------include--------------------------------------------------------- */
+	#common_bot{
+		position: absolute;
+		bottom: 50px;
+		border: 1px solid black;
+		margin-top: 200px;
+		display: block;
+		clear: both;
+	}
+</style>
 </head>
+<body>
+<%@include file="./Support/top.jsp" %>
 
-<body class="home blog header-full-width full-width-content">
-<jsp:include page="../Common/top.jsp"></jsp:include>
-<!-- <div id="header">
-  <div class="site-header">
-    <h1 class="site-header-logo-container">
-    <a href="/"><span class="image-replace">Bigg</span>
-    <img src="images/bigg-logo.png" width="65" height="35" id="bigg-logo" alt="Bigg" /></a>
-    </h1>
-      
-            <ul id="page-nav" class="horizontal-list">
-<li class="page-nav-top-posts active"><a href="javascript:void(0)" id="feature-scroll" class="page-anchor-link">여행지 알아보기</a></li>
+<div id="wrapper">
+<jsp:include page="../Inn/Support/sidemenu.jsp"></jsp:include>
 
-<li class="page-nav-popular-posts"><a href="javascript:void(0)" id="popular-scroll" class="page-anchor-link">숙박정보 &amp; Upcoming</a></li>
-
-</ul>
-
-<div id="site-nav" class="horizontal-list"><div class="menu-main-menu-container"><ul id="menu-main-menu" class="menu"><li id="menu-item-144" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-144"><a href="/">Home</a></li>
-<li id="menu-item-142" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-142"><a href="sample-page.htm">Sample Page</a></li>
-</ul></div></div>
-<div id="site-header-bigg-social">
-<ul class="horizontal-list">
-<li><a href="https://twitter.com/opendesigns" target="_blank" class="bigg-social-twitter bigg-social-icon image-replace">Twitter</a></li>
-<li><a href="http://www.facebook.com/opendesigns/" target="_blank" class="bigg-social-fb bigg-social-icon image-replace">Facebook</a></li>
-<li><a href="https://plus.google.com/101703942483092652776/posts" target="_blank" class="bigg-social-gplus bigg-social-icon image-replace">Google+</a></li>
-</ul>
-      
-    </div>  
-    </div>
-  </div> -->
-  <div id="wrap">
-<div id="inner">
-<div class="wrap">
-<div id="content-sidebar-wrap">
-				
-				<div id="content" class="hfeed">
-				<div class="post-5 post type-post status-publish format-standard hentry category-featured category-parent-category-i entry feature feature">
-
-		<p>
-		<a href="#" title="Welcome to Bigg"><img width="660" height="370" src="../../images/Inn/go.jpg" class="alignleft post-image" alt="1" /></a>		
-		</p>
-	<p>&nbsp;</p> 
-		<h2 class="entry-title"><a href="#" title="Welcome to Bigg" rel="bookmark">내린천으로 놀러가요~</a></h2> 
-		
-				<div class="entry-content">
-			<p>This is a little introduction to Bigg, the free website template that might look a little bit like a popular site you’ve probably already heard of.  Can you guess what site I’m talking about? ;)</p>
-
-			<a class="bigg-read-more" href="http://demo.opendesigns.org/welcome/">Read Article</a></div>
-				<!-- end .entry-content -->
-		
+<div id="main_content">
+<div id="top_all">
+<div id="top_pic"><img src="../../images/Inn/top.jpg">
+	<div id="top_search">
+		<div id="top_search_type">
+			<input id="top_search_type_1" type="search" value="어디 가고 싶으신가요?"/>
+			<input id="top_search_type_2" type="text" value="체크인"/>
+			<input id="top_search_type_3" type="text" value="체크아웃"/>
+			<input id="top_search_type_4" type="submit" value="검색"/>
+		</div>
 	</div>
-    <div align="right"><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p><select><option>인기순</option><option>최신순</option></select></p></div>
-				<div class="post-1 post type-post status-publish format-standard hentry category-featured category-uncategorized entry fourcol first one-third teaser first">
-				  
-				  <a href="#" title="Hello world!"><img width="300" height="168" src="../../images/Inn/a300.jpg" class="alignleft post-image" alt="2" /></a>		<h2 class="entry-title"><a href="#" title="Hello world!" rel="bookmark">드루와~!!!</a></h2> 
-		
-				<div class="entry-content">
-			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
+</div>
 
-			<a class="bigg-read-more" href="http://demo.opendesigns.org/hello-world/">Read Article</a>		</div><!-- end .entry-content -->
-		
+</div>
+<!-- 메인 게시물 -->
+
+
+<div id="mid_all">
+	<div>
+		<div id="txt_a"><h1>나만의 모험 시작하기</h1></div>
+		<div id="txt_b"></h3>사랑스러운 여행지들을 찾아보세요.</h3><div>
 	</div>
-		<!-- end .postclass -->
-		<div class="post-63 post type-post status-publish format-standard hentry category-child-category-i category-featured category-parent-category-i category-parent-category-ii tag-tag2 tag-tag5 tag-tag6 entry fourcol one-third teaser">
-
-		<a href="#" title="Another Post with Everything"><img width="300" height="168" src="../../images/Inn/b300.jpg" class="alignleft post-image" alt="3" /></a>		<h2 class="entry-title"><a href="#" title="Another Post with Everything In It" rel="bookmark">해운대로 고고</a></h2> 
-		
-				<div class="entry-content">
-			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
-
-			<a class="bigg-read-more" href="http://demo.opendesigns.org/another-post-with-everything-in-it/">Read Article</a>		</div><!-- end .entry-content -->
-		
-	</div><!-- end .postclass -->
-		<div class="post-61 post type-post status-publish format-standard hentry category-featured category-uncategorized entry fourcol one-third teaser">
-
-		<a href="#" title="An Ordered List Post"><img width="300" height="168" src="../../images/Inn/c300.jpg" class="alignleft post-image" alt="4" /></a>		<h2 class="entry-title"><a href="#" title="An Ordered List Post" rel="bookmark">즐거운 해루질</a></h2> 
-		
-				<div class="entry-content">
-			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
-
-			<a class="bigg-read-more" href="http://demo.opendesigns.org/an-ordered-list-post/">Read Article</a>		</div><!-- end .entry-content -->
-		
-	</div><!-- end .postclass -->
-		<div class="post-56 post type-post status-publish format-standard hentry category-child-category-iii category-featured category-parent-category-iii tag-tag1 tag-tag3 tag-tag6 entry fourcol first last one-third teaser first">
-
-		<a href="#" title="A Simple Text Post"><img width="300" height="168" src="../../images/Inn/d300.jpg" class="alignleft post-image" alt="5" /></a>		<h2 class="entry-title"><a href="#" title="A Simple Text Post" rel="bookmark">졸라 시원하다 와~</a></h2> 
-		
-				<div class="entry-content">
-			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
-
-			<a class="bigg-read-more" href="#">Read Article</a>		</div><!-- end .entry-content -->
-		
-	</div><!-- end .postclass -->
-		<div class="post-53 post type-post status-publish format-standard hentry category-featured category-uncategorized entry fourcol one-third teaser">
-
-		<a href="#" title="Hello world!"><img width="300" height="168" src="../../images/Inn/e300.jpg" class="alignleft post-image" alt="6" /></a>		<h2 class="entry-title"><a href="#" title="Hello world!" rel="bookmark">벨기에 필수 코스!</a></h2> 
-		
-				<div class="entry-content">
-			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
-
-			<a class="bigg-read-more" href="#">Read Article</a>		</div><!-- end .entry-content -->
-		
-	</div><!-- end .postclass -->
-		<div class="post-51 post type-post status-publish format-standard hentry category-child-category-ii category-featured category-grandchild-category-i category-parent-category-i category-parent-category-ii tag-tag1 tag-tag2 tag-tag5 tag-tag7 entry fourcol one-third teaser">
-
-		<a href="#" title="A Post With Everything In It"><img width="300" height="168" src="../../images/Inn/f300.jpg" class="alignleft post-image" alt="7" /></a>		<h2 class="entry-title"><a href="#" title="A Post With Everything In It" rel="bookmark">체코의 아름다운 광경</a></h2> 
-		
-				<div class="entry-content">
-			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
-
-			<a class="bigg-read-more" href="#">Read Article</a>		</div><!-- end .entry-content -->
-		
-	</div><!-- end .postclass -->
-		<div class="post-49 post type-post status-publish format-standard hentry category-featured category-uncategorized tag-tag2 tag-tag5 tag-tag7 entry fourcol first one-third teaser first">
-
-		<a href="#" title="Quotes Time!"><img width="300" height="168" src="../../images/Inn/g300.jpg" class="alignleft post-image" alt="8" /></a>		<h2 class="entry-title"><a href="#" title="Quotes Time!" rel="bookmark">역시 스위스!</a></h2> 
-		
-				<div class="entry-content">
-			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
-
-			<a class="bigg-read-more" href="#">Read Article</a>		</div><!-- end .entry-content -->
-		
-	</div><!-- end .postclass -->
-		<div class="post-47 post type-post status-publish format-standard hentry category-featured category-parent-category-ii category-parent-category-iii tag-tag2 tag-tag4 tag-tag7 entry fourcol one-third teaser">
-
-		<a href="#" title="Left-Aligned Image"><img width="300" height="168" src="../../images/Inn/h300.jpg" class="alignleft post-image" alt="9" /></a>		<h2 class="entry-title"><a href="#" title="A Post With a Left-Aligned Image" rel="bookmark">스웨덴에서 아침식사</a></h2> 
-		
-				<div class="entry-content">
-			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
-
-			<a class="bigg-read-more" href="#">Read Article</a>		</div><!-- end .entry-content -->
-		
-	</div><!-- end .postclass -->
-		<div class="post-45 post type-post status-publish format-standard hentry category-child-category-ii category-featured category-grandchild-category-i category-parent-category-i entry fourcol one-third teaser">
-
-		<a href="#" title="Another Text-Only Post"><img width="300" height="168" src="../../images/Inn/10-300x168.jpg" class="alignleft post-image" alt="10" /></a>		<h2 class="entry-title"><a href="#" title="Another Text-Only Post" rel="bookmark">와우!</a></h2> 
-		
-				<div class="entry-content">
-			<p>Bacon ipsum dolor sit amet kielbasa swine pariatur consequat consectetur esse tongue ea biltong. Fatback dolore ullamco labore in spare ribs ad hamburger cupidatat tongue. Nisi frankfurter duis proident, officia ham aliqua.</p>
-
-			<a class="bigg-read-more" href="#">Read Article</a>		</div><!-- end .entry-content -->
-		
-	</div><!-- end .postclass -->
-			</div><!-- end #content -->
-        <div align="right"
-        ><hr/>
-              <input type="button" value="글쓰기">
-              <hr/></div>
-		
-<div id="popular-upcoming" class="stories-container sixcol">
-
-<div class="stories-section-header">
-<h2 class="stories-section-header-hed">&nbsp;</h2>
-<h2 class="stories-section-header-hed">Popular</h2>
-<h3 class="stories-section-header-subhed">The most popular content on SwingFlow!</h3>
+<div id="mid_top">
+<div id="mid_1" class="mid_each">
+<div class="mid_pic"><a href="/"><img class="mid_img" src="../../images/Inn/1_.jpg"><div class="mid_title_top">호주</div></a></div>
 </div>
+<!-- 1번째 게시물 -->
 
-<ul class="plain-list stories-table">
-<li><a href="#">진우's Film1080</a></li>
-<li><a href="#">영민's MoaMoa</a></li>
-<li><a href="#">형일's Movie Finder</a></li>
-<li><a href="#">유경's Air Service</a></li>
-<li></li>
-</ul>
+<div id="mid_2" class="mid_each">
+<div class="mid_pic"><a href="/"><img class="mid_img" src="../../images/Inn/2.jpg"><div class="mid_title_top">미국</div></a></div>
+</div>
+<!-- 2번째 게시물 -->
+
+<div id="mid_3" class="mid_each">
+<div class="mid_pic"><a href="/"><img class="mid_img" src="../../images/Inn/3.jpg"><div class="mid_title_top">캐나다</div></a></div>
+</div>
+</div>
+<!-- 3번째 게시물 -->
+
+<div id="mid_mid">
+<div id="mid_4" class="mid_each">
+<div class="mid_pic"><a href="/"><img class="mid_img" src="../../images/Inn/4.jpg"><div class="mid_title_mid">페루</div></a></div>
+</div>
+<!-- 4번째 게시물 -->
+
+<div id="mid_5" class="mid_each">
+<div class="mid_pic"><a href="/"><img class="mid_img" src="../../images/Inn/5.jpg"><div class="mid_title_mid">이탈리아</div></a></div>
+</div>
+<!-- 5번째 게시물 -->
+
+<div id="mid_6" class="mid_each">
+<div class="mid_pic"><a href="/"><img class="mid_img" src="../../images/Inn/6.jpg"><div class="mid_title_mid">몰디브</div></a></div>
+</div>
+</div>
+<!-- 6번째 게시물 -->
+
+<div id="mid_bot">
+<div id="mid_7" class="mid_each">
+<div class="mid_pic"><a href="/"><img class="mid_img" src="../../images/Inn/7.jpg"><div class="mid_title_bot">뉴질랜드</div></a></div>
+</div>
+<!-- 7번째 게시물 -->
+
+<div id="mid_8" class="mid_each">
+<div class="mid_pic"><a href="/"><img class="mid_img" src="../../images/Inn/8.jpg"><div class="mid_title_bot">프랑스</div></a></div>
+</div>
+<!-- 8번째 게시물 -->
+
+<div id="mid_9" class="mid_each">
+<div class="mid_pic"><a href="/"><img class="mid_img" src="../../images/Inn/9.jpg"><div class="mid_title_bot">스페인</div></a></div>
+</div>
+</div>
+<!-- 9번째 게시물 -->
 
 </div>
 
-<div id="recent-stories" class="stories-container sixcol last">
-<div class="stories-section-header">
-<h2 class="stories-section-header-hed">&nbsp;</h2>
-<h2 class="stories-section-header-hed">Upcoming</h2>
-<h3 class="stories-section-header-subhed">A selection of the most recently posted content on Bigg.</h3>
+<div id="bot_all">
+	<div id="bot_title"><h2> Our Community </h2></div>
+	<div class="bot_sub"><a href="/"><img src="../../images/Inn/sub_1_280x350.jpg"/><div class="bot_sub_title">영화보기</div></a></div>
+	<div class="bot_sub"><a href="/"><img src="../../images/Inn/sub_2_280x350.png"/><div class="bot_sub_title">쇼핑하기</div></a></div>
+	<div class="bot_sub"><a href="/"><img src="../../images/Inn/sub_3_280x350.jpg"/><div class="bot_sub_title">항공예약</div></a></div>
 </div>
+</div>
+<br/><br/><br/><br/>
 
-<ul class="plain-list stories-table">
-
-<li><a href="#"><span class="entry-title"><a href="#" title="Hello world!" rel="bookmark">드루와~!!!</a></span></a></li>
-<li><a href="#"><span class="entry-title"><a href="#" title="Another Post with Everything In It" rel="bookmark">해운대로 고고</a></span></a></li>
-<li><a href="#"><span class="entry-title"><a href="#" title="A Post With Everything In It" rel="bookmark">체코의 아름다운 광경</a></span></a></li>
-<li><a href="#"><span class="entry-title"><a href="#" title="A Post With a Left-Aligned Image" rel="bookmark">스웨덴에서 아침식사</a></span></a></li>
-<li></li>
-</ul>
-
-	</div><!-- end #content-sidebar-wrap -->
-	</div><!-- end .wrap --></div><!-- end #inner --> 
-<div id="bigg-footer"></html>
+</div>
+<%-- <div id="common_bot"><jsp:include page="../Inn/Support/footer.jsp"></jsp:include></div> --%>
+</body>
+</html>

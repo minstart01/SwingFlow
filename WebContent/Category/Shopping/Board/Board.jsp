@@ -67,7 +67,7 @@
 							<!-- list -->
 							<div class="table-w">
 								<table border="0" class="tbl-type1">
-									<caption> 뉴스</caption>
+									<caption></caption>
 									<colgroup>
 										<col width="70">
 										<col width="120">
@@ -220,6 +220,7 @@
 					</div>
 					<!-- .page-cont -->
 				</div>
+				<input type="button" value="등록"/>
 				<!-- #aboutNews -->
 			</div>
 

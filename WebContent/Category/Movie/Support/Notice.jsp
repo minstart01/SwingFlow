@@ -15,6 +15,7 @@
 		
 	}
 #main_content{
+	font-size:15px;		
 	border:1px solid black;
 	/* position:absolute; */
 	float:left;
@@ -27,7 +28,7 @@
 }
 .list_table
 {
-	font-size:15px;	
+	
 }
 .list_table th
 {

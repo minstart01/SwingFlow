@@ -24,14 +24,14 @@
 }
 
 .insert_title{
-	margin-left:10px;	
+	
 	margin-top:15px;
 }
 
 
 .div_table table
 {
-	margin:10px 0 0 10px;	
+	margin:10px 0 0 0;	
 }
 .input_td{
 	padding: 5px 5px 5px 5px;	
