@@ -76,11 +76,12 @@
 	<classpathentry kind="lib" path="D:/springFramework/3.2.9/spring-framework-3.2.9.RELEASE/libs/spring-webmvc-portlet-3.2.9.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="D:/springFramework/commons-dbcp2-2.0.1.jar"/>
 	<classpathentry kind="lib" path="D:/springFramework/commons-dbcp2-2.0.1-javadoc.jar"/>
-	<classpathentry kind="lib" path="D:/springFramework/mybatis-2.3.5.jar"/>
 	<classpathentry kind="lib" path="D:/springFramework/ojdbc6.jar"/>
 	<classpathentry kind="lib" path="D:/springFramework/aspectjweaver-1.8.1.jar"/>
 	<classpathentry kind="lib" path="D:/springFramework/aspectjweaver-1.8.1-javadoc.jar"/>
 	<classpathentry kind="lib" path="D:/springFramework/cglib-nodep-3.1.jar"/>
 	<classpathentry kind="lib" path="D:/springFramework/com.springsource.org.aopalliance-1.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/springFramework/mybatis-2.3.5.jar"/>
+	<classpathentry kind="lib" path="D:/springFramework/mybatis-2.3.5-sources.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

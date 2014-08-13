@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+"http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+
+	<properties resource="jdbc.properties" />
+
+	<!-- 전체 옵션의 설정 -->
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+		lazyLoadingEnabled="true" maxTransactions="16" maxSessions="64"
+		maxRequests="128" useStatementNamespaces="true" />
+	<!-- 별칭설정 -->
+	<!-- <typeAlias type="common.value.DataMap" alias="dmap" /> -->
+
+	<!-- 타입헨들러 -->
+	<typeHandler callback="com.ibatis.sqlmap.engine.type.SqlTimestampTypeHandler"
+		javaType="java.util.Date" />
+
+	<transactionManager type="JDBC" commitRequired="false">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="${driver}" />
+			<property name="JDBC.ConnectionURL" value="${url}" />
+			<property name="JDBC.Username" value="${username}" />
+			<property name="JDBC.Password" value="${password}" />
+		</dataSource>
+	</transactionManager>
+
+	<sqlMap resource="LoginUserSqls.xml" />
+
+</sqlMapConfig>
+	
