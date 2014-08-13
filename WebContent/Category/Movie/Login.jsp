@@ -48,19 +48,23 @@
 	text-decoration:none;	
 }
 </style>
+<script type="text/javascript" src="jquery-2.1.1.js"></script>
+<script>
+$("#bt_login").click
+</script>
 </head>
 
 <body>
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 	<div class="login_form">
 	<div class="id_box">
-    	<input type="text" placeholder="아이디" class="id"/>
+    	<input type="text" placeholder="아이디" class="id" id="id"/>
     </div>
     <div class="pwd_box">
-    	<input type="password" placeholder="비밀번호" class="pwd"/>
+    	<input type="password" placeholder="비밀번호" class="pwd" id="pwd"/>
     </div>
     <div class="bt_box">
-    	<input type="submit" value="로그인" class="bt_login"/>
+    	<input type="submit" value="로그인" class="bt_login" id="bt_login"/>
     </div>
     <div class="font_box">
     <a href="#">아이디 찾기</a>
