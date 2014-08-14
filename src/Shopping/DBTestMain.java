@@ -12,7 +12,7 @@ public class DBTestMain {
 			DB사용주의사항(다른 사람것은 손대지 않는다).
 			1. DB용 Class 를 만든다.( ex. /SwingFlow/src/Common/LoginUser.java  )
 			2. /SwingFlow/WebContent/WEB-INF/classes/????Sqls.xml  파일을 만든다   LoginUserSqls.xml 참고할것
-			3. /SwingFlow/WebContent/WEB-INF/classes/SwingFlowSqlMapConfig.xml 에 만든 >>>>Sqls.xml 을 추가요청 (==>이영민)
+			3. /SwingFlow/WebContent/WEB-INF/classes/SwingFlowSqlMapConfig.xml 에 만든 ????Sqls.xml 을 추가요청 (==>이영민)
 			4. 실제 메서드를 만든다  ( ex. /SwingFlow/src/Shopping/DBTestMain.java ) 
 		**/
 		MyBatis<LoginUser> loginUserDB = new MyBatis<LoginUser>(
