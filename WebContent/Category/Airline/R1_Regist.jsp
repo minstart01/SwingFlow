@@ -5,12 +5,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="jquery-2.1.1.js"></script>
+<script type="text/javascript" src="/SwingFlow/Script/Airline/ajaxJson.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
+<script type="text/javascript">
+var xhr = new xhRequest();
+//load Event
+$(function(e){ 
+	xhr.SetXHRequest();
+	$('#btnSendNext').click(function(e){
+		xhr.openGet("Ainfo.jsp?schDeptCityCode="+ $("#schDeptCityCode").val()+"&schArrvCityCode=" +$("#schArrvCityCode").val() , WeatherInfo);
+		document.frm.submit();
+	});
+});
+function WeatherInfo(){
+	 if(xhr.xhReq.readyState == 4){
+		   // xhReq.status == 200 : 성공
+		   if(xhr.xhReq.status == 200){
+		    // alert(xhr.xhReq.getResponseHeader("Content-Type"));
+		     var xml = xhr.xhReq.responseXML; // xml객체 리턴
+		     var items = $(xml).find("item");
+		//     alert('dd');
+		 $("#Temp").append($(items).find('airport').text());		
+}}}
 
 
+
+</script>
   <script>
   $(function() {
     $( "#radio" ).buttonset();
@@ -49,13 +73,7 @@ $(function(){
 	  changeYear: true
 	    });
 	  });
-
-
-
-
-
-
-  </script>
+ </script>
 </head>
 <style>
 #wrapper{
@@ -1574,12 +1592,13 @@ caption, legend, #accessibility, .hidden {
 														<ul id="ul_RT_DepArea"></ul>
 														</div>
 												  </div>
-													<!-- //layerPopup -->
-
-												  <input class="btnSend btn_CpopupLayer" id="btn_RT_DepAirport_Search" onclick="return false;" type="image" alt="찾기" src="../../images/Airline/reserv/btn_search.gif">
-<!--도착지 찾기-->
-													<input name="txt_RT_DepAirport_Search" title="도시 또는 공항 이름(코드) 3자리 입력" class="autocompleteBox ui-autocomplete-input" id="txt_RT_DepAirport_Search" style="width: 242px;" type="text" autocomplete="off"><span class="ui-helper-hidden-accessible" role="status" aria-live="polite"></span><!-- //? -->
-												</div>
+													
+		<p>City: <select id="schDeptCityCode" name="schDeptCityCode">
+		  <option>제주(CJU)</option>
+		  <option>김포(GMP)</option>
+		  <option>부산(PUS)</option>
+		  <option>김해</option>
+		  </select></p>									  </div>
 											</div>
 											<!-- 판매고 CR4 end -->											
 											
@@ -1603,10 +1622,21 @@ caption, legend, #accessibility, .hidden {
 															<ul id="ul_RT_ArrArea"><li val="KR"><a onclick="javascript:confirmSelectedValue('ul_RT_ArrArea' ,'' , true);" href="#none">한국</a></li><li val="JP"><a onclick="javascript:confirmSelectedValue('ul_RT_ArrArea' ,'' , true);" href="#none">일본</a></li><li val="CN"><a onclick="javascript:confirmSelectedValue('ul_RT_ArrArea' ,'' , true);" href="#none">중국</a></li><li val="EA"><a onclick="javascript:confirmSelectedValue('ul_RT_ArrArea' ,'' , true);" href="#none">동남아시아</a></li><li val="CA"><a onclick="javascript:confirmSelectedValue('ul_RT_ArrArea' ,'' , true);" href="#none">중앙아시아</a></li><li val="RU"><a onclick="javascript:confirmSelectedValue('ul_RT_ArrArea' ,'' , true);" href="#none">러시아</a></li><li val="US"><a onclick="javascript:confirmSelectedValue('ul_RT_ArrArea' ,'' , true);" href="#none">미국</a></li><li val="EU"><a onclick="javascript:confirmSelectedValue('ul_RT_ArrArea' ,'' , true);" href="#none">유럽</a></li><li val="CD"><a onclick="javascript:confirmSelectedValue('ul_RT_ArrArea' ,'' , true);" href="#none">캐나다</a></li><li val="ME"><a onclick="javascript:confirmSelectedValue('ul_RT_ArrArea' ,'' , true);" href="#none">중동</a></li><li val="AF"><a onclick="javascript:confirmSelectedValue('ul_RT_ArrArea' ,'' , true);" href="#none">아프리카</a></li></ul>
 														</div>
 												  </div>
-													<!-- //layerPopup -->
+													<!-- //layerPopup --><!--도착지 찾기-->
+															<p>City: <select id="schArrvCityCode" name="schArrvCityCode">
+		  <option>괌(GUM)</option>
+		  <option>마카오(MFM)</option>
+		  <option>베이징(BJS)</option>
+		  <option>세부(CEB)</option>
+		  <option>오사카(간사이)(OSA)</option>
+	 <option>쿠알라룸푸르(KUL)</option>	  
+<option>하노이(HAN)</option>	   <option>홍콩(HKG)</option>	   <option>후쿠오카(FUK)</option></select><input type="text"></p>
 
-												  <input class="btnSend btn_CpopupLayer" id="btn_RT_ArrAirport_Search" onclick="return false;" type="image" alt="찾기" src="../../images/Airline/reserv/btn_search.gif"><!--도착지 찾기-->
-													<input name="txt_RT_ArrAirport_Search" title="도시 또는 공항 이름(코드) 3자리 입력" class="autocompleteBox ui-autocomplete-input" id="txt_RT_ArrAirport_Search" style="width: 242px;" type="text" autocomplete="off"><span class="ui-helper-hidden-accessible" role="status" aria-live="polite"></span></div>
+
+
+
+
+	</div>
 											</div>
 										</div>
 									</div>
@@ -1640,21 +1670,7 @@ caption, legend, #accessibility, .hidden {
 																		- width, height 조절
 																		  <div class="selectStyle" style="width:150px;height:20px;">
 																	-->
-																	<div class="selectStyle" style="width: 177px; height: 23px;">
-																		<span class="span-select" style="height: 23px;">
-																			<input id="txt_site2" style="height: 23px; line-height: 23px;" type="text" readonly value="">
-																		<select id="site2" onchange="javascript:showLanguageList('site2');">
-																				<option value="KR" selected="">KOREA</option>
-																				<option value="US">USA</option>
-																				<option value="CN">China</option>
-																				<option value="JP">Japan</option>
-																				<option value="EA">South-East Asia</option>
-																				<option value="EU">Europe</option>
-																				<option value="AU">Oceania</option>
-																				<option value="RU">CIS</option>
-																		</select>
-																		</span>
-																	</div>
+																	
 																	<!-- //select -->
 																	<!-- //select 수정 -->
 																</li>
@@ -2559,6 +2575,7 @@ caption, legend, #accessibility, .hidden {
 										});
 
 										
+
 
 									//]]>
 									</script>
