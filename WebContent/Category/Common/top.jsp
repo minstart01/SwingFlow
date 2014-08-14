@@ -1,10 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="Common.Spring" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
+<script type="text/javascript">
+	function setLocale(locale){
+		$.ajax({
+			url : '/SwingFlow/Category/Common/requestLocaleAjax.jsp',
+			type : 'GET',
+			data : {
+				request : 'setLocale',
+				locale : locale
+			},
+			success : function(data) {
+				var responseTxt = data;
+				if (null != responseTxt) {
+					var userJson = JSON && JSON.parse(responseTxt);
+					if (userJson.response == "setLocale") {
+						window.location.reload();
+						return true;
+					} else {
+						userJson.locale;
+						return false;
+					}
+					;
+				}
+				;
+			}
+		});
+	}
+	function fnLocaleHangul(){
+		setLocale("korea");
+	}
+	function fnLocaleEnglish(){
+		setLocale("English"); 
+	}
+</script>
 </head>
 <body>
 <header id="header">
@@ -18,8 +53,8 @@
             <th><a href="/SwingFlow/Category/Inn/Index.jsp">여행</a></th>
             <th><a href="/SwingFlow/Category/Common/Login.jsp">로그인</a></th>
             <th><a href="/SwingFlow/Category/Common/Join.jsp">회원가입</a></th>
-            <th><a href="#">한글</a></th>
-            <th><a href="#">English</a></th>
+            <th><a href="javascript:fnLocaleHangul();">한글</a></th>
+            <th><a href="javascript:fnLocaleEnglish();">English</a></th>
         </tr>
         </table>
 	</nav>
