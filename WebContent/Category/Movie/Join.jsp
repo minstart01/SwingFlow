@@ -148,19 +148,18 @@
 	overflow-x:hidden;
 }
 .select_day{
-	border:1px solid #d4e7f5; 
-	width:50px; height:200px; 
-	overflow:auto; 
-	margin:0px; 
+	border:1px solid #d4e7f5;
+	width:50px;
+	height:200px;
+	overflow:auto;
+	margin:0px;
 	padding:0px;
 	position:relative;
-	top:4px; 
-	z-index:9999; 
-	background:white; 
-	
+	top:4px;
+	z-index:9999;
+	background:white;
 	display:none;
 	overflow-x:hidden;
-	
 }
 .select_div ul
 {
@@ -179,6 +178,7 @@
 {
 	text-decoration:none;
 	color:black;
+	display: block;
 }
 .select_div ul li:hover{
 	background:#f0f8fd;	
@@ -199,10 +199,12 @@ function pwdLength(){
 	var chk1 = /\d/;
 	var chk2 = /[a-z]/i;
 	var pwd = $("#pwd").val();
-	var pwd2 = $("#pwd2").val();
+
 	
 	if($("#id").val()==""){
-		alert("아이디를 입력하세요");	
+		alert("아이디를 입력하세요");
+		$("#id").focus();
+		
 	}
 	
 	if(pwd.length < 6){
@@ -258,30 +260,45 @@ function regChk(){
 
 }
 
-function joinChk(){
-		
-}
+
 
 function date(date){
 	if(date=="year"){
 		$(".select_" + date).show();
 		$(".select_month").hide();
 		$(".select_day").hide();
-		$(".day_div").attr("class","on");
-		
+		$("." + date + "_div").attr("onclick","date('off')");
+			
 	} else if(date=="month"){
 		$(".select_" + date).show();
 		$(".select_year").hide();
 		$(".select_day").hide();
+		$("." + date + "_div").attr("onclick","date('off')");
 	}else if(date=="day"){
 		$(".select_" + date).show();
 		$(".select_month").hide();
 		$(".select_year").hide();
+		$("." + date + "_div").attr("onclick","date('off')");
+	}else if(date=="off"){
+		$(".select_year").hide();
+		$(".year_div").attr("onclick","date('year')");
+		$(".select_month").hide();
+		$(".month_div").attr("onclick","date('month')");
+		$(".select_day").hide();
+		$(".day_div").attr("onclick","date('day')");
 	}
 }
+
 function select(date,no){
 	$(".select_" + date).hide();
 	$(".span_" + date).text($(".sel_" + date + no).text());
+	
+}
+
+function popup(url,width,height){
+	
+	
+	window.open(url,"popup","width=" + width + ", height=" + height + ",left=400,top=200");
 	
 }
 </script>
@@ -326,7 +343,7 @@ function select(date,no){
         	<td class="first_td"><label for="birth">생년월일</label></td>
             <td>
             
-            <div class="year_div off" onclick="date('year');">
+            <div class="year_div" onclick="date('year');">
             <span class="span_year select_span">년도</span><span class="img_span"><img src="button.png" /></span>
              <div class="select_div select_year">
             	<ul>
@@ -401,7 +418,7 @@ function select(date,no){
         </tr>
         <tr>
         	<td class="first_td"><label for="zipcode">우편번호</label></td>
-        	<td><input type="text" class="zipcode">&nbsp;-&nbsp;<input type="text" class="zipcode"><input type="button" value="검색" class="zipcode_bt"></td>
+        	<td><input type="text" class="zipcode">&nbsp;-&nbsp;<input type="text" class="zipcode"><input type="button" value="검색" class="zipcode_bt" onclick="popup('ZipcodeSearch.jsp','440','360');"></td>
             <td></td>
         </tr>
         <tr>
