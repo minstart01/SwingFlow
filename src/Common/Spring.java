@@ -6,8 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Spring {
-	private static Locale locale = null;
-	private static ApplicationContext context = null;
+	private static Locale locale = Locale.KOREA;
+	private static ApplicationContext context = new ClassPathXmlApplicationContext("MultiLanguage.xml");
 	private static String nameSpace = null;
 
 	public static void setLocale(String str) {
