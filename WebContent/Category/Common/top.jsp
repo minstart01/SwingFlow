@@ -18,6 +18,8 @@
             <th><a href="/SwingFlow/Category/Inn/Index.jsp">여행</a></th>
             <th><a href="/SwingFlow/Category/Common/Login.jsp">로그인</a></th>
             <th><a href="/SwingFlow/Category/Common/Join.jsp">회원가입</a></th>
+            <th><a href="#">한글</a></th>
+            <th><a href="#">English</a></th>
         </tr>
         </table>
 	</nav>
