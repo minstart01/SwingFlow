@@ -14,7 +14,8 @@ public class MyBatis<T> {
 	Reader reader;
 	SqlMapClient sqlMap;
 
-	public MyBatis(String sqlMapConfig) {
+	public MyBatis() {
+		String sqlMapConfig="SwingFlowSqlMapConfig.xml";
 		try {
 			this.reader = Resources.getResourceAsReader(sqlMapConfig);
 			// this.reader = new

@@ -13,10 +13,22 @@ public class DBTestMain {
 			1. DB용 Class 를 만든다.( ex. /SwingFlow/src/Common/LoginUser.java  )
 			2. /SwingFlow/WebContent/WEB-INF/classes/????Sqls.xml  파일을 만든다   LoginUserSqls.xml 참고할것
 			3. /SwingFlow/WebContent/WEB-INF/classes/SwingFlowSqlMapConfig.xml 에 만든 ????Sqls.xml 을 추가요청 (==>이영민)
-			4. 실제 메서드를 만든다  ( ex. /SwingFlow/src/Shopping/DBTestMain.java ) 
+			4. 실제 메서드를 만든다  ( ex. /SwingFlow/src/Shopping/DBTestMain.java )
+			
+			<문법>
+			
+			사용 시작시: MyBatis<LoginUser> loginUserDB = new MyBatis<LoginUser>(); 
+			  1. 객체를 문저 생성하여 사용할것
+			  2. <LoginUser> 은 자기가 작성한 디비 클라스이다.
+			  
+			사용종료후: loginUserDB.close()
+			  1. 사용한 자원을 반납.
+			  
+			사용 방법:
+			  boolean loginUserDB.find(nameSpace, MyClassObject)  
+			
 		**/
-		MyBatis<LoginUser> loginUserDB = new MyBatis<LoginUser>(
-				"SwingFlowSqlMapConfig.xml");
+		MyBatis<LoginUser> loginUserDB = new MyBatis<LoginUser>();
 		int ret = 0;
 		// 리턴값 받을 변수(List)
 		List<LoginUser> luser = null;
