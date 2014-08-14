@@ -142,7 +142,7 @@
 								<p>
 									<a href="javascript:;"
 										onclick="itemLinkUrlObj('shop', $(this), 'Y'); return false;"><img
-										src="http://img.sta1.info/_up/shop/logo/2014/06/1401929134352_a1.jpg?2014630"
+										src="http://img.sta1.info/_up/shop/logo/2014/08/1407918002258_a1.jpg?2014714"
 										class="itemImg" alt=""></a>
 								</p>
 								<p class="bl"></p>
@@ -162,6 +162,8 @@
 								</div>
 							</div>
 						</li>
+
+						<li class="item sec2 mShopList mShopCouponList mm" seq="885">	<div class="img">	<div class="imgBtn" onclick="itemLinkUrlObj('shop', $(this), 'Y'); return false;"></div>			<div class="couponSec" onclick="couponDownLink($(this), 885, 'S'); return false;"><div class="in">				<strong>엘번드레스</strong>				<i><em>15</em>%</i><i class="udc">전체 상품 구매시</i>				<span class="ico-btn-1">다운받기</span>			</div></div>		<div class="rankSec" ad="C" page="0">			<h3>남성 할인 쇼핑몰</h3><ul class="rank" style="display: block;"><li rank="0" class="on"><a href="javascript:;"><span><em>1위</em>엘번드레스</span></a></li><li rank="1"><a href="javascript:;"><span><em>2위</em>쌉군</span></a></li><li rank="2"><a href="javascript:;"><span><em>3위</em>슈퍼스타아이</span></a></li><li rank="3"><a href="javascript:;"><span><em>4위</em>미스터스트릿</span></a></li><li rank="4"><a href="javascript:;"><span><em>5위</em>똥파리닷컴</span></a></li><li rank="5"><a href="javascript:;"><span><em>6위</em>배간지</span></a></li><li rank="6"><a href="javascript:;"><span><em>7위</em>스코우</span></a></li><li rank="7"><a href="javascript:;"><span><em>8위</em>고민남</span></a></li><li rank="8"><a href="javascript:;"><span><em>9위</em>행무브</span></a></li><li rank="9"><a href="javascript:;"><span><em>10위</em>에글리</span></a></li></ul>		</div>		<p><a href="javascript:;"><img src="http://img.sta1.info/_up/shop/logo/2014/08/1407918002258_cw.jpg" class="itemImg" alt=""></a></p>		<div class="dim"></div>	</div></li>
 
 						<li class="item sec1 keywordSec">
 							<div class="tit">
