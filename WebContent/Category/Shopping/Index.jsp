@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="Common.Spring" %>	
+<!-- 다국어사용시 인쿠르드 start-->	
+<%-- <%@ page import="Common.Spring" %> --%>
+<!-- 다국어사용시 인쿠르드 end-->	 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,9 +38,15 @@
 		});
 	})
 </script>
+<!-- 다국어사용시 설정이나 방법 start -->
 <%
-	String top001 = Spring.getMessage("Shopping.top001"); 
+// 	Spring.setLocale("ko");
+// 	String top001 = Spring.getMessage("Shopping.top001");
+	
+// 	Spring.setNameSpace("Shopping");
+// 	String top002 = Spring.getMessage("top002");
 %>
+<!-- 다국어사용시 설정이나 방법 end -->
 </head>
 <body class="jqtransformdone" style="visibility: visible; opacity: 1;">
 	<div id="topSec">

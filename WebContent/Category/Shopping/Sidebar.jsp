@@ -1,18 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>	
+<%@ page import="Common.Spring" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<%
+// 	Spring.setLocale("english");
+	Spring.setNameSpace("Shopping.Sidebar.menu");
+%>
 </head>
 <body>
 	<div id="sidebarSec" class="column-left">
 		<ul class="menu">
-			<h2>메 뉴</h2>
+			<h2><%=Spring.getMessage("001") %></h2>
 			<li num="7" class="g7"><a
 				href="/SwingFlow/Category/Shopping/Discount/Discount.jsp#"
-				cate="700" class="depth1">할인쇼핑</a>
+				cate="700" class="depth1"><%=Spring.getMessage("002") %></a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
@@ -30,7 +36,7 @@
 					</dl>
 				</div></li>
 			<li num="1" class="g1"><a href="/SwingFlow/Category/Shopping/Product/Women.jsp#" cate="1000000"
-				class="depth1">여성신상품</a>
+				class="depth1"><%=Spring.getMessage("003") %></a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
@@ -108,7 +114,7 @@
 					</dl>
 				</div></li>
 			<li num="2" class="g2"><a href="/SwingFlow/Category/Shopping/Ranking/Women.jsp#" cate="200"
-				class="depth1">여성쇼핑몰 순위</a>
+				class="depth1"><%=Spring.getMessage("004") %></a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
@@ -159,7 +165,7 @@
 					</dl>
 				</div></li>
 			<li num="3" class="g3"><a href="/SwingFlow/Category/Shopping/Product/Men.jsp#" cate="2000000"
-				class="depth1">남성신상품</a>
+				class="depth1"><%=Spring.getMessage("005") %></a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
@@ -219,7 +225,7 @@
 					</dl>
 				</div></li>
 			<li num="4" class="g4"><a href="/SwingFlow/Category/Shopping/Ranking/Men.jsp#" cate="300"
-				class="depth1">남성쇼핑몰 순위</a>
+				class="depth1"><%=Spring.getMessage("006") %></a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
@@ -261,7 +267,7 @@
 					</dl>
 				</div></li>
 			<li num="6" class="g6"><a href="/SwingFlow/Category/Shopping/Ranking/Brand.jsp#" cate="400"
-				class="depth1">브랜드샵 순위</a>
+				class="depth1"><%=Spring.getMessage("007") %></a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
@@ -301,8 +307,8 @@
 				</div></li>
 		</ul>
 		<ul class="info">
-			<h2>정 보</h2>
-			<li><a href="/SwingFlow/Category/Shopping/Board/Board.jsp#" title="공지사항">공지사항</a>
+			<h2><%=Spring.getMessage("008") %></h2>
+			<li><a href="/SwingFlow/Category/Shopping/Board/Board.jsp#" title="공지사항"><%=Spring.getMessage("009") %></a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
@@ -313,7 +319,7 @@
 						</dd>
 					</dl>
 				</div></li>
-			<li><a href="/SwingFlow/Category/Shopping/Board/Event.jsp#" title="이벤트">이벤트</a>
+			<li><a href="/SwingFlow/Category/Shopping/Board/Event.jsp#" title="이벤트"><%=Spring.getMessage("010") %></a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
@@ -326,8 +332,8 @@
 				</div></li>
 		</ul>
 		<ul class="manage">
-			<h2>관리자 화면</h2>
-			<li class="li"><a href="#" title="쇼핑몰관리">쇼핑몰관리</a>
+			<h2><%=Spring.getMessage("011") %></h2>
+			<li class="li"><a href="#" title="쇼핑몰관리"><%=Spring.getMessage("012") %></a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
@@ -338,7 +344,7 @@
 						</dd>
 					</dl>
 				</div></li>
-			<li><a href="#" title="포인트관리">포인트관리</a>
+			<li><a href="#" title="포인트관리"><%=Spring.getMessage("013") %></a>
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
