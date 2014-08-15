@@ -23,12 +23,32 @@ function WeatherInfo(){
 		   if(xhr.xhReq.status == 200){
 		    // alert(xhr.xhReq.getResponseHeader("Content-Type"));
 		     var xml = xhr.xhReq.responseXML; // xml객체 리턴
-		     var items = $(xml).find("item");
-		     for(var i=0;i<14;i++){
-		    	 
+		     var list = $(xml).find("item");
+		     for(var i=0;i<13;i++){
+		    	$("f"+[i]).empty(); 
 		     }
 	//	   alert('dd');
-		 $("#Temp").append($(items).find('airport').text());		
+	<%String str[] = {};%>
+	
+	for (var i = 0; i < list.length; i++) {
+		$("#a0"+i).attr("src",$(list[i]).find('fileName').text());
+		$("#a1"+i).attr('href',$(list[i]).find('homepage').text());   
+		$("#a1"+i).append($(list[i]).find('airlineKorean').text()); 
+		$("#a2"+i).append($(list[i]).find('flightNum').text());
+		$("#a3"+i).append($(list[i]).find('mon').text());
+		$("#a4"+i).append($(list[i]).find('tue').text());
+		$("#a5"+i).append($(list[i]).find('wed').text());
+		$("#a6"+i).append($(list[i]).find('thu').text());
+		$("#a7"+i).append($(list[i]).find('fri').text());
+		$("#a8"+i).append($(list[i]).find('sat').text());
+		$("#a9"+i).append($(list[i]).find('sun').text());
+		$("#a10"+i).append($(list[i]).find('city').text());
+		$("#a11"+i).append($(list[i]).find('time').text());
+		$("#ta01").append("<tr><td><img id='a0' width="18" height="18" src="" alt="" /></td><td><a href="" id="a1"></a></td><td id="a2"></td><td id="a3"></td><td id="a4"></td><td id="a5"></td><td id="a6"></td><td id="a7"></td><td id="a8"></td><td id="a9"></td><td id="a10"></td><td id="a11"></td></tr>");
+	}
+		 
+	
+			
 }}}
 
 </script>
@@ -40,13 +60,10 @@ function WeatherInfo(){
 </head>
 <body>
 <input type="text" id="schDeptCityCode"><input type="text" id="schArrvCityCode"><input type="button" id="btnSearch" value="조회">
-<table cellspacing="0" cellpadding="0" border="1">
- <tr>
-    <td colspan="13" width="1081">운항스케줄리스트</td>
-  </tr>
+<table cellspacing="0" cellpadding="0" border="1" id="ta01">
+
   <tr>
     <td width="124">항공사</td>
-    <td width="92">홈페이지</td>
     <td width="72">　</td>
     <td width="72">편명</td>
     <td width="145">월</td>
@@ -59,54 +76,22 @@ function WeatherInfo(){
     <td width="72">도착지</td>
     <td width="72">출발시간</td>
   </tr>
+
   <tr>
-    <td><div id="1">&lt;fileName&gt;upload_62a606d3_13fd3060926__7e6e_00000230.bmp&lt;/fileName&gt;</div></td>
-    <td><div id="2">&lt;homepage&gt;airasia.com/kr/ko/home.page&lt;/homepage&gt;</div></td>
-    <td><div id="3">&lt;airlineKorean&gt;에어아시아엑스&lt;/airlineKorean&gt;</div></td>
-    <td><div id="4">&lt;flightNum&gt;D7518&lt;/flightNum&gt;</div></td>
-    <td><div id="5">&lt;mon&gt;Y&lt;/mon&gt;</div></td>
-    <td><div id="6">&lt;tue&gt;N&lt;/tue&gt;</div></td>
-    <td><div id="7">&lt;wed&gt;N&lt;/wed&gt;</div></td>
-    <td><div id="8">&lt;thu&gt;N&lt;/thu&gt;</div></td>
-    <td><div id="9">&lt;fri&gt;Y&lt;/fri&gt;</div></td>
-    <td><div id="10">&lt;sat&gt;N&lt;/sat&gt;</div></td>
-    <td><div id="11">&lt;sun&gt;N&lt;/sun&gt;</div></td>
-    <td><div id="12">&lt;city&gt;쿠알라룸푸르&lt;/city&gt;</div></td>
-    <td><div id="13">&lt;time&gt;08:30&lt;/time&gt;</div></td>
+    <td><img id="a00" width="18" height="18" src="" alt="" /></td>
+    <td><a href="" id="a10"></a></td>
+    <td id="a20"></td>
+    <td id="a30"></td>
+    <td id="a40"></td>
+    <td id="a50"></td>
+    <td id="a60"></td>
+    <td id="a70"></td>
+    <td id="a80"></td>
+    <td id="a90"></td>
+    <td id="a100"></td>
+    <td id="a110"></td>
   </tr>
-  <tr>
-    <td width="124" align="left" valign="top"><img border="0" width="18" height="18" src="../AppData/Roaming/Adobe/Dreamweaver CS5.5/ko_KR/OfficeImageTemp/clip_image003.gif" alt="중국동방항공" /><img border="0" width="14" height="17" src="../AppData/Roaming/Adobe/Dreamweaver CS5.5/ko_KR/OfficeImageTemp/clip_image004.gif" alt="중국국제항공" />
-      <table cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="124">　</td>
-        </tr>
-      </table></td>
-    <td width="92">　</td>
-    <td width="72"><a href="http://www.easternair.co.kr/" target="_blank">중국동방항공</a></td>
-    <td width="72" align="left" valign="top"><img width="16" height="17" src="../AppData/Roaming/Adobe/Dreamweaver CS5.5/ko_KR/OfficeImageTemp/clip_image006.gif" alt="비행기운항" />
-      <table cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="72">MU2076</td>
-        </tr>
-      </table></td>
-    <td width="145">　</td>
-    <td colspan="2" rowspan="2" width="144"><img width="14" height="16" src="../AppData/Roaming/Adobe/Dreamweaver CS5.5/ko_KR/OfficeImageTemp/clip_image009.gif" alt="비행기운항" /><img width="14" height="17" src="../AppData/Roaming/Adobe/Dreamweaver CS5.5/ko_KR/OfficeImageTemp/clip_image010.gif" alt="비행기운항" /><img width="16" height="17" src="../AppData/Roaming/Adobe/Dreamweaver CS5.5/ko_KR/OfficeImageTemp/clip_image006_0000.gif" alt="비행기운항" /></td>
-    <td rowspan="2" width="72"><img width="14" height="17" src="../AppData/Roaming/Adobe/Dreamweaver CS5.5/ko_KR/OfficeImageTemp/clip_image010_0000.gif" alt="비행기운항" /></td>
-    <td width="72">　</td>
-    <td colspan="2" rowspan="2" width="144"><img width="14" height="16" src="../AppData/Roaming/Adobe/Dreamweaver CS5.5/ko_KR/OfficeImageTemp/clip_image009_0000.gif" alt="비행기운항" /><img width="14" height="17" src="../AppData/Roaming/Adobe/Dreamweaver CS5.5/ko_KR/OfficeImageTemp/clip_image010_0001.gif" alt="비행기운항" /><img width="16" height="17" src="../AppData/Roaming/Adobe/Dreamweaver CS5.5/ko_KR/OfficeImageTemp/clip_image006_0001.gif" alt="비행기운항" /></td>
-    <td width="72">항저우</td>
-    <td align="right" width="72">13:00</td>
-  </tr>
-  <tr>
-    <td width="124">　</td>
-    <td width="92">　</td>
-    <td width="72"><a href="http://www.airchina.kr/" target="_blank">중국국제항공</a></td>
-    <td width="72">CA148</td>
-    <td width="145">　</td>
-    <td width="72">　</td>
-    <td width="72">항저우</td>
-    <td align="right" width="72">16:00</td>
-  </tr>
+
 </table>
 
 </body>
