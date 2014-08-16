@@ -5,40 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="jquery-2.1.1.js"></script>
-<script type="text/javascript" src="/SwingFlow/Script/Airline/ajaxJson.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script type="text/javascript">
-var xhr = new xhRequest();
-//load Event
-$(function(e){ 
-	xhr.SetXHRequest();
-	$('#btnSendNext').click(function(e){
-		xhr.openGet("Ainfo.jsp?schDeptCityCode="+ $("#schDeptCityCode").val()+"&schArrvCityCode=" +$("#schArrvCityCode").val() , WeatherInfo);
-		document.frm.submit();
-	});
-});
-function WeatherInfo(){
-	 if(xhr.xhReq.readyState == 4){
-		   // xhReq.status == 200 : 성공
-		   if(xhr.xhReq.status == 200){
-		    // alert(xhr.xhReq.getResponseHeader("Content-Type"));
-		     var xml = xhr.xhReq.responseXML; // xml객체 리턴
-		     var items = $(xml).find("item");
-		//     alert('dd');
-		 $("#Temp").append($(items).find('airport').text());		
-}}}
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
 
-
-
-</script>
   <script>
   $(function() {
     $( "#radio" ).buttonset();
   });  
+
 $(function(){
 	$('#radio2').click(function(){
 		$('#getIn01').hide();
@@ -66,9 +42,9 @@ $(function(){
 
 	    $( "#datepicker01" ).datepicker({
 	    	dateFormat: "yymmdd",
-	 showOn: "button",
+	  showOn: "button",
 	  buttonImage: "/SwingFlow/images/Airline/reserv/calendar.png",
-	  buttonImageOnly: true,
+	  buttonImageOnly:true,
 	  changeMonth: true,
 	  changeYear: true
 	    });
@@ -1555,15 +1531,15 @@ caption, legend, #accessibility, .hidden {
 								</div>
 								<div class="tableStyle01">
 									<ul class="list-choice">
-									  <div id="radio">
+ <div id="radio">
 
-    <input type="radio" id="radio1" name="radio"><label for="radio1">왕 복</label>
+    <input type="radio" id="radio1" name="radio"><label for="radio1"> 왕 복 </label>
 
     <input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">편 도</label>
 
-
-
   </div>
+
+
 									</ul>
 
 									<!-- //20130726 추가 -->

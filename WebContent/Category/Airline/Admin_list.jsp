@@ -91,9 +91,13 @@
 			    <option>예약취소</option>
 		      </select>
 		    </form></td>
-			<td><input type="submit" name="button4" id="button4" value="수정" />
-				<input type="submit" name="button4" id="button5" value="삭제" /></td>
+
 		</tr>
 </table>
+
+    <div class="div_button">
+	<input type="submit" value="등록하기" />
+  	<input type="button" value="뒤로가기" />
+	</div>
 </body>
 </html>

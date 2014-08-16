@@ -28,9 +28,9 @@ function WeatherInfo(){
 		    	$("f"+[i]).empty(); 
 		     }
 	//	   alert('dd');
-
+	<%String str[] = {};%>
+	
 			$("#a0").attr("src",$(list[0]).find('fileName').text());
-			
 			$("#a1").attr('href',$(list[0]).find('homepage').text());   
 			$("#a1").append($(list[0]).find('airlineKorean').text()); 
 			$("#a2").append($(list[0]).find('flightNum').text());
@@ -43,12 +43,9 @@ function WeatherInfo(){
 			$("#a9").append($(list[0]).find('sun').text());
 			$("#a10").append($(list[0]).find('city').text());
 			$("#a11").append($(list[0]).find('time').text());
-
-
-
-		 
-	
-			
+for(var i=0; i<=10;i++){
+	 $('#tr'+[i]).append(' <td><img id="a0" width="18" height="18" src="" alt="" /></td><td><a href="" id="a1"></a></td><td id="a2"></td><td id="a3"></td><td id="a4"></td><td id="a5"></td><td id="a6"></td><td id="a7"></td><td id="a8"></td><td id="a9"></td><td id="a10"></td><td id="a11"></td>');
+}			
 }}}
 
 </script>
