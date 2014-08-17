@@ -20,6 +20,7 @@
 	width:900px;
 	margin-top: 25px;
 	margin-left: 25px;
+	font-size:13px;
 	/* top:30px;
 	left: 275px;
 	width: 950px;
@@ -28,14 +29,11 @@
 
 
 
-/* 달력 */
-
-
-
 </style>
-<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Movie/reserve.css" />
+<link rel="stylesheet" type="text/css" href="reserve.css" />
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
-
+<script src="jquery-2.1.1.js"></script>
+<script src="reserve.js"></script>
 
 </head>
 
@@ -47,17 +45,12 @@
 <jsp:include page="/Category/Movie/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-	<div id="poster">
-	<img src="/SwingFlow/images/Movie/Main/poster.png" width="900" alt="포스터"/>
-</div>
-<div id="logo" align="center"><a href="/SwingFlow/Category/Movie/Index.jsp">
-	<img src="/SwingFlow/images/Movie/Main/logo.png" alt="로고"/></a>
-</div>
 
-	<div id="movie_img"><img src="/SwingFlow/images/Movie/Reserve/movie.gif" alt="영화선택"/></div>
-    <div id="theater_img"><img src="/SwingFlow/images/Movie/Reserve/theater.gif" alt="극장선택"/></div>
-    <div id="date_img"><img src="/SwingFlow/images/Movie/Reserve/date.gif" alt="극장선택"/></div>
-    <div id="time_img"><img src="/SwingFlow/images/Movie/Reserve/time.gif" alt="시간선택"/></div>
+
+	<div id="movie_img"><img src="movie.gif" alt="영화선택"/></div>
+    <div id="theater_img"><img src="theater.gif" alt="극장선택"/></div>
+    <div id="date_img"><img src="date.gif" alt="극장선택"/></div>
+    <div id="time_img"><img src="time.gif" alt="시간선택"/></div>
 	<section id="moviebox">
    	
     <div style="border-bottom:1px solid black; padding:3px 0 3px 3px;">
@@ -66,16 +59,28 @@
     </div>
 	<div id="sel_movie">
     	<ul class="list">
-        	<li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
+        	<li class="sel_movie movie_on">명량</li>
+            <li class="sel_movie movie_off">해적</li>
+            <li class="sel_movie movie_off">드래곤길들이기</li>
+            <li class="sel_movie movie_off">군도</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
+            <li class="sel_movie movie_off">명량</li>
         </ul>
     </div>    
    </section>
@@ -84,26 +89,168 @@
    <input type="text" id="search_theater" placeholder="극장명을 입력하세요" size="18"/>
    <input type="button" value="검색" id="bt_theater" />
    </div>
-   <div style="margin-top:10px;">서울</div>
-   <div id="sel_theater">
+   <div style="padding:5px 0 5px 10px; border-bottom:solid 1px black;" class="local_seoul" onclick="selLocal('seoul');">서울</div>
+   <div id="sel_theater" class="sel_theater sel_seoul incheon_except busan_except daegu_except daejeon_except gwangju_except">
     	  	<ul class="list">
-        	<li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
-            <li>명량</li>
+        	<li class="sel_local local_on">CGV</li>
+            <li class="sel_local local_off">롯데시네마</li>
+            <li class="sel_local local_off">메가박스</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
         </ul>
     </div>  
-    <div>경기/인천</div>
-    <div>부산/울산/경남</div>
-    <div>대구/경북</div>
-    <div>대전/충청/강원</div>
-    <div>광주/전라/제주</div>
+    <div class="local local_incheon" style="border-top: 1px solid black;" onclick="selLocal('incheon');">경기/인천</div>
+    <div id="sel_theater" class="sel_theater sel_incheon seoul_except busan_except daegu_except daejeon_except gwangju_except">
+    	  	<ul class="list">
+        	<li class="sel_local local_on">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+        </ul>
+    </div>  
+    <div class="local local_busan" onclick="selLocal('busan');">부산/울산/경남</div>
+    <div id="sel_theater" class="sel_theater sel_busan incheon_except seoul_except daegu_except daejeon_except gwangju_except">
+    	  	<ul class="list">
+        	<li class="sel_local local_on">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+        </ul>
+    </div>  
+    <div class="local local_daegu" onclick="selLocal('daegu');">대구/경북</div>
+    <div id="sel_theater" class="sel_theater sel_daegu incheon_except seoul_except busan_except daejeon_except gwangju_except">
+    	  	<ul class="list">
+        	<li class="sel_local local_on">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+        </ul>
+    </div>  
+    <div class="local local_daejeon" onclick="selLocal('daejeon');">대전/충청/강원</div>
+    <div id="sel_theater" class="sel_theater sel_daejeon incheon_except seoul_except busan_except daegu_except gwangju_except">
+    	  	<ul class="list">
+        	<li class="sel_local local_on">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+        </ul>
+    </div>  
+    <div class="local local_gwangju" onclick="selLocal('gwangju');">광주/전라/제주</div>
+    <div id="sel_theater" class="sel_theater sel_gwangju incheon_except seoul_except busan_except daegu_except daejeon_except">
+    	  	<ul class="list">
+        	<li class="sel_local local_on">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+            <li class="sel_local local_off">명량</li>
+        </ul>
+    </div>  
     
    </section>
    <section id="datebox">
@@ -134,84 +281,70 @@
         </ul>
         </div>					
 	</section>
-    <div style="float:left; margin-top:10px;"><img src="/SwingFlow/images/Movie/Reserve/tit_PersonNum_off.gif" alt="관람인원선택"/></div>
+    <div style="float:left; margin-top:10px;"><img src="tit_PersonNum_off.gif" alt="관람인원선택"/></div>
     <section id="sitbox">
-    	<div style="float:left; margin-top:10px; margin-left:10px;" >
-       	<table cellspacing="6" class="sel_choice">
-        	<tr>	
-            	<td>성인(9,000원)</td>
-                
-            </tr>
-           </table>
-           <table cellspacing="6" class="sel_choice">
-            <tr>
-            	<td>학생(8,000원</td>
-                
-            </tr>
-        </table>
-        </div>
-    	<div style="float:right; margin-top:10px; margin-right:30px;">
-    	<table cellspacing="6" class="sel_sit">
-        	<tr>
-            	<td>1</td>
-                <td>2</td>
-				<td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-            </tr>
-        </table>
-        <table cellspacing="6" class="sel_sit">
-        	<tr>
-            	<td>1</td>
-                <td>2</td>
-				<td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-            </tr>
-        </table>
+    	
+    	<div style="float:left; margin-top:2px; margin-right:30px;">
+        <ul class="sel_sit" style="list-style:none;" >
+        	<li class="t1">성인(9,000원)</li>
+        	<li class="adult_sit_no adult_on">0</li>
+            <li class="adult_sit_no adult_off">1</li>
+            <li class="adult_sit_no adult_off">2</li>
+            <li class="adult_sit_no adult_off">3</li>
+            <li class="adult_sit_no adult_off">4</li>
+            <li class="adult_sit_no adult_off">5</li>
+            <li class="adult_sit_no adult_off">6</li>
+            <li class="adult_sit_no adult_off">7</li>
+            <li class="adult_sit_no adult_off">8</li>
+        </ul>
+         <ul class="sel_sit" style="list-style:none;" >
+        	<li class="t1">학생(8,000원)</li>
+        	<li class="teen_sit_no teen_on">0</li>
+            <li class="teen_sit_no teen_off">1</li>
+            <li class="teen_sit_no teen_off">2</li>
+            <li class="teen_sit_no teen_off">3</li>
+            <li class="teen_sit_no teen_off">4</li>
+            <li class="teen_sit_no teen_off">5</li>
+            <li class="teen_sit_no teen_off">6</li>
+            <li class="teen_sit_no teen_off">7</li>
+            <li class="teen_sit_no teen_off">8</li>
+        </ul>
+    	
         </div>
         <div class="sel_age">선택하신 영화는 '전체 관람가' 영화입니다.</div>
     </section>
-    <div class="sel_reserve_info"><img src="/SwingFlow/images/Movie/Reserve/tit_SelectMovieInfo.gif" alt="선택하신 예매정보" /></div>
-       <div class="sel_pay_ino"><img src="/SwingFlow/images/Movie/Reserve/tit_PayInfo_off.gif" alt="관련요금정보"/></div>
+    <div class="sel_reserve_info"><img src="tit_SelectMovieInfo.gif" alt="선택하신 예매정보" /></div>
+       <div class="sel_pay_ino"><img src="tit_PayInfo_off.gif" alt="관련요금정보"/></div>
     
     <section id="info_reserve">
-    	<div class="poster_img"><img src="/SwingFlow/images/Movie/Reserve/poster.gif"/></div>
+    	<div class="poster_img"><img src="poster.gif"/></div>
         <div style=" margin-top: 8px; float:left; height:130px;">
-        	<table>
-            	<tr>
-                	<th>명량</th>
-                	<td width="250" align="right"><img src="/SwingFlow/images/Movie/Reserve/b_MovieInfo.gif" alt="영화정보"/></td>
-               	</tr>
+        <div class="movie_info">영화를 선택하세요</div>
+        <div style="width:65px; border:1px solid black; float:right;"> <img src="b_MovieInfo.gif" alt="영화정보"/></div>
+        
+        	<table style="clear:left;" class="info_table">
                 <tr>
-                	<td><img src="/SwingFlow/images/Movie/Reserve/img_TheaterList_on.gif" alt="영화관" /></td>
-                    <td>CGV</td>
+                	<td><img src="img_TheaterList_off.gif" alt="영화관" class="theater_img"/></td>
+                    <td class="theater_info">극장을 선택하세요</td>
                 </tr>
                 <tr>
-                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PlayDate_on.gif" alt="관람일"/></td>
+                	<td><img src="img_PlayDate_on.gif" alt="관람일"/></td>
                     <td>2014-08-08(금)</td>
                 </tr>
                 <tr>
-                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PlayTime_on.gif" alt="시간"/></td>
+                	<td><img src="img_PlayTime_on.gif" alt="시간"/></td>
                     <td>15:40</td>
                 </tr>
                 <tr>
-                	<td><img src="/SwingFlow/images/Movie/Reserve/img_PersonNum_on.gif" alt="인원정보"/></td>
-                    <td>성인 1명</td>
+                	<td><img src="img_PersonNum_off.gif" alt="인원정보" class="number_img"/></td>
+                    <td class="number_info">관람인원을 선택하세요</td>
                 </tr>
                 <tr>
-                	<td><img src="/SwingFlow/images/Movie/Reserve/img_SeatArea_on.gif" alt="좌석정보"/></td>
+                	<td><img src="img_SeatArea_on.gif" alt="좌석정보"/></td>
                     <td>??</td>
                 </tr>
             </table>
+         
         </div>
     </section>
     

@@ -102,6 +102,8 @@
 	padding: 0px;
 	border: 0;
 }
+
+
 #cal_wrap span {
 	display: none;
 }
@@ -111,6 +113,8 @@
 	height: 13px;
 	display: block;
 }
+
+/* 박스 */
 #moviebox{
 	width:230px;
 	height:450px;	
@@ -146,9 +150,20 @@
 	width:420px;
 	height:148px;
 }
-#sel_movie, #sel_theater, #sel_time{
+
+/* 리스트 선택 */
+
+#sel_movie{ 
+	overflow:auto;
+	height:419px;
+}
+#sel_time{
 	overflow:auto;
 	height:200px;
+}
+.sel_theater{
+	overflow:auto;
+	height:261px;
 }
 #sel_movie ul li, #sel_theater ul li, #sel_time ul li
 {	
@@ -164,7 +179,39 @@
 	border-bottom:1px solid black;
 	padding-top:5px;
 	padding-left:20px;
+	display:block;
+	cursor:pointer;
 }
+/* 영화 선택, 극장선택 */
+.movie_on, .local_on{
+	background-color: #8093ce;
+	color: #fff;
+	font-weight: bold;	
+}
+.movie_off:hover, .local_off:hover{
+	background:#f9b196;
+}
+
+
+
+/* 극장 지역 선택 */
+.local{
+	padding:5px 0 5px 10px;
+	border-bottom:1px solid black;	
+}
+
+.local_seoul, .local_incheon, .local_busan, .local_daegu, .local_daejeon, .local_gwangju{
+	display:block;
+	font-weight:bold;
+}
+.local_seoul, .local_incheon, .local_busan, .local_daegu, .local_daejeon, .local_gwangju:hover{
+	cursor:pointer;	
+}
+
+.sel_incheon, .sel_gwangju, .sel_daejeon, .sel_daegu, .sel_busan{
+	display:none;
+}
+
 
 /* 상단 이미지 */
 #movie_img, #theater_img, #date_img, #time_img{
@@ -193,18 +240,40 @@
 
 
 /*관람인원 선택 */
-.sel_sit td{
-	border:1px solid black;	
+.sel_sit{
+	padding-left:20px;	
+
+}
+
+.t1{
+	float:left;
+	line-height: 22px;
+	width:125px;
+	height:22px;
+	
+}
+.adult_sit_no, .teen_sit_no{
+	margin-bottom:5px;
+	float:left;
+	border: 1px solid #4f4f4f;
+	line-height: 22px;
 	width:20px;
-	height:20px;
+	height:22px;
 	font-size:12px;
+	text-align:center;
+	margin-right:5px;
+	display:black;
+	cursor:pointer;
 }
-.sel_choice td{
-	border:1px solid black;	
-	width:80px;
-	height:20px;
-	font-size:12px;
+.adult_off:hover, .teen_off:hover{
+	background-color:#f9b196;
 }
+.adult_on, .teen_on{
+	background-color: #8093ce;
+	color: #fff;
+	font-weight: bold;
+}
+
 .sel_age{
 	float:left;
 	margin-top:15px;
@@ -213,7 +282,6 @@
 	border-top:1px solid black; 
 	width:380px;
 }
-
 
 
 /* 선택하신 예매정보 */
@@ -232,6 +300,19 @@
 .poster_img{
 	 float:left;
 	 margin:8px 8px 8px 8px;
+}
+.info_table td{
+	font-weight:bold;
+	font-size:12px;
+	color:#555;
+}
+.movie_info{
+	width:250px;
+	float:left; 
+	font-weight:bold; 
+	padding-left:5px; 
+	font-size:16px;
+	color:#686ec4;
 }
 
 /* 관람요금 정보 */
