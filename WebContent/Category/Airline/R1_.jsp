@@ -5,29 +5,72 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
+
   <script>
   $(function() {
     $( "#radio" ).buttonset();
-  });
-  </script>
+  });  
 
+$(function(){
+	$('#radio2').click(function(){
+		$('#getIn01').hide();
+	});
+});
+$(function(){
+	$('#radio1').click(function(){
+		$('#getIn01').show();
+	});
+});
+/* 달력 ============================================================================================  */
+ 
+  $(function() {
+
+    $( "#datepicker" ).datepicker({
+    	dateFormat: "yy-mm-dd",
+ showOn: "button",
+  buttonImage: "/SwingFlow/images/Airline/reserv/calendar.png",
+  buttonImageOnly: true,
+  changeMonth: true,
+  changeYear: true
+    });
+  });
+  $(function() {
+
+	    $( "#datepicker01" ).datepicker({
+	    	dateFormat: "yymmdd",
+	  showOn: "button",
+	  buttonImage: "/SwingFlow/images/Airline/reserv/calendar.png",
+	  buttonImageOnly:true,
+	  changeMonth: true,
+	  changeYear: true
+	    });
+	  });
+ </script>
+</head>
+
+<style>
+
+
+
+</style>
 
 </head>
 <body>
 <div id="radio"><input type="radio" id="radio1" name="radio"><label for="radio1">왕 복</label>
 <input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">편 도</label></div>
 <table width="600" height="120" cellpadding="0" cellspacing="0" border="1">
-
-  <tr>
-    <td height="57" ><p>Date: <input type="text" id="datepicker"></p></td>
-    <td ><p>Date:
-      <input type="text" id="datepicker" />
-    </p></td>
-  </tr>
+<tr>
+<td ><p>가는날<input type="text" id="datepicker"></p></td>
+<td ><p>오는날<input type="text" id="datepicker01" /></p></td>
+</tr>
+<tr>
+<td ><p>출발<input type="text" id="datepicker"></p></td>
+<td ><p>도착<input type="text" id="datepicker01" /></p></td>
+</tr>
 </table>
 <table width="600" height="74" cellpadding="0" cellspacing="0" border="1">
   <col width="70" span="3" />

@@ -8,8 +8,8 @@
   <meta name="description" content="free website template">
   <meta name="keywords" content="enter your keywords here">
   
-  <link rel="stylesheet" type="text/css" href="../../Css/Airline/style.css">
-  <link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css">
+  <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Airline/style.css">
+ <link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css">
   <script type="text/javascript" src="../../Script/Airline/jquery.min.js"></script>
   <script type="text/javascript" src="../../Script/Airline/jquery.easing.min.js"></script>
   <script type="text/javascript" src="../../Script/Airline/jquery.lavalamp.min.js"></script>

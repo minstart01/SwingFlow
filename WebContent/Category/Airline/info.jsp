@@ -28,43 +28,52 @@ function WeatherInfo(){
 		    	$("f"+[i]).empty(); 
 		     }
 	//	   alert('dd');
+for(var i=0;i<list.length;i++){
+    $('#tb01').append('<tr><td><img src='+$(list[i]).find('fileName').text()+' alt="" /></td><td><a href='+$(list[i]).find('homepage').text()+' >'
+    		+$(list[i]).find('airlineKorean').text()+"</a></td><td>"+$(list[i]).find('flightNum').text()+"</td><td>"+$(list[i]).find('mon').text()+"</td><td>"
+    		+$(list[i]).find('tue').text()+"</td><td>"+$(list[i]).find('wed').text()+"</td><td>"+$(list[i]).find('thu').text()+"</td><td>"+$(list[i]).find('fri').text()+"</td><td>"
+    		+$(list[i]).find('sat').text()+"</td><td>"+$(list[i]).find('sun').text()+"</td><td>"+$(list[i]).find('city').text()+"</td><td>"+$(list[i]).find('time').text()+'</td><td><input type="radio" name="fname" id="fname">선택</td></tr>');
 
-			$("#a0").attr("src",$(list[0]).find('fileName').text());
-			
-			$("#a1").attr('href',$(list[0]).find('homepage').text());   
-			$("#a1").append($(list[0]).find('airlineKorean').text()); 
-			$("#a2").append($(list[0]).find('flightNum').text());
-			$("#a3").append($(list[0]).find('mon').text());
-			$("#a4").append($(list[0]).find('tue').text());
-			$("#a5").append($(list[0]).find('wed').text());
-			$("#a6").append($(list[0]).find('thu').text());
-			$("#a7").append($(list[0]).find('fri').text());
-			$("#a8").append($(list[0]).find('sat').text());
-			$("#a9").append($(list[0]).find('sun').text());
-			$("#a10").append($(list[0]).find('city').text());
-			$("#a11").append($(list[0]).find('time').text());
+}
+// 			$("#a0").attr("src",$(list[0]).find('fileName').text());			
+// 			$("#a1").attr('href',$(list[0]).find('homepage').text());   
+// 			$("#a1").append($(list[0]).find('airlineKorean').text()); 
+// 			$("#a2").append($(list[0]).find('flightNum').text());
+// 			$("#a3").append($(list[0]).find('mon').text());
+// 			$("#a4").append($(list[0]).find('tue').text());
+// 			$("#a5").append($(list[0]).find('wed').text());
+// 			$("#a6").append($(list[0]).find('thu').text());
+// 			$("#a7").append($(list[0]).find('fri').text());
+// 			$("#a8").append($(list[0]).find('sat').text());
+// 			$("#a9").append($(list[0]).find('sun').text());
+// 			$("#a10").append($(list[0]).find('city').text());
+// 			$("#a11").append($(list[0]).find('time').text());
 
-
-
-		 
-	
 			
 }}}
+$(function(){
+	$('#fname').click(function(){
+		var mailTp 		= $(':radio[name="fname"]:checked').val();
+		$('input:radio[name=fname]:input[value='+mailTp+']').attr("checked", true);
+		alert($('input:radio[name=fname]:input[value='+mailTp+']').attr("checked", true));
+	});	
+});
+
+
 
 </script>
 
 <style>
 
 </style>
-<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/abel:n4:default.js" type="text/javascript"></script>
 </head>
-<body>
+<body><form action="">
 <input type="text" id="schDeptCityCode"><input type="text" id="schArrvCityCode"><input type="button" id="btnSearch" value="조회">
 <table cellspacing="0" cellpadding="0" border="1" id="ta01">
 
   <tr>
-    <td width="124">항공사</td>
-    <td width="72">　</td>
+    <td width="124"></td>
+    <td width="72">항공사</td>
     <td width="72">편명</td>
     <td width="145">월</td>
     <td width="72">화</td>
@@ -75,24 +84,12 @@ function WeatherInfo(){
     <td width="72">일</td>
     <td width="72">도착지</td>
     <td width="72">출발시간</td>
+    <td><input type="radio" name="fname">선택</td>
   </tr>
+<tbody id="tb01">
 
-  <tr id="tr01">
-    <td><img id="a0" width="18" height="18" src="" alt="" /></td>
-    <td><a href="" id="a1"></a></td>
-    <td id="a2"></td>
-    <td id="a3"></td>
-    <td id="a4"></td>
-    <td id="a5"></td>
-    <td id="a6"></td>
-    <td id="a7"></td>
-    <td id="a8"></td>
-    <td id="a9"></td>
-    <td id="a10"></td>
-    <td id="a11"></td>
-  </tr>
-
+</tbody>
 </table>
-
+</form>
 </body>
 </html>
