@@ -17,12 +17,12 @@
 
 $(function(){
 	$('#radio2').click(function(){
-		$('#getIn01').hide();
+		$('#getIn').hide();
 	});
 });
 $(function(){
 	$('#radio1').click(function(){
-		$('#getIn01').show();
+		$('#getIn').show();
 	});
 });
 /* 달력 ============================================================================================  */
@@ -53,7 +53,17 @@ $(function(){
 </head>
 
 <style>
-
+body, input, textarea, select, table, button
+{
+	line-height: normal;
+	font-family: gulim, helvetica, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	font-size-adjust: none;
+	font-stretch: normal;
+}
 
 
 </style>
@@ -61,22 +71,25 @@ $(function(){
 </head>
 <body>
 <div id="radio"><input type="radio" id="radio1" name="radio"><label for="radio1">왕 복</label>
-<input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">편 도</label></div>
-<table width="600" height="120" cellpadding="0" cellspacing="0" border="1">
+<input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">편 도</label>
+</div>
+
+<table width="600" height="80" cellpadding="0" cellspacing="0" border="1">
 <tr>
-<td ><p>가는날<input type="text" id="datepicker"></p></td>
-<td ><p>오는날<input type="text" id="datepicker01" /></p></td>
+<td>출 발<input type="text" ><input type="image" id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif"></td>
+<td>도 착<input type="text" ><input type="image" id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif"></td>
 </tr>
 <tr>
-<td ><p>출발<input type="text" id="datepicker"></p></td>
-<td ><p>도착<input type="text" id="datepicker01" /></p></td>
+<td id="getOut">가는날<input type="text" id="datepicker"></td>
+<td id="getIn" >오는날<input type="text" id="datepicker01" /></td>
 </tr>
+
 </table>
 <table width="600" height="74" cellpadding="0" cellspacing="0" border="1">
   <col width="70" span="3" />
   <tr>
     <td width="70" height="39"><select name="">
-      <option>성인1</option>
+      <option>성인1</option><option>성인2</option><option>성인3</option><option>성인4</option><option>성인5</option><option>성인6</option><option>성인7</option><option>성인8</option><option>성인9</option>
   </select></td>
     <td width="70"><select name="select" id="select">
       <option>소아1</option>
