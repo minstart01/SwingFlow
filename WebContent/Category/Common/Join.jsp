@@ -128,7 +128,12 @@ function select(date,no){
 
 /* 팝업창 */
 function popup(url,width,height){
-	window.open(url,"popup","width=" + width + ", height=" + height + ",left=400,top=200");
+	
+	var iwidth = ($("body").innerWidth()/2) - (width/2);
+	var iheight = ($("body").innerHeight()/2) - height;
+	alert(iwidth);
+	alert(iheight);
+	window.open(url,"popup","width=" + width + ", height=" + height + ",left=" + iwidth + ",top=" + iheight);
 }
 </script>
 </head>
