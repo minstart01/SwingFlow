@@ -41,6 +41,7 @@
     <td width="70">출발지</td>
     <td>도착지</td>
     <td width="192">출발시간</td>
+    <td width="192">도착시간</td>
     <td width="192">운항기간</td>
     <td width="122">운임(성인)</td>
     <td width="131">운임(소아)</td>
@@ -90,16 +91,17 @@
       <option>중국</option>
       <option>동남아</option>
       <option>미국</option>
-    </select><select name="select10" id="select10">
-      <option>도쿄/나리타</option>
-      <option>베이징</option>
-      <option>홍콩</option>
-      <option>세부</option>
-      <option>뉴욕</option>
-      <option>로스엔젤레스</option>
+      </select><select name="select10" id="select10">
+        <option>도쿄/나리타</option>
+        <option>베이징</option>
+        <option>홍콩</option>
+        <option>세부</option>
+        <option>뉴욕</option>
+        <option>로스엔젤레스</option>
     </select></td>
-
     <td><input type="time" /></td>
+    <td><input type="time" /></td>
+
     <td><input type="date" /> ~ <input type="date" /></td>
         <td><input type="text" />  원</td>
     <td><input type="text" />  원</td>
@@ -108,7 +110,7 @@
     <div class="div_button">
 	<input type="submit" value="등록하기" />
   	<input type="button" value="뒤로가기" />
-	</div>
+</div>
 
 </body>
 </html>

@@ -648,8 +648,7 @@ caption, legend, #accessibility, .hidden {
                                         <input name="fromDate" id="fromDate" style="display: none;" type="text" value="">
                                         <input name="toDate" id="toDate" style="display: none;" type="text" value="">
 										<ul class="termUi last">
-											<p> <input type="text" id="datepicker"> 부터~ &nbsp;
-<input type="text" id="datepicker01"> 까지</p>
+											<p> <input type="text" id="datepicker"> 부터~ &nbsp;<input type="text" id="datepicker01"> 까지</p>
 										</ul>
 								  </dd>
 								</dl>

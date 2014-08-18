@@ -29,7 +29,7 @@ function WeatherInfo(){
 		     }
 	//	   alert('dd');
 for(var i=0;i<list.length;i++){
-    $('#tb01').append('<tr><td><img src='+$(list[i]).find('fileName').text()+' alt="" /></td><td><a href='+$(list[i]).find('homepage').text()+' >'
+    $('#tb01').append('<tr><td><img src='+$(list[i]).find('fileName').text()+" alt='' /></td><td><a href='http://"+$(list[i]).find('homepage').text()+"' >"
     		+$(list[i]).find('airlineKorean').text()+"</a></td><td>"+$(list[i]).find('flightNum').text()+"</td><td>"+$(list[i]).find('mon').text()+"</td><td>"
     		+$(list[i]).find('tue').text()+"</td><td>"+$(list[i]).find('wed').text()+"</td><td>"+$(list[i]).find('thu').text()+"</td><td>"+$(list[i]).find('fri').text()+"</td><td>"
     		+$(list[i]).find('sat').text()+"</td><td>"+$(list[i]).find('sun').text()+"</td><td>"+$(list[i]).find('city').text()+"</td><td>"+$(list[i]).find('time').text()+'</td><td><input type="radio" name="fname" id="fname">선택</td></tr>');
