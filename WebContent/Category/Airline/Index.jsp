@@ -13,6 +13,7 @@
   <script type="text/javascript" src="../../Script/Airline/jquery.min.js"></script>
   <script type="text/javascript" src="../../Script/Airline/jquery.easing.min.js"></script>
   <script type="text/javascript" src="../../Script/Airline/jquery.lavalamp.min.js"></script>
+ <script type="text/javascript" src="../../Script/Airline/jquery.nivo.slider.pack.js"></script>
  <script type="text/javascript">
     $(function() {
       $("#lava_menu").lavaLamp({
@@ -20,9 +21,7 @@
         speed: 800
       });
     });
-  </script>
-    <script type="text/javascript" src="../../Script/Airline/jquery.nivo.slider.pack.js"></script>
-    <script type="text/javascript">
+
     $(window).load(function() {
         $('#slider').nivoSlider();
     });

@@ -5,17 +5,54 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+ <link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css">
 </head>
-
+<style>
+#wrapper{
+	 
+		height: 700px;
+		width:1250px;
+		clear:both;
+		
+	}
+#main_content{
+	position:absolute;
+	top:30px;
+	left: 275px;
+	width: 950px;
+	
+		
+}
+body, input, textarea, select, table, button
+{
+	line-height: normal;
+	font-family: gulim, helvetica, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	font-size-adjust: none;
+	font-stretch: normal;
+}
+.colum {
+height: 50;
+background-color: #dfdfdf;
+font-weight: bold;
+color: #5c5f66;
+}
+</style>
 <body>
-
-<table cellspacing="0" cellpadding="0" border="1">
-  <tr>
+<%@include file="../Common/top.jsp" %>
+ <div id="wrapper">
+ <jsp:include page="sidemenu.jsp"></jsp:include>
+ <div id="main_content">
+<table cellspacing="0" cellpadding="0" border="1" width="750" style="text-align: center;">
+  <tr height="50" class="colum">
     <td width="38">번호</td>
-    <td width="78">이용일자/적립일자</td>
+    <td width="100">이용일자/적립일자</td>
     <td width="38">구분</td>
-    <td width="145">편명 및 구간/</td>
-    <td width="64">적립당시 등급</td>
+    <td width="145">편명 및 구간</td>
+    <td width="80">적립당시 등급</td>
     <td width="50">적립</td>
     <td width="38">사용</td>
     <td width="38">소멸</td>
@@ -77,7 +114,8 @@
   <tr>
     <td >LAXICN (Y/M)</td>
   </tr>
-</table>
-
+</table></div>
+</div>
+ <%@include file="../Common/footer.jsp" %>
 </body>
 </html>

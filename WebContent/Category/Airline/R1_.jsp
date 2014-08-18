@@ -17,12 +17,12 @@
 
 $(function(){
 	$('#radio2').click(function(){
-		$('#getIn').hide();
+		$(".getIn").hide();
 	});
 });
 $(function(){
 	$('#radio1').click(function(){
-		$('#getIn').show();
+		$(".getIn").show();
 	});
 });
 /* 달력 ============================================================================================  */
@@ -49,37 +49,103 @@ $(function(){
 	  changeYear: true
 	    });
 	  });
+  /* 도시리스트 ========= ============================================================================================*/
+  $(function(){
+	$('#KR').hide();
+    $('#kr01').click(function(e){
+    	$('#EA').hide();
+    	$('#US').hide();
+    	$('#JP').hide();
+    	$('#CH').hide();
+    	$('#KR').show();
+	});	
+});
+$(function(){
+	$('#CH').hide();	
+	$('#ch01').click(function(e){
+    	$('#EA').hide();
+    	$('#US').hide();
+		$('#KR').hide();
+		$('#JP').hide();
+		$('#CH').show();
+	});	
+});	
+$(function(){
+	$('#JP').hide();	
+	$('#jp01').click(function(e){
+    	$('#EA').hide();
+    	$('#US').hide();
+		$('#KR').hide();
+		$('#CH').hide();
+		$('#JP').show();
+	});	
+});	
+$(function(){
+	$('#EA').hide();	
+	$('#ea01').click(function(e){
+    	$('#JP').hide();
+    	$('#US').hide();
+		$('#KR').hide();
+		$('#CH').hide();
+		$('#EA').show();
+	});	
+});	
+$(function(){
+	$('#US').hide();	
+	$('#us01').click(function(e){
+    	$('#JP').hide();
+    	$('#EA').hide();
+		$('#KR').hide();
+		$('#CH').hide();
+		$('#US').show();
+	});	
+});	
+$(function(){
+	$('#btn_search4').click(function(){
+		$('#city').show();
+	});
+});
+$(function(){
+	$('.citylist').click(function(){
+		$('#txt01').val($(this).text());
+		$('#city').hide();
+	});
+});
+
+function close(){
+
+	$('#city').hide();
+}
  </script>
 </head>
 
 <style>
-body, input, textarea, select, table, button
-{
-	line-height: normal;
-	font-family: gulim, helvetica, sans-serif;
-	font-size: 13px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-	font-size-adjust: none;
-	font-stretch: normal;
+.remove {
+list-style: none;
 }
-
+.remove li a {
+text-decoration: none;
+color:black;
+}
+.remove01 ul li a{
+text-decoration: none;
+color:black;
+}	
 
 </style>
 
 </head>
 <body>
 <div id="radio"><input type="radio" id="radio1" name="radio"><label for="radio1">왕 복</label>
-<input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">편 도</label>
-</div>
+<input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">편 도</label></div>						
 <div>
 <table width="589" height="79" border="1" cellpadding="0" cellspacing="0">
   <tr>
     <td width="70">출발</td>
-    <td width="218"> <input type="image" id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif"> <input type="text" ><br>
-    <div style="border:1px solid black; width:330px; height:500px; position: relative; z-index: 9999;">
-<div>출발 예정도시를 선택하세요.</div>
+    <td width="218">
+    <div style="float: left;"><img id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif" style="padding-top: 10px;" >
+    <div style="border:1px solid black; width:330px; height:800px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
+<div>출발 예정도시를 선택하세요.<a href="javascript:close();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
 <div style="border:1px solid black; width:130px; height:480px; float:left;">
 <ul class="remove">
 <li id="kr01"><a href="#none">한 국</a></li>
@@ -92,35 +158,40 @@ body, input, textarea, select, table, button
 </div>
 <div style="border:1px solid red; width:180px; height:480px; float:left;" class="remove01">
 <ul id="KR">
-	<li><a href="#none" class="">인천 (ICN)</a></li>
-	<li><a href="#none" class="">김포 (GMP)</a></li>
-	<li><a href="#none" class="">부산 (PUS)</a></li>
+	<li><a href="#none" class="citylist">인천 (ICN)</a></li>
+	<li><a href="#none" class="citylist">김포 (GMP)</a></li>
+	<li><a href="#none" class="citylist">부산 (PUS)</a></li>
 	</ul>
 	<ul id="CH">
-	<li><a href="#none" class="">베이징(BJS)</a></li>
-	<li><a href="#none" class="">홍콩(HKG)</a></li>
+	<li><a href="#none" class="citylist">베이징(BJS)</a></li>
+	<li><a href="#none" class="citylist">홍콩(HKG)</a></li>
 	</ul>
 	<ul id="JP">
-	<li><a href="#none" class="">도쿄/나리타 (NRT)</a></li>
-	<li><a href="#none" class="">하네다(HND)</a></li>
-	<li><a href="#none" class="">오사카(간사이)(OSA)</a></li>
+	<li><a href="#none" class="citylist">도쿄/나리타 (NRT)</a></li>
+	<li><a href="#none" class="citylist">하네다(HND)</a></li>
+	<li><a href="#none" class="citylist">오사카(간사이)(OSA)</a></li>
 	</ul>
 	<ul id="EA">
-	<li><a href="#none" class="">방콕</a></li>
-	<li><a href="#none" class="">세부(HND)</a></li>
-	<li><a href="#none" class="">싱가폴(OSA)</a></li>
-	<li><a href="#none" class="">푸켓</a></li>
+	<li><a href="#none" class="citylist">방콕</a></li>
+	<li><a href="#none" class="citylist">세부(HND)</a></li>
+	<li><a href="#none" class="citylist">싱가폴(OSA)</a></li>
+	<li><a href="#none" class="citylist">푸켓</a></li>
 	</ul>
 	<ul id="US">
-	<li><a href="#none">로스앤젤레스 (LAX)</a></li>
-	<li><a href="#none">샌프란시스코 (SFO)</a></li>
-	<li><a href="#none" class="">뉴욕(JFK)</a></li>
-	<li><a href="#none">시애틀 (SEA)</a></li>
-    <li><a href="#none" class="">시카고(ORD)</a></li>
+	<li><a href="#none" class="citylist">로스앤젤레스 (LAX)</a></li>
+	<li><a href="#none" class="citylist">샌프란시스코 (SFO)</a></li>
+	<li><a href="#none" class="citylist">뉴욕(JFK)</a></li>
+	<li><a href="#none" class="citylist">시애틀 (SEA)</a></li>
+    <li><a href="#none" class="citylist">시카고(ORD)</a></li>
 	</ul>
 </div>
 
 </div>
+</div>
+   	 <div style="float:left; "><input type="text" id="txt01" style="height: 24px; margin-top: 10px; margin-left: 0px; padding-left: 10px;"></div>
+    <br>
+    
+    
     
     </td>
     <td width="70">도착</td>
@@ -129,8 +200,8 @@ body, input, textarea, select, table, button
   <tr>
     <td id="getOut">가는날</td>
     <td><input type="text" id="datepicker"></td>
-    <td id="getIn">오는날</td>
-    <td><input type="text" id="datepicker01"></td>
+    <td class="getIn">오는날</td>
+    <td class="getIn"><input type="text" id="datepicker01"></td>
   </tr>
 </table>
 <table width="600" height="74" cellpadding="0" cellspacing="0" border="1">
