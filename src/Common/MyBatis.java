@@ -111,7 +111,8 @@ public class MyBatis<T> {
 			ret = (int) this.sqlMap.insert(selectNameSpace + ".insert",
 					parameter);
 		} catch (NestedSQLException ne) {
-			ret = -2; 
+			ret = -2;
+			ne.printStackTrace();
 		} catch (SQLException e) {
 			ret = -1;
 			e.printStackTrace();
@@ -126,7 +127,8 @@ public class MyBatis<T> {
 			ret = (int) this.sqlMap.update(selectNameSpace + ".update",
 					parameter);
 		} catch (NestedSQLException ne) {
-			ret = -2; 
+			ret = -2;
+			ne.printStackTrace();
 		} catch (SQLException e) {
 			ret = -1;
 			e.printStackTrace();
@@ -141,7 +143,8 @@ public class MyBatis<T> {
 			ret = (int) this.sqlMap.delete(selectNameSpace + ".delete",
 					parameter);
 		} catch (NestedSQLException ne) {
-			ret = -2; 
+			ret = -2;
+			ne.printStackTrace();
 		} catch (SQLException e) {
 			ret = -1;
 			e.printStackTrace();
