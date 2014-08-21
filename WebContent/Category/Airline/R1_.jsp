@@ -195,7 +195,53 @@ color:black;
     
     </td>
     <td width="70">도착</td>
-    <td width="221"><input type="text" ><input type="image" id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif"></td>
+     <td width="218">
+    <div style="float: left;"><img id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif" style="padding-top: 10px;" >
+    <div style="border:1px solid black; width:330px; height:800px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
+<div>출발 예정도시를 선택하세요.<a href="javascript:close();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
+<div style="border:1px solid black; width:130px; height:480px; float:left;">
+<ul class="remove">
+<li id="kr01"><a href="#none">한 국</a></li>
+<li id="jp01"><a href="#none">일 본</a></li>
+<li id="ch01"><a href="#none">중 국</a></li>
+<li id="ea01"><a href="#none">동남아시아</a></li>
+<li id="us01"><a href="#none">미 국</a></li>
+</ul>
+
+</div>
+<div style="border:1px solid red; width:180px; height:480px; float:left;" class="remove01">
+<ul id="KR">
+	<li><a href="#none" class="citylist">인천 (ICN)</a></li>
+	<li><a href="#none" class="citylist">김포 (GMP)</a></li>
+	<li><a href="#none" class="citylist">부산 (PUS)</a></li>
+	</ul>
+	<ul id="CH">
+	<li><a href="#none" class="citylist">베이징(BJS)</a></li>
+	<li><a href="#none" class="citylist">홍콩(HKG)</a></li>
+	</ul>
+	<ul id="JP">
+	<li><a href="#none" class="citylist">도쿄/나리타 (NRT)</a></li>
+	<li><a href="#none" class="citylist">하네다(HND)</a></li>
+	<li><a href="#none" class="citylist">오사카(간사이)(OSA)</a></li>
+	</ul>
+	<ul id="EA">
+	<li><a href="#none" class="citylist">방콕</a></li>
+	<li><a href="#none" class="citylist">세부(HND)</a></li>
+	<li><a href="#none" class="citylist">싱가폴(OSA)</a></li>
+	<li><a href="#none" class="citylist">푸켓</a></li>
+	</ul>
+	<ul id="US">
+	<li><a href="#none" class="citylist">로스앤젤레스 (LAX)</a></li>
+	<li><a href="#none" class="citylist">샌프란시스코 (SFO)</a></li>
+	<li><a href="#none" class="citylist">뉴욕(JFK)</a></li>
+	<li><a href="#none" class="citylist">시애틀 (SEA)</a></li>
+    <li><a href="#none" class="citylist">시카고(ORD)</a></li>
+	</ul>
+</div>
+
+</div>
+</div>
+   	 <div style="float:left; "><input type="text" id="txt01" style="height: 24px; margin-top: 10px; margin-left: 0px; padding-left: 10px;"></div>
   </tr>
   <tr>
     <td id="getOut">가는날</td>

@@ -28,16 +28,6 @@
   <col width="70" />
   <col width="183" />
   <tr>
-    <td width="70">이미지</td>
-    <td width="70">항공사</td>
-    <td width="70">편명</td>
-    <td width="48">월</td>
-    <td width="48">화 </td>
-    <td width="48">수 </td>
-    <td width="48">목</td>
-    <td width="48">금 </td>
-    <td width="48">토</td>
-    <td width="48">일</td>
     <td width="70">출발지</td>
     <td>도착지</td>
     <td width="192">출발시간</td>
@@ -47,41 +37,6 @@
     <td width="131">운임(소아)</td>
   </tr>
   <tr>
-    <td><input type="file" /></td>
-    <td><select name="select11" id="select11">
-      <option>드래곤에어</option>
-      <option>아시아나항공</option>
-    </select></td>
-    <td>KA325</td>
-    <td>
-      <select name="select" id="select">
-        <option>Y</option>
-        <option>N</option>
-    </select></td>
-    <td><select name="select2" id="select2">
-      <option>Y</option>
-      <option>N</option>
-    </select></td>
-    <td><select name="select3" id="select3">
-      <option>Y</option>
-      <option>N</option>
-    </select></td>
-    <td><select name="select4" id="select4">
-      <option>Y</option>
-      <option>N</option>
-    </select></td>
-    <td><select name="select5" id="select5">
-      <option>Y</option>
-      <option>N</option>
-    </select></td>
-    <td><select name="select6" id="select6">
-      <option>Y</option>
-      <option>N</option>
-    </select></td>
-    <td><select name="select7" id="select7">
-      <option>Y</option>
-      <option>N</option>
-    </select></td>
     <td><select name="select8" id="select8">
       <option>인천</option>
       <option>N</option>
