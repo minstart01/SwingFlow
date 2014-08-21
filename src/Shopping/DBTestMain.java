@@ -28,7 +28,7 @@ public class DBTestMain {
 			  boolean loginUserDB.find(nameSpace, MyClassObject)  
 			
 		**/
-		MyBatis<LoginUser> loginUserDB = new MyBatis<LoginUser>();
+		MyBatis<LoginUser> loginUserDB = new MyBatis<LoginUser>("Common.LoginUser");
 		int ret = 0;
 		// 리턴값 받을 변수(List)
 		List<LoginUser> luser = null;
@@ -39,33 +39,33 @@ public class DBTestMain {
 		// Test용DB insert
 		
 		//drop table
-		loginUserDB.drop("LoginUser");
-		loginUserDB.create("LoginUser");
+		loginUserDB.drop();
+		loginUserDB.create();
 		
 		//1
 		loginUser.setId("lym");
 		loginUser.setPassword("1111");
 		loginUser.setName("이영민");
 		System.out.println("입력할 자료 :" + loginUser.toString()); 
-		ret = loginUserDB.insert("LoginUser", loginUser);
+		ret = loginUserDB.insert( loginUser);
 		//2
 		loginUser.setId("jeong");
 		loginUser.setPassword("2222");
 		loginUser.setName("정형일");
 		System.out.println("입력할 자료 :" + loginUser.toString()); 
-		ret = loginUserDB.insert("LoginUser", loginUser);
+		ret = loginUserDB.insert(loginUser);
 		//3
 		loginUser.setId("im");
 		loginUser.setPassword("3333");
 		loginUser.setName("임유경");
 		System.out.println("입력할 자료 :" + loginUser.toString()); 
-		ret = loginUserDB.insert("LoginUser", loginUser);
+		ret = loginUserDB.insert( loginUser);
 
 		
 		System.out.println("insert 3개후 전체 출력  : ");
 		loginUser.setPassword(null);
 		loginUser.setId(null);
-		luser = loginUserDB.select("LoginUser", loginUser);
+		luser = loginUserDB.select( loginUser);
 		for (LoginUser x : luser) {
 			System.out.println("member : " + x.toString());
 		}
@@ -74,11 +74,11 @@ public class DBTestMain {
 
 		// find예제+insert예제 boolean
 		loginUser.setId("lee");
-		if (!loginUserDB.find("LoginUser", loginUser)) {
+		if (!loginUserDB.find( loginUser)) {
 			loginUser.setPassword("4444");
 			loginUser.setName("이세한");
 			System.out.println("입력할 자료 : " + loginUser.toString()); 
-			ret = loginUserDB.insert("LoginUser", loginUser);
+			ret = loginUserDB.insert( loginUser);
 			System.out.println("insert count : " + ret);
 		} else {
 			System.out.println("find : " + loginUser.toString());
@@ -87,13 +87,13 @@ public class DBTestMain {
 		loginUser.setId("kim");
 		loginUser.setPassword(null);
 		System.out.println("입력할 자료 id : " + loginUser.getId());
-		if (!loginUserDB.find("LoginUser", loginUser)) {
+		if (!loginUserDB.find( loginUser)) {
 			loginUser.setPassword("1111");
 			loginUser.setName("김생민");
 			System.out.println("입력한 자료 id :" + loginUser.toString());
 
 			// insert예제
-			ret = loginUserDB.insert("LoginUser", loginUser);
+			ret = loginUserDB.insert(loginUser);
 			System.out.println("insert count : " + ret);
 		}
 		
@@ -102,7 +102,7 @@ public class DBTestMain {
 		System.out.println("delete 전 ALL 출력  : ");
 		loginUser.setPassword(null);
 		loginUser.setId(null);
-		luser = loginUserDB.select("LoginUser", loginUser);
+		luser = loginUserDB.select(loginUser);
 		for (LoginUser x : luser) {
 			System.out.println("member : " + x.toString());
 		}
@@ -112,7 +112,7 @@ public class DBTestMain {
 		System.out.println("delete 전 ALL 출력  : ");
 		loginUser.setPassword(null);
 		loginUser.setId(null);
-		luser = loginUserDB.select("LoginUser", loginUser);
+		luser = loginUserDB.select(loginUser);
 		for (LoginUser x : luser) {
 			System.out.println("member : " + x.toString());
 		}
@@ -120,12 +120,12 @@ public class DBTestMain {
 		
 		loginUser.setId("kim");
 		loginUser.setPassword("1111");
-		ret = loginUserDB.delete("LoginUser", loginUser);
+		ret = loginUserDB.delete( loginUser);
 		
 		System.out.println("delete 후 ALL 출력  : ");
 		loginUser.setPassword(null);
 		loginUser.setId(null);
-		luser = loginUserDB.select("LoginUser", loginUser);
+		luser = loginUserDB.select( loginUser);
 		for (LoginUser x : luser) {
 			System.out.println("member : " + x.toString());
 		}

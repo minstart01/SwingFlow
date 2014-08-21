@@ -16,7 +16,7 @@ public class MyBatis<T> {
 	private String nameSpaceString;
 
 	public MyBatis() {
-		String sqlMapConfig="SwingFlowSqlMapConfig.xml";
+		String sqlMapConfig = "SwingFlowSqlMapConfig.xml";
 		try {
 			this.reader = Resources.getResourceAsReader(sqlMapConfig);
 			// this.reader = new
@@ -28,13 +28,11 @@ public class MyBatis<T> {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	public MyBatis(String nameSpaceString) {
 		this();
 		this.nameSpaceString = nameSpaceString;
 	}
-
 
 	public void close() {
 		try {
@@ -44,7 +42,7 @@ public class MyBatis<T> {
 		}
 	}
 
-	public boolean find( T parameter) {
+	public boolean find(T parameter) {
 		boolean ret = false;
 		List<T> list = null;
 		try {
@@ -68,11 +66,12 @@ public class MyBatis<T> {
 		return ret;
 	}
 
-	public List<T> queryForList( T parameter) {
+	public List<T> queryForList(T parameter) {
 		List<T> list = null;
 		try {
 			this.sqlMap.startTransaction();
-			list = (List<T>) this.sqlMap.queryForList(nameSpaceString, parameter);
+			list = (List<T>) this.sqlMap.queryForList(nameSpaceString,
+					parameter);
 			this.sqlMap.commitTransaction();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -87,7 +86,7 @@ public class MyBatis<T> {
 	}
 
 	/* select : 사용자 정의 select , 쿼리를 전달받아 select 실행 */
-	public List<T> select( String query) {
+	public List<T> select(String query) {
 		List<T> ret = null;
 		try {
 			this.sqlMap.startTransaction();
@@ -108,12 +107,12 @@ public class MyBatis<T> {
 	}
 
 	/* select : 사용자 정의 select , 쿼리를 전달받아 select 실행 */
-	public List<T> select( T parameter) {
-		return queryForList( parameter);
+	public List<T> select(T parameter) {
+		return queryForList(parameter);
 	}
 
 	/* insert : 쿼리와 파라미터를 전달받아 insert를 실행 */
-	public int insert(String selectNameSpace, T parameter) {
+	public int insert(T parameter) {
 		int ret = 1;
 		try {
 			ret = (int) this.sqlMap.insert(nameSpaceString + ".insert",
@@ -129,7 +128,7 @@ public class MyBatis<T> {
 		}
 	}
 
-	public int update(String selectNameSpace, T parameter) {
+	public int update(T parameter) {
 		int ret = 1;
 		try {
 			ret = (int) this.sqlMap.update(nameSpaceString + ".update",
@@ -145,7 +144,7 @@ public class MyBatis<T> {
 		}
 	}
 
-	public int delete(String selectNameSpace, T parameter) {
+	public int delete(T parameter) {
 		int ret = 1;
 		try {
 			ret = (int) this.sqlMap.delete(nameSpaceString + ".delete",
@@ -160,13 +159,13 @@ public class MyBatis<T> {
 			return ret;
 		}
 	}
-	
-	public int create(String selectNameSpace) {
+
+	public int create() {
 		int ret = 1;
 		try {
-			ret = (int) this.sqlMap.update(nameSpaceString + ".create",null);
+			ret = (int) this.sqlMap.update(nameSpaceString + ".create", null);
 		} catch (NestedSQLException ne) {
-			ret = -2; 
+			ret = -2;
 		} catch (SQLException e) {
 			ret = -1;
 			e.printStackTrace();
@@ -174,13 +173,13 @@ public class MyBatis<T> {
 			return ret;
 		}
 	}
-	
-	public int drop(String selectNameSpace) {
+
+	public int drop() {
 		int ret = 1;
 		try {
-			ret = (int) this.sqlMap.update(nameSpaceString + ".drop",null);
+			ret = (int) this.sqlMap.update(nameSpaceString + ".drop", null);
 		} catch (NestedSQLException ne) {
-			ret = -2; 
+			ret = -2;
 		} catch (SQLException e) {
 			ret = -1;
 			e.printStackTrace();
@@ -213,7 +212,12 @@ public class MyBatis<T> {
 		this.nameSpaceString = nameSpaceString;
 	}
 
-	
-	
-	
+	public void allListPrint(T parameter) {
+		List<T> luser = select(parameter);
+		System.out.println("-----------------------------------");
+		for (T x : luser) {
+			System.out.println(" : " + x.toString());
+		}
+		System.out.println("===================================");
+	}
 }

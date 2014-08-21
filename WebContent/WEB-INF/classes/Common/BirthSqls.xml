@@ -32,7 +32,7 @@
 	</insert>
 
 	<update id="update" parameterClass="Common.Birth">
-		UPDATE WONDERGIRLS SET
+		UPDATE Birth SET
 		bCode = #bCode# ,
 		bBirth = #bBirth#
 		<dynamic prepend=" WHERE ">

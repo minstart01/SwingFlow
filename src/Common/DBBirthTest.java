@@ -26,7 +26,7 @@ public class DBBirthTest {
 			  boolean birthDB.find(nameSpace, MyClassObject)  
 			
 		**/
-		MyBatis<Birth> birthDB = new MyBatis<Birth>();
+		MyBatis<Birth> birthDB = new MyBatis<Birth>("Common.Birth");
 		int ret = 0;
 		// 리턴값 받을 변수(List)
 		List<Birth> luser = null;
@@ -39,85 +39,44 @@ public class DBBirthTest {
 		// Test용DB insert
 		
 		//drop table
-		birthDB.drop("birth");
-		birthDB.create("birth");
+		birthDB.drop();
+		birthDB.create();
 		
 		//1
 		System.out.println("입력할 자료 : " + birth1.toString()); 
-		ret = birthDB.insert("Common.Birth", birth1);
+		ret = birthDB.insert( birth1);
 		//2
 		System.out.println("입력할 자료 : " + birth2.toString()); 
-		ret = birthDB.insert("Common.Birth", birth2);
+		ret = birthDB.insert( birth2);
 
 		
 		System.out.println("insert 2개후 전체 출력  : ");
 		birth3.setbCode(0);
-		luser = birthDB.select("birth", birth);
-		for (birth x : luser) {
-			System.out.println(" : " + x.toString());
-		}
-		System.out.println("-----------------------------------"); 
+		birthDB.allListPrint( birth3);
 
 
 		// find예제+insert예제 boolean
-		birth.setId("lee");
-		if (!birthDB.find("birth", birth)) {
-			birth.setPassword("4444");
-			birth.setName("이세한");
-			System.out.println("입력할 자료 : " + birth.toString()); 
-			ret = birthDB.insert("birth", birth);
+		birth3.setbCode(3);
+		if (!birthDB.find(birth3)) {
+			System.out.println("입력할 자료 : " + birth3.toString()); 
+			ret = birthDB.insert( birth3);
 			System.out.println("insert count : " + ret);
 		} else {
-			System.out.println("find : " + birth.toString());
+			System.out.println("find : " + birth3.toString());
 		}
-
-		birth.setId("kim");
-		birth.setPassword(null);
-		System.out.println("입력할 자료 id : " + birth.getId());
-		if (!birthDB.find("birth", birth)) {
-			birth.setPassword("1111");
-			birth.setName("김생민");
-			System.out.println("입력한 자료 id :" + birth.toString());
-
-			// insert예제
-			ret = birthDB.insert("birth", birth);
-			System.out.println("insert count : " + ret);
-		}
-		
 
 		// delete예제 
-		System.out.println("delete 전 ALL 출력  : ");
-		birth.setPassword(null);
-		birth.setId(null);
-		luser = birthDB.select("birth", birth);
-		for (birth x : luser) {
-			System.out.println(" : " + x.toString());
-		}
-		System.out.println("-----------------------------------");
-		
 		
 		System.out.println("delete 전 ALL 출력  : ");
-		birth.setPassword(null);
-		birth.setId(null);
-		luser = birthDB.select("birth", birth);
-		for (birth x : luser) {
-			System.out.println(" : " + x.toString());
-		}
-		System.out.println("-----------------------------------");
+		birth3.setbCode(0);
+		birthDB.allListPrint( birth3);
 		
-		birth.setId("kim");
-		birth.setPassword("1111");
-		ret = birthDB.delete("birth", birth);
+		birth3.setbCode(3);
+		ret = birthDB.delete( birth3);
 		
 		System.out.println("delete 후 ALL 출력  : ");
-		birth.setPassword(null);
-		birth.setId(null);
-		luser = birthDB.select("birth", birth);
-		for (birth x : luser) {
-			System.out.println(" : " + x.toString());
-		}
-		System.out.println("-----------------------------------");
-
+		birth3.setbCode(0);
+		birthDB.allListPrint( birth3);
 		// 사용한 디비 닫아줄것
 		birthDB.close();
 	}

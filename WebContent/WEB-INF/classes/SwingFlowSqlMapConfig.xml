@@ -28,6 +28,7 @@
 
 	<sqlMap resource="Common/LoginUserSqls.xml" />
 	<sqlMap resource="Common/MemberSqls.xml" />
+	<sqlMap resource="Common/BirthSqls.xml" />
 	<sqlMap resource="Airline/CitySqls.xml" />
 	<sqlMap resource="Movie/MovieInfoSqls.xml" />
 
