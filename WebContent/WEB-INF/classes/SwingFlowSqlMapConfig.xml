@@ -26,7 +26,10 @@
 		</dataSource>
 	</transactionManager>
 
-	<sqlMap resource="LoginUserSqls.xml" />
+	<sqlMap resource="Common/LoginUserSqls.xml" />
+	<sqlMap resource="Common/MemberSqls.xml" />
+	<sqlMap resource="Airline/CitySqls.xml" />
+	<sqlMap resource="Movie/MovieInfoSqls.xml" />
 
 </sqlMapConfig>
 	
