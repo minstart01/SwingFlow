@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Common.ReceiveSMS">
+
+	<resultMap id="resultReceiveSMS" class="Common.ReceiveSMS">
+		<result property="pCode" column="pCode" />
+		<result property="pReceive" column="pReceive" />
+	</resultMap>
+
+
+	<select id="find" parameterClass="Common.ReceiveSMS" resultMap="resultReceiveSMS">
+		SELECT * FROM ReceiveSMS
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="pCode" compareValue="0">
+				pCode = #pCode#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultReceiveSMS">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Common.ReceiveSMS">
+		INSERT INTO ReceiveSMS (
+		pCode,pReceive
+		) VALUES (
+		#pCode#,#pReceive#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Common.ReceiveSMS">
+		UPDATE ReceiveSMS SET
+		pCode = #pCode# ,
+		pReceive = #pReceive#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="pCode" compareValue="0">
+				pCode = #pCode#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Common.ReceiveSMS">
+		DELETE FROM ReceiveSMS
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="pCode" compareValue="0">
+				pCode = #pCode#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE ReceiveSMS CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE ReceiveSMS (
+			pCode INTEGER NOT NULL,
+			pReceive NVARCHAR2(10)
+			)
+	</statement>
+</sqlMap>
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Common.Sex">
+
+	<resultMap id="resultSex" class="Common.Sex">
+		<result property="sCode" column="sCode" />
+		<result property="sSex" column="sSex" />
+	</resultMap>
+
+
+	<select id="find" parameterClass="Common.Sex" resultMap="resultSex">
+		SELECT * FROM Sex
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="sCode" compareValue="0">
+				sCode = #sCode#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultSex">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Common.Sex">
+		INSERT INTO Sex (
+		sCode,sSex
+		) VALUES (
+		#sCode#,#sSex#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Common.Sex">
+		UPDATE Sex SET
+		sCode = #sCode# ,
+		sSex = #sSex#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="sCode" compareValue="0">
+				sCode = #sCode#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Common.Sex">
+		DELETE FROM Sex
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="sCode" compareValue="0">
+				sCode = #sCode#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE Sex CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE Sex (
+				sCode INTEGER NOT NULL,
+				sSex NVARCHAR2(6) NOT NULL 
+			)
+	</statement>
+</sqlMap>
+

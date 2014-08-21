@@ -12,9 +12,10 @@ public class Member {
 	private java.sql.Date mBirth;
 	private int bCode;
 	private int aCode;
+	private String mDetailAddr;
 	private String mEmail;
 	private int eCode;
-	private int mPhone;
+	private String mPhone;
 	private int pCode;
 	private int mProduct;
 	private int mCode;
@@ -23,8 +24,8 @@ public class Member {
 	
 	public Member(){}
 	public Member(int mNo, String mId, String mPwd, String mName, int sCode,
-			Date mBirth, int bCode, int aCode, String mEmail, int eCode,
-			int mPhone, int pCode, int mProduct, int mCode, Date mJoinDate,
+			Date mBirth, int bCode, int aCode, String mDetailAddr,String mEmail, int eCode,
+			String mPhone, int pCode, int mProduct, int mCode, Date mJoinDate,
 			int mProductNo) {
 		this.mNo = mNo;
 		this.mId = mId;
@@ -34,6 +35,7 @@ public class Member {
 		this.mBirth = mBirth;
 		this.bCode = bCode;
 		this.aCode = aCode;
+		this.mDetailAddr = mDetailAddr;
 		this.mEmail = mEmail;
 		this.eCode = eCode;
 		this.mPhone = mPhone;
@@ -91,6 +93,12 @@ public class Member {
 	public void setaCode(int aCode) {
 		this.aCode = aCode;
 	}
+	public String getmDetailAddr() {
+		return mDetailAddr;
+	}
+	public void setmDetailAddr(String mDetailAddr) {
+		this.mDetailAddr = mDetailAddr;
+	}
 	public String getmEmail() {
 		return mEmail;
 	}
@@ -103,10 +111,10 @@ public class Member {
 	public void seteCode(int eCode) {
 		this.eCode = eCode;
 	}
-	public int getmPhone() {
+	public String getmPhone() {
 		return mPhone;
 	}
-	public void setmPhone(int mPhone) {
+	public void setmPhone(String mPhone) {
 		this.mPhone = mPhone;
 	}
 	public int getpCode() {
@@ -139,5 +147,9 @@ public class Member {
 	public void setmProductNo(int mProductNo) {
 		this.mProductNo = mProductNo;
 	}
-
+	public String toString(){
+		return mNo+":"+mId+":"+mPwd+":"+mName+":"+sCode+":"+mBirth+":"+bCode
+				+":"+aCode+":"+mDetailAddr+":"+mEmail+":"+eCode+":"+mPhone+":"+pCode+":"+mProduct+":"+mCode+":"+mJoinDate+":"+mProductNo;
+	}
+	
 }

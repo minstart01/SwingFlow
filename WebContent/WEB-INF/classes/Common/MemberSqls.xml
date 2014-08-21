@@ -4,7 +4,7 @@
 <sqlMap namespace="Common.Member">
 
 	<resultMap id="resultMember" class="Common.Member">
-		<result property="mNo" column="MNO" />
+		<result property="mNo" column="mNo" />
 		<result property="mId" column="mId" />
 		<result property="mPwd" column="mPwd" />
 		<result property="mName" column="mName" />
@@ -12,6 +12,7 @@
 		<result property="mBirth" column="mBirth" />
 		<result property="bCode" column="bCode" />
 		<result property="aCode" column="aCode" />
+		<result property="mDetailAddr" column="mDetailAddr" />
 		<result property="mEmail" column="mEmail" />
 		<result property="eCode" column="eCode" />
 		<result property="mPhone" column="mPhone" />
@@ -22,13 +23,12 @@
 		<result property="mProductNo" column="mProductNo" />
 	</resultMap>
 
-
 	<select id="find" parameterClass="Common.Member" resultMap="resultMember">
 		SELECT * FROM Member
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="mNo">
+			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
 				mNo = #mNo#
-			</isNotEmpty>
+			</isNotEqual>
 			<isNotEmpty prepend=" AND " property="mId">
 				mId = #mId#
 			</isNotEmpty>
@@ -47,9 +47,9 @@
 	<insert id="insert" parameterClass="Common.Member">
 		INSERT INTO
 		Member (
-		mNo,mId,mPwd,mName,sCode,mBirth,bCode,aCode,mEmail,eCode,mPhone,pCode,mProduct,mCode,mJoinDate,mProductNo)
-		VALUES (
-		#mNo#,#mId#,#mPwd#,#mName#,#sCode#,#mBirth#,#bCode#,#aCode#,#mEmail#,#eCode#,#mPhone#,#pCode#,#mProduct#,#mCode#,#mJoinDate#,#mProductNo#
+		mNo,mId,mPwd,mName,sCode,mBirth,bCode,aCode,mDetailAddr,mEmail,eCode,mPhone,pCode,mProduct,mCode,mJoinDate,mProductNo
+		) VALUES (
+		#mNo#,#mId#,#mPwd#,#mName#,#sCode#,#mBirth#,#bCode#,#aCode#,#mDetailAddr#,#mEmail#,#eCode#,#mPhone#,#pCode#,#mProduct#,#mCode#,#mJoinDate#,#mProductNo#
 		)
 	</insert>
 
@@ -58,26 +58,24 @@
 		mNo = #mNo# ,
 		mId = #mId#,
 		mPwd = #mPwd#,
-		mName =
-		#mName#,
+		mName = #mName#,
 		sCode = #sCode#,
 		mBirth = #mBirth#,
 		bCode = #bCode#,
-		aCode =
-		#aCode#,
+		aCode =	#aCode#,
+		mDetailAddr = #mDetailAddr#,
 		mEmail = #mEmail#,
 		eCode = #eCode#,
 		mPhone = #mPhone#,
-		pCode =
-		#pCode#,
+		pCode =	#pCode#,
 		mProduct = #mProduct#,
 		mCode = #mCode#,
 		mJoinDate = #mJoinDate#,
 		mProductNo = #mProductNo#
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="mNo">
+			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
 				mNo = #mNo#
-			</isNotEmpty>
+			</isNotEqual>
 			<isNotEmpty prepend=" AND " property="mId">
 				mId = #mId#
 			</isNotEmpty>
@@ -90,9 +88,9 @@
 	<delete id="delete" parameterClass="Common.Member">
 		DELETE FROM Member
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="mNo">
+			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
 				mNo = #mNo#
-			</isNotEmpty>
+			</isNotEqual>
 			<isNotEmpty prepend=" AND " property="mId">
 				mId = #mId#
 			</isNotEmpty>
@@ -103,28 +101,29 @@
 	</delete>
 
 	<statement id="drop">
-		DROP TABLE Member CASCADE;
+		DROP TABLE Member CASCADE CONSTRAINT
 	</statement>
 
 	<statement id="create">
 		CREATE TABLE Member (
-		mNo INTEGER NOT NULL,
-		mId VARCHAR2(40) NOT NULL, 
-		mPwd VARCHAR2(20) NOT NULL,
-		mName NVARCHAR2(20) NOT NULL, 
-		sCode INTEGER NOT NULL,
-		mBirth DATE NOT NULL, 
-		bCode INTEGER NOT NULL,
-		aCode INTEGER NOT NULL, 
-		mDetailAddr VARCHAR2(20),
-		mEmail NVARCHAR2(100) NOT NULL, 
-		eCode INTEGER, 
-		mPhone INTEGER NOT NULL, 
-		pCode INTEGER, 
-		mProduct INTEGER, 
-		mCode INTEGER NOT NULL,
-		mJoinDate DATE NOT NULL, 
-		mProductNo INTEGER 
+			mNo INTEGER NOT NULL,
+			mId NVARCHAR2(40) NOT NULL,
+			mPwd NVARCHAR2(40) NOT NULL,
+			mName NVARCHAR2(100) NOT NULL, 
+			sCode INTEGER NOT NULL, 
+			mBirth DATE NOT NULL, 
+			bCode INTEGER NOT NULL, 
+			aCode INTEGER NOT NULL, 
+			mDetailAddr NVARCHAR2(100), 
+			mEmail NVARCHAR2(100) NOT NULL, 
+			eCode INTEGER, 
+			mPhone VARCHAR2(20) NOT NULL,
+			pCode INTEGER,
+			mProduct INTEGER,
+			mCode INTEGER NOT NULL,
+			mJoinDate DATE NOT NULL, 
+			mProductNo INTEGER 
+			)
 	</statement>
 </sqlMap>
 

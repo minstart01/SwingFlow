@@ -214,7 +214,7 @@ public class MyBatis<T> {
 		this.nameSpaceString = nameSpaceString;
 	}
 
-	public void allListPrint(T parameter) {
+	public List<T> allListPrint(T parameter) {
 		List<T> luser = select(parameter);
 		System.out.println("-----------------------------------");
 		int cnt=1;
@@ -224,5 +224,6 @@ public class MyBatis<T> {
 			cnt++;
 		}
 		System.out.println("===================================");
+		return luser;
 	}
 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Common.ReceiveEMAIL">
+
+	<resultMap id="resultReceiveEMAIL" class="Common.ReceiveEMAIL">
+		<result property="eCode" column="eCode" />
+		<result property="eReceive" column="eReceive" />
+	</resultMap>
+
+
+	<select id="find" parameterClass="Common.ReceiveEMAIL" resultMap="resultReceiveEMAIL">
+		SELECT * FROM ReceiveEMAIL
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="eCode" compareValue="0">
+				eCode = #eCode#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultReceiveEMAIL">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Common.ReceiveEMAIL">
+		INSERT INTO ReceiveEMAIL (
+		eCode,eReceive
+		) VALUES (
+		#eCode#,#eReceive#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Common.ReceiveEMAIL">
+		UPDATE ReceiveEMAIL SET
+		eCode = #eCode# ,
+		eReceive = #bReceiveEMAIL#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="eCode" compareValue="0">
+				eCode = #eCode#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Common.ReceiveEMAIL">
+		DELETE FROM ReceiveEMAIL
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="eCode" compareValue="0">
+				eCode = #eCode#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE ReceiveEMAIL CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE ReceiveEMAIL (
+		eCode INTEGER NOT NULL,
+		eReceive NVARCHAR2(10) NOT NULL
+		)
+	</statement>
+</sqlMap>
+

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Common.Address">
+
+	<resultMap id="resultAddress" class="Common.Address">
+		<result property="aCode" column="aCode" />
+		<result property="zipcode" column="zipcode" />
+		<result property="sido" column="sido" />
+		<result property="gugun" column="gugun" />
+		<result property="dong" column="dong" />
+		<result property="ri" column="ri" />
+		<result property="bunji" column="bunji" />
+	</resultMap>
+
+
+
+	<select id="find" parameterClass="Common.Address" resultMap="resultAddress">
+		SELECT * FROM Address
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="aCode" compareValue="0">
+				aCode = #aCode#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultAddress">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Common.Address">
+		INSERT INTO Address (
+		aCode,zipcode,sido,gugun,dong,ri,bunji
+		) VALUES (
+		#aCode#,#zipcode#,#sido#,#gugun#,#dong#,#ri#,#bunji#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Common.Address">
+		UPDATE Address SET
+		aCode = #aCode# ,
+		zipcode = #zipcode#,
+		sido = #sido#,
+		gugun = #gugun#,
+		dong = #dong#,
+		ri = #ri#,
+		bunji = #bunji#,
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="aCode" compareValue="0">
+				aCode = #aCode#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Common.Address">
+		DELETE FROM Address
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="aCode" compareValue="0">
+				aCode = #aCode#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE Address CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE Address (
+				aCode INTEGER NOT NULL,
+				zipcode VARCHAR2(20) NOT NULL, 
+				sido NVARCHAR2(20),
+				gugun NVARCHAR2(20),
+				dong NVARCHAR2(50),
+				ri NVARCHAR2(20), 
+				bunji NVARCHAR2(20) 
+			)
+	</statement>
+</sqlMap>
+

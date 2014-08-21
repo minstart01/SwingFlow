@@ -28,10 +28,19 @@
 	</transactionManager>
 
 <!-- 	<sqlMap resource="Common/LoginUserSqls.xml" /> -->
-<!-- 	<sqlMap resource="Common/MemberSqls.xml" /> -->
+	<sqlMap resource="Common/MemberSqls.xml" />
 	<sqlMap resource="Common/BirthSqls.xml" />
 	<sqlMap resource="Airline/CitySqls.xml" />
 	<sqlMap resource="Movie/MovieInfoSqls.xml" />
-
+	<sqlMap resource="Common/ReceiveEMAILSqls.xml" />
+	<sqlMap resource="Common/ReceiveSMSSqls.xml" />
+	<sqlMap resource="Common/MemberShipSqls.xml" />
+	<sqlMap resource="Common/SexSqls.xml" />
+	<sqlMap resource="Common/AddressSqls.xml" />
+	
+	
+	
+	
+	
 </sqlMapConfig>
 	

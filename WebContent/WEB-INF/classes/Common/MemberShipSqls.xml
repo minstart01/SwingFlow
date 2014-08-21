@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Common.MemberShip">
+
+	<resultMap id="resultMemberShip" class="Common.MemberShip">
+		<result property="mCode" column="mCode" />
+		<result property="mGrade" column="mGrade" />
+	</resultMap>
+
+
+	<select id="find" parameterClass="Common.MemberShip" resultMap="resultMemberShip">
+		SELECT * FROM MemberShip
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="mCode" compareValue="0">
+				mCode = #mCode#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultMemberShip">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Common.MemberShip">
+		INSERT INTO MemberShip (
+		mCode,mGrade
+		) VALUES (
+		#mCode#,#mGrade#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Common.MemberShip">
+		UPDATE MemberShip SET
+		mCode = #mCode# ,
+		mGrade = #mGrade#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="mCode" compareValue="0">
+				mCode = #mCode#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Common.MemberShip">
+		DELETE FROM MemberShip
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="mCode" compareValue="0">
+				mCode = #mCode#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE MemberShip CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE MemberShip (
+			mCode INTEGER NOT NULL,
+			mGrade NVARCHAR2(10) NOT NULL
+			)
+	</statement>
+</sqlMap>
+
