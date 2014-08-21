@@ -38,7 +38,8 @@ public class DBTestMain {
 
 		// Test용DB insert
 		
-		
+	   java.util.Date.getTime();
+	   
 		//drop table
 		loginUserDB.drop("LoginUser");
 		loginUserDB.create("LoginUser");
