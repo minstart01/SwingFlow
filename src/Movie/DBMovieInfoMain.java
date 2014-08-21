@@ -68,6 +68,7 @@ public class DBMovieInfoMain {
 		
 		System.out.println("insert 3개후 전체 출력  : ");
 		movieInfo3.setmCode(0);
+		movieInfo3.setsCode(0);
 		
 		
 		luser = movieInfoDB.select("Movie.MovieInfo", movieInfo3);

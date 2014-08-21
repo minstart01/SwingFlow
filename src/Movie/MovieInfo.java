@@ -7,7 +7,7 @@ public class MovieInfo {
 	private int mCode;
 	private String mName;	
 	private String mPoster;
-	private String mgenre; 	
+	private String mGenre; 	
 	private String mDirector;	
 	private String mTime;	
 	private String mActor;	
@@ -19,14 +19,14 @@ public class MovieInfo {
 		
 	}
 
-	public MovieInfo(int mCode, String mName, String mPoster, String mgenre,
+	public MovieInfo(int mCode, String mName, String mPoster, String mGenre,
 			String mDirector, String mTime, String mActor, int sCode,
 			java.sql.Date mPlayDate, double mPoint) {
 		super();
 		this.mCode = mCode;
 		this.mName = mName;
 		this.mPoster = mPoster;
-		this.mgenre = mgenre;
+		this.mGenre = mGenre;
 		this.mDirector = mDirector;
 		this.mTime = mTime;
 		this.mActor = mActor;
@@ -59,12 +59,12 @@ public class MovieInfo {
 		this.mPoster = mPoster;
 	}
 
-	public String getMgenre() {
-		return mgenre;
+	public String getmGenre() {
+		return mGenre;
 	}
 
-	public void setMgenre(String mgenre) {
-		this.mgenre = mgenre;
+	public void setmGenre(String mGenre) {
+		this.mGenre = mGenre;
 	}
 
 	public String getmDirector() {
@@ -114,6 +114,9 @@ public class MovieInfo {
 	public void setmPoint(double mPoint) {
 		this.mPoint = mPoint;
 	}
-
+	public String toString(){
+		return this.mCode +":"+	this.mName +":"+this.mPoster +":"+  this.mGenre +":"+	this.mDirector  +":"+	this.mTime +":"+this.mActor +":"+this.sCode +":"+this.mPlayDate +":"+this.mPoint;
+	
+	}
 	
 }
