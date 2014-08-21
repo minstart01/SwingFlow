@@ -11,8 +11,9 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 public class MyBatis<T> {
-	Reader reader;
-	SqlMapClient sqlMap;
+	private Reader reader;
+	private SqlMapClient sqlMap;
+	private String nameSpaceString;
 
 	public MyBatis() {
 		String sqlMapConfig="SwingFlowSqlMapConfig.xml";
@@ -27,6 +28,13 @@ public class MyBatis<T> {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public MyBatis(String nameSpaceString) {
+		this();
+		this.nameSpaceString = nameSpaceString;
+	}
+
 
 	public void close() {
 		try {
@@ -36,13 +44,13 @@ public class MyBatis<T> {
 		}
 	}
 
-	public boolean find(String selectNameSpace, T parameter) {
+	public boolean find( T parameter) {
 		boolean ret = false;
 		List<T> list = null;
 		try {
 			this.sqlMap.startTransaction();
 			list = (List<T>) this.sqlMap.queryForList(
-					selectNameSpace + ".find", parameter);
+					nameSpaceString + ".find", parameter);
 			this.sqlMap.commitTransaction();
 
 		} catch (SQLException e) {
@@ -60,11 +68,11 @@ public class MyBatis<T> {
 		return ret;
 	}
 
-	public List<T> queryForList(String selectId, T parameter) {
+	public List<T> queryForList( T parameter) {
 		List<T> list = null;
 		try {
 			this.sqlMap.startTransaction();
-			list = (List<T>) this.sqlMap.queryForList(selectId, parameter);
+			list = (List<T>) this.sqlMap.queryForList(nameSpaceString, parameter);
 			this.sqlMap.commitTransaction();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -79,11 +87,11 @@ public class MyBatis<T> {
 	}
 
 	/* select : 사용자 정의 select , 쿼리를 전달받아 select 실행 */
-	public List<T> select(String selectNameSpace, String query) {
+	public List<T> select( String query) {
 		List<T> ret = null;
 		try {
 			this.sqlMap.startTransaction();
-			ret = (List<T>) this.sqlMap.queryForList(selectNameSpace
+			ret = (List<T>) this.sqlMap.queryForList(nameSpaceString
 					+ ".UserDefined", query);
 			this.sqlMap.commitTransaction();
 		} catch (SQLException e) {
@@ -100,15 +108,15 @@ public class MyBatis<T> {
 	}
 
 	/* select : 사용자 정의 select , 쿼리를 전달받아 select 실행 */
-	public List<T> select(String selectNameSpace, T parameter) {
-		return queryForList(selectNameSpace + ".find", parameter);
+	public List<T> select( T parameter) {
+		return queryForList( parameter);
 	}
 
 	/* insert : 쿼리와 파라미터를 전달받아 insert를 실행 */
 	public int insert(String selectNameSpace, T parameter) {
 		int ret = 1;
 		try {
-			ret = (int) this.sqlMap.insert(selectNameSpace + ".insert",
+			ret = (int) this.sqlMap.insert(nameSpaceString + ".insert",
 					parameter);
 		} catch (NestedSQLException ne) {
 			ret = -2;
@@ -124,7 +132,7 @@ public class MyBatis<T> {
 	public int update(String selectNameSpace, T parameter) {
 		int ret = 1;
 		try {
-			ret = (int) this.sqlMap.update(selectNameSpace + ".update",
+			ret = (int) this.sqlMap.update(nameSpaceString + ".update",
 					parameter);
 		} catch (NestedSQLException ne) {
 			ret = -2;
@@ -140,7 +148,7 @@ public class MyBatis<T> {
 	public int delete(String selectNameSpace, T parameter) {
 		int ret = 1;
 		try {
-			ret = (int) this.sqlMap.delete(selectNameSpace + ".delete",
+			ret = (int) this.sqlMap.delete(nameSpaceString + ".delete",
 					parameter);
 		} catch (NestedSQLException ne) {
 			ret = -2;
@@ -156,7 +164,7 @@ public class MyBatis<T> {
 	public int create(String selectNameSpace) {
 		int ret = 1;
 		try {
-			ret = (int) this.sqlMap.update(selectNameSpace + ".create",null);
+			ret = (int) this.sqlMap.update(nameSpaceString + ".create",null);
 		} catch (NestedSQLException ne) {
 			ret = -2; 
 		} catch (SQLException e) {
@@ -170,7 +178,7 @@ public class MyBatis<T> {
 	public int drop(String selectNameSpace) {
 		int ret = 1;
 		try {
-			ret = (int) this.sqlMap.update(selectNameSpace + ".drop",null);
+			ret = (int) this.sqlMap.update(nameSpaceString + ".drop",null);
 		} catch (NestedSQLException ne) {
 			ret = -2; 
 		} catch (SQLException e) {
@@ -181,4 +189,31 @@ public class MyBatis<T> {
 		}
 	}
 
+	public Reader getReader() {
+		return reader;
+	}
+
+	public void setReader(Reader reader) {
+		this.reader = reader;
+	}
+
+	public SqlMapClient getSqlMap() {
+		return sqlMap;
+	}
+
+	public void setSqlMap(SqlMapClient sqlMap) {
+		this.sqlMap = sqlMap;
+	}
+
+	public String getNameSpaceString() {
+		return nameSpaceString;
+	}
+
+	public void setNameSpaceString(String nameSpaceString) {
+		this.nameSpaceString = nameSpaceString;
+	}
+
+	
+	
+	
 }

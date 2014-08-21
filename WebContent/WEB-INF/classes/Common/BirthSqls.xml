@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Common.Birth">
+
+	<resultMap id="resultBirth" class="Common.Birth">
+		<result property="bCode" column="bCode" />
+		<result property="bBirth" column="bBirth" />
+	</resultMap>
+
+
+	<select id="find" parameterClass="Common.Birth" resultMap="resultBirth">
+		SELECT * FROM Birth
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="bCode" compareValue="0">
+				bCode = #bCode#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultBirth">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Common.Birth">
+		INSERT INTO Birth (
+			bCode,bBirth
+		) VALUES (
+			#bCode#,#bBirth#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Common.Birth">
+		UPDATE WONDERGIRLS SET
+		bCode = #bCode# ,
+		bBirth = #bBirth#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="bCode" compareValue="0">
+				bCode = #bCode#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Common.Birth">
+		DELETE FROM Birth
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="bCode" compareValue="0">
+				bCode = #bCode#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE Birth CASCADE;
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE Birth (
+		bCode INTEGER NOT NULL, 
+		bBirth NVARCHAR2(6) NOT NULL 
+			)
+	</statement>
+</sqlMap>
+
