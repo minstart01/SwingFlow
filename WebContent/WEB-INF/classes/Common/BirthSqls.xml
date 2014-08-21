@@ -25,9 +25,9 @@
 
 	<insert id="insert" parameterClass="Common.Birth">
 		INSERT INTO Birth (
-			bCode,bBirth
+		bCode,bBirth
 		) VALUES (
-			#bCode#,#bBirth#
+		#bCode#,#bBirth#
 		)
 	</insert>
 
@@ -51,15 +51,15 @@
 		</dynamic>
 	</delete>
 
-	<statement id="drop">
-		DROP TABLE Birth CASCADE;
-	</statement>
+	<update id="drop">
+		DROP TABLE Birth CASCADE CONSTRAINT
+	</update>
 
 	<statement id="create">
 		CREATE TABLE Birth (
-		bCode INTEGER NOT NULL, 
-		bBirth NVARCHAR2(6) NOT NULL 
-			)
+		bCode INTEGER NOT NULL,
+		bBirth NVARCHAR2(6) NOT NULL
+		)
 	</statement>
 </sqlMap>
 

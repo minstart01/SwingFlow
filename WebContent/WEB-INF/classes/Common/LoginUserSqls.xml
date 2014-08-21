@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="LoginUser">
+<sqlMap namespace="Common.LoginUser">
 
 	<resultMap id="resultLoginUser" class="Common.LoginUser">
 		<result property="id" column="ID" />
@@ -61,7 +61,7 @@
 	</delete>
 
 	<statement id="drop">
-		DROP TABLE LoginUser CASCADE;
+		DROP TABLE LoginUser CASCADE
 	</statement>
 	
 	<statement id="create">

@@ -70,7 +70,7 @@ public class MyBatis<T> {
 		List<T> list = null;
 		try {
 			this.sqlMap.startTransaction();
-			list = (List<T>) this.sqlMap.queryForList(nameSpaceString,
+			list = (List<T>) this.sqlMap.queryForList(nameSpaceString+".find",
 					parameter);
 			this.sqlMap.commitTransaction();
 		} catch (SQLException e) {
@@ -166,6 +166,7 @@ public class MyBatis<T> {
 			ret = (int) this.sqlMap.update(nameSpaceString + ".create", null);
 		} catch (NestedSQLException ne) {
 			ret = -2;
+			ne.printStackTrace();
 		} catch (SQLException e) {
 			ret = -1;
 			e.printStackTrace();
@@ -180,6 +181,7 @@ public class MyBatis<T> {
 			ret = (int) this.sqlMap.update(nameSpaceString + ".drop", null);
 		} catch (NestedSQLException ne) {
 			ret = -2;
+			ne.printStackTrace();
 		} catch (SQLException e) {
 			ret = -1;
 			e.printStackTrace();
@@ -215,8 +217,11 @@ public class MyBatis<T> {
 	public void allListPrint(T parameter) {
 		List<T> luser = select(parameter);
 		System.out.println("-----------------------------------");
+		int cnt=1;
 		for (T x : luser) {
-			System.out.println(" : " + x.toString());
+			
+			System.out.println(""+cnt+" : " + x.toString());
+			cnt++;
 		}
 		System.out.println("===================================");
 	}

@@ -4,8 +4,9 @@
 
 <sqlMapConfig>
 
+<!-- 	<properties resource="Localhost.jdbc.properties" /> -->
 	<properties resource="jdbc.properties" />
-
+	
 	<!-- 전체 옵션의 설정 -->
 	<settings cacheModelsEnabled="true" enhancementEnabled="true"
 		lazyLoadingEnabled="true" maxTransactions="16" maxSessions="64"
@@ -26,8 +27,8 @@
 		</dataSource>
 	</transactionManager>
 
-	<sqlMap resource="Common/LoginUserSqls.xml" />
-	<sqlMap resource="Common/MemberSqls.xml" />
+<!-- 	<sqlMap resource="Common/LoginUserSqls.xml" /> -->
+<!-- 	<sqlMap resource="Common/MemberSqls.xml" /> -->
 	<sqlMap resource="Common/BirthSqls.xml" />
 	<sqlMap resource="Airline/CitySqls.xml" />
 	<sqlMap resource="Movie/MovieInfoSqls.xml" />

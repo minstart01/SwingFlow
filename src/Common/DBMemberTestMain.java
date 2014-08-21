@@ -6,7 +6,7 @@ import java.util.List;
 import Common.Member;
 import Common.MyBatis;
 
-public class DBMain {
+public class DBMemberTestMain {
 
 	public static void main(String[] args) {
 		/** 
@@ -29,7 +29,7 @@ public class DBMain {
 			  boolean MemberDB.find(nameSpace, MyClassObject)  
 			
 		**/
-		MyBatis<Member> memberDB = new MyBatis<Member>();
+		MyBatis<Member> memberDB = new MyBatis<Member>("Common.Member");
 		int ret = 0;
 		// 리턴값 받을 변수(List)
 		List<Member> luser = null;

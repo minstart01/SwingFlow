@@ -3,7 +3,7 @@ package Common;
 import java.sql.Date;
 import java.util.List;
 
-public class DBBirthTest {
+public class DBBirthTestMain {
 
 	public static void main(String[] args) {
 		/** 

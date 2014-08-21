@@ -1,11 +1,11 @@
-package Shopping;
+package Common;
 
 import java.util.List;
 
 import Common.LoginUser;
 import Common.MyBatis;
 
-public class DBTestMain {
+public class DBLoginUserTestMain {
 
 	public static void main(String[] args) {
 		/** 
