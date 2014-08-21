@@ -5,86 +5,126 @@
 
 	<resultMap id="resultMember" class="Common.Member">
 		<result property="mNo" column="MNO" />
-		<result property="password" column="PASSWORD" />
-		<result property="name" column="NAME" />
-		private int mNo;
-	private String mId;
-	private String mPwd;
-	private String mName;
-	private int sCode;
-	private java.sql.Date mBirth;
-	private int bCode;
-	private int aCode;
-	private String mEmail;
-	private int eCode;
-	private int mPhone;
-	private int pCode;
-	private int mProduct;
-	private int mCode;
-	private java.sql.Date mJoinDate;
-	private int mProductNo;
+		<result property="mId" column="mId" />
+		<result property="mPwd" column="mPwd" />
+		<result property="mName" column="mName" />
+		<result property="sCode" column="sCode" />
+		<result property="mBirth" column="mBirth" />
+		<result property="bCode" column="bCode" />
+		<result property="aCode" column="aCode" />
+		<result property="mEmail" column="mEmail" />
+		<result property="eCode" column="eCode" />
+		<result property="mPhone" column="mPhone" />
+		<result property="pCode" column="pCode" />
+		<result property="mProduct" column="mProduct" />
+		<result property="mCode" column="mCode" />
+		<result property="mJoinDate" column="mJoinDate" />
+		<result property="mProductNo" column="mProductNo" />
 	</resultMap>
 
 
-	<select id="find" parameterClass="Common.LoginUser" resultMap="resultLoginUser">
-		SELECT * FROM LoginUser
+	<select id="find" parameterClass="Common.Member" resultMap="resultMember">
+		SELECT * FROM Member
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="id">
-				ID = #id#
+			<isNotEmpty prepend=" AND " property="mNo">
+				mNo = #mNo#
 			</isNotEmpty>
-			<isNotEmpty prepend=" AND " property="password">
-				PASSWORD = #password#
+			<isNotEmpty prepend=" AND " property="mId">
+				mId = #mId#
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="mPwd">
+				mPwd = #mPwd#
 			</isNotEmpty>
 		</dynamic>
 	</select>
 
 	<select id="UserDefined" parameterClass="java.lang.String"
-		resultMap="resultLoginUser">
+		resultMap="resultMember">
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Common.LoginUser">
+
+	<insert id="insert" parameterClass="Common.Member">
 		INSERT INTO
-		LoginUser ( ID, PASSWORD, NAME )
-		VALUES ( #id# , #password# , #name# )
+		Member (
+		mNo,mId,mPwd,mName,sCode,mBirth,bCode,aCode,mEmail,eCode,mPhone,pCode,mProduct,mCode,mJoinDate,mProductNo)
+		VALUES (
+		#mNo#,#mId#,#mPwd#,#mName#,#sCode#,#mBirth#,#bCode#,#aCode#,#mEmail#,#eCode#,#mPhone#,#pCode#,#mProduct#,#mCode#,#mJoinDate#,#mProductNo#
+		)
 	</insert>
 
-	<update id="update" parameterClass="Common.LoginUser">
+	<update id="update" parameterClass="Common.Member">
 		UPDATE WONDERGIRLS SET
-		ID = #id# ,
-		PASSWORD = #password#,
-		NAME = #name#
+		mNo = #mNo# ,
+		mId = #mId#,
+		mPwd = #mPwd#,
+		mName =
+		#mName#,
+		sCode = #sCode#,
+		mBirth = #mBirth#,
+		bCode = #bCode#,
+		aCode =
+		#aCode#,
+		mEmail = #mEmail#,
+		eCode = #eCode#,
+		mPhone = #mPhone#,
+		pCode =
+		#pCode#,
+		mProduct = #mProduct#,
+		mCode = #mCode#,
+		mJoinDate = #mJoinDate#,
+		mProductNo = #mProductNo#
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="id">
-				ID = #id#
+			<isNotEmpty prepend=" AND " property="mNo">
+				mNo = #mNo#
 			</isNotEmpty>
-			<isNotEmpty prepend=" AND " property="password">
-				PASSWORD = #password#
+			<isNotEmpty prepend=" AND " property="mId">
+				mId = #mId#
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="mPwd">
+				mPwd = #mPwd#
 			</isNotEmpty>
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Common.LoginUser">
-		DELETE FROM LoginUser
+	<delete id="delete" parameterClass="Common.Member">
+		DELETE FROM Member
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="id">
-				ID = #id#
+			<isNotEmpty prepend=" AND " property="mNo">
+				mNo = #mNo#
 			</isNotEmpty>
-			<isNotEmpty prepend=" AND " property="password">
-				PASSWORD = #password#
+			<isNotEmpty prepend=" AND " property="mId">
+				mId = #mId#
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="mPwd">
+				mPwd = #mPwd#
 			</isNotEmpty>
 		</dynamic>
 	</delete>
 
 	<statement id="drop">
-		DROP TABLE LoginUser CASCADE;
+		DROP TABLE Member CASCADE;
 	</statement>
-	
+
 	<statement id="create">
-		CREATE TABLE LoginUser (
-			id nvarchar2(20) not null unique 
-  			,password nvarchar2(20) not null
-  			,name nvarchar2(40) not null ) 
+		CREATE TABLE Member (
+		mNo INTEGER NOT NULL,
+		mId VARCHAR2(40) NOT NULL, 
+		mPwd VARCHAR2(20) NOT NULL,
+		mName NVARCHAR2(20) NOT NULL, 
+		sCode INTEGER NOT NULL,
+		mBirth DATE NOT NULL, 
+		bCode INTEGER NOT NULL,
+		aCode INTEGER NOT NULL, 
+		mDetailAddr VARCHAR2(20),
+		mEmail NVARCHAR2(100) NOT NULL, 
+		eCode INTEGER, 
+		mPhone INTEGER NOT NULL, 
+		pCode INTEGER, 
+		mProduct INTEGER, 
+		mCode INTEGER NOT NULL,
+		mJoinDate DATE NOT NULL, 
+		mProductNo INTEGER 
 	</statement>
 </sqlMap>
 
