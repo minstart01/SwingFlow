@@ -30,7 +30,7 @@
 
 
 </style>
-<link rel="stylesheet" type="text/css" href="reserve.css" />
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Movie/reserve.css" />
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <script src="jquery-2.1.1.js"></script>
 <script src="reserve.js"></script>

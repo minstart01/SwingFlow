@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Movie.MovieInfo">
+
+	<resultMap id="resultMovieInfo" class="Movie.MovieInfo">
+		<result property="mCode" column="MCODE" />
+		<result property="mName" column="mName" />
+		<result property="mPoster" column="MPOSTER" />
+		<result property="mGenre" column="mGenre" />
+		<result property="mDirector" column="mDirector" />
+		<result property="mTime" column="mTime" />
+		<result property="mActor" column="mActor" />
+		<result property="sCode" column="sCode" />
+		<result property="mPlayDate" column="mPlayDate" />
+		<result property="mPoint" column="mPoint" />
+	</resultMap>
+
+
+	<select id="find" parameterClass="Movie.MovieInfo"
+		resultMap="resultMovieInfo">
+		SELECT * FROM MovieInfo
+		<dynamic prepend=" WHERE ">
+			<isNotEmpty prepend=" AND " property="mCode">
+				mCode = #mCode#
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="sCode">
+				sCode = #sCode#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultMovieInfo">
+		$value$
+	</select>
+	
+	<insert id="insert" parameterClass="Movie.MovieInfo">
+		INSERT INTO
+		MovieInfo ( mCode,
+		mName, mPoster, mGenre, mDirector, mTime, mActor, sCode, mPlayDate,
+		mPoint)
+		VALUES ( #mCode# , #mName,# , #mPoster#, #mGenre#, #mDirector#,
+		#mTime#, #mActor#, #sCode#, #mPlayDate#, #mPoint# )
+	</insert>
+
+	<update id="update" parameterClass="Movie.MovieInfo">
+		UPDATE MovieInfo SET
+		mCode = #mCode# ,
+		mName = #mName#,
+		mPoster = #mPoster#,
+		mGenre = #mGenre#,
+		mDirector = #mDirector#,
+		mTime = #mTime#,
+		mActor = #mActor#,
+		sCode = #sCode#,
+		mPlayDate = #mPlayDate#,
+		mPoint = #mPoint# 
+		<dynamic prepend=" WHERE ">
+			<isNotEmpty prepend=" AND " property="id">
+				mCode = #mCode#
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="password">
+				PASSWORD = #password#
+			</isNotEmpty>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Movie.MovieInfo">
+		DELETE FROM MovieInfo
+		<dynamic prepend=" WHERE ">
+			<isNotEmpty prepend=" AND " property="mCode">
+				mCode = #mCode#
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="sCode">
+				sCode = #sCode#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE MovieInfo CASCADE;
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE MovieInfo (
+		mCode INTEGER NOT NULL,
+		mName NVARCHAR2(50),
+		mPoster NVARCHAR2(50),
+		mGenre NVARCHAR2(10),
+		mDirector NVARCHAR2(20),
+		mTime NVARCHAR2(10),
+		mActor NVARCHAR2(100),
+		sCode INTEGER,
+		mPlayDate NVARCHAR2(10),
+		mPoint FLOAT)
+	</statement>
+</sqlMap>
+
