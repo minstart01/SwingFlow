@@ -39,8 +39,8 @@ public class DBReceiveSMSTestMain {
 		// Test용DB insert
 		
 		//drop table
-//		receiveSMSDB.drop();
-//		receiveSMSDB.create();
+		receiveSMSDB.drop();
+		receiveSMSDB.create();
 		
 		//1
 		System.out.println("입력할 자료 : " + receiveEMAIL1.toString()); 

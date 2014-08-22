@@ -42,8 +42,8 @@ public class DBKindGubunTestMain {
 		KindGubun kindGubun7 = new KindGubun(7, "삭제자료");
 	
 		// drop table
-//		kindGubunDB.drop();
-//		kindGubunDB.create();
+		kindGubunDB.drop();
+		kindGubunDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + kindGubun1.toString());

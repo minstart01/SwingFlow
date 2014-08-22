@@ -38,8 +38,8 @@ public class DBMExtInfoTestMain {
 		// Test용DB insert
 
 		// drop table
-//		mExtInfoDB.drop();
-//		mExtInfoDB.create();
+		mExtInfoDB.drop();
+		mExtInfoDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + mExtInfo1.toString());

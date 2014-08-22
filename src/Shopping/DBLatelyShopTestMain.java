@@ -42,8 +42,8 @@ public class DBLatelyShopTestMain {
 		LatelyShop latelyShop6 = new LatelyShop(6,2,3,8);
 	
 		// drop table
-//		latelyShopDB.drop();
-//		latelyShopDB.create();
+		latelyShopDB.drop();
+		latelyShopDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + latelyShop1.toString());

@@ -46,8 +46,8 @@ public class DBProductTestMain {
 		Product product6 = new Product(6,1,1010103,"N","/이미지경로","/상세이미지경로",150000,130000,0,"/스티커이미지경로",1,1);
 	
 		// drop table
-//		productDB.drop();
-//		productDB.create();
+		productDB.drop();
+		productDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + product1.toString());

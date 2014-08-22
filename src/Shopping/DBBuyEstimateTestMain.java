@@ -43,8 +43,8 @@ public class DBBuyEstimateTestMain {
 		BuyEstimate buyEstimate6 = new BuyEstimate(6,1,new Date(System.currentTimeMillis()), 100,1);
 	
 		// drop table
-//		buyEstimateDB.drop();
-//		buyEstimateDB.create();
+		buyEstimateDB.drop();
+		buyEstimateDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + buyEstimate1.toString());

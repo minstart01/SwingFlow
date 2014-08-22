@@ -39,8 +39,8 @@ public class DBDivGubunTestMain {
 		// Test용DB insert
 
 		// drop table
-//		divGubunDB.drop();
-//		divGubunDB.create();
+		divGubunDB.drop();
+		divGubunDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + divGubun1.toString());

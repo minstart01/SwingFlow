@@ -51,8 +51,8 @@ public class DBCouponTestMain {
 		Coupon coupon6 = new Coupon(6,1,"미스터스트릿쿠폰","Y", java.sql.Date.valueOf("2014-12-31"),"2만원이상 구매시","R",(float)50.0,1000,7,"/쿠폰이미지","/쿠폰모바일이미지","/쿠폰모바일상세이미지");
 	
 		// drop table
-//		couponDB.drop();
-//		couponDB.create();
+		couponDB.drop();
+		couponDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + coupon1.toString());

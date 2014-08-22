@@ -39,8 +39,8 @@ public class DBSexTestMain {
 		// Test용DB insert
 		
 		//drop table
-//		sexDB.drop();
-//		sexDB.create();
+		sexDB.drop();
+		sexDB.create();
 		
 		//1
 		System.out.println("입력할 자료 : " + sex1.toString()); 

@@ -44,8 +44,8 @@ public class DBAddressTestMain {
 		// Test용DB insert
 		
 		//drop table
-//		addressDB.drop();
-//		addressDB.create();
+		addressDB.drop();
+		addressDB.create();
 		
 		//1
 		System.out.println("입력할 자료 : " + address1.toString()); 
