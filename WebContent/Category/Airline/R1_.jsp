@@ -144,9 +144,9 @@ color:black;
     <td width="70">출발</td>
     <td width="218">
     <div style="float: left;"><img id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif" style="padding-top: 10px;" >
-    <div style="border:1px solid black; width:330px; height:800px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
+    <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
 <div>출발 예정도시를 선택하세요.<a href="javascript:close();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
-<div style="border:1px solid black; width:130px; height:480px; float:left;">
+<div style="border:1px solid black; width:130px; height:240px; float:left;">
 <ul class="remove">
 <li id="kr01"><a href="#none">한 국</a></li>
 <li id="jp01"><a href="#none">일 본</a></li>
@@ -191,15 +191,13 @@ color:black;
    	 <div style="float:left; "><input type="text" id="txt01" style="height: 24px; margin-top: 10px; margin-left: 0px; padding-left: 10px;"></div>
     <br>
     
-    
-    
     </td>
     <td width="70">도착</td>
      <td width="218">
     <div style="float: left;"><img id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif" style="padding-top: 10px;" >
-    <div style="border:1px solid black; width:330px; height:800px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
+    <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
 <div>출발 예정도시를 선택하세요.<a href="javascript:close();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
-<div style="border:1px solid black; width:130px; height:480px; float:left;">
+<div style="border:1px solid black; width:130px; height:200px; float:left;">
 <ul class="remove">
 <li id="kr01"><a href="#none">한 국</a></li>
 <li id="jp01"><a href="#none">일 본</a></li>
@@ -209,7 +207,7 @@ color:black;
 </ul>
 
 </div>
-<div style="border:1px solid red; width:180px; height:480px; float:left;" class="remove01">
+<div style="border:1px solid red; width:180px; height:200px; float:left;" class="remove01">
 <ul id="KR">
 	<li><a href="#none" class="citylist">인천 (ICN)</a></li>
 	<li><a href="#none" class="citylist">김포 (GMP)</a></li>

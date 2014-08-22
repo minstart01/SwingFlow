@@ -28,7 +28,8 @@ public class DBCityMain {
 			  boolean cityDB.find(nameSpace, MyClassObject)  
 			
 		**/
-		MyBatis<City> cityDB = new MyBatis<City>();
+		MyBatis<City> cityDB = new MyBatis<City>("Airline.City");
+		
 		int ret = 0;
 		// 리턴값 받을 변수(List)
 		List<City> luser = null;
@@ -40,19 +41,19 @@ public class DBCityMain {
 		
 		
 		//drop table
-		cityDB.drop("Airline.City");
-		cityDB.create("Airline.City");
+		cityDB.drop();
+		cityDB.create();
 //		c_Depcity
 //		c_Arrcity	
 //		c_No
 		//1
 		City city1 = new City(1,"인천(ICN)","푸켓(LAX)");
 		System.out.println("입력할 자료 :" + city1.toString()); 
-		ret = cityDB.insert("Airline.City", city1);
+		ret = cityDB.insert(city1);
 		//2
 		City city2 = new City(2,"김포(GMP)","홍콩(HKG)");
 		System.out.println("입력할 자료 :" + city2.toString()); 
-		ret = cityDB.insert("Airline.City", city2);
+		ret = cityDB.insert(city2);
 		//3
 //		city.setId("im");
 //		city.setPassword("3333");
@@ -74,10 +75,10 @@ public class DBCityMain {
 		// find예제+insert예제 boolean
 		City city3 = new City(3,"김포(GMP)","도쿄(HKG)");
 		
-		if (!cityDB.find("Airline.City", city3)) {
+		if (!cityDB.find(city3)) {
 			
 			System.out.println("입력할 자료 : " + city3.toString()); 
-			ret = cityDB.insert("Airline.City", city3);
+			ret = cityDB.insert( city3);
 			System.out.println("insert count : " + ret);
 		} else {
 			System.out.println("find : " + city3.toString());
@@ -88,25 +89,17 @@ public class DBCityMain {
 		// delete예제 
 		System.out.println("delete 전 ALL 출력  : ");
 		city3.setC_No(0);
-		luser = cityDB.select("Airline.City", city3);
-		for (City x : luser) {
-			System.out.println("member : " + x.toString());
-		}
-		System.out.println("-----------------------------------");
+		cityDB.allListPrint(city3);
 		
 		
 		
 		
 		city3.setC_No(3);
-		ret = cityDB.delete("Airline.City", city3);
+		ret = cityDB.delete( city3);
 		
 		System.out.println("delete 후 ALL 출력  : ");
 		city3.setC_No(0);
-		luser = cityDB.select("Airline.City", city3);
-		for (City x : luser) {
-			System.out.println("member : " + x.toString());
-		}
-		System.out.println("-----------------------------------");
+		cityDB.allListPrint(city3);
 
 		// 사용한 디비 닫아줄것
 		cityDB.close();

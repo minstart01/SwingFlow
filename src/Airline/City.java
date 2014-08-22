@@ -37,6 +37,11 @@ public class City {
 	public void setC_ArrCity(String c_ArrCity) {
 		this.c_ArrCity = c_ArrCity;
 	}
+	public String toString(){
+		
+		return this.c_No +":"+ this.c_DepCity +":"+ this.c_DepCity;
+	}
+	
 	
 }
 

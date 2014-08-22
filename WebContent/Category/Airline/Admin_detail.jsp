@@ -5,6 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+
+</script>
 <style>
 .div_button
 {
@@ -59,7 +63,7 @@
   </tr>
 </table>
 <div class="div_button">
-	<input type="submit" value="수정" />
+<input type="button" value="수정" onclick=""/>
   	<input type="reset" value="닫기" />
 </div>
 </body>

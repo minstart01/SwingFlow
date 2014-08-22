@@ -12,9 +12,9 @@
 	<select id="find" parameterClass="Airline.City" resultMap="resultCity">
 		SELECT * FROM City
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="c_No">
+			<isNotEqual prepend=" AND " property="c_No" compareValue="0">
 				c_No = #c_No#
-			</isNotEmpty>
+			</isNotEqual>
 		</dynamic>
 	</select>
 
