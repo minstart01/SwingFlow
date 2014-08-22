@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Shopping.BuyEstimate">
+
+	<resultMap id="resultBuyEstimate" class="Shopping.BuyEstimate">
+		<result property="buyEstimateSeq" column="buyEstimateSeq" />
+		<result property="mNo" column="mNo" />
+		<result property="buyDate" column="buyDate" />
+		<result property="point" column="point" />
+		<result property="prodSeq" column="prodSeq" />
+	</resultMap>
+	
+	<select id="find" parameterClass="Shopping.BuyEstimate" resultMap="resultBuyEstimate">
+		SELECT * FROM BuyEstimate
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="buyEstimateSeq" compareValue="0">
+				buyEstimateSeq = #buyEstimateSeq#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultBuyEstimate">
+		$value$
+	</select>
+	
+	<insert id="insert" parameterClass="Shopping.BuyEstimate">
+		INSERT INTO
+		BuyEstimate (
+		buyEstimateSeq,mNo,buyDate,point,prodSeq
+		) VALUES (
+		#buyEstimateSeq#,#mNo#,#buyDate#,#point#,#prodSeq#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Shopping.BuyEstimate">
+		UPDATE BuyEstimate SET
+		buyEstimateSeq = #buyEstimateSeq# ,
+		mNo = #mNo# ,
+		buyDate = #buyDate# ,
+		point = #point# ,
+		prodSeq = #prodSeq#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="buyEstimateSeq" compareValue="0">
+				buyEstimateSeq = #buyEstimateSeq#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Shopping.BuyEstimate">
+		DELETE FROM BuyEstimate
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="buyEstimateSeq" compareValue="0">
+				buyEstimateSeq = #buyEstimateSeq#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE BuyEstimate CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE BuyEstimate (
+			buyEstimateSeq INTEGER NOT NULL, 
+			mNo INTEGER NOT NULL,
+			buyDate DATE, 
+			point INTEGER,
+			prodSeq INTEGER 
+			)
+	</statement>
+</sqlMap>
+

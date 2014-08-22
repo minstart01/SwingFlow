@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Shopping.Coupon">
+
+	<resultMap id="resultCoupon" class="Shopping.Coupon">
+		<result property="couponSeq" column="couponSeq" />
+		<result property="shopSeq" column="shopSeq" />
+		<result property="couponName" column="couponName" />
+		<result property="expiryYn" column="expiryYn" />
+		<result property="expryDate" column="expryDate" />
+		<result property="useCondition" column="useCondition" />
+		<result property="dcType" column="dcType" />
+		<result property="dcValue" column="dcValue" />
+		<result property="totalCount" column="totalCount" />
+		<result property="downCount" column="downCount" />
+		<result property="cpnWebBnrPath" column="cpnWebBnrPath" />
+		<result property="cpnMobBnrPath" column="cpnMobBnrPath" />
+		<result property="cpnMobDtlPath" column="cpnMobDtlPath" />
+	</resultMap>
+	
+	<select id="find" parameterClass="Shopping.Coupon" resultMap="resultCoupon">
+		SELECT * FROM Coupon
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="couponSeq" compareValue="0">
+				couponSeq = #couponSeq#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultCoupon">
+		$value$
+	</select>
+		
+	<insert id="insert" parameterClass="Shopping.Coupon">
+		INSERT INTO
+		Coupon (
+		couponSeq,shopSeq,couponName,expiryYn,expryDate,useCondition,dcType
+		,dcValue,totalCount,downCount,cpnWebBnrPath,cpnMobBnrPath,cpnMobDtlPath
+		) VALUES (
+		#couponSeq#,#shopSeq#,#couponName#,#expiryYn#,#expryDate#,#useCondition#,#dcType#
+		,#dcValue#,#totalCount#,#downCount#,#cpnWebBnrPath#,#cpnMobBnrPath#,#cpnMobDtlPath#
+		)
+	</insert>
+	
+	<update id="update" parameterClass="Shopping.Coupon">
+		UPDATE Coupon SET
+		couponSeq = #couponSeq# ,
+		shopSeq = #shopSeq# ,
+		couponName = #couponName# ,
+		expiryYn = #expiryYn# ,
+		expryDate = #expryDate# ,
+		useCondition = #useCondition# ,
+		dcType = #dcType# ,
+		dcValue = #dcValue# ,
+		totalCount = #totalCount# ,
+		downCount = #downCount# ,
+		cpnWebBnrPath = #cpnWebBnrPath# ,
+		cpnMobBnrPath = #cpnMobBnrPath# ,
+		cpnMobDtlPath = #cpnMobDtlPath#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="couponSeq" compareValue="0">
+				couponSeq = #couponSeq#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Shopping.Coupon">
+		DELETE FROM Coupon
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="couponSeq" compareValue="0">
+				couponSeq = #couponSeq#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE Coupon CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE Coupon (
+			couponSeq INTEGER NOT NULL,
+			shopSeq INTEGER,
+			couponName NVARCHAR2(200),
+			expiryYn NVARCHAR2(1),
+			expryDate DATE,
+			useCondition NVARCHAR2(500),
+			dcType NVARCHAR2(1), 
+			dcValue FLOAT,
+			totalCount INTEGER,
+			downCount INTEGER,
+			cpnWebBnrPath NVARCHAR2(500), 
+			cpnMobBnrPath NVARCHAR2(500),
+			cpnMobDtlPath NVARCHAR2(500) 
+			)
+	</statement>
+</sqlMap>
+

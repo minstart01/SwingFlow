@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Shopping.DownCoupon">
+
+	<resultMap id="resultDownCoupon" class="Shopping.DownCoupon">
+		<result property="downCouponSeq" column="downCouponSeq" />
+		<result property="mNo" column="mNo" />
+		<result property="couponSeq" column="couponSeq" />
+		<result property="couponCode" column="couponCode" />
+		<result property="downDate" column="downDate" />
+	</resultMap>
+	
+	<select id="find" parameterClass="Shopping.DownCoupon" resultMap="resultDownCoupon">
+		SELECT * FROM DownCoupon
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="downCouponSeq" compareValue="0">
+				downCouponSeq = #downCouponSeq#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultDownCoupon">
+		$value$
+	</select>
+	
+	<insert id="insert" parameterClass="Shopping.DownCoupon">
+		INSERT INTO
+		DownCoupon (
+		downCouponSeq,mNo,couponSeq,couponCode,downDate
+		) VALUES (
+		#downCouponSeq#,#mNo#,#couponSeq#,#couponCode#,#downDate#
+		)
+	</insert>
+	
+	<update id="update" parameterClass="Shopping.DownCoupon">
+		UPDATE DownCoupon SET
+		downCouponSeq = #downCouponSeq# ,
+		mNo = #mNo# ,
+		couponSeq = #couponSeq# ,
+		couponCode = #couponCode# ,
+		downDate = #downDate#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="downCouponSeq" compareValue="0">
+				downCouponSeq = #downCouponSeq#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Shopping.DownCoupon">
+		DELETE FROM DownCoupon
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="downCouponSeq" compareValue="0">
+				downCouponSeq = #downCouponSeq#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE DownCoupon CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE DownCoupon (
+			downCouponSeq INTEGER NOT NULL,
+			mNo INTEGER,
+			couponSeq INTEGER,
+			couponCode NVARCHAR2(100),
+			downDate DATE 
+			)
+	</statement>
+</sqlMap>
+

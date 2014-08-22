@@ -43,6 +43,11 @@
 	<sqlMap resource="Shopping/ProdCateSqls.xml" />
 	<sqlMap resource="Shopping/ProductSqls.xml" />
 	<sqlMap resource="Shopping/LatelyProdSqls.xml" />
+	<sqlMap resource="Shopping/LatelyShopSqls.xml" />
+	<sqlMap resource="Shopping/DownCouponSqls.xml" />
+	<sqlMap resource="Shopping/CouponSqls.xml" />
+	<sqlMap resource="Shopping/ShopSqls.xml" />
+	
 	
 	
 	

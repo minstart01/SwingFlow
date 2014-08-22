@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Shopping.Shop">
+
+	<resultMap id="resultShop" class="Shopping.Shop">
+		<result property="shopSeq" column="shopSeq" />
+		<result property="adType" column="adType" />
+		<result property="adStateCode" column="adStateCode" />
+		<result property="shopName" column="shopName" />
+		<result property="shopDomain" column="shopDomain" />
+		<result property="shopMobDomain" column="shopMobDomain" />
+		<result property="webUrl" column="webUrl" />
+		<result property="mobUrl" column="mobUrl" />
+		<result property="shopCateNames" column="shopCateNames" />
+		<result property="prodCateNames" column="prodCateNames" />
+		<result property="logoPath1" column="logoPath1" />
+		<result property="logoPath2" column="logoPath2" />
+		<result property="adLogoPath1" column="adLogoPath1" />
+		<result property="adLogoPath2" column="adLogoPath2" />
+		<result property="mobDetailPath" column="mobDetailPath" />
+		<result property="shopDescription" column="shopDescription" />
+		<result property="adShopDescription" column="adShopDescription" />
+		<result property="webNCount" column="webNCount" />
+		<result property="mobNCount" column="mobNCount" />
+		<result property="ranking" column="ranking" />
+		<result property="prodCount" column="prodCount" />
+	</resultMap>
+	
+	<select id="find" parameterClass="Shopping.Shop" resultMap="resultShop">
+		SELECT * FROM Shop
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="shopSeq" compareValue="0">
+				shopSeq = #shopSeq#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultShop">
+		$value$
+	</select>
+		
+	<insert id="insert" parameterClass="Shopping.Shop">
+		INSERT INTO
+		Shop (
+		shopSeq,adType,adStateCode,shopName,shopDomain,shopMobDomain,webUrl,mobUrl
+		,shopCateNames,prodCateNames,logoPath1,logoPath2,adLogoPath1,adLogoPath2,mobDetailPath
+		,shopDescription,adShopDescription,webNCount,mobNCount,ranking,prodCount
+		) VALUES (
+		#shopSeq#,#adType#,#adStateCode#,#shopName#,#shopDomain#,#shopMobDomain#,#webUrl#,#mobUrl#
+		,#shopCateNames#,#prodCateNames#,#logoPath1#,#logoPath2#,#adLogoPath1#,#adLogoPath2#,#mobDetailPath#
+		,#shopDescription#,#adShopDescription#,#webNCount#,#mobNCount#,#ranking#,#prodCount#
+		)
+	</insert>
+	
+	<update id="update" parameterClass="Shopping.Shop">
+		UPDATE Shop SET
+		shopSeq = #shopSeq# ,
+		adType = #adType# ,
+		adStateCode = #adStateCode# ,
+		shopName = #shopName# ,
+		shopDomain = #shopDomain# ,
+		shopMobDomain = #shopMobDomain# ,
+		webUrl = #webUrl# ,
+		mobUrl = #mobUrl# ,
+		shopCateNames = #shopCateNames# ,
+		prodCateNames = #prodCateNames# ,
+		logoPath1 = #logoPath1# ,
+		logoPath2 = #logoPath2# ,
+		adLogoPath1 = #adLogoPath1# ,
+		adLogoPath2 = #adLogoPath2# ,
+		mobDetailPath = #mobDetailPath# ,
+		shopDescription = #shopDescription# ,
+		adShopDescription = #adShopDescription# ,
+		webNCount = #webNCount# ,
+		mobNCount = #mobNCount# ,
+		ranking = #ranking# ,
+		prodCount = #prodCount#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="shopSeq" compareValue="0">
+				shopSeq = #shopSeq#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Shopping.Shop">
+		DELETE FROM Shop
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="shopSeq" compareValue="0">
+				shopSeq = #shopSeq#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE Shop CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE Shop (
+			shopSeq INTEGER NOT NULL,
+			adType NVARCHAR2(1), 
+			adStateCode NVARCHAR2(1),
+			shopName NVARCHAR2(100),
+			shopDomain NVARCHAR2(100), 
+			shopMobDomain NVARCHAR2(100), 
+			webUrl NVARCHAR2(500),
+			mobUrl NVARCHAR2(500), 
+			shopCateNames NVARCHAR2(200), 
+			prodCateNames NVARCHAR2(200), 
+			logoPath1 NVARCHAR2(200),
+			logoPath2 NVARCHAR2(200), 
+			adLogoPath1 NVARCHAR2(200), 
+			adLogoPath2 NVARCHAR2(200),
+			mobDetailPath NVARCHAR2(200), 
+			shopDescription NVARCHAR2(2000), 
+			adShopDescription NVARCHAR2(2000), 
+			webNCount INTEGER,
+			mobNCount INTEGER, 
+			ranking INTEGER, 
+			prodCount INTEGER 
+			)
+	</statement>
+</sqlMap>
+
