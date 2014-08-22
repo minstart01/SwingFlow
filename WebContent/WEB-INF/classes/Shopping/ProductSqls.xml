@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Shopping.Product">
+
+	<resultMap id="resultProduct" class="Shopping.Product">
+		<result property="prodSeq" column="prodSeq" />
+		<result property="shopSeq" column="shopSeq" />
+		<result property="prodCateSeq" column="prodCateSeq" />
+		<result property="newYn" column="newYn" />
+		<result property="imgPath" column="imgPath" />
+		<result property="detailImgPath" column="detailImgPath" />
+		<result property="price" column="price" />
+		<result property="dcPrice" column="dcPrice" />
+		<result property="bestOrder" column="bestOrder" />
+		<result property="stickerPath" column="stickerPath" />
+		<result property="kindSeq" column="kindSeq" />
+		<result property="couponSeq" column="couponSeq" />
+	</resultMap>
+	
+	<select id="find" parameterClass="Shopping.Product" resultMap="resultProduct">
+		SELECT * FROM Product
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="prodSeq" compareValue="0">
+				prodSeq = #prodSeq#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultProduct">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Shopping.Product">
+		INSERT INTO
+		Product (
+		prodSeq,shopSeq,prodCateSeq,newYn,imgPath,detailImgPath,price,dcPrice,bestOrder,stickerPath,kindSeq,couponSeq
+		) VALUES (
+		#prodSeq#,#shopSeq#,#prodCateSeq#,#newYn#,#imgPath#,#detailImgPath#,#price#,#dcPrice#,#bestOrder#,#stickerPath#,#kindSeq#,#couponSeq#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Shopping.Product">
+		UPDATE Product SET
+		prodSeq = #prodSeq# ,
+		shopSeq = #shopSeq# ,
+		prodCateSeq = #prodCateSeq# ,
+		newYn = #newYn# ,
+		imgPath = #imgPath# ,
+		detailImgPath = #detailImgPath# ,
+		price = #price# ,
+		dcPrice = #dcPrice# ,
+		bestOrder = #bestOrder# ,
+		stickerPath = #stickerPath# ,
+		kindSeq = #kindSeq# ,
+		couponSeq = #couponSeq# 
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="prodSeq" compareValue="0">
+				prodSeq = #prodSeq#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Shopping.Product">
+		DELETE FROM Product
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="prodSeq" compareValue="0">
+				prodSeq = #prodSeq#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE Product CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE Product (
+			prodSeq INTEGER NOT NULL, 
+			shopSeq INTEGER, 
+			prodCateSeq INTEGER, 
+			newYn VARCHAR2(1), 
+			imgPath NVARCHAR2(2000),
+			detailImgPath NVARCHAR2(2000),
+			price INTEGER, 
+			dcPrice INTEGER, 
+			bestOrder INTEGER,
+			stickerPath NVARCHAR2(2000),
+			kindSeq INTEGER,
+			couponSeq INTEGER 
+			)
+	</statement>
+</sqlMap>
+

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Shopping.LatelyProd">
+
+	<resultMap id="resultLatelyProd" class="Shopping.LatelyProd">
+		<result property="latelyProdSeq" column="latelyProdSeq" />
+		<result property="mNo" column="mNo" />
+		<result property="prodSeq" column="prodSeq" />
+		<result property="count" column="count" />
+	</resultMap>
+	
+	<select id="find" parameterClass="Shopping.LatelyProd" resultMap="resultLatelyProd">
+		SELECT * FROM LatelyProd
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="latelyProdSeq" compareValue="0">
+				latelyProdSeq = #latelyProdSeq#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultLatelyProd">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Shopping.LatelyProd">
+		INSERT INTO
+		LatelyProd (
+		latelyProdSeq,mNo,prodSeq,count
+		) VALUES (
+		#latelyProdSeq#,#mNo#,#prodSeq#,#count#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Shopping.LatelyProd">
+		UPDATE LatelyProd SET
+		latelyProdSeq = #latelyProdSeq# ,
+		mNo = #mNo# ,
+		prodSeq = #prodSeq# ,
+		count = #count#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="latelyProdSeq" compareValue="0">
+				latelyProdSeq = #latelyProdSeq#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Shopping.LatelyProd">
+		DELETE FROM LatelyProd
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="latelyProdSeq" compareValue="0">
+				latelyProdSeq = #latelyProdSeq#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE LatelyProd CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE LatelyProd (
+			latelyProdSeq INTEGER NOT NULL,
+			mNo INTEGER,
+			prodSeq INTEGER,
+			count INTEGER 
+			)
+	</statement>
+</sqlMap>
+

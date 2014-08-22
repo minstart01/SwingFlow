@@ -41,8 +41,8 @@
 	<sqlMap resource="Shopping/ShopCateSqls.xml" />
 	<sqlMap resource="Shopping/KindGubunSqls.xml" />	
 	<sqlMap resource="Shopping/ProdCateSqls.xml" />
-	
-	
+	<sqlMap resource="Shopping/ProductSqls.xml" />
+	<sqlMap resource="Shopping/LatelyProdSqls.xml" />
 	
 	
 	
