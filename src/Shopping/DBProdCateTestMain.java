@@ -46,8 +46,8 @@ public class DBProdCateTestMain {
 		ProdCate prodCate6 = new ProdCate(1010103,1010100,4,"루즈핏 후드","여성 > 티셔츠 > 후드티 > 루즈핏 후드");
 	
 		// drop table
-		prodCateDB.drop();
-		prodCateDB.create();
+//		prodCateDB.drop();
+//		prodCateDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + prodCate1.toString());

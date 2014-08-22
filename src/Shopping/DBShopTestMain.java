@@ -94,8 +94,8 @@ public class DBShopTestMain {
 				,"감각유니크 N믹스매치 셀렉트샵. 심플하고 미니멀한 스타일의 유니크 쇼핑몰.",176677,354752,0,260);
 	
 		// drop table
-		shopDB.drop();
-		shopDB.create();
+//		shopDB.drop();
+//		shopDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + shop1.toString());

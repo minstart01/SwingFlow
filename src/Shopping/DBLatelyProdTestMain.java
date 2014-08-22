@@ -43,8 +43,8 @@ public class DBLatelyProdTestMain {
 		LatelyProd latrlyProd6 = new LatelyProd(6,2,3,8);
 	
 		// drop table
-		latrlyProdDB.drop();
-		latrlyProdDB.create();
+//		latrlyProdDB.drop();
+//		latrlyProdDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + latrlyProd1.toString());

@@ -43,8 +43,8 @@ public class DBDownCouponTestMain {
 		DownCoupon downCoupon6 = new DownCoupon(6,1,3, "15F5-E2D9-0473-3447",new Date(System.currentTimeMillis()));
 	
 		// drop table
-		downCouponDB.drop();
-		downCouponDB.create();
+//		downCouponDB.drop();
+//		downCouponDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + downCoupon1.toString());

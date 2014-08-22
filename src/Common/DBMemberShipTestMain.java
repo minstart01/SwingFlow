@@ -42,8 +42,8 @@ public class DBMemberShipTestMain {
 		// Test용DB insert
 		
 		//drop table
-		memberShipDB.drop();
-		memberShipDB.create();
+//		memberShipDB.drop();
+//		memberShipDB.create();
 		
 		//1
 		System.out.println("입력할 자료 : " + memberShip1.toString()); 

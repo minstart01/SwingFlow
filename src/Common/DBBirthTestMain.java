@@ -39,8 +39,8 @@ public class DBBirthTestMain {
 		// Test용DB insert
 		
 		//drop table
-		birthDB.drop();
-		birthDB.create();
+//		birthDB.drop();
+//		birthDB.create();
 		
 		//1
 		System.out.println("입력할 자료 : " + birth1.toString()); 

@@ -38,8 +38,8 @@ public class DBShopCateTestMain {
 		ShopCate shopCate4 = new ShopCate(104,1,2, "삭제자료");
 	
 		// drop table
-		shopCateDB.drop();
-		shopCateDB.create();
+//		shopCateDB.drop();
+//		shopCateDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + shopCate1.toString());

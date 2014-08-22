@@ -53,8 +53,8 @@ public class DBMemberTestMain {
 		// Test용DB insert
 
 		// drop table
-		memberDB.drop();
-		memberDB.create();
+//		memberDB.drop();
+//		memberDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + member1.toString());
