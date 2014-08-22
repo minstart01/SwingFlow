@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Shopping.KindGubun">
+
+	<resultMap id="resultKindGubun" class="Shopping.KindGubun">
+		<result property="kindSeq" column="kindSeq" />
+		<result property="kindName" column="kindName" />
+	</resultMap>
+	
+	<select id="find" parameterClass="Shopping.KindGubun" resultMap="resultKindGubun">
+		SELECT * FROM KindGubun
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="kindSeq" compareValue="0">
+				kindSeq = #kindSeq#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultKindGubun">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Shopping.KindGubun">
+		INSERT INTO
+		KindGubun (
+		kindSeq,kindName
+		) VALUES (
+		#kindSeq#,#kindName#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Shopping.KindGubun">
+		UPDATE KindGubun SET
+		kindSeq = #kindSeq# ,
+		kindName = #kindName# 
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="kindSeq" compareValue="0">
+				kindSeq = #kindSeq#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Shopping.KindGubun">
+		DELETE FROM KindGubun
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="kindSeq" compareValue="0">
+				kindSeq = #kindSeq#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE KindGubun CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE KindGubun (
+			kindSeq INTEGER NOT NULL, 
+			kindName NVARCHAR2(200)
+			)
+	</statement>
+</sqlMap>
+

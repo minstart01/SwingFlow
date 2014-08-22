@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Shopping.DivGubun">
+
+	<resultMap id="resultDivGubun" class="Shopping.DivGubun">
+		<result property="divSeq" column="divSeq" />
+		<result property="divName" column="divName" />
+	</resultMap>
+
+	<select id="find" parameterClass="Shopping.DivGubun" resultMap="resultDivGubun">
+		SELECT * FROM DivGubun
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="divSeq" compareValue="0">
+				divSeq = #divSeq#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultDivGubun">
+		$value$
+	</select>
+
+
+	<insert id="insert" parameterClass="Shopping.DivGubun">
+		INSERT INTO
+		DivGubun (
+		divSeq,divName
+		) VALUES (
+		#divSeq#,#divName#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Shopping.DivGubun">
+		UPDATE DivGubun SET
+		divSeq = #divSeq# ,
+		divName = #divName#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="divSeq" compareValue="0">
+				divSeq = #divSeq#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Shopping.DivGubun">
+		DELETE FROM DivGubun
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="divSeq" compareValue="0">
+				divSeq = #divSeq#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE DivGubun CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE DivGubun (
+			divSeq INTEGER NOT NULL,
+			divName NVARCHAR2(200)
+			)
+	</statement>
+</sqlMap>
+

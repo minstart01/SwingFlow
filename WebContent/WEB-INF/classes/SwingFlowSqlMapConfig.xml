@@ -5,7 +5,7 @@
 <sqlMapConfig>
 
 <!-- 	<properties resource="Localhost.jdbc.properties" /> -->
-	<properties resource="jdbc.properties" />
+	<properties resource="Server.jdbc.properties" />
 	
 	<!-- 전체 옵션의 설정 -->
 	<settings cacheModelsEnabled="true" enhancementEnabled="true"
@@ -27,7 +27,6 @@
 		</dataSource>
 	</transactionManager>
 
-<!-- 	<sqlMap resource="Common/LoginUserSqls.xml" /> -->
 	<sqlMap resource="Common/MemberSqls.xml" />
 	<sqlMap resource="Common/BirthSqls.xml" />
 	<sqlMap resource="Airline/CitySqls.xml" />
@@ -37,6 +36,12 @@
 	<sqlMap resource="Common/MemberShipSqls.xml" />
 	<sqlMap resource="Common/SexSqls.xml" />
 	<sqlMap resource="Common/AddressSqls.xml" />
+	<sqlMap resource="Shopping/MExtInfoSqls.xml" />
+	<sqlMap resource="Shopping/DivGubunSqls.xml" />
+	<sqlMap resource="Shopping/ShopCateSqls.xml" />
+	<sqlMap resource="Shopping/KindGubunSqls.xml" />	
+	<sqlMap resource="Shopping/ProdCateSqls.xml" />
+	
 	
 	
 	

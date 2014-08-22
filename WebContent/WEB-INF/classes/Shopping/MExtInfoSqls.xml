@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Shopping.MExtInfo">
+
+	<resultMap id="resultMExtInfo" class="Shopping.MExtInfo">
+		<result property="mNo" column="mNo" />
+		<result property="mileage" column="mileage" />
+	</resultMap>
+	
+	<select id="find" parameterClass="Shopping.MExtInfo" resultMap="resultMExtInfo">
+		SELECT * FROM MExtInfo
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
+				mNo = #mNo#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultMExtInfo">
+		$value$
+	</select>
+
+
+	<insert id="insert" parameterClass="Shopping.MExtInfo">
+		INSERT INTO
+		MExtInfo (
+		mNo,mileage
+		) VALUES (
+		#mNo#,#mileage#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Shopping.MExtInfo">
+		UPDATE MExtInfo SET
+		mNo = #mNo# ,
+		mileage = #mileage#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
+				mNo = #mNo#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Shopping.MExtInfo">
+		DELETE FROM MExtInfo
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
+				mNo = #mNo#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE MExtInfo CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE MExtInfo (
+			mNo INTEGER NOT NULL, 
+			mileage INTEGER 
+			)
+	</statement>
+</sqlMap>
+

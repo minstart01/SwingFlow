@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Shopping.ShopCate">
+
+	<resultMap id="resultShopCate" class="Shopping.ShopCate">
+		<result property="cateSeq" column="cateSeq" />
+		<result property="divSeq" column="divSeq" />
+		<result property="kindSeq" column="kindSeq" />
+		<result property="cateName" column="cateName" />
+	</resultMap>
+	
+	<select id="find" parameterClass="Shopping.ShopCate" resultMap="resultShopCate">
+		SELECT * FROM ShopCate
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="cateSeq" compareValue="0">
+				cateSeq = #cateSeq#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultShopCate">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Shopping.ShopCate">
+		INSERT INTO
+		ShopCate (
+		cateSeq,divSeq,kindSeq,cateName
+		) VALUES (
+		#cateSeq#,#divSeq#,#kindSeq#,#cateName#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Shopping.ShopCate">
+		UPDATE ShopCate SET
+		cateSeq = #cateSeq# ,
+		divSeq = #divSeq# ,
+		kindSeq = #kindSeq# ,
+		cateName = #cateName#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="cateSeq" compareValue="0">
+				cateSeq = #cateSeq#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Shopping.ShopCate">
+		DELETE FROM ShopCate
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="cateSeq" compareValue="0">
+				cateSeq = #cateSeq#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE ShopCate CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+		CREATE TABLE ShopCate (
+			cateSeq INT NOT NULL,
+			divSeq INTEGER,
+			kindSeq INTEGER, 
+			cateName NVARCHAR2(200) 
+			)
+	</statement>
+</sqlMap>
+
