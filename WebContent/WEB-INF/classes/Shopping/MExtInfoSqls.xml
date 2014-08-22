@@ -7,7 +7,7 @@
 		<result property="mNo" column="mNo" />
 		<result property="mileage" column="mileage" />
 	</resultMap>
-	
+
 	<select id="find" parameterClass="Shopping.MExtInfo" resultMap="resultMExtInfo">
 		SELECT * FROM MExtInfo
 		<dynamic prepend=" WHERE ">
@@ -57,10 +57,29 @@
 	</statement>
 
 	<statement id="create">
+		{
+		call
+		declare
+		BEGIN CREATE TABLE MExtInfo ( mNo INTEGER NOT NULL, mileage INTEGER );
+		COMMENT ON TABLE MExtInfo IS 'memberShoppintExtInfo';
+		COMMENT ON COLUMN
+		MExtInfo.mNo IS '회원번호';
+		COMMENT ON COLUMN MExtInfo.mileage IS
+		'mileage';
+		CREATE UNIQUE INDEX PK_MExtInfo
+		ON MExtInfo (mNo ASC);
+		ALTER
+		TABLE MExtInfo ADD CONSTRAINT PK_MExtInfo PRIMARY KEY ( mNo );
+		end
+		}
+	</statement>
+
+	<statement id="multpleCMD">
+
 		CREATE TABLE MExtInfo (
-			mNo INTEGER NOT NULL, 
-			mileage INTEGER 
-			)
+		mNo INTEGER NOT NULL,
+		mileage INTEGER
+		)
 	</statement>
 </sqlMap>
 

@@ -4,8 +4,8 @@
 
 <sqlMapConfig>
 
-<!-- 	<properties resource="Localhost.jdbc.properties" /> -->
-	<properties resource="Server.jdbc.properties" />
+	<properties resource="Localhost.jdbc.properties" />
+<!-- 	<properties resource="Server.jdbc.properties" /> -->
 	
 	<!-- 전체 옵션의 설정 -->
 	<settings cacheModelsEnabled="true" enhancementEnabled="true"
