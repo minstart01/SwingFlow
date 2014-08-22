@@ -5,7 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <style>
+#wrapper{
+	width:1200px;
+	}
+#main_content{
+	border:1px solid black;
+	width:900px;
+	float:left;
+	margin-top: 25px;
+	margin-left: 25px;
+	font-size:13px;
+	
+}
+
+
 #containerBox #container #containerBody h3.h3_type01
 {
 	color: #010101;
@@ -23,6 +38,14 @@
 </head>
 
 <body>
+<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+<div id="wrapper">
+
+<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
+
+<div id="main_content">
+
+
  <h3 class="h3_type01">
   항공권 예약</h3>
 <ul class="rv_stepBox">
@@ -64,5 +87,8 @@
   <li>예약 상세 조회 후 여정변경 및 환불을 신청하실 수 있습니다. </li>
   <li>취소된 예약 확인 후에는 예약번호가 온라인 예약 목록에서 삭제되오니 이용에 참고하시기 바랍니다 </li>
 </ul>
+</div>
+</div>
+<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 </body>
 </html>

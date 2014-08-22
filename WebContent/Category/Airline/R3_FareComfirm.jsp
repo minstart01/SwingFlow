@@ -5,7 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <style>
+#wrapper{
+	width:1200px;
+	}
+#main_content{
+	border:1px solid black;
+	width:900px;
+	float:left;
+	margin-top: 25px;
+	margin-left: 25px;
+	font-size:13px;
+	
+}
+
+
+
 body, table, input, textarea, select, button
 {
 	font-size: 12px;
@@ -746,7 +762,16 @@ table
 }
 
 </style></head>
-<body id="FDFF"><form name="frmUpsell" id="frmUpsell" method="post"><div id="wrap_container"><section id="main_container"><div class="reservationBox" id="containerBox"><div id="container">
+<body id="FDFF"><form name="frmUpsell" id="frmUpsell" method="post"><div id="wrap_container">
+<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+<div id="wrapper">
+
+<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
+
+<div id="main_content">
+
+
+<section id="main_container"><div class="reservationBox" id="containerBox"><div id="container">
   <div id="skipCt"><section id="containerBody"><div class="itineraryBoxPs fareBox" style="border:1px solid #9933FF;border-radius:20px" ;><div class="fareInner">
 
 <div class="priceBox" id="totalPriceBox" style="display: block;">
@@ -1151,4 +1176,10 @@ table
               </div>
               
 
-</section></div></div></div></section></div></form></body></html>
+</section></div></div></div></section></div>
+
+</div>
+</div>
+<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
+
+</form></body></html>

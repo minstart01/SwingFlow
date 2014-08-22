@@ -10,6 +10,22 @@
 
 </script>
 <style>
+
+#wrapper{
+
+	width:1200px;
+
+		
+	}
+#main_content{
+	border:1px solid black;
+	width:900px;
+	float:left;
+	margin-top: 25px;
+	margin-left: 25px;
+	font-size:13px;
+	
+}
 .div_button
 {
 	margin-top:7px;
@@ -17,12 +33,21 @@
 	text-align:center;
 
 	width:760px;	
+
 }
+
 </style>
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 </head>
 <body>
+<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+<div id="wrapper">
+
+<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
+
+<div id="main_content">
 <h2>예약관리-예약내용수정</h2>
-<table width="1000" height="160" border="1">
+<table width="900" height="160" border="1">
   <tr>
     <td width="147">이름</td>
     <td width="257">홍길동</td>
@@ -66,5 +91,8 @@
 <input type="button" value="수정" onclick=""/>
   	<input type="reset" value="닫기" />
 </div>
+</div>
+</div>
+<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 </body>
 </html>

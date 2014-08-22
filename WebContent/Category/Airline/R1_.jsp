@@ -131,11 +131,31 @@ color:black;
 text-decoration: none;
 color:black;
 }	
+#wrapper{
+	width:1200px;
+	}
+#main_content{
+	border:1px solid black;
+	width:900px;
+	float:left;
+	margin-top: 25px;
+	margin-left: 25px;
+	font-size:13px;
+	
+}
+
 
 </style>
-
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 </head>
 <body>
+<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+<div id="wrapper">
+
+<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
+
+<div id="main_content">
+
 <div id="radio"><input type="radio" id="radio1" name="radio"><label for="radio1">왕 복</label>
 <input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">편 도</label></div>						
 <div>
@@ -276,6 +296,8 @@ color:black;
 <p>
   <input type="submit" name="button" id="button" value="항공편 조회하기" />
 </p>
-
+</div>
+</div>
+<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 </body>
 </html>

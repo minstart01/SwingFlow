@@ -376,6 +376,119 @@
         <input type="button" class="bt" value="예약하기"/>
         </div>
     </section>
+    
+     <section id="info_pay">
+    	<div style="margin:20px 0 0 20px; font-size:18px;">
+        <table cellpadding="10">
+        	<tr>
+            	<td width="100">티켓금액</td>
+                <td >9,000원</td>
+            </tr>
+            <tr>
+            	<td>할인금액</td>
+                <td>0원</td>
+            </tr>
+        </table>
+        <table cellpadding="10" style="border-top:1px solid black;">
+        <tr>
+           	<td width="100">총결제금액</td>
+            <td>9,000원</td>
+        </tr>
+        </table>
+    	</div>
+    </section>
+    <section id="bt">
+    	<div>
+        <input type="button" class="bt" value="처음부터"/>
+        </div>
+        <div style="padding-top:10px;">
+        <input type="button" class="bt" value="예약하기"/>
+        </div>
+    </section>
+     <section id="info_pay">
+    	<div style="margin:20px 0 0 20px; font-size:18px;">
+        <table cellpadding="10">
+        	<tr>
+            	<td width="100">티켓금액</td>
+                <td >9,000원</td>
+            </tr>
+            <tr>
+            	<td>할인금액</td>
+                <td>0원</td>
+            </tr>
+        </table>
+        <table cellpadding="10" style="border-top:1px solid black;">
+        <tr>
+           	<td width="100">총결제금액</td>
+            <td>9,000원</td>
+        </tr>
+        </table>
+    	</div>
+    </section>
+    <section id="bt">
+    	<div>
+        <input type="button" class="bt" value="처음부터"/>
+        </div>
+        <div style="padding-top:10px;">
+        <input type="button" class="bt" value="예약하기"/>
+        </div>
+    </section>
+     <section id="info_pay">
+    	<div style="margin:20px 0 0 20px; font-size:18px;">
+        <table cellpadding="10">
+        	<tr>
+            	<td width="100">티켓금액</td>
+                <td >9,000원</td>
+            </tr>
+            <tr>
+            	<td>할인금액</td>
+                <td>0원</td>
+            </tr>
+        </table>
+        <table cellpadding="10" style="border-top:1px solid black;">
+        <tr>
+           	<td width="100">총결제금액</td>
+            <td>9,000원</td>
+        </tr>
+        </table>
+    	</div>
+    </section>
+    <section id="bt">
+    	<div>
+        <input type="button" class="bt" value="처음부터"/>
+        </div>
+        <div style="padding-top:10px;">
+        <input type="button" class="bt" value="예약하기"/>
+        </div>
+    </section>
+     <section id="info_pay">
+    	<div style="margin:20px 0 0 20px; font-size:18px;">
+        <table cellpadding="10">
+        	<tr>
+            	<td width="100">티켓금액</td>
+                <td >9,000원</td>
+            </tr>
+            <tr>
+            	<td>할인금액</td>
+                <td>0원</td>
+            </tr>
+        </table>
+        <table cellpadding="10" style="border-top:1px solid black;">
+        <tr>
+           	<td width="100">총결제금액</td>
+            <td>9,000원</td>
+        </tr>
+        </table>
+    	</div>
+    </section>
+    <section id="bt">
+    	<div>
+        <input type="button" class="bt" value="처음부터"/>
+        </div>
+        <div style="padding-top:10px;">
+        <input type="button" class="bt" value="예약하기"/>
+        </div>
+    </section>
 </div>
 </div>
 <jsp:include page="/Category/Common/footer.jsp"></jsp:include>

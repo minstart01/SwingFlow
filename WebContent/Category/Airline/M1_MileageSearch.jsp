@@ -547,9 +547,31 @@ caption, legend, #accessibility, .hidden {
 	margin: 0 0 -2px;
 	vertical-align: baseline;
 }
-</style>
 
-<body oncontextmenu="return false"><form name="form" method="post"><div id="wrap_container"><section id="main_container"><div class="myasianaBox2" id="containerBox"><div id="container"><div id="skipCt"><section id="containerBody">
+#wrapper{
+	width:1200px;
+	}
+#main_content{
+	border:1px solid black;
+	width:900px;
+	float:left;
+	margin-top: 25px;
+	margin-left: 25px;
+	font-size:13px;
+	
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
+<body oncontextmenu="return false"><form name="form" method="post">
+<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+<div id="wrapper">
+
+<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
+
+<div id="main_content">
+
+<div id="wrap_container"><section id="main_container"><div class="myasianaBox2" id="containerBox"><div id="container"><div id="skipCt"><section id="containerBody">
 						<h3 class="h3_type01">마일리지 조회</h3>
 						<!-- dtLineBox -->
 						<h4 class="h4_type04"><strong>임유경</strong>님의 마일리지 현황</h4>
@@ -660,7 +682,9 @@ caption, legend, #accessibility, .hidden {
 						  </div>
 			  </div>						<div class="tabContainer" id="dvResult"></div>
 
-
+</div>
+</div>
+<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 
 </form></body>
 </html>

@@ -5,6 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
+#wrapper{
+	width:1200px;
+	}
+#main_content{
+	border:1px solid black;
+	width:900px;
+	float:left;
+	margin-top: 25px;
+	margin-left: 25px;
+	font-size:13px;
+	
+}
 .div_button
 {
 	margin-top:7px;
@@ -13,9 +25,19 @@
 
 	width:469px;	
 }
+
 </style>
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 </head>
 <body>
+<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+<div id="wrapper">
+
+<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
+
+<div id="main_content">
+
+
 <h2>예약관리-예약내용수정</h2>
 <table width="469" border="1" cellspacing="0" cellpadding="0">
   <tr>
@@ -86,7 +108,9 @@
 	<input type="submit" value="저장" />&nbsp;
   	<input type="reset" value="뒤로" />
 </div>
-
+</div>
+</div>
+<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 
 </body>
 </html>

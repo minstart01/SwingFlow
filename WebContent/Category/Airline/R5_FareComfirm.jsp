@@ -5,7 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <style>
+#wrapper{
+	width:1200px;
+	}
+#main_content{
+	border:1px solid black;
+	width:900px;
+	float:left;
+	margin-top: 25px;
+	margin-left: 25px;
+	font-size:13px;
+	
+}
+
+
 #containerBox #container #containerBody h3.h3_type01
 {
 	color: #010101;
@@ -19,10 +35,19 @@
 	margin-left: 0px;
 }
 
+
 </style>
 </head>
 
 <body>
+<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+<div id="wrapper">
+
+<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
+
+<div id="main_content">
+
+
  <h3 class="h3_type01">
   국제선 예매
  </h3>
@@ -159,5 +184,10 @@
                 <a id="" href="R5_FareComfirm.jsp">이전단계</a></span>
                 <span style="margin-left:700px;"><a id="" href="R6_Complete.jsp">계속하기</a></span>
               </div>
+              
+              
+</div>
+</div>
+<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 </body>
 </html>
