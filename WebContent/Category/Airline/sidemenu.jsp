@@ -11,7 +11,7 @@
 	padding-top:20px;
 	padding-bottom:20px;
 	width:250px;
-
+	float:left;
 	
 	background: #0043A8;
   	background: -moz-linear-gradient(#43A9FF, #0043A8);
