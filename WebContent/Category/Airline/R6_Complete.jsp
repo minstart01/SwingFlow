@@ -53,11 +53,11 @@
 </ul>
 <p><br />
 </p>
-<table width="579" height="194" border="1" cellpadding="0" cellspacing="0">
+<table border="1" cellpadding="6" cellspacing="0" style="text-align:center;">
   <tr>
-    <td>예약번호</td>
-    <td>여정</td>
-    <td>예약일자</td>
+    <td width="150">예약번호</td>
+    <td width="150">여정</td>
+    <td width="150">예약일자</td>
   </tr>
   <tr>
     <td>1234567</td>

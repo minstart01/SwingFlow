@@ -56,17 +56,17 @@
      3. 여정/탑승자 확인
    </li>
  </ul>
-<table width="556" height="154" border="1" cellpadding="0" cellspacing="0">
+<table border="1" cellpadding="6" cellspacing="0" width="705" style="text-align:center;">
   <tr>
-    <td width="66" height="53">인천 </td>
+    <td width="130">인천 </td>
     <td width="35">&lt;=&gt;</td>
-    <td width="207"> 도쿄/나리타</td>
-    <td width="95">가는 날</td>
-    <td width="95">오는 날</td>
-    <td width="44">좌석</td>
+    <td width="130"> 도쿄/나리타</td>
+    <td width="120">가는 날</td>
+    <td width="120">오는 날</td>
+    <td width="70">좌석</td>
   </tr>
   <tr>
-    <td height="62">(인천,ICN)</td>
+    <td>(인천,ICN)</td>
     <td>&nbsp;</td>
     <td>(도쿄/나리타,NRT) </td>
     <td>2014/08/10/일 <br />
@@ -87,11 +87,11 @@
 <p><br />
   탑승자별 운임확인</p>
 <p>&nbsp;</p>
-<table width="562" height="194" border="1" cellpadding="0" cellspacing="0">
+<table border="1" cellpadding="6" cellspacing="0" width="705" >
   <tr>
-    <td>1</td>
-    <td><strong>Im/yookyung</strong></td>
-    <td>항공운임</td>
+    <td width="40">1</td>
+    <td width="150"><strong>Im/yookyung</strong></td>
+    <td width="210">항공운임</td>
     <td align="right">280,000 원</td>
   </tr>
   <tr>
@@ -120,9 +120,9 @@
   </tr>
 </table>
 <p>결방식을 선택하세요.</p>
-<table width="560" height="257" border="1" cellpadding="0" cellspacing="0">
+<table  width="705" border="1" cellpadding="6" cellspacing="0">
   <tr>
-    <td>결제금액</td>
+    <td width="90">결제금액</td>
     <td colspan="5" rowspan="3"><p>☞ 해당 카드사에서 요청하는 인증을 충족하지 않을경우 홈페이지에서 항공권 구매가 불가합니다.</p>
     <p>☞ 신용카드 인증 시 발생한 오류는 반드시 해당 카드사로 문의하여 주시기 바랍니다.</p>
     <p>☞ 인터넷 익스플로러에서만 계좌이체가 가능합니다.</p></td>

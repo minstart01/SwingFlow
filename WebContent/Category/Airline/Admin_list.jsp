@@ -32,7 +32,7 @@
 <div id="main_content">
 
 	<h2>예약리스트</h2>
-	<table width="1008" height="93" border="1" cellpadding="0" cellspacing="0" >
+	<table border="1" cellpadding="6" cellspacing="0" width="900" >
 	  <tr align="center">
 	    <td width="500"><input type="date"> ~ <input type="date"></td>
 	    <td><input type="submit" name="button2" id="button2" value="오늘날짜">
@@ -61,13 +61,13 @@
 </table>
 	<p>&nbsp;</p>
 	<p >총 618건의 예약 내역이 검색되었습니다.</p>
-	<table width="1013" height="288" border="1" >
+	<table border="1" cellpadding="6" cellspacing="0" >
 		 <tr align="center">
-			<td width="156">예약정보</td>
-			<td width="407">예약정보</td>
-			<td width="155">예약일시</td>
+			<td width="150">예약정보</td>
+			<td width="410">예약정보</td>
+			<td width="160">예약일시</td>
 			<td width="135">예약상태</td>
-			<td width="126">관리</td>
+			<td width="125">관리</td>
 	  </tr>
 		<tr align="center">
 			<td><div>박명희</div>
@@ -114,7 +114,8 @@
 			    <option>예약취소</option>
 		      </select>
 		    </form></td>
-
+<td><input type="submit" name="button" id="button" value="수정" />
+				<input type="submit" name="button3" id="button3" value="삭제" /></td>
 		</tr>
 </table>
 

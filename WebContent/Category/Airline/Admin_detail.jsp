@@ -28,11 +28,10 @@
 }
 .div_button
 {
+	border:1px solid black;
 	margin-top:7px;
-	margin-left:50px;
+	width:840px;
 	text-align:center;
-
-	width:760px;	
 
 }
 
@@ -47,11 +46,11 @@
 
 <div id="main_content">
 <h2>예약관리-예약내용수정</h2>
-<table width="900" height="160" border="1">
+<table border="1" cellpadding="6" cellspacing="0">
   <tr>
-    <td width="147">이름</td>
+    <td width="100">이름</td>
     <td width="257">홍길동</td>
-    <td width="147">왕복/편도</td>
+    <td width="100">왕복/편도</td>
     <td colspan="3">&nbsp;</td>
   </tr>
   <tr>
@@ -76,12 +75,12 @@
     <td>예약금액</td>
     <td>18,689,000 원</td>
     <td>예약인원</td>
-    <td width="140">성인 : 11명</td>
-    <td width="140">소아:</td>
-    <td width="140">유아:</td>
+    <td width="100">성인 : 11명</td>
+    <td width="100">소아:</td>
+    <td width="100">유아:</td>
   </tr>
   <tr>
-    <td>출발지역</td>
+    <td >출발지역</td>
     <td>07:00 인천공항</td>
     <td> 예약상태</td>
     <td colspan="3">예약접수</td>

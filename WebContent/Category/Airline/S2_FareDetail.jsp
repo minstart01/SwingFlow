@@ -5,31 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style>
-#wrapper{
-	width:1200px;
-	}
-#main_content{
-	border:1px solid black;
-	width:900px;
-	float:left;
-	margin-top: 25px;
-	margin-left: 25px;
-	font-size:13px;
-	
-}
 
-
-</style>
-<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 </head>
 <body>
-<jsp:include page="/Category/Common/top.jsp"></jsp:include>
-<div id="wrapper">
 
-<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
-
-<div id="main_content">
 <table border="1">
   <tr>
     <td></td>
@@ -61,8 +40,6 @@
   </tr>
   </table>
   
-  </div>
-</div>
-<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
-</body>
+
+
 </html>

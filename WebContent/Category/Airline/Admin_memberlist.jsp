@@ -31,7 +31,7 @@
 
 <div id="main_content">
 <h2>회원목록</h2>
-<table width="1000" height="100" border="1" cellpadding="0" cellspacing="0" >
+<table border="1" cellpadding="6" cellspacing="0" width="900" >
 	  <tr align="center">
 	    <td width="500"><input type="date"> ~ <input type="date"></td>
 	    <td><input type="submit" name="button2" id="button2" value="오늘날짜">
@@ -60,28 +60,26 @@
 </table>
 	<p>&nbsp;</p>
 <p >총 618건의 예약 내역이 검색되었습니다.</p>
-<table width="1002" height="240" border="1" cellpadding="0" cellspacing="0">
+<table width="900" border="1" cellpadding="6" cellspacing="0" style="text-align:center;">
   <tr>
-    <td>이름</td>
-    <td>아이디</td>
-    <td>등급</td>
-    <td>휴대전화</td>
-    <td>방문</td>
+    <td width="100">이름</td>
+    <td width="100">아이디</td>
+    <td width="80">등급</td>
+    <td width="140">휴대전화</td>
+    <td width="140">이메일</td>
+    <td width="50">방문</td>
+    <td width="80">예약횟수</td>
     <td>수정</td>
     <td>삭제</td>
   </tr>
   <tr>
     <td>홍길동</td>
     <td>hong</td>
-    <td><label for="select"></label>
-      <select name="select">
-        <option>실버</option>
-        <option>골드</option>
-        <option>다이아몬드</option>
-        <option>플래티늄</option>
-    </select></td>
+    <td>실버</td>
     <td>010-4644-6165</td>
+  	<td>adfsd@naver.com</td>
     <td>3</td>
+    <td>2</td>
     <td><input type="submit" name="button" id="button" value="수정"></td>
     <td><input type="submit" name="button3" id="button3" value="삭제"></td>
   </tr>
@@ -93,17 +91,12 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -112,16 +105,9 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -130,16 +116,9 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -148,7 +127,31 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>

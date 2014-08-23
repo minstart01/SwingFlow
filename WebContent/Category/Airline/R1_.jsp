@@ -5,14 +5,41 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+.remove {
+list-style: none;
+}
+.remove li a {
+text-decoration: none;
+color:black;
+}
+.remove01 ul li a{
+text-decoration: none;
+color:black;
+}	
+.wrapper{
+	width:1200px;
+	}
+.main_content{
+	border:1px solid black;
+	width:900px;
+	float:left;
+	margin-top: 25px;
+	margin-left: 25px;
+	font-size:13px;
+	
+}
+
+
+</style>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
+ 	<link rel="stylesheet" href="/resources/demos/style.css">	
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-
   <script>
-  $(function() {
-    $( "#radio" ).buttonset();
+$(function() {
+    $("#radio" ).buttonset();
   });  
 
 $(function(){
@@ -29,7 +56,7 @@ $(function(){
  
   $(function() {
 
-    $( "#datepicker" ).datepicker({
+    $("#datepicker").datepicker({
     	dateFormat: "yy-mm-dd",
  showOn: "button",
   buttonImage: "/SwingFlow/images/Airline/reserv/calendar.png",
@@ -40,7 +67,7 @@ $(function(){
   });
   $(function() {
 
-	    $( "#datepicker01" ).datepicker({
+	    $("#datepicker01" ).datepicker({
 	    	dateFormat: "yymmdd",
 	  showOn: "button",
 	  buttonImage: "/SwingFlow/images/Airline/reserv/calendar.png",
@@ -117,44 +144,16 @@ function close(){
 	$('#city').hide();
 }
  </script>
-</head>
-
-<style>
-.remove {
-list-style: none;
-}
-.remove li a {
-text-decoration: none;
-color:black;
-}
-.remove01 ul li a{
-text-decoration: none;
-color:black;
-}	
-#wrapper{
-	width:1200px;
-	}
-#main_content{
-	border:1px solid black;
-	width:900px;
-	float:left;
-	margin-top: 25px;
-	margin-left: 25px;
-	font-size:13px;
-	
-}
 
 
-</style>
-<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 </head>
 <body>
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
-<div id="wrapper">
+<div class="wrapper">
 
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 
-<div id="main_content">
+<div class="main_content">
 
 <div id="radio"><input type="radio" id="radio1" name="radio"><label for="radio1">왕 복</label>
 <input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">편 도</label></div>						

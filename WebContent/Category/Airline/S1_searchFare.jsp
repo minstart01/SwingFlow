@@ -70,9 +70,9 @@
   </tr>
 </table>
 <br>
-<table id="dvResult">
+<div id="dvResult">
 
-</table>
+</div>
 </div>
 </div>
 <jsp:include page="/Category/Common/footer.jsp"></jsp:include>

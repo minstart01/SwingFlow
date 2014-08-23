@@ -9,10 +9,10 @@
 .div_button
 {
 	margin-top:7px;
-	margin-left:5px;
+	border:1px solid black;
 	text-align:center;
 
-	width:469px;	
+	width:729px;	
 }
 #wrapper{
 	width:1200px;
@@ -40,30 +40,30 @@
 <div id="main_content">
 <h2>회원정보수정</h2>
 
-<table width="600" height="100" border="1" cellpadding="0" cellspacing="0">
+<table border="1" cellpadding="6" cellspacing="0">
   <tr>
-    <td>한글이름</td>
-    <td colspan="2">임유경</td>
+    <td width="100">한글이름</td>
+    <td width="600">임유경</td>
   </tr>
   <tr>
     <td>영어이름</td>
-    <td colspan="2">IM/YOOKYUNG</td>
+    <td>IM/YOOKYUNG</td>
   </tr>
   <tr>
     <td>생년월일</td>
-    <td colspan="2">1983년 10월 11일</td>
+    <td>1983년 10월 11일</td>
   </tr>
   <tr>
     <td>성별</td>
-    <td colspan="2">여자</td>
+    <td>여자</td>
   </tr>
   <tr>
     <td>회원아이디</td>
-    <td colspan="2">youk377</td>
+    <td  >youk377</td>
   </tr>
   <tr>
     <td>회원등급</td>
-    <td colspan="2"><select name="select3" id="select3">
+    <td  ><select name="select3" id="select3">
           <option>-회원등급-</option>
         <option>실버</option>
         <option>골드</option>
@@ -73,27 +73,28 @@
   </tr>
   <tr>
     <td>회원번호</td>
-    <td colspan="2">381762448</td>
+    <td  >381762448</td>
   </tr>
   <tr>
     <td rowspan="2">주소</td>
-    <td><input type="text"> - <input type="text"> </td>
-    <td><input name="input" type="button" value="우편번호 검색"></td>
+    <td><input type="text"> - <input type="text">
+    <input name="input" type="button" value="우편번호 검색"></td>
   </tr>
   <tr>
-    <td colspan="2"><input type="text"><input type="text"></td>
+    <td  ><input type="text"><input type="text"></td>
   </tr>
   <tr>
     <td>전화번호</td>
-    <td colspan="2"><select name="mobile1" id="mobile1" >
-															<option value="">선택</option>
-															<option value="010" selected="">010</option>
-															<option value="011">011</option>
-															<option value="016">016</option>
-															<option value="017">017</option>
-															<option value="018">018</option>
-															<option value="019">019</option>
-														</select>
+    <td  >
+    <select name="mobile1" id="mobile1" >
+		<option value="">선택</option>
+		<option value="010" selected="">010</option>
+		<option value="011">011</option>
+		<option value="016">016</option>
+		<option value="017">017</option>
+		<option value="018">018</option>
+		<option value="019">019</option>
+	</select>
 -
   <input type="text"> 
   - 
@@ -101,7 +102,7 @@
   </tr>
   <tr>
     <td>이메일</td>
-    <td colspan="2"><input type="text">
+    <td  ><input type="text">
       @
       <input type="text"></td>
   </tr>

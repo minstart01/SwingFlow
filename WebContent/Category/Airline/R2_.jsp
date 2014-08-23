@@ -40,7 +40,7 @@
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-<table cellspacing="0" cellpadding="0" >
+<table cellspacing="0" cellpadding="6" border="1" >
   <col width="136" />
   <col width="72" />
   <col width="271" />
@@ -57,30 +57,24 @@
 </table>
 <p>1. 항공편을 선택하세요.</p>
 <p>가는 항공편</p>
-<table cellspacing="0" cellpadding="0" border="1">
-  <col width="136" />
-  <col width="140" span="3" />
-  <col width="118" />
-  <col width="72" span="2" />
-  <col width="72" span="2" />
+<table cellspacing="0" cellpadding="6" border="1" style="text-align:center;">
   <tr>
-    <td width="136"><div>
-      편명</td>
-    <td width="140">출발</td>
-    <td width="140">출발시각</td>
-    <td width="140">도착</td>
-    <td width="140">도착시각</td>
-    <td width="72">편명</td>
-    <td width="118">비행시간</td>
+    <td width="90">편명</td>
+    <td width="140">출발도시</td>
+    <td width="100">출발시각</td>
+    <td width="140">도착도시</td>
+    <td width="100">도착시각</td>
+    <td width="90">편명</td>
+    <td width="120">비행시간</td>
     <td width="72">좌석</td>
     <td width="72">선택</td>
   </tr>
   <tr>
     <td>OZ102 </td>
-    <td width="140">인천 (ICN)</td>
-    <td align="right" width="140">9:00</td>
+    <td>인천 (ICN)</td>
+    <td>9:00</td>
     <td>도쿄/나리타    (NRT)</td>
-    <td align="right" width="140">11:10</td>
+    <td>11:10</td>
     <td>KA325</td>
     <td>02시간10분</td>
     <td>3석</td>
@@ -89,10 +83,10 @@
   </tr>
   <tr>
     <td>OZ102 </td>
-    <td width="140">인천 (ICN)</td>
-    <td align="right" width="140">9:00</td>
+    <td>인천 (ICN)</td>
+    <td>9:00</td>
     <td>도쿄/나리타    (NRT)</td>
-    <td align="right" width="140">11:10</td>
+    <td>11:10</td>
     <td>KA325</td>
     <td>02시간10분</td>
     <td>3석</td>
@@ -101,10 +95,10 @@
   </tr>
   <tr>
     <td>OZ102 </td>
-    <td width="140">인천 (ICN)</td>
-    <td align="right" width="140">9:00</td>
+    <td>인천 (ICN)</td>
+    <td>9:00</td>
     <td>도쿄/나리타    (NRT)</td>
-    <td align="right" width="140">11:10</td>
+    <td>11:10</td>
     <td>KA325</td>
     <td>02시간10분</td>
     <td>3석</td>
@@ -113,43 +107,49 @@
   </tr>
   <tr>
     <td>OZ102 </td>
-    <td width="140">인천 (ICN)</td>
-    <td align="right" width="140">9:00</td>
+    <td>인천 (ICN)</td>
+    <td>9:00</td>
     <td>도쿄/나리타    (NRT)</td>
-    <td align="right" width="140">11:10</td>
+    <td>11:10</td>
     <td>KA325</td>
     <td>02시간10분</td>
     <td>3석</td>
-     <td>
+    <td>
+    <input type="submit" name="button" id="button" value="선택" /></td>
+  </tr>
+  <tr>
+    <td>OZ102 </td>
+    <td>인천 (ICN)</td>
+    <td>9:00</td>
+    <td>도쿄/나리타    (NRT)</td>
+    <td>11:10</td>
+    <td>KA325</td>
+    <td>02시간10분</td>
+    <td>3석</td>
+    <td>
     <input type="submit" name="button" id="button" value="선택" /></td>
   </tr>
 </table>
 <p>&nbsp;</p>
 <p>오는 항공편</p>
-<table cellspacing="0" cellpadding="0" border="1">
-  <col width="136" />
-  <col width="140" span="3" />
-  <col width="118" />
-  <col width="72" span="2" />
-  <col width="72" span="2" />
+<table cellspacing="0" cellpadding="6" border="1" style="text-align:center;">
   <tr>
-    <td width="136"><div>
-      편명</td>
-    <td width="140">출발</td>
-    <td width="140">출발시각</td>
-    <td width="140">도착</td>
-    <td width="140">도착시각</td>
-    <td width="72">편명</td>
-    <td width="118">비행시간</td>
+    <td width="90">편명</td>
+    <td width="140">출발도시</td>
+    <td width="100">출발시각</td>
+    <td width="140">도착도시</td>
+    <td width="100">도착시각</td>
+    <td width="90">편명</td>
+    <td width="120">비행시간</td>
     <td width="72">좌석</td>
     <td width="72">선택</td>
   </tr>
   <tr>
     <td>OZ102 </td>
-    <td width="140">인천 (ICN)</td>
-    <td align="right" width="140">9:00</td>
+    <td>인천 (ICN)</td>
+    <td>9:00</td>
     <td>도쿄/나리타    (NRT)</td>
-    <td align="right" width="140">11:10</td>
+    <td>11:10</td>
     <td>KA325</td>
     <td>02시간10분</td>
     <td>3석</td>
@@ -158,10 +158,10 @@
   </tr>
   <tr>
     <td>OZ102 </td>
-    <td width="140">인천 (ICN)</td>
-    <td align="right" width="140">9:00</td>
+    <td>인천 (ICN)</td>
+    <td>9:00</td>
     <td>도쿄/나리타    (NRT)</td>
-    <td align="right" width="140">11:10</td>
+    <td>11:10</td>
     <td>KA325</td>
     <td>02시간10분</td>
     <td>3석</td>
@@ -170,10 +170,10 @@
   </tr>
   <tr>
     <td>OZ102 </td>
-    <td width="140">인천 (ICN)</td>
-    <td align="right" width="140">9:00</td>
+    <td>인천 (ICN)</td>
+    <td>9:00</td>
     <td>도쿄/나리타    (NRT)</td>
-    <td align="right" width="140">11:10</td>
+    <td>11:10</td>
     <td>KA325</td>
     <td>02시간10분</td>
     <td>3석</td>
@@ -182,14 +182,26 @@
   </tr>
   <tr>
     <td>OZ102 </td>
-    <td width="140">인천 (ICN)</td>
-    <td align="right" width="140">9:00</td>
+    <td>인천 (ICN)</td>
+    <td>9:00</td>
     <td>도쿄/나리타    (NRT)</td>
-    <td align="right" width="140">11:10</td>
+    <td>11:10</td>
     <td>KA325</td>
     <td>02시간10분</td>
     <td>3석</td>
-     <td>
+    <td>
+    <input type="submit" name="button" id="button" value="선택" /></td>
+  </tr>
+  <tr>
+    <td>OZ102 </td>
+    <td>인천 (ICN)</td>
+    <td>9:00</td>
+    <td>도쿄/나리타    (NRT)</td>
+    <td>11:10</td>
+    <td>KA325</td>
+    <td>02시간10분</td>
+    <td>3석</td>
+    <td>
     <input type="submit" name="button" id="button" value="선택" /></td>
   </tr>
 </table>
@@ -207,3 +219,4 @@
 
 </body>
 </html>
+
