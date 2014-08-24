@@ -18,7 +18,12 @@
 	font-size:13px;
 	
 }
-
+.div_button{
+	margin-top: 7px;
+	border: 1px solid black;
+	text-align: center;
+	
+}
 
 </style>
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
