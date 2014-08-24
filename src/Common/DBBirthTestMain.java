@@ -14,7 +14,7 @@ public class DBBirthTestMain {
 			4. 실제 메서드를 만든다  ( ex. /SwingFlow/src/Shopping/DBTestMain.java )
 			
 			<문법>
-			
+				
 			사용 시작시: MyBatis<birth> birthDB = new MyBatis<birth>(); 
 			  1. 객체를 문저 생성하여 사용할것
 			  2. <birth> 은 자기가 작성한 디비 클라스이다.
