@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<table border="1">
+<table border="1" cellpadding="6" cellspacing="0" style="text-align: center;">
   <tr>
     <td></td>
     <td></td>
@@ -20,7 +20,7 @@
   <tr>
     <td width="142">구분</td>
     <td width="107">운임</td>
-    <td width="180">유류할증료(2014년 08월    기준)</td>
+    <td width="250">유류할증료(2014년 08월    기준)</td>
     <td width="142">공항세</td>
     <td width="142">총계</td>
   </tr>

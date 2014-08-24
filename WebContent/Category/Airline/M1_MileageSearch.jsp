@@ -51,13 +51,13 @@
   </script>
 </head>
 <style>
-* {
+/* * {
 	margin: 0;
 	padding: 0;
 }
 header, section, article, footer, nav, aside {
 	display: block;
-}
+} */
 #containerBox #container #containerBody {
 	margin: 0 0 0 0px;
 	padding: 27px 0 100px 50px;
@@ -79,12 +79,12 @@ header, section, article, footer, nav, aside {
 #containerBox {
 	background: url("/images/bg/bg_body1_1.jpg") repeat-x center 0;
 }
-body, table, input, textarea, select, button {
+/* body, table, input, textarea, select, button {
 	font-size: 12px;
 }
 body, input, textarea, select, table, button {
 	font: 12px gulim, helvetica, sans-serif;
-}
+} */
 #containerBox #container #containerBody h3.h3_type01 {
 	font-size: 24px;
 	font-family: "돋움";
@@ -115,9 +115,9 @@ body, input, textarea, select, table, button {
 	padding: 0 0 20px;
 	margin: 0 0 10px;
 }
-ul, ol {
+/* ul, ol {
 	list-style: none;
-}
+} */
 .myasianaBox2 .alertList01 {
 	padding: 6px 0 0;
 }
@@ -161,11 +161,11 @@ ul, ol {
 	background: url("/images/bg/Sbtn_TTypeL04_3.gif") no-repeat 0 0;
 	display: inline-block;
 }
-a {
+/* a {
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;
-}
+} */
 .Sbtn_TType04_3 a {
 	background: url("/images/bg/Sbtn_TTypeR04_3.gif") no-repeat right 0;
 	padding: 0 15px 0 35px;
@@ -187,9 +187,9 @@ a {
 	float: left;
 	width: 571px;
 }
-input {
+/* input {
 	border-radius: 0;
-}
+} */
 .selectType04 {
 	background: url("/images/bg/bg_selectLeft4.gif") no-repeat 0 0;
 	display: inline-block;
@@ -235,10 +235,10 @@ input {
 	top: 10px;
 	right: 10px;
 }
-img, fieldset, iframe {
+/* img, fieldset, iframe {
 	border: 0 none;
 	vertical-align: top;
-}
+} */
 .myasianaBox2 .btn_close2 * {
 	vertical-align: top !important;
 }
@@ -427,9 +427,9 @@ img, fieldset, iframe {
 	margin: 0 12px 0 0;
 	color: #333;
 }
-table {
+/* table {
 	border-collapse: collapse;
-}
+} */
 .myasianaBox2 .mileageTable {
 	width: 100%;
 	margin: 0 0 20px;
@@ -560,7 +560,15 @@ caption, legend, #accessibility, .hidden {
 	font-size:13px;
 	
 }
+#main_content ul, #main_content ol {
+	list-style: none;
+}
 
+#main_content a {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+} 
 </style>
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <body oncontextmenu="return false"><form name="form" method="post">
@@ -684,6 +692,12 @@ caption, legend, #accessibility, .hidden {
 
 </div>
 </div>
+</div>
+</section>
+</div>
+</div>
+</div>
+
 <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 
 </form></body>

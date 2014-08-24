@@ -148,7 +148,25 @@ function close(){
 
 </head>
 <body>
-<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+<header id="header">
+	<nav class="top_nav">
+		<table width="auto" class="top_table">
+      	<tr>
+        	<th><a href="/SwingFlow/Category/Main/index.jsp">홈</a></th>
+            <th><a href="/SwingFlow/Category/Shopping/Index.jsp">쇼핑</a></th>
+            <th><a href="/SwingFlow/Category/Movie/Index.jsp">영화</a></th>
+            <th><a href="/SwingFlow/Category/Airline/Index.jsp">항공</a></th>
+            <th><a href="/SwingFlow/Category/Inn/Index.jsp">여행</a></th>
+            <th><a href="/SwingFlow/Category/Common/Login.jsp">로그인</a></th>
+            <th><a href="/SwingFlow/Category/Common/Join.jsp">회원가입</a></th>
+            <th><a href="javascript:fnLocaleHangul();">한글</a></th>
+            <th><a href="javascript:fnLocaleEnglish();">English</a></th>
+        </tr>
+        </table>
+	</nav>
+    <div>
+    </div>
+</header>
 <div class="wrapper">
 
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>

@@ -20,9 +20,19 @@
 	
 }
 
+#main_content ul, #main_content ol{
+	list-style-type: none;
+	list-style-position: outside;
+	list-style-image: none;
+}
+#main_content a{
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
 
 
-body, table, input, textarea, select, button
+/* body, table, input, textarea, select, button
 {
 	font-size: 12px;
 }
@@ -96,7 +106,8 @@ a
 table
 {
 	border-collapse: collapse;
-}
+} */
+
 #skipCt
 {
 	min-height: 650px;
@@ -1171,8 +1182,8 @@ table
 </div></div>
               <p>&nbsp;</p>
               <div ><span style="margin-left:50px;">
-                <a id="" href="R2_FlightSelect.jsp">이전단계</a></span>
-                <span style="margin-left:500px;"><a id="" href="R4_PassengerInput.jsp">계속하기</a></span>
+                <a class="bt_a" id="" href="R2_FlightSelect.jsp">이전단계</a></span>
+                <span style="margin-left:500px;"><a class="bt_a" id="" href="R4_PassengerInput.jsp">계속하기</a></span>
               </div>
               
 

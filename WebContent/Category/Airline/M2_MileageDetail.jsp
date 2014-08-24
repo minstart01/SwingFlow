@@ -8,21 +8,6 @@
  <link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css">
 </head>
 <style>
-#wrapper{
-
-	width:1200px;
-
-		
-	}
-#main_content{
-	border:1px solid black;
-	width:900px;
-	float:left;
-	margin-top: 25px;
-	margin-left: 25px;
-	font-size:13px;
-	
-}
 
 
 .colum {
@@ -33,12 +18,7 @@ color: #5c5f66;
 }
 </style>
 <body>
-<jsp:include page="/Category/Common/top.jsp"></jsp:include>
-<div id="wrapper">
-
-<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
-
-<div id="main_content">
+<
 <table cellspacing="0" cellpadding="6" border="1"style="text-align: center;">
   <tr class="colum">
     <td width="38">번호</td>
@@ -107,8 +87,6 @@ color: #5c5f66;
   <tr>
     <td >LAXICN (Y/M)</td>
   </tr>
-</table></div>
-</div>
-<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
-</body>
+</table>
+
 </html>
