@@ -3,29 +3,24 @@
 
 <sqlMap namespace="Movie.MovieInfo">
 
+
 	<resultMap id="resultMovieInfo" class="Movie.MovieInfo">
-		<result property="mCode" column="MCODE" />
+		<result property="mCode" column="mCode" />
 		<result property="mName" column="mName" />
-		<result property="mPoster" column="MPOSTER" />
+		<result property="mPoster" column="mPoster" />
 		<result property="mGenre" column="mGenre" />
 		<result property="mDirector" column="mDirector" />
 		<result property="mTime" column="mTime" />
 		<result property="mActor" column="mActor" />
 		<result property="sCode" column="sCode" />
 		<result property="mPlayDate" column="mPlayDate" />
-		<result property="mPoint" column="mPoint" />
 	</resultMap>
 
-
-	<select id="find" parameterClass="Movie.MovieInfo"
-		resultMap="resultMovieInfo">
+	<select id="find" parameterClass="Movie.MovieInfo" resultMap="resultMovieInfo">
 		SELECT * FROM MovieInfo
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="mCode" compareValue="0">
 				mCode = #mCode#
-			</isNotEqual>
-			<isNotEqual prepend=" AND " property="sCode" compareValue="0">
-				sCode = #sCode#
 			</isNotEqual>
 		</dynamic>
 	</select>
@@ -34,19 +29,17 @@
 		resultMap="resultMovieInfo">
 		$value$
 	</select>
-	
+
 	<insert id="insert" parameterClass="Movie.MovieInfo">
-		INSERT INTO
-		MovieInfo ( mCode,
-		mName, mPoster, mGenre, mDirector, mTime, mActor, sCode, mPlayDate,
-		mPoint)
-		VALUES ( #mCode# , #mName,# , #mPoster#, #mGenre#, #mDirector#,
-		#mTime#, #mActor#, #sCode#, #mPlayDate#, #mPoint# )
+		INSERT INTO MovieInfo (
+		mCode, mName, mPoster, mGenre, mDirector, mTime, mActor, sCode, mPlayDate 
+		) VALUES (
+		#mCode#, #mName#, #mPoster#, #mGenre#, #mDirector#, #mTime#, #mActor#, #sCode#, #mPlayDate# 
+		)
 	</insert>
 
 	<update id="update" parameterClass="Movie.MovieInfo">
 		UPDATE MovieInfo SET
-		mCode = #mCode# ,
 		mName = #mName#,
 		mPoster = #mPoster#,
 		mGenre = #mGenre#,
@@ -54,46 +47,32 @@
 		mTime = #mTime#,
 		mActor = #mActor#,
 		sCode = #sCode#,
-		mPlayDate = #mPlayDate#,
-		mPoint = #mPoint# 
+		mPlayDate = #mPlayDate#
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="id">
+			<isNotEqual prepend=" AND " property="mCode" compareValue="0">
 				mCode = #mCode#
-			</isNotEmpty>
-			<isNotEmpty prepend=" AND " property="password">
-				PASSWORD = #password#
-			</isNotEmpty>
+			</isNotEqual>
 		</dynamic>
 	</update>
 
 	<delete id="delete" parameterClass="Movie.MovieInfo">
 		DELETE FROM MovieInfo
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="mCode">
+			<isNotEqual prepend=" AND " property="mCode" compareValue="0">
 				mCode = #mCode#
-			</isNotEmpty>
-			<isNotEmpty prepend=" AND " property="sCode">
-				sCode = #sCode#
-			</isNotEmpty>
+			</isNotEqual>
 		</dynamic>
 	</delete>
 
-	<statement id="drop">
-		DROP TABLE MovieInfo CASCADE;
-	</statement>
+	<update id="drop">
+		DROP TABLE MovieInfo CASCADE CONSTRAINT
+	</update>
 
 	<statement id="create">
 		CREATE TABLE MovieInfo (
-		mCode INTEGER NOT NULL,
-		mName NVARCHAR2(50),
-		mPoster NVARCHAR2(50),
-		mGenre NVARCHAR2(10),
-		mDirector NVARCHAR2(20),
-		mTime NVARCHAR2(10),
-		mActor NVARCHAR2(100),
-		sCode INTEGER,
-		mPlayDate NVARCHAR2(10),
-		mPoint FLOAT)
+		sCode INTEGER NOT NULL,
+		sGrade NVARCHAR2(20) NOT NULL
+		)
 	</statement>
 </sqlMap>
 
