@@ -35,9 +35,9 @@ public class DBMovieInsertTestMain {
 				List<MovieInsert> luser = null;
 
 				// DB객체생성,값설정
-				MovieInsert movieInsert1 = new MovieInsert(1, 13, Date.valueOf("2014-08-21"), Date.valueOf("2014-08-21"));
-				MovieInsert movieInsert2 = new MovieInsert(2, 15, Date.valueOf("2014-08-21"), Date.valueOf("2014-08-21"));
-				MovieInsert movieInsert3 = new MovieInsert(1, 13, Date.valueOf("2014-08-21"), Date.valueOf("2014-08-21"));
+				MovieInsert movieInsert1 = new MovieInsert(1, 1, Date.valueOf("2014-08-21"), Date.valueOf("2014-08-21"));
+				MovieInsert movieInsert2 = new MovieInsert(2, 2, Date.valueOf("2014-08-21"), Date.valueOf("2014-08-21"));
+				MovieInsert movieInsert3 = new MovieInsert(1, 3, Date.valueOf("2014-08-21"), Date.valueOf("2014-08-21"));
 
 				
 				// Test용DB insert
@@ -54,11 +54,11 @@ public class DBMovieInsertTestMain {
 				ret = movieInsertDB.insert(movieInsert2);
 
 				System.out.println("insert 2개후 전체 출력  : ");
-				movieInsert3.settCode(0);
+				movieInsert3.setMiNo(0);
 				movieInsertDB.allListPrint(movieInsert3);
 
 				// find예제+insert예제 boolean
-				movieInsert3.settCode(3);
+				movieInsert3.setMiNo(3);
 				if (!movieInsertDB.find(movieInsert3)) {
 					System.out.println("입력할 자료 : " + movieInsert3.toString());
 					ret = movieInsertDB.insert(movieInsert3);
@@ -70,14 +70,14 @@ public class DBMovieInsertTestMain {
 				// delete예제
 
 				System.out.println("delete 전 ALL 출력  : ");
-				movieInsert3.settCode(0);
+				movieInsert3.setMiNo(0);
 				movieInsertDB.allListPrint(movieInsert3);
 
-				movieInsert3.settCode(10);
+				movieInsert3.setMiNo(10);
 				ret = movieInsertDB.delete(movieInsert3);
 
 				System.out.println("delete 후 ALL 출력  : ");
-				movieInsert3.settCode(0);
+				movieInsert3.setMiNo(0);
 				movieInsertDB.allListPrint(movieInsert3);
 				// 사용한 디비 닫아줄것
 				movieInsertDB.close();

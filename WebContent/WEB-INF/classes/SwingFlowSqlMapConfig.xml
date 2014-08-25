@@ -4,8 +4,8 @@
 
 <sqlMapConfig>
 
-	<!-- <properties resource="Localhost.jdbc.properties" /> -->
-	<properties resource="Server.jdbc.properties" /> 
+	<properties resource="Localhost.jdbc.properties" />
+<!-- 	<properties resource="Server.jdbc.properties" />  -->
 	
 	<!-- 전체 옵션의 설정 -->
 	<settings cacheModelsEnabled="true" enhancementEnabled="true"
@@ -50,13 +50,13 @@
 	<sqlMap resource="Shopping/BuyEstimateSqls.xml" />
 	<sqlMap resource="Movie/ScreenGradeSqls.xml" />
 	<sqlMap resource="Movie/TheaterInfoSqls.xml" />
-	<sqlMap resource="Movie/MovieInsertSqls.xml" />
+	
 	<sqlMap resource="Movie/TheaterSitSqls.xml" />
 	<sqlMap resource="Airline/PassengerSSqls.xml" />
 	<sqlMap resource="Airline/SeatSqls.xml" />
 	<sqlMap resource="Airline/ScheduleSqls.xml" />
 	<sqlMap resource="Airline/RegisterSqls.xml" />
-
+	<sqlMap resource="Movie/MovieInsertSqls.xml" />
 	
 	
 </sqlMapConfig>

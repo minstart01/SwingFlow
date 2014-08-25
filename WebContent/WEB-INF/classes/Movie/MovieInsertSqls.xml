@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="Movie.MovieInfo">
+<sqlMap namespace="Movie.MovieInsert">
 
-	<resultMap id="resultMovieInfo" class="Movie.MovieInfo">
+	<resultMap id="resultMovieInsert" class="Movie.MovieInsert">
 		<result property="miNo" column="miNo" />
 		<result property="mCode" column="mCode" />
 		<result property="tCode" column="tCode" />
@@ -11,8 +11,8 @@
 		<result property="mEnd" column="mEnd" />
 	</resultMap>
 
-	<select id="find" parameterClass="Movie.MovieInfo" resultMap="resultMovieInfo">
-		SELECT * FROM MovieInfo
+	<select id="find" parameterClass="Movie.MovieInsert" resultMap="resultMovieInsert">
+		SELECT * FROM MovieInsert
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="miNo" compareValue="0">
 				miNo = #miNo#
@@ -21,20 +21,20 @@
 	</select>
 
 	<select id="UserDefined" parameterClass="java.lang.String"
-		resultMap="resultMovieInfo">
+		resultMap="resultMovieInsert">
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Movie.MovieInfo">
-		INSERT INTO MovieInfo (
+	<insert id="insert" parameterClass="Movie.MovieInsert">
+		INSERT INTO MovieInsert (
 		miNo, mCode, tCode, mStart, mEnd 
 		) VALUES (
 		MOVIESEQ.NEXTVAL, #mCode#, #tCode#, #mStart#, #mEnd# 
 		)
 	</insert>
 
-	<update id="update" parameterClass="Movie.MovieInfo">
-		UPDATE MovieInfo SET
+	<update id="update" parameterClass="Movie.MovieInsert">
+		UPDATE MovieInsert SET
 		mCode = #mCode#,
 		tCode = #tCode#,
 		mStart = #mStart#,
@@ -46,8 +46,8 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Movie.MovieInfo">
-		DELETE FROM MovieInfo
+	<delete id="delete" parameterClass="Movie.MovieInsert">
+		DELETE FROM MovieInsert
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="miNo" compareValue="0">
 				miNo = #miNo#
@@ -56,7 +56,7 @@
 	</delete>
 
 	<update id="drop">
-		DROP TABLE MovieInfo CASCADE CONSTRAINT
+		DROP TABLE MovieInsert CASCADE CONSTRAINT
 	</update>
 
 	<statement id="create">
