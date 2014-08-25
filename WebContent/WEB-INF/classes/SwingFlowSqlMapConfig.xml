@@ -50,6 +50,7 @@
 	<sqlMap resource="Shopping/BuyEstimateSqls.xml" />
 	<sqlMap resource="Movie/ScreenGradeSqls.xml" />
 	<sqlMap resource="Airline/PassengerSSqls.xml" />
+	<sqlMap resource="Airline/SeatSqls.xml" />
 	
 	
 	
