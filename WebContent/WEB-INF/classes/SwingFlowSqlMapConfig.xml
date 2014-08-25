@@ -64,6 +64,7 @@
 	<sqlMap resource="Movie/MovieReserveSqls.xml" />			
 	<sqlMap resource="Movie/SitInfoSqls.xml" />			
 	<sqlMap resource="Movie/ReserveNoSqls.xml" />			
+	<sqlMap resource="Movie/NoticeSqls.xml" />			
 	
 	
 </sqlMapConfig>

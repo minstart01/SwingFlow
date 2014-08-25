@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="Movie.Charge">
+<sqlMap namespace="Movie.ReserveNo">
 
-	<resultMap id="resultCharge" class="Movie.Charge">
+	<resultMap id="resultReserveNo" class="Movie.ReserveNo">
 		<result property="rNo" column="rNo" />
 		<result property="rAdult" column="rAdult" />
 		<result property="rTeen" column="rTeen" />
 
 	</resultMap>
 
-	<select id="find" parameterClass="Movie.Charge" resultMap="resultCharge">
-		SELECT * FROM Charge
+	<select id="find" parameterClass="Movie.ReserveNo" resultMap="resultReserveNo">
+		SELECT * FROM ReserveNo
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="rNo" compareValue="0">
 				rNo = #rNo#
@@ -21,20 +21,20 @@
 
 
 	<select id="UserDefined" parameterClass="java.lang.String"
-		resultMap="resultCharge">
+		resultMap="resultReserveNo">
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Movie.Charge">
-		INSERT INTO Charge (
+	<insert id="insert" parameterClass="Movie.ReserveNo">
+		INSERT INTO ReserveNo (
 		rNo, rAdult, rTeen
 		) VALUES (
 		#rNo#, #rAdult#, #rTeen#
 		)
 	</insert>
 
-	<update id="update" parameterClass="Movie.Charge">
-		UPDATE Charge SET
+	<update id="update" parameterClass="Movie.ReserveNo">
+		UPDATE ReserveNo SET
 		rAdult = #rAdult#,
 		rTeen = #rTeen#
 		<dynamic prepend=" WHERE ">
@@ -44,8 +44,8 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Movie.Charge">
-		DELETE FROM Charge
+	<delete id="delete" parameterClass="Movie.ReserveNo">
+		DELETE FROM ReserveNo
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="rNo" compareValue="0">
 				rNo = #rNo#
@@ -54,11 +54,11 @@
 	</delete>
 
 	<update id="drop">
-		DROP TABLE Charge CASCADE CONSTRAINT
+		DROP TABLE ReserveNo CASCADE CONSTRAINT
 	</update>
 
 	<statement id="create">
-		CREATE TABLE Charge (
+		CREATE TABLE ReserveNo (
 	rNo INTEGER NOT NULL, 
 	rAdult INTEGER,
 	rTeen INTEGER 

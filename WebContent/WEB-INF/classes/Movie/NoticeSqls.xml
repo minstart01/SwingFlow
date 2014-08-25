@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Movie.Notice">
+
+
+	<resultMap id="resultNotice" class="Movie.Notice">
+		<result property="nNo" column="nNo" />
+		<result property="tCode" column="tCode" />
+		<result property="nName" column="nName" />
+		<result property="nSubject" column="nSubject" />
+		<result property="nContent" column="nContent" />
+		<result property="nDate" column="nDate" />
+		<result property="nHit" column="nHit" />
+	
+	</resultMap>
+
+
+	<select id="find" parameterClass="Movie.Notice" resultMap="resultNotice">
+		SELECT * FROM Notice
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="nNo" compareValue="0">
+				nNo = #nNo#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultNotice">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Movie.Notice">
+		INSERT INTO Notice (
+		nNo, tCode, nName, nSubject, nContent, nDate, nHit
+		) VALUES (
+		NOTICESEQ.NEXTVAL, #tCode#, #nName#, #nSubject#, #nContent#, #nDate#, #nHit#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Movie.Notice">
+		UPDATE Notice SET
+		tCode = #tCode#,
+		nName = #nName#,
+		nSubject = #nSubject#,
+		nContent = #nContent#,
+		nDate = #nDate#,
+		nHit = #nHit#,
+	<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="nNo" compareValue="0">
+				nNo = #nNo#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Movie.Notice">
+		DELETE FROM Notice
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="nNo" compareValue="0">
+				nNo = #nNo#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<update id="drop">
+		DROP TABLE Notice CASCADE CONSTRAINT
+	</update>
+
+	<statement id="create">
+		CREATE TABLE Notice (
+	nNo INTEGER NOT NULL,
+	tCode INTEGER,
+	nName NVARCHAR2(50),
+	nSubject NVARCHAR2(50),
+	nContent NVARCHAR2(1000),
+	nDate DATE, 
+	nHit INTEGER
+		)
+	</statement>
+</sqlMap>
+
