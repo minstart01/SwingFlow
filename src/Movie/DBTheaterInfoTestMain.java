@@ -72,7 +72,7 @@ public class DBTheaterInfoTestMain {
 				theaterInfo3.settCode(0);
 				theaterInfoDB.allListPrint(theaterInfo3);
 
-				theaterInfo3.settCode(3);
+				theaterInfo3.settCode(10);
 				ret = theaterInfoDB.delete(theaterInfo3);
 
 				System.out.println("delete 후 ALL 출력  : ");

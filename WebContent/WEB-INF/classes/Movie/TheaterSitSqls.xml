@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Movie.TheaterSit">
+
+
+	<resultMap id="resultTheaterSit" class="Movie.TheaterSit">
+		<result property="tCode" column="tCode" />
+		<result property="tScreenNo" column="tScreenNo" />
+		<result property="tRow" column="tRow" />
+		<result property="tColumn" column="tColumn" />
+		<result property="tTotalSit" column="tTotalSit" />
+	</resultMap>
+
+	<select id="find" parameterClass="Movie.TheaterSit" resultMap="resultTheaterSit">
+		SELECT * FROM TheaterSit
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="tCode" compareValue="0">
+				tCode = #tCode#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultTheaterSit">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Movie.TheaterSit">
+		INSERT INTO TheaterSit (
+		tCode, tScreenNo, tRow, tColumn, tTotalSit 
+		) VALUES (
+		#tCode#, #tScreenNo#, #tRow#, #tColumn#, #tTotalSit#  
+		)
+	</insert>
+
+	<update id="update" parameterClass="Movie.TheaterSit">
+		UPDATE TheaterSit SET
+		tScreenNo = #tScreenNo#,
+		tRow = #tRow#,
+		tColumn = #tColumn#,
+		tTotalSit = #tTotalSit#		
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="tCode" compareValue="0">
+				tCode = #tCode#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Movie.TheaterSit">
+		DELETE FROM TheaterSit
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="tCode" compareValue="0">
+				tCode = #tCode#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<update id="drop">
+		DROP TABLE TheaterSit CASCADE CONSTRAINT
+	</update>
+
+	<statement id="create">
+	CREATE TABLE TheaterSit (
+		tCode INTEGER NOT NULL,
+		tScreenNo INTEGER, 
+		tRow NVARCHAR2(5), 
+		tColumn INTEGER, 
+		tTotalSit INTEGER
+)
+	</statement>
+</sqlMap>
+
