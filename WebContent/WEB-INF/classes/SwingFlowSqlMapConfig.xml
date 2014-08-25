@@ -57,6 +57,7 @@
 	<sqlMap resource="Airline/RegisterSqls.xml" />
 	<sqlMap resource="Airline/AdultFSqls.xml" />
 	<sqlMap resource="Airline/ChildFSqls.xml" />
+	<sqlMap resource="Airline/FlightNoSqls.xml" />
 	<sqlMap resource="Movie/MovieInsertSqls.xml" />				
 	<sqlMap resource="Movie/ChargeSqls.xml" />				
 	<sqlMap resource="Movie/ReserveSitSqls.xml" />				
