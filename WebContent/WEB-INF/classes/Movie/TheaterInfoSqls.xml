@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Movie.TheaterInfo">
+
+
+	<resultMap id="resultTheaterInfo" class="Movie.TheaterInfo">
+		<result property="tCode" column="tCode" />
+		<result property="tName" column="tName" />
+		<result property="aCode" column="aCode" />
+		<result property="tDetailAddr" column="tDetailAddr" />
+		<result property="tScreen" column="tScreen" />
+		<result property="tTotalSit" column="tTotalSit" />
+		<result property="tPhone" column="tPhone" />
+	
+	</resultMap>
+
+	<select id="find" parameterClass="Movie.TheaterInfo" resultMap="resultTheaterInfo">
+		SELECT * FROM TheaterInfo
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="tCode" compareValue="0">
+				tCode = #tCode#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultTheaterInfo">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Movie.TheaterInfo">
+		INSERT INTO TheaterInfo (
+		tCode, tName, aCode, tDetailAddr, tScreen, tTotalSit, tPhone
+		) VALUES (
+		THEATERNO.NEXTVAL, #tName#, #aCode#, #tDetailAddr#, #tScreen#, #tTotalSit#, #tPhone# 
+		)
+	</insert>
+
+	<update id="update" parameterClass="Movie.TheaterInfo">
+		UPDATE TheaterInfo SET
+		tName = #tName#,
+		aCode = #aCode#,
+		tDetailAddr = #tDetailAddr#,
+		tScreen = #tScreen#,
+		tTotalSit = #tTotalSit#,
+		tPhone = #tPhone#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="tCode" compareValue="0">
+				tCode = #tCode#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Movie.TheaterInfo">
+		DELETE FROM TheaterInfo
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="tCode" compareValue="0">
+				tCode = #tCode#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<update id="drop">
+		DROP TABLE TheaterInfo CASCADE CONSTRAINT
+	</update>
+
+	<statement id="create">
+	CREATE TABLE TheaterInfo (
+		tCode INTEGER NOT NULL,
+		tName NVARCHAR2(20),
+		aCode INTEGER NOT NULL,
+		tDetailAddr VARCHAR2(20),
+		tScreen INTEGER,
+		tTotalSit INTEGER, 
+		tPhone NVARCHAR2(30)
+)
+	</statement>
+</sqlMap>
+

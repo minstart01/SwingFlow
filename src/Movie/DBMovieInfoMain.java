@@ -34,9 +34,9 @@ public class DBMovieInfoMain {
 				List<MovieInfo> luser = null;
 
 				// DB객체생성,값설정
-				MovieInfo movieInfo1 = new MovieInfo(1,"군도","POSTER.JPG","액션","감독","상영시간","배우",1, java.sql.Date.valueOf("2014-08-21"));
-				MovieInfo movieInfo2 = new MovieInfo(2,"명량","POSTER.JPG","액션","감독1","상영시간","배우",2,java.sql.Date.valueOf("2014-08-21"));
-				MovieInfo movieInfo3 = new MovieInfo(3,"해적","POSTER.JPG","액션","감독2","상영시간","배우",3,java.sql.Date.valueOf("2014-08-21"));
+				MovieInfo movieInfo1 = new MovieInfo("군도","POSTER.JPG","액션","감독","상영시간","배우",1, java.sql.Date.valueOf("2014-08-21"));
+				MovieInfo movieInfo2 = new MovieInfo("명량","POSTER.JPG","액션","감독1","상영시간","배우",2,java.sql.Date.valueOf("2014-08-21"));
+				MovieInfo movieInfo3 = new MovieInfo("해적","POSTER.JPG","액션","감독2","상영시간","배우",3,java.sql.Date.valueOf("2014-08-21"));
 
 				
 				// Test용DB insert

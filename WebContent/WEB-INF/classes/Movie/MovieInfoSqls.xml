@@ -34,7 +34,7 @@
 		INSERT INTO MovieInfo (
 		mCode, mName, mPoster, mGenre, mDirector, mTime, mActor, sCode, mPlayDate 
 		) VALUES (
-		#mCode#, #mName#, #mPoster#, #mGenre#, #mDirector#, #mTime#, #mActor#, #sCode#, #mPlayDate# 
+		MOVIENO.NEXTVAL, #mName#, #mPoster#, #mGenre#, #mDirector#, #mTime#, #mActor#, #sCode#, #mPlayDate# 
 		)
 	</insert>
 
@@ -70,8 +70,17 @@
 
 	<statement id="create">
 		CREATE TABLE MovieInfo (
-		sCode INTEGER NOT NULL,
-		sGrade NVARCHAR2(20) NOT NULL
+	
+		mCode INTEGER NOT NULL, 
+		mName NVARCHAR2(50), 
+		mPoster NVARCHAR2(50),
+		mGenre  NVARCHAR2(10), 
+		mDirector NVARCHAR2(20), 
+		mTime NVARCHAR2(10),
+		mActor NVARCHAR2(100), 
+		sCode INTEGER, 
+		mPlayDate DATE 
+
 		)
 	</statement>
 </sqlMap>

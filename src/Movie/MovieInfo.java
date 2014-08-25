@@ -15,13 +15,26 @@ public class MovieInfo {
 	private java.sql.Date mPlayDate;
 	
 	MovieInfo(){}
+	public MovieInfo(String mName, String mPoster, String mGenre,
+			String mDirector, String mTime, String mActor, int sCode,
+			Date mPlayDate) {
+		super();
 	
+		this.mName = mName;
+		this.mPoster = mPoster;
+		this.mGenre = mGenre;
+		this.mDirector = mDirector;
+		this.mTime = mTime;
+		this.mActor = mActor;
+		this.sCode = sCode;
+		this.mPlayDate = mPlayDate;
+	}
 	
 	
 	
 	public MovieInfo(int mCode, String mName, String mPoster, String mGenre,
 			String mDirector, String mTime, String mActor, int sCode,
-			java.sql.Date mPlayDate) {
+			Date mPlayDate) {
 		super();
 		this.mCode = mCode;
 		this.mName = mName;
