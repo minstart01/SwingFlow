@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Airline.ChildF">
+
+	<resultMap id="resultChildF" class="Airline.ChildF">
+		<result property="r_No" column="r_No" />
+		<result property="c_Travel" column="c_Travel" />
+		<result property="c_Business" column="c_Business" />
+		<result property="c_First" column="c_First" />
+	</resultMap>
+
+	<select id="find" parameterClass="Airline.ChildF" resultMap="resultChildF">
+		SELECT * FROM ChildF
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
+				r_No = #r_No#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultChildF">
+		$value$
+	</select>
+
+
+	<insert id="insert" parameterClass="Airline.ChildF">
+		INSERT INTO
+		ChildF (
+		r_No,c_Travel,c_Business,c_First
+		) VALUES (
+		#r_No#,#c_Travel#,#c_Business#,#c_First#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Airline.ChildF">
+		UPDATE ChildF SET
+		r_No = #r_No#,
+		c_Travel = #c_Travel#,
+		c_Business = #c_Business#,
+		c_First = #c_First#
+
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
+				r_No = #r_No#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Airline.ChildF">
+		DELETE FROM ChildF
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
+				r_No = #r_No#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE ChildF CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+CREATE TABLE ChildF (
+	r_No INTEGER, 
+	c_Travel NVARCHAR2(20), 
+	c_Business NVARCHAR2(20), 
+	c_First NVARCHAR2(20)
+)
+	</statement>
+</sqlMap>
+

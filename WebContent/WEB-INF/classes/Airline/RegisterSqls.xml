@@ -38,7 +38,7 @@
 		s_Code = #s_Code#
 
 		<dynamic prepend=" WHERE ">
-			<isNotEqual prepend=" AND " property="ps_No" compareValue="0">
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
 				r_No = #r_No#
 			</isNotEqual>
 		</dynamic>
