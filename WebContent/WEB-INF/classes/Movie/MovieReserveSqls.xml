@@ -30,7 +30,7 @@
 		INSERT INTO MovieReserve (
 		rNo, miNo, mNo, tPrice
 		) VALUES (
-		#rNo#, #miNo#, #mNo#, #tPrice#
+		RESERVESEQ.NEXTVAL, #miNo#, #mNo#, #tPrice#
 		)
 	</insert>
 

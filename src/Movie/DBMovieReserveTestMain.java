@@ -14,7 +14,7 @@ public class DBMovieReserveTestMain {
 				 * /SwingFlow/src/Common/MovieReserve.java ) 2.
 				 * /SwingFlow/WebContent/WEB-INF/classes/????Sqls.xml 파일을 만든다
 				 * MovieReserveSqls.xml 참고할것 3.
-				 * /SwingFlow/WebContent/WEB-INF/classes/SwingFlowSqlMapConfig.xml 에 만든
+				 * /SwingFlow/WebContent/WEB-INFm/classes/SwingFlowSqlMapConfig.xml 에 만든
 				 * ????Sqls.xml 을 추가요청 (==>이영민) 4. 실제 메서드를 만든다 ( ex.
 				 * /SwingFlow/src/Shopping/DBTestMain.java )
 				 * 
@@ -72,7 +72,7 @@ public class DBMovieReserveTestMain {
 				movieReserve3.setrNo(0);
 				movieReserveDB.allListPrint(movieReserve3);
 
-				movieReserve3.setrNo(10);
+				movieReserve3.setrNo(3);
 				ret = movieReserveDB.delete(movieReserve3);
 
 				System.out.println("delete 후 ALL 출력  : ");

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Movie.SitInfo">
+
+	<resultMap id="resultSitInfo" class="Movie.SitInfo">
+		<result property="rNo" column="rNo" />
+		<result property="cTeen" column="cTeen" />
+		<result property="cAdult" column="cAdult" />
+
+	</resultMap>
+
+	<select id="find" parameterClass="Movie.SitInfo" resultMap="resultSitInfo">
+		SELECT * FROM SitInfo
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="rNo" compareValue="0">
+				rNo = #rNo#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultSitInfo">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Movie.SitInfo">
+		INSERT INTO SitInfo (
+		rNo, sNumber
+		) VALUES (
+		#rNo#, #sNumber#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Movie.SitInfo">
+		UPDATE SitInfo SET
+		sNumber = #sNumber#,
+		
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="rNo" compareValue="0">
+				rNo = #rNo#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Movie.SitInfo">
+		DELETE FROM SitInfo
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="rNo" compareValue="0">
+				rNo = #rNo#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<update id="drop">
+		DROP TABLE SitInfo CASCADE CONSTRAINT
+	</update>
+
+	<statement id="create">
+		CREATE TABLE SitInfo (
+	rNo INTEGER NOT NULL, 
+	sNumber NVARCHAR2(100)
+
+		)
+	</statement>
+</sqlMap>
+
