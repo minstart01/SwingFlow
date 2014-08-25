@@ -204,7 +204,7 @@ DROP TABLE DivGubun
 /********************************************************************************************************/
 /* latelyShopList */
 CREATE TABLE LatelyShop (
-	latelyShopSeq INTEGER NOT NULL, /* latelyShopSeq */
+	latelyShopSeq INTEGER NOT NULL uni, /* latelyShopSeq */
 	mNo INTEGER, /* 회원번호 */
 	shopSeq INTEGER, /* shopSeq */
 	count INTEGER /* count */

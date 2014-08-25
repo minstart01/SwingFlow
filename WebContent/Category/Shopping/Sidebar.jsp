@@ -6,6 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="/SwingFlow/Css/Shopping/skin.css">
+<link rel="stylesheet" type="text/css"
+	href="/SwingFlow/Css/Shopping/base.css">
+<link rel="stylesheet" type="text/css"
+	href="/SwingFlow/Css/Common/Main.css">
 <title>Insert title here</title>
 <%
 // 	Spring.setLocale("english");
@@ -337,7 +343,7 @@
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
-							<a href="" cate="400">쇼핑몰 등록</a>
+							<a href="/SwingFlow/Category/Shopping/Shop/ShopJoin.jsp#" cate="400">쇼핑몰 등록</a>
 						</dd>
 						<dd>
 							<a href="" cate="401">쇼핑몰 조회</a>
