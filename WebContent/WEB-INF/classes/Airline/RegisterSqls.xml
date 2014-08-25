@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Airline.Register">
+
+	<resultMap id="resultRegister" class="Airline.Register">
+		<result property="r_No" column="r_No" />
+		<result property="s_Code" column="s_Code" />
+	</resultMap>
+
+	<select id="find" parameterClass="Airline.Register" resultMap="resultRegister">
+		SELECT * FROM Register
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
+				r_No = #r_No#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultRegister">
+		$value$
+	</select>
+
+
+	<insert id="insert" parameterClass="Airline.Register">
+		INSERT INTO
+		Register (
+		r_No,s_Code
+		) VALUES (
+		#r_No#,#s_Code#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Airline.Register">
+		UPDATE Register SET
+		r_No = #r_No# ,
+		s_Code = #s_Code#
+
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="ps_No" compareValue="0">
+				r_No = #r_No#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Airline.Register">
+		DELETE FROM Register
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
+				r_No = #r_No#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE Register CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+CREATE TABLE Register (
+	r_No INTEGER NOT NULL,
+	s_Code INTEGER 
+)
+	</statement>
+</sqlMap>
+

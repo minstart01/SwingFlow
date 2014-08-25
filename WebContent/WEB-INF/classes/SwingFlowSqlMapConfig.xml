@@ -53,7 +53,8 @@
 	<sqlMap resource="Airline/PassengerSSqls.xml" />
 	<sqlMap resource="Airline/SeatSqls.xml" />
 	<sqlMap resource="Airline/ScheduleSqls.xml" />
-	
+	<sqlMap resource="Airline/RegisterSqls.xml" />
+
 	
 	
 </sqlMapConfig>
