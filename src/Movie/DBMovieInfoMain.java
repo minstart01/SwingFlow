@@ -29,6 +29,7 @@ public class DBMovieInfoMain {
 			
 		**/
 		MyBatis<MovieInfo> movieInfoDB = new MyBatis<MovieInfo>();
+		movieInfoDB.setNameSpaceString("Movie.MovieInfo");
 		int ret = 0;
 		// 리턴값 받을 변수(List)
 		List<MovieInfo> luser = null;
@@ -42,14 +43,15 @@ public class DBMovieInfoMain {
 		//drop table
 	
 		//1
-		MovieInfo movieInfo1 = new MovieInfo(1,"군도", "poster.jpg", "액션","감독","120분","출연배우",1, new java.sql.Date(System.currentTimeMillis()) ,9.9);
-		MovieInfo movieInfo2 = new MovieInfo(2,"명량", "poster.jpg", "액션","감독","120분","출연배우",2, new java.sql.Date(System.currentTimeMillis()) ,9.9);
-		MovieInfo movieInfo3 = new MovieInfo(3,"ㅁㅁㅁ", "poster.jpg", "액션","감독","120분","출연배우",3, new java.sql.Date(System.currentTimeMillis()) ,9.9);
+		MovieInfo movieInfo1 = new MovieInfo(1,"군도", "poster.jpg", "액션","감독","120분","출연배우",1, new java.sql.Date(System.currentTimeMillis()) ,(float)9.9);
+		MovieInfo movieInfo2 = new MovieInfo(2,"명량", "poster.jpg", "액션","감독","120분","출연배우",2, new java.sql.Date(System.currentTimeMillis()) ,(float)9.9);
+		MovieInfo movieInfo3 = new MovieInfo(3,"ㅁㅁㅁ", "poster.jpg", "액션","감독","120분","출연배우",3, new java.sql.Date(System.currentTimeMillis()) ,(float)9.9);
 		
 		System.out.println("입력할 자료 :" + movieInfo1.toString()); 
-		ret = movieInfoDB.insert("Movie.MovieInfo", movieInfo1);
-		System.out.println("입력할 자료 :" + movieInfo2.toString()); 
-		ret = movieInfoDB.insert("Movie.MovieInfo", movieInfo2);
+		ret = movieInfoDB.insert( movieInfo1);
+		
+		System.out.println("입력할 자료 :" + movieInfo2.toString()+"ret:" + ret); 
+		ret = movieInfoDB.insert( movieInfo2);
 //		System.out.println("입력할 자료 :" + movieInfo3.toString()); 
 //		ret = movieInfoDB.insert("Movie.MovieInfo", movieInfo3);
 		//2
@@ -71,7 +73,7 @@ public class DBMovieInfoMain {
 		movieInfo3.setsCode(0);
 		
 		
-		luser = movieInfoDB.select("Movie.MovieInfo", movieInfo3);
+		luser = movieInfoDB.select( movieInfo3);
 		for (MovieInfo x : luser) {
 			System.out.println("member : " + x.toString());
 		}
@@ -79,9 +81,9 @@ public class DBMovieInfoMain {
 
 
 		// find예제+insert예제 boolean
-		if (!movieInfoDB.find("Movie.MovieInfo", movieInfo3)) {
+		if (!movieInfoDB.find( movieInfo3)) {
 			System.out.println("입력할 자료 : " + movieInfo3.toString()); 
-			ret = movieInfoDB.insert("Movie.MovieInfo", movieInfo3);
+			ret = movieInfoDB.insert( movieInfo3);
 			System.out.println("insert count : " + ret);
 		} else {
 			System.out.println("find : " + movieInfo3.toString());
@@ -93,17 +95,17 @@ public class DBMovieInfoMain {
 		// delete예제 
 		
 		System.out.println("delete 전 ALL 출력  : ");
-		luser = movieInfoDB.select("Movie.MovieInfo", movieInfo3);
+		luser = movieInfoDB.select( movieInfo3);
 		for (MovieInfo x : luser) {
 			System.out.println("member : " + x.toString());
 		}
 		System.out.println("-----------------------------------"); 
 		
 		movieInfo3.setmCode(3);
-		ret = movieInfoDB.delete("Movie.MovieInfo", movieInfo3);
+		ret = movieInfoDB.delete( movieInfo3);
 		
 		System.out.println("delete 후 ALL 출력  : ");
-		luser = movieInfoDB.select("Movie.MovieInfo", movieInfo3);
+		luser = movieInfoDB.select( movieInfo3);
 		for (MovieInfo x : luser) {
 			System.out.println("member : " + x.toString());
 		}

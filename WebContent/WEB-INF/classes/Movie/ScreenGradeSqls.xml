@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Movie.ScreenGrade">
+
+	<resultMap id="resultScreenGrade" class="Movie.ScreenGrade">
+		<result property="sCode" column="sCode" />
+		<result property="sGrade" column="sGrade" />
+	</resultMap>
+
+	<select id="find" parameterClass="Movie.ScreenGrade" resultMap="resultScreenGrade">
+		SELECT * FROM ScreenGrade
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="sCode" compareValue="0">
+				sCode = #sCode#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultScreenGrade">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Movie.ScreenGrade">
+		INSERT INTO ScreenGrade (
+		sCode,sGrade
+		) VALUES (
+		#sCode#,#sGrade#
+		)
+	</insert>
+
+
+	<update id="update" parameterClass="Movie.ScreenGrade">
+		UPDATE ScreenGrade SET
+		sCode = #sCode# ,
+		sGrade = #sGrade#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="sCode" compareValue="0">
+				sCode = #sCode#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Movie.ScreenGrade">
+		DELETE FROM ScreenGrade
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="sCode" compareValue="0">
+				sCode = #sCode#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<update id="drop">
+		DROP TABLE ScreenGrade CASCADE CONSTRAINT
+	</update>
+
+	<statement id="create">
+		CREATE TABLE ScreenGrade (
+		sCode INTEGER NOT NULL,
+		sGrade NVARCHAR2(20) NOT NULL
+		)
+	</statement>
+</sqlMap>
+
