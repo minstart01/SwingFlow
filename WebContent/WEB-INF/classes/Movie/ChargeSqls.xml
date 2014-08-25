@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Movie.Charge">
+
+	<resultMap id="resultCharge" class="Movie.Charge">
+		<result property="miNo" column="miNo" />
+		<result property="cTeen" column="cTeen" />
+		<result property="cAdult" column="cAdult" />
+
+	</resultMap>
+
+	<select id="find" parameterClass="Movie.Charge" resultMap="resultCharge">
+		SELECT * FROM Charge
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="miNo" compareValue="0">
+				miNo = #miNo#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultCharge">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Movie.Charge">
+		INSERT INTO Charge (
+		miNo, cTeen, cAdult
+		) VALUES (
+		#miNo#, #cTeen#, #cAdult#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Movie.Charge">
+		UPDATE Charge SET
+		cTeen = #cTeen#,
+		cAdult = #cAdult#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="miNo" compareValue="0">
+				miNo = #miNo#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Movie.Charge">
+		DELETE FROM Charge
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="miNo" compareValue="0">
+				miNo = #miNo#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<update id="drop">
+		DROP TABLE Charge CASCADE CONSTRAINT
+	</update>
+
+	<statement id="create">
+		CREATE TABLE Charge (
+	miNo INTEGER NOT NULL, 
+	cTeen INTEGER,
+	cAdult INTEGER 
+		)
+	</statement>
+</sqlMap>
+

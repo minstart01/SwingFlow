@@ -30,7 +30,7 @@
 	<sqlMap resource="Common/MemberSqls.xml" />
 	<sqlMap resource="Common/BirthSqls.xml" />
 	<sqlMap resource="Airline/CitySqls.xml" />
-	<sqlMap resource="Movie/MovieInfoSqls.xml" />
+	<sqlMap resource="Movie/MovieInfoSqls.xml" />			<!-- 영화정보 -->
 	<sqlMap resource="Common/ReceiveEMAILSqls.xml" />
 	<sqlMap resource="Common/ReceiveSMSSqls.xml" />
 	<sqlMap resource="Common/MemberShipSqls.xml" />
@@ -48,15 +48,15 @@
 	<sqlMap resource="Shopping/CouponSqls.xml" />
 	<sqlMap resource="Shopping/ShopSqls.xml" />
 	<sqlMap resource="Shopping/BuyEstimateSqls.xml" />
-	<sqlMap resource="Movie/ScreenGradeSqls.xml" />
-	<sqlMap resource="Movie/TheaterInfoSqls.xml" />
-	
-	<sqlMap resource="Movie/TheaterSitSqls.xml" />
-	<sqlMap resource="Airline/PassengerSSqls.xml" />
+	<sqlMap resource="Movie/ScreenGradeSqls.xml" />				<!-- 영화상영등급 -->	
+	<sqlMap resource="Movie/TheaterInfoSqls.xml" />					<!-- 영화관정보 -->
+	<sqlMap resource="Movie/TheaterSitSqls.xml" />					<!-- 영화관좌석	 -->	
+	<sqlMap resource="Airline/PassengerSSqls.xml" />	
 	<sqlMap resource="Airline/SeatSqls.xml" />
 	<sqlMap resource="Airline/ScheduleSqls.xml" />
 	<sqlMap resource="Airline/RegisterSqls.xml" />
-	<sqlMap resource="Movie/MovieInsertSqls.xml" />
+	<sqlMap resource="Movie/MovieInsertSqls.xml" />				<!-- 영화등록 -->
+	<sqlMap resource="Movie/ChargeSqls.xml" />				<!-- 영화 요금정보 -->
 	
 	
 </sqlMapConfig>
