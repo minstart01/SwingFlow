@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Movie.ReserveSit">
+
+	<resultMap id="resultReserveSit" class="Movie.ReserveSit">
+		<result property="miNo" column="miNo" />
+		<result property="rScreenNo" column="rScreenNo" />
+		<result property="rSit" column="rSit" />
+
+
+	</resultMap>
+
+	<select id="find" parameterClass="Movie.ReserveSit" resultMap="resultReserveSit">
+		SELECT * FROM ReserveSit
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="miNo" compareValue="0">
+				miNo = #miNo#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultReserveSit">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Movie.ReserveSit">
+		INSERT INTO ReserveSit (
+		miNo, rScreenNo, rSit
+		) VALUES (
+		#miNo#, #rScreenNo#, #rSit#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Movie.ReserveSit">
+		UPDATE ReserveSit SET
+		rScreenNo = #rScreenNo#,
+		rSit = #rSit#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="miNo" compareValue="0">
+				miNo = #miNo#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Movie.ReserveSit">
+		DELETE FROM ReserveSit
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="miNo" compareValue="0">
+				miNo = #miNo#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<update id="drop">
+		DROP TABLE ReserveSit CASCADE CONSTRAINT
+	</update>
+
+	<statement id="create">
+		CREATE TABLE ReserveSit (
+	miNo INTEGER NOT NULL, 
+	rScreenNo INTEGER,
+	rSit INTEGER
+		)
+	</statement>
+</sqlMap>
+
