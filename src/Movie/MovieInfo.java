@@ -13,7 +13,7 @@ public class MovieInfo {
 	private String mActor;	
 	private int sCode;	
 	private java.sql.Date mPlayDate;
-	private double mPoint;	
+	private float mPoint;	
 	
 	public MovieInfo(){
 		
@@ -21,7 +21,7 @@ public class MovieInfo {
 
 	public MovieInfo(int mCode, String mName, String mPoster, String mGenre,
 			String mDirector, String mTime, String mActor, int sCode,
-			java.sql.Date mPlayDate, double mPoint) {
+			java.sql.Date mPlayDate, float mPoint) {
 		super();
 		this.mCode = mCode;
 		this.mName = mName;
@@ -107,11 +107,11 @@ public class MovieInfo {
 		this.mPlayDate = mPlayDate;
 	}
 
-	public double getmPoint() {
+	public float getmPoint() {
 		return mPoint;
 	}
 
-	public void setmPoint(double mPoint) {
+	public void setmPoint(float mPoint) {
 		this.mPoint = mPoint;
 	}
 	public String toString(){

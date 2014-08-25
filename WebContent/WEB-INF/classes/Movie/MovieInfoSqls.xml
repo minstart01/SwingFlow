@@ -21,12 +21,12 @@
 		resultMap="resultMovieInfo">
 		SELECT * FROM MovieInfo
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="mCode">
+			<isNotEqual prepend=" AND " property="mCode" compareValue="0">
 				mCode = #mCode#
-			</isNotEmpty>
-			<isNotEmpty prepend=" AND " property="sCode">
+			</isNotEqual>
+			<isNotEqual prepend=" AND " property="sCode" compareValue="0">
 				sCode = #sCode#
-			</isNotEmpty>
+			</isNotEqual>
 		</dynamic>
 	</select>
 
