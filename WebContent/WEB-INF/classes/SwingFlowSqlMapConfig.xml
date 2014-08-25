@@ -58,6 +58,7 @@
 	<sqlMap resource="Movie/MovieInsertSqls.xml" />				<!-- 영화등록 -->
 	<sqlMap resource="Movie/ChargeSqls.xml" />				<!-- 영화 요금정보 -->
 	<sqlMap resource="Movie/ReserveSitSqls.xml" />				<!-- 영화 잔여좌석 -->
+	<sqlMap resource="Movie/PlayInfoSqls.xml" />				<!-- 영화 상영시작시간 -->
 	
 	
 </sqlMapConfig>
