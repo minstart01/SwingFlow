@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Airline.FlightNo">
+
+	<resultMap id="resultFlightNo" class="Airline.FlightNo">
+		<result property="r_No" column="r_No" />
+		<result property="fn_air" column="fn_air" />
+		<result property="r_SeatTotal" column="r_SeatTotal" />
+		<result property="fn_no" column="fn_no" />
+	</resultMap>
+
+	<select id="find" parameterClass="Airline.FlightNo" resultMap="resultFlightNo">
+		SELECT * FROM FlightNo
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
+				r_No = #r_No#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultFlightNo">
+		$value$
+	</select>
+
+
+	<insert id="insert" parameterClass="Airline.FlightNo">
+		INSERT INTO
+		FlightNo (
+		r_No,fn_air,r_SeatTotal,fn_no
+		) VALUES (
+		#r_No#,#fn_air#,#r_SeatTotal#,#fn_no#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Airline.FlightNo">
+		UPDATE FlightNo SET
+		r_No = #r_No#,
+		fn_air = #fn_air#,
+		r_SeatTotal = #r_SeatTotal#,
+		fn_no = #fn_no#
+
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
+				r_No = #r_No#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Airline.FlightNo">
+		DELETE FROM FlightNo
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
+				r_No = #r_No#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE FlightNo CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+CREATE TABLE FlightNo (
+	r_No INTEGER, 
+	fn_air NVARCHAR2(15), 
+	r_SeatTotal NUMBER, 
+	fn_no NVARCHAR2(15) 
+)
+	</statement>
+</sqlMap>
+
