@@ -5,8 +5,8 @@
 
 	<resultMap id="resultSitInfo" class="Movie.SitInfo">
 		<result property="rNo" column="rNo" />
-		<result property="cTeen" column="cTeen" />
-		<result property="cAdult" column="cAdult" />
+		<result property="sNumber" column="sNumber" />
+	
 
 	</resultMap>
 
