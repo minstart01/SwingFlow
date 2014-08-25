@@ -19,7 +19,12 @@
 	font-size:13px;
 	
 }
+.colum {
 
+background-color: #dfdfdf;
+font-weight: bold;
+color: #5c5f66;
+}
 
 #containerBox #container #containerBody h3.h3_type01
 {
@@ -54,7 +59,7 @@
 <p><br />
 </p>
 <table border="1" cellpadding="6" cellspacing="0" style="text-align:center;">
-  <tr>
+  <tr class="colum">
     <td width="150">예약번호</td>
     <td width="150">여정</td>
     <td width="150">예약일자</td>

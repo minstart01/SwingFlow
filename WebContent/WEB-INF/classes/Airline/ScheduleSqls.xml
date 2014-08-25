@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Airline.Schedule">
+
+	<resultMap id="resultSchedule" class="Airline.Schedule">
+		<result property="s_Code" column="s_Code" />
+		<result property="s_DepDay" column="s_DepDay" />
+		<result property="s_DeptTime" column="s_DeptTime" />
+		<result property="s_ArrDay" column="s_ArrDay" />
+		<result property="s_ArrtTime" column="s_ArrtTime" />
+		<result property="s_FlightTime" column="s_FlightTime" />
+	</resultMap>
+
+	<select id="find" parameterClass="Airline.Schedule" resultMap="resultSchedule">
+		SELECT * FROM Schedule
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="s_Code" compareValue="0">
+				s_Code = #s_Code#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultSchedule">
+		$value$
+	</select>
+
+
+	<insert id="insert" parameterClass="Airline.Schedule">
+		INSERT INTO
+		Schedule (
+		s_Code,s_DepDay,s_DeptTime,s_ArrDay,s_ArrtTime,s_FlightTime
+		) VALUES (
+		scheseq.nextval,#s_DepDay#,#s_DeptTime#,#s_ArrDay#,#s_ArrtTime#,#s_FlightTime#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Airline.Schedule">
+		UPDATE Schedule SET
+		s_Code = #s_Code# ,
+		s_DepDay = #s_DepDay#,
+		s_DeptTime = #s_DeptTime# ,
+		s_ArrDay = #s_ArrDay#,
+		s_ArrtTime = #s_ArrtTime# ,
+		s_FlightTime = #s_FlightTime#
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="ps_No" compareValue="0">
+				s_Code = #s_Code#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Airline.Schedule">
+		DELETE FROM Schedule
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="s_Code" compareValue="0">
+				s_Code = #s_Code#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE Schedule CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+CREATE TABLE Schedule (
+	s_Code INTEGER NOT NULL,
+	s_DepDay DATE, 
+	s_DeptTime NVARCHAR2(10), 
+	s_ArrDay DATE, 
+	s_ArrtTime NVARCHAR2(10), 
+	s_FlightTime NVARCHAR2(10) 
+)
+	</statement>
+</sqlMap>
+

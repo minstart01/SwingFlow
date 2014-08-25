@@ -57,9 +57,9 @@
 	</statement>
 
 	<statement id="create">
-			CREATE TABLE Seat (
-	ps_No INTEGER NOT NULL, 
-	ps_Sort VARCHAR2(20) 
+CREATE TABLE Seat (
+	seat_No INTEGER NOT NULL,
+	seat_Class VARCHAR2(10)
 )
 	</statement>
 </sqlMap>

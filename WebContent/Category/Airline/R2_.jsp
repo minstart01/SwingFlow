@@ -28,7 +28,12 @@
 	font-size:13px;
 	
 }
+.colum {
 
+background-color: #dfdfdf;
+font-weight: bold;
+color: #5c5f66;
+}
 
 </style>
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
@@ -58,7 +63,7 @@
 <p>1. 항공편을 선택하세요.</p>
 <p>가는 항공편</p>
 <table cellspacing="0" cellpadding="6" border="1" style="text-align:center;">
-  <tr>
+  <tr class="colum">
     <td width="90">편명</td>
     <td width="140">출발도시</td>
     <td width="100">출발시각</td>
@@ -133,7 +138,7 @@
 <p>&nbsp;</p>
 <p>오는 항공편</p>
 <table cellspacing="0" cellpadding="6" border="1" style="text-align:center;">
-  <tr>
+  <tr class="colum">
     <td width="90">편명</td>
     <td width="140">출발도시</td>
     <td width="100">출발시각</td>

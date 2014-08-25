@@ -8,6 +8,19 @@
 
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <style>
+.colum {
+
+background-color: #dfdfdf;
+font-weight: bold;
+color: #5c5f66;
+}
+.pay {
+
+background-color: #FFFF99;
+font-weight: bold;
+color: #33F;
+font-family:Arial, Helvetica, sans-serif
+}
 #wrapper{
 	width:1200px;
 	}
@@ -89,31 +102,27 @@
 <p>&nbsp;</p>
 <table border="1" cellpadding="6" cellspacing="0" width="705" >
   <tr>
-    <td width="40">1</td>
+    <td width="40" rowspan="5" align="center" style="vertical-align:top;" class="colum">1</td>
     <td width="150"><strong>Im/yookyung</strong></td>
     <td width="210">항공운임</td>
     <td align="right">280,000 원</td>
   </tr>
   <tr>
-    <td>&nbsp;</td>
     <td>(성인,MS)</td>
     <td>유류할증료</td>
     <td align="right">50,000 원</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
     <td>세금 및 제반요금</td>
  <td align="right">50,000 원</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
     <td>총액</td>
  <td align="right">50,000 원</td>
   </tr>
   <tr>
-    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td><strong>총 지불금액</strong></td>
     <td align="right"><strong>384,800 원</strong></td>
@@ -122,31 +131,23 @@
 <p>결방식을 선택하세요.</p>
 <table  width="705" border="1" cellpadding="6" cellspacing="0">
   <tr>
-    <td width="90">결제금액</td>
-    <td colspan="5" rowspan="3"><p>☞ 해당 카드사에서 요청하는 인증을 충족하지 않을경우 홈페이지에서 항공권 구매가 불가합니다.</p>
-    <p>☞ 신용카드 인증 시 발생한 오류는 반드시 해당 카드사로 문의하여 주시기 바랍니다.</p>
-    <p>☞ 인터넷 익스플로러에서만 계좌이체가 가능합니다.</p></td>
+    <td width="90" rowspan="4" class="pay" style="vertical-align:top"><p>결제금액</p>
+      <p>384,000 원</p></td>
+    <td colspan="4"><p>☞ 해당 카드사에서 요청하는 인증을 충족하지 않을경우 홈페이지에서 항공권 구매가 불가합니다.</p>
+      <p>☞ 신용카드 인증 시 발생한 오류는 반드시 해당 카드사로 문의하여 주시기 바랍니다.</p>
+      <p>☞ 인터넷 익스플로러에서만 계좌이체가 가능합니다.</p></td>
   </tr>
   <tr>
-    <td>384,000 원</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
     <td>결제방식</td>
     <td>
-    <input type="radio" name="radio" id="radio" />
-    신용카드 
-    <input type="radio" name="radio" id="radio2" />
-계좌이체</td>
-    <td>&nbsp;</td>
+      <input type="radio" name="radio" id="radio" />
+      신용카드 
+      <input type="radio" name="radio" id="radio2" />
+      계좌이체</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td>&nbsp;</td>
     <td>카드종류</td>
     <td>
       <select name="select" id="select">
@@ -160,24 +161,14 @@
       <select name="select" id="select">
         <option>일시불</option>
         <option>3개월</option>
-    </select></td>
-    <td>&nbsp;</td>
-  </tr>
+      </select></td>
+    </tr>
+
   <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td colspan="2" align="right"><img src="/SwingFlow/images/Airline/reserv/vimg.png" /></td>
-    <td>&nbsp;</td>
-  </tr>
+    </tr>
 </table>
 <p>&nbsp;</p>
               <div ><span style="margin-left:50px;">

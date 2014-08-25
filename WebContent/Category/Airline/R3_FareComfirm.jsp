@@ -774,10 +774,10 @@ table
 
 </style></head>
 <body id="FDFF"><form name="frmUpsell" id="frmUpsell" method="post"><div id="wrap_container">
-<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+<%-- <jsp:include page="/Category/Common/top.jsp"></jsp:include> --%>
 <div id="wrapper">
 
-<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
+<%-- <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include> --%>
 
 <div id="main_content">
 
@@ -1182,7 +1182,7 @@ table
 </div></div>
               <p>&nbsp;</p>
               <div ><span style="margin-left:50px;">
-                <a class="bt_a" id="" href="R2_FlightSelect.jsp">이전단계</a></span>
+                <a class="bt_a" id="" href="R2_.jsp.jsp">이전단계</a></span>
                 <span style="margin-left:500px;"><a class="bt_a" id="" href="R4_PassengerInput.jsp">계속하기</a></span>
               </div>
               

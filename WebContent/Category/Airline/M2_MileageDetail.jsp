@@ -8,8 +8,6 @@
  <link rel="stylesheet" type="text/css" href="../../Css/Common/Main.css">
 </head>
 <style>
-
-
 .colum {
 
 background-color: #dfdfdf;

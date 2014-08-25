@@ -35,7 +35,7 @@ public class DBSeatTestMain {
 		Seat seat1 = new Seat(1,"Travel");
 		Seat seat2 = new Seat(2,"Business");
 		Seat seat3 = new Seat(3,"First");
-		Seat seat4 = new Seat(4,"삭제데이터");
+		Seat seat4 = new Seat(4,"aaaa");
 		// Test용DB insert
 
 		// drop table
