@@ -39,6 +39,8 @@ public class FlightNo {
 	public void setFn_no(String fn_no) {
 		this.fn_no = fn_no;
 	}
-
+public String toStirng(){
+	return this.r_No + ":" + this.fn_air + "," + this.r_SeatTotal + "," + this.fn_no;
+}
 
 }

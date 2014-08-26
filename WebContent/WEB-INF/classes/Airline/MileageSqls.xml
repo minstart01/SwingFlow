@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Airline.Mileage">
+
+	<resultMap id="resultMileage" class="Airline.Mileage">
+		<result property="mNo" column="mNo" />
+		<result property="m_mile" column="m_mile" />
+	</resultMap>
+
+	<select id="find" parameterClass="Airline.Mileage" resultMap="resultMileage">
+		SELECT * FROM Mileage
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
+				mNo = #mNo#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultMileage">
+		$value$
+	</select>
+
+
+	<insert id="insert" parameterClass="Airline.Mileage">
+		INSERT INTO
+		Mileage (
+		mNo,m_mile
+		) VALUES (
+		#mNo#,#m_mile#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Airline.Mileage">
+		UPDATE Mileage SET
+		mNo = #mNo#,
+		m_mile = #m_mile#,
+
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
+				mNo = #mNo#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Airline.Mileage">
+		DELETE FROM Mileage
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
+				mNo = #mNo#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE Mileage CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+CREATE TABLE Mileage (
+	mNo INTEGER,
+	m_mile INTEGER 
+)
+	</statement>
+</sqlMap>
+
