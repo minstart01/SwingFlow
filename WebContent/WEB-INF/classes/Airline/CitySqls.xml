@@ -23,24 +23,26 @@
 		$value$
 	</select>
 
+
 	<insert id="insert" parameterClass="Airline.City">
 		INSERT INTO
-		City ( r_No, c_DepCity, c_ArrCity )
-		VALUES ( #r_No# , #c_DepCity# , #c_ArrCity# )
+		City (
+		r_No,c_DepCity,c_ArrCity
+		) VALUES (
+		#r_No#,#c_DepCity#,#c_ArrCity#
+		)
 	</insert>
 
 	<update id="update" parameterClass="Airline.City">
-		UPDATE WONDERGIRLS SET
-		r_No = #r_No# ,
+		UPDATE City SET
+		r_No = #r_No#,
 		c_DepCity = #c_DepCity#,
 		c_ArrCity = #c_ArrCity#
+
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
 				r_No = #r_No#
 			</isNotEqual>
-<!-- 			<isNotEmpty prepend=" AND " property="password"> -->
-<!-- 				PASSWORD = #password# -->
-<!-- 			</isNotEmpty> -->
 		</dynamic>
 	</update>
 
@@ -50,21 +52,19 @@
 			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
 				r_No = #r_No#
 			</isNotEqual>
-<!-- 			<isNotEmpty prepend=" AND " property="password"> -->
-<!-- 				PASSWORD = #password# -->
-<!-- 			</isNotEmpty> -->
 		</dynamic>
 	</delete>
 
 	<statement id="drop">
-		DROP TABLE City CASCADE;
+		DROP TABLE City CASCADE CONSTRAINT
 	</statement>
-	
+
 	<statement id="create">
-		CREATE TABLE City (
-			r_No INTEGER NOT NULL, 
+CREATE TABLE City (
+	r_No INTEGER, 
 	c_DepCity nVARCHAR2(20), 
 	c_ArrCity nVARCHAR2(20) 
+)
 	</statement>
 </sqlMap>
 
