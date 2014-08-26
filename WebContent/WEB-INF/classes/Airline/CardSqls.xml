@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Airline.Card">
+
+	<resultMap id="resultCard" class="Airline.Card">
+		<result property="fl_No" column="fl_No" />
+		<result property="c_Name" column="c_Name" />
+		<result property="c_Option" column="c_Option" />
+		<result property="c_Type" column="c_Type" />
+		<result property="c_Month" column="c_Month" />
+
+	</resultMap>
+
+	<select id="find" parameterClass="Airline.Card" resultMap="resultCard">
+		SELECT * FROM Card
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fl_No" compareValue="0">
+				fl_No = #fl_No#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultCard">
+		$value$
+	</select>
+
+
+	<insert id="insert" parameterClass="Airline.Card">
+		INSERT INTO
+		Card (
+		fl_No,c_Name,c_Option,c_Type,c_Month
+		) VALUES (
+		#fl_No#,#c_Name#, #c_Option#, #c_Type#, #c_Month#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Airline.Card">
+		UPDATE Card SET
+		fl_No = #fl_No#,
+		c_Name = #c_Name#,
+		c_Option = #c_Option#,
+		c_Type = #c_Type#,
+		c_Month = #c_Month#
+
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fl_No" compareValue="0">
+				fl_No = #fl_No#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Airline.Card">
+		DELETE FROM Card
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fl_No" compareValue="0">
+				fl_No = #fl_No#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE Card CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+CREATE TABLE Card (
+	fl_No INTEGER,
+	c_Name NVARCHAR2(20) NOT NULL,
+	c_Option NVARCHAR2(20), 
+	c_Type NVARCHAR2(20), 
+	c_Month NVARCHAR2(20) 
+)
+	</statement>
+</sqlMap>
+

@@ -73,7 +73,7 @@ public class DBFlightTestMain {
 		flight3.setFl_No(0); 
 		flightDB.allListPrint(flight3);
 
-		flight3.setFl_No(5); 
+		flight3.setFl_No(3); 
 		ret = flightDB.delete( flight3);
 
 		System.out.println("delete 후 ALL 출력  : ");
