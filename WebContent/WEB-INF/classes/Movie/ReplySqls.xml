@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Movie.Reply">
+
+
+	<resultMap id="resultReply" class="Movie.Reply">
+		<result property="fNo" column="fNo" />
+		<result property="mNo" column="mNo" />
+		<result property="rContent" column="rContent" />
+		<result property="rDate" column="rDate" />
+		</resultMap>
+
+
+
+	<select id="find" parameterClass="Movie.Reply" resultMap="resultReply">
+		SELECT * FROM Reply
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fNo" compareValue="0">
+				fNo = #fNo#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultReply">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Movie.Reply">
+		INSERT INTO Reply (
+		fNo, mNo, rContent, rDate
+		) VALUES (
+		#fNo#, #mNo#, #rContent#, #rDate#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Movie.Reply">
+		UPDATE Reply SET
+		mNo = #mNo#,
+		rContent = #rContent#,
+		rDate = #rDate#,
+
+	
+	<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fNo" compareValue="0">
+				fNo = #fNo#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Movie.Reply">
+		DELETE FROM Reply
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fNo" compareValue="0">
+				fNo = #fNo#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<update id="drop">
+		DROP TABLE Reply CASCADE CONSTRAINT
+	</update>
+
+	<statement id="create">
+		CREATE TABLE Reply (
+	fNo INTEGER, 
+	mNo INTEGER, 
+	rContent NVARCHAR2(1000), 
+	rDate DATE 
+		)
+	</statement>
+</sqlMap>
+

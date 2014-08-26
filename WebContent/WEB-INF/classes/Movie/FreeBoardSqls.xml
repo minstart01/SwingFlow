@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Movie.FreeBoard">
+
+
+	<resultMap id="resultFreeBoard" class="Movie.FreeBoard">
+		<result property="fNo" column="fNo" />
+		<result property="mNo" column="mNo" />
+		<result property="fSubject" column="fSubject" />
+		<result property="fContent" column="fContent" />
+		<result property="fDate" column="fDate" />
+		<result property="fHit" column="fHit" />
+	</resultMap>
+
+
+
+	<select id="find" parameterClass="Movie.FreeBoard" resultMap="resultFreeBoard">
+		SELECT * FROM FreeBoard
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fNo" compareValue="0">
+				fNo = #fNo#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultFreeBoard">
+		$value$
+	</select>
+
+	<insert id="insert" parameterClass="Movie.FreeBoard">
+		INSERT INTO FreeBoard (
+		fNo, mNo, fSubject, fContent, fDate, fHit
+		) VALUES (
+		FreeBoardSEQ.NEXTVAL, #mNo#, #fSubject#, #fContent#, #fDate#, #fHit#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Movie.FreeBoard">
+		UPDATE FreeBoard SET
+		mNo = #mNo#,
+		fSubject = #fSubject#,
+		fContent = #fContent#,
+		fDate = #fDate#,
+		fHit = #fHit#,
+	
+	<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fNo" compareValue="0">
+				fNo = #fNo#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Movie.FreeBoard">
+		DELETE FROM FreeBoard
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fNo" compareValue="0">
+				fNo = #fNo#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<update id="drop">
+		DROP TABLE FreeBoard CASCADE CONSTRAINT
+	</update>
+
+	<statement id="create">
+		CREATE TABLE FreeBoard (
+	fNo INTEGER NOT NULL,
+	mNo INTEGER, 
+	fSubject NVARCHAR2(50),
+	fContent NVARCHAR2(1000),
+	fDate DATE, 
+	fHit INTEGER 
+		)
+	</statement>
+</sqlMap>
+

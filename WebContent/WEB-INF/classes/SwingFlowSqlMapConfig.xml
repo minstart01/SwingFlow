@@ -66,6 +66,9 @@
 	<sqlMap resource="Movie/SitInfoSqls.xml" />			
 	<sqlMap resource="Movie/ReserveNoSqls.xml" />			
 	<sqlMap resource="Movie/NoticeSqls.xml" />			
+	<sqlMap resource="Movie/FreeBoardSqls.xml" />			
+	<sqlMap resource="Movie/ReplySqls.xml" />			
+		
 	
 	
 </sqlMapConfig>
