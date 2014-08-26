@@ -343,7 +343,7 @@
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
-							<a href="/SwingFlow/Category/Shopping/Shop/ShopJoin.jsp#" cate="400">쇼핑몰 등록</a>
+							<a href="/SwingFlow/Category/Shopping/Shop/ShopJoin.do" cate="400">쇼핑몰 등록</a>
 						</dd>
 						<dd>
 							<a href="" cate="401">쇼핑몰 조회</a>

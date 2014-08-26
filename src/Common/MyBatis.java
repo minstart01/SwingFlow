@@ -84,7 +84,26 @@ public class MyBatis<T> {
 		}
 		return list;
 	}
-
+	/* select : 사용자 정의 select , 쿼리를 전달받아 select 실행 */
+	public List nameSql(String name,String query) {
+		List ret = null;
+		try {
+			this.sqlMap.startTransaction();
+			ret = this.sqlMap.queryForList(nameSpaceString
+					+ "."+name, query);
+			this.sqlMap.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.sqlMap.endTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return ret;
+		}
+	}
 	/* select : 사용자 정의 select , 쿼리를 전달받아 select 실행 */
 	public List<T> select(String query) {
 		List<T> ret = null;

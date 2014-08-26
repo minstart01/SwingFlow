@@ -40,7 +40,14 @@
 		resultMap="resultShop">
 		$value$
 	</select>
-		
+	<resultMap id="stringResult" class="java.lang.String" >
+		<result property="" column="Result" />
+	</resultMap>
+
+	<select id="MaxNumber" parameterClass="java.lang.String"
+		resultMap="stringResult">
+		SELECT $value$ AS "Result" FROM Shop
+	</select>	
 	<insert id="insert" parameterClass="Shopping.Shop">
 		INSERT INTO
 		Shop (
