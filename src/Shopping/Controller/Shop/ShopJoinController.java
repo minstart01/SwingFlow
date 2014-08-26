@@ -1,4 +1,4 @@
-package Shopping.Controler.Shop;
+package Shopping.Controller.Shop;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;

@@ -26,7 +26,6 @@
 	<jsp:include page="/Category/Shopping/Sidebar.jsp"></jsp:include>
 	<center>
 		<div class="join_form">
-
 			<div align="center" style="margin-bottom: 30px; width: 100%;">
 				<div style="float: left; margin-left: 5px;">
 					<h1>쇼핑몰 등록</h1>

@@ -24,7 +24,7 @@
 		<property name="order" value="2" />
 	</bean>
 
-	<bean id="ShopJoinController" class="Shopping.Controler.Shop.ShopJoinController" />
+	<bean id="ShopJoinController" class="Shopping.Controller.Shop.ShopJoinController" />
 
 
 	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
