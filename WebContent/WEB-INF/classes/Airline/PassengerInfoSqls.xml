@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Airline.PassengerInfo">
+
+	<resultMap id="resultPassengerInfo" class="Airline.PassengerInfo">
+		<result property="lName" column="lName" />
+		<result property="fName" column="fName" />
+		<result property="gender" column="gender" />
+		<result property="passport" column="passport" />
+		<result property="fl_No" column="fl_No" />
+		<result property="ps_No" column="ps_No" />
+	</resultMap>
+
+	<select id="find" parameterClass="Airline.PassengerInfo" resultMap="resultPassengerInfo">
+		SELECT * FROM PassengerInfo
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fl_No" compareValue="0">
+				fl_No = #fl_No#
+			</isNotEqual>
+		</dynamic>
+	</select>
+
+	<select id="UserDefined" parameterClass="java.lang.String"
+		resultMap="resultPassengerInfo">
+		$value$
+	</select>
+
+
+	<insert id="insert" parameterClass="Airline.PassengerInfo">
+		INSERT INTO
+		PassengerInfo (
+		lName,fName,gender,passport,fl_No,ps_No
+		) VALUES (
+		#lName#,#fName#,#gender#,#passport#,#fl_No#,#ps_No#
+		)
+	</insert>
+
+	<update id="update" parameterClass="Airline.PassengerInfo">
+		UPDATE PassengerInfo SET
+		lName = #lName#,
+		fName = #fName#,
+		gender = #gender#,
+		passport = #passport#,
+		fl_No = #fl_No#,
+		ps_No = #ps_No#
+
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fl_No" compareValue="0">
+				fl_No = #fl_No#
+			</isNotEqual>
+		</dynamic>
+	</update>
+
+	<delete id="delete" parameterClass="Airline.PassengerInfo">
+		DELETE FROM PassengerInfo
+		<dynamic prepend=" WHERE ">
+			<isNotEqual prepend=" AND " property="fl_No" compareValue="0">
+				fl_No = #fl_No#
+			</isNotEqual>
+		</dynamic>
+	</delete>
+
+	<statement id="drop">
+		DROP TABLE PassengerInfo CASCADE CONSTRAINT
+	</statement>
+
+	<statement id="create">
+CREATE TABLE PassengerInfo (
+	lName VARCHAR(20), 
+	fName VARCHAR2(20), 
+	gender NVARCHAR2(5), 
+	passport NVARCHAR2(20), 
+	fl_No INTEGER, 
+	ps_No INTEGER 
+)
+	</statement>
+</sqlMap>
+
