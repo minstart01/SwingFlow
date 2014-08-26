@@ -17,7 +17,14 @@
 
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script type="text/javascript">
-	
+	function ShopInput(){
+		if(ShopJoinChk()){
+			
+		}
+	}
+	function ShopJoinChk(){
+		return true;
+	}
 </script>
 </head>
 
@@ -142,7 +149,7 @@
 				<hr style="width: 720px; border: 1px solid #d9d9d9;" />
 			</div>
 			<div class="bt_box" align="center">
-				<input type="button" class="submit" value="등록하기" /><input
+				<input type="button" class="submit" value="등록하기" onclick="javascript:ShopInput();" /><input
 					type="button" value="다시입력" />
 			</div>
 		</div>
