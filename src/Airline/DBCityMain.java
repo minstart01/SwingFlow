@@ -88,17 +88,17 @@ public class DBCityMain {
 
 		// delete예제 
 		System.out.println("delete 전 ALL 출력  : ");
-		city3.setC_No(0);
+		city3.setR_No(0);
 		cityDB.allListPrint(city3);
 		
 		
 		
 		
-		city3.setC_No(3);
+		city3.setR_No(3);
 		ret = cityDB.delete( city3);
 		
 		System.out.println("delete 후 ALL 출력  : ");
-		city3.setC_No(0);
+		city3.setR_No(0);
 		cityDB.allListPrint(city3);
 
 		// 사용한 디비 닫아줄것

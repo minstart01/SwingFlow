@@ -4,7 +4,7 @@
 <sqlMap namespace="Airline.City">
 
 	<resultMap id="resultCity" class="Airline.City">
-		<result property="c_No" column="C_NO" />
+		<result property="r_No" column="R_NO" />
 		<result property="c_DepCity" column="C_DEPCITY" />
 		<result property="c_ArrCity" column="C_ARRCITY" />
 	</resultMap>
@@ -12,8 +12,8 @@
 	<select id="find" parameterClass="Airline.City" resultMap="resultCity">
 		SELECT * FROM City
 		<dynamic prepend=" WHERE ">
-			<isNotEqual prepend=" AND " property="c_No" compareValue="0">
-				c_No = #c_No#
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
+				r_No = #r_No#
 			</isNotEqual>
 		</dynamic>
 	</select>
@@ -25,18 +25,18 @@
 
 	<insert id="insert" parameterClass="Airline.City">
 		INSERT INTO
-		City ( c_No, c_DepCity, c_ArrCity )
-		VALUES ( #c_No# , #c_DepCity# , #c_ArrCity# )
+		City ( r_No, c_DepCity, c_ArrCity )
+		VALUES ( #r_No# , #c_DepCity# , #c_ArrCity# )
 	</insert>
 
 	<update id="update" parameterClass="Airline.City">
 		UPDATE WONDERGIRLS SET
-		c_No = #c_No# ,
+		r_No = #r_No# ,
 		c_DepCity = #c_DepCity#,
 		c_ArrCity = #c_ArrCity#
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="c_No">
-				c_No = #c_No#
+			<isNotEmpty prepend=" AND " property="r_No">
+				r_No = #r_No#
 			</isNotEmpty>
 <!-- 			<isNotEmpty prepend=" AND " property="password"> -->
 <!-- 				PASSWORD = #password# -->
@@ -47,8 +47,8 @@
 	<delete id="delete" parameterClass="Airline.City">
 		DELETE FROM City
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="c_No">
-				c_No = #c_No#
+			<isNotEmpty prepend=" AND " property="r_No">
+				r_No = #r_No#
 			</isNotEmpty>
 <!-- 			<isNotEmpty prepend=" AND " property="password"> -->
 <!-- 				PASSWORD = #password# -->
@@ -62,7 +62,7 @@
 	
 	<statement id="create">
 		CREATE TABLE City (
-			c_No INTEGER NOT NULL, 
+			r_No INTEGER NOT NULL, 
 	c_DepCity nVARCHAR2(20), 
 	c_ArrCity nVARCHAR2(20) 
 	</statement>

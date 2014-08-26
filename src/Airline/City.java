@@ -2,24 +2,24 @@ package Airline;
 
 public class City {
 
-	private int c_No;	
+	private int r_No;	
 	private String c_DepCity;
 	private String c_ArrCity;
 	public City(){}
 	
-	public City(int c_No, String c_DepCity, String c_ArrCity) {
+	public City(int r_No, String c_DepCity, String c_ArrCity) {
 		super();
-		this.c_No = c_No;
+		this.r_No = r_No;
 		this.c_DepCity = c_DepCity;
 		this.c_ArrCity = c_ArrCity;
 	}
 
-	public int getC_No() {
-		return c_No;
+	public int getR_No() {
+		return r_No;
 	}
 
-	public void setC_No(int c_No) {
-		this.c_No = c_No;
+	public void setR_No(int r_No) {
+		this.r_No = r_No;
 	}
 
 	public String getC_DepCity() {
@@ -39,7 +39,7 @@ public class City {
 	}
 	public String toString(){
 		
-		return this.c_No +":"+ this.c_DepCity +":"+ this.c_DepCity;
+		return this.r_No +":"+ this.c_DepCity +":"+ this.c_DepCity;
 	}
 	
 	
