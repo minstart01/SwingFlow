@@ -4,9 +4,9 @@
 <sqlMap namespace="Airline.City">
 
 	<resultMap id="resultCity" class="Airline.City">
-		<result property="r_No" column="R_NO" />
-		<result property="c_DepCity" column="C_DEPCITY" />
-		<result property="c_ArrCity" column="C_ARRCITY" />
+		<result property="r_No" column="r_No" />
+		<result property="c_DepCity" column="c_DepCity" />
+		<result property="c_ArrCity" column="c_ArrCity" />
 	</resultMap>
 
 	<select id="find" parameterClass="Airline.City" resultMap="resultCity">
@@ -35,9 +35,9 @@
 		c_DepCity = #c_DepCity#,
 		c_ArrCity = #c_ArrCity#
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="r_No">
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
 				r_No = #r_No#
-			</isNotEmpty>
+			</isNotEqual>
 <!-- 			<isNotEmpty prepend=" AND " property="password"> -->
 <!-- 				PASSWORD = #password# -->
 <!-- 			</isNotEmpty> -->
@@ -47,9 +47,9 @@
 	<delete id="delete" parameterClass="Airline.City">
 		DELETE FROM City
 		<dynamic prepend=" WHERE ">
-			<isNotEmpty prepend=" AND " property="r_No">
+			<isNotEqual prepend=" AND " property="r_No" compareValue="0">
 				r_No = #r_No#
-			</isNotEmpty>
+			</isNotEqual>
 <!-- 			<isNotEmpty prepend=" AND " property="password"> -->
 <!-- 				PASSWORD = #password# -->
 <!-- 			</isNotEmpty> -->

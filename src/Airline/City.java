@@ -14,6 +14,7 @@ public class City {
 		this.c_ArrCity = c_ArrCity;
 	}
 
+	
 	public int getR_No() {
 		return r_No;
 	}
@@ -37,6 +38,7 @@ public class City {
 	public void setC_ArrCity(String c_ArrCity) {
 		this.c_ArrCity = c_ArrCity;
 	}
+
 	public String toString(){
 		
 		return this.r_No +":"+ this.c_DepCity +":"+ this.c_DepCity;
