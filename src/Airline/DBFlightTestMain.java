@@ -10,7 +10,7 @@ public class DBFlightTestMain {
 	public static void main(String[] args) {
 		/**
 		 * DB사용주의사항(다른 사람것은 손대지 않는다). 1. DB용 Class 를 만든다.( ex.
-		 * /SwingFlow/src/Common/flight.java ) 2.
+		 * /SwingFlow/src/Common/schedule.java ) 2.
 		 * /SwingFlow/WebContent/WEB-INF/classes/????Sqls.xml 파일을 만든다
 		 * FlightSqls.xml 참고할것 3.
 		 * /SwingFlow/WebContent/WEB-INF/classes/SwingFlowSqlMapConfig.xml 에 만든
@@ -35,7 +35,7 @@ public class DBFlightTestMain {
 		Flight flight1 = new Flight(6, "250,000원",new Date(System.currentTimeMillis()),1,2,3);
 		Flight flight2 = new Flight(7, "550,000원",new Date(System.currentTimeMillis()),1,2,3);
 		Flight flight3 = new Flight(6, "700,000원",new Date(System.currentTimeMillis()),1,2,3);
-		
+
 		// Test용DB insert
 
 		// drop table
@@ -48,9 +48,12 @@ public class DBFlightTestMain {
 		// 2
 		System.out.println("입력할 자료 :" + flight2.toString());
 		ret = flightDB.insert( flight2);
+		// 3
+		System.out.println("입력할 자료 :" + flight3.toString());
+		ret = flightDB.insert( flight3);
 
 		System.out.println("insert 3개후 전체 출력  : ");
-		flight3.setFl_No(0);
+		flight3.setFl_No(0); 
 		flightDB.allListPrint(flight3);
 
 		// find예제+insert예제 boolean
@@ -67,10 +70,10 @@ public class DBFlightTestMain {
 
 		// delete예제
 		System.out.println("delete 전 ALL 출력  : ");
-		flight3.setFl_No(0);
+		flight3.setFl_No(0); 
 		flightDB.allListPrint(flight3);
 
-		flight3.setFl_No(3); 
+		flight3.setFl_No(5); 
 		ret = flightDB.delete( flight3);
 
 		System.out.println("delete 후 ALL 출력  : ");

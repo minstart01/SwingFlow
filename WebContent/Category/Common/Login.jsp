@@ -39,6 +39,7 @@
  	 background: -o-linear-gradient(#43A9FF, #0043A8);
  	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
 	color:white;
+	border: none;
 	
 }
 .font_box{
@@ -51,13 +52,14 @@
 </head>
 
 <body>
+<form action="LoginSession.jsp">
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 	<div class="login_form">
 	<div class="id_box">
-    	<input type="text" placeholder="아이디" class="id"/>
+    	<input type="text" placeholder="아이디" class="id" name="id"/>
     </div>
     <div class="pwd_box">
-    	<input type="password" placeholder="비밀번호" class="pwd"/>
+    	<input type="password" placeholder="비밀번호" class="pwd" name="pwd"/>
     </div>
     <div class="bt_box">
     	<input type="submit" value="로그인" class="bt_login"/>
@@ -71,5 +73,6 @@
     </div>
     </div>
      <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
+     </form>
 </body>
 </html>

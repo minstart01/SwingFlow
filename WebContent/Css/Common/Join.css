@@ -31,6 +31,7 @@
  	 background: -o-linear-gradient(#43A9FF, #0043A8);
  	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
 	color:white;
+	border: none;
 }
 .text1{
 	padding-left:7px;
@@ -66,10 +67,11 @@
  	 background: -o-linear-gradient(#43A9FF, #0043A8);
  	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
 	color:white;
-	
+	border: none;
 }
 .submit{
 	margin-right:15px;	
+	
 }
 
 

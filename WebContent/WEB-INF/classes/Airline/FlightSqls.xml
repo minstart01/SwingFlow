@@ -22,6 +22,7 @@
 		</dynamic>
 	</select>
 
+
 	<select id="UserDefined" parameterClass="java.lang.String"
 		resultMap="resultFlight">
 		$value$
@@ -31,22 +32,21 @@
 	<insert id="insert" parameterClass="Airline.Flight">
 		INSERT INTO
 		Flight (
-		fl_No,mNo,fl_Fare,fl_sys,s_Code,s_Code2,seat_No
+		fl_No,mNo,fl_Fare, fl_sys, s_Code, s_Code2, seat_No
 		) VALUES (
-		flightseq.nextval,#mNo#,#fl_Fare#,#fl_sys#,#s_Code#,#s_Code2#,seat_No
+		#fl_No#,#mNo#,#fl_Fare#, #fl_sys#, #s_Code#, #s_Code2#, #seat_No#
 		)
 	</insert>
 
 	<update id="update" parameterClass="Airline.Flight">
 		UPDATE Flight SET
-		fl_No = #fl_No# ,
+		fl_No = #fl_No#,
 		mNo = #mNo#,
-		fl_Fare = #fl_Fare# ,
+		fl_Fare = #fl_Fare#,
 		fl_sys = #fl_sys#,
-		s_Code = #s_Code# ,
+		s_Code = #s_Code#,
 		s_Code2 = #s_Code2#,
 		seat_No = #seat_No#
-		
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="fl_No" compareValue="0">
 				fl_No = #fl_No#
@@ -71,10 +71,10 @@
 CREATE TABLE Flight (
 	fl_No INTEGER NOT NULL, 
 	mNo INTEGER NOT NULL, 
-	fl_Fare NVARCHAR2(20),
-	fl_sys DATE,
+	fl_Fare NVARCHAR2(20), 
+	fl_sys DATE, 
 	s_Code INTEGER, 
-	s_Code2 INTEGER, 
+	s_Code2 INTEGER,
 	seat_No INTEGER 
 )
 	</statement>
