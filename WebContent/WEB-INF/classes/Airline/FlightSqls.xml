@@ -34,7 +34,7 @@
 		Flight (
 		fl_No,mNo,fl_Fare, fl_sys, s_Code, s_Code2, seat_No
 		) VALUES (
-		#fl_No#,#mNo#,#fl_Fare#, #fl_sys#, #s_Code#, #s_Code2#, #seat_No#
+		flightseq.nextval,#mNo#,#fl_Fare#, #fl_sys#, #s_Code#, #s_Code2#, #seat_No#
 		)
 	</insert>
 
