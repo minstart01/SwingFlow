@@ -16,6 +16,7 @@ public class ShopJoinController {
 		ModelAndView mv = new ModelAndView();
 		  // view 설정
 		mv.setViewName("ShopJoinView"); // view의 이름을 제공
+//		 	뷰이름 바꾸세요 LYM 
 		ArrayList<String> list = new ArrayList<String>();
 
 		MyBatis<Shop> myShopDB = new MyBatis<Shop>("Shopping.Shop");
