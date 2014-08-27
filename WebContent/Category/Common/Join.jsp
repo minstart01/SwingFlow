@@ -295,6 +295,8 @@ function popup(url,width,height){
 </div>
 
 </center>
+<%request.setCharacterEncoding("UTF-8"); %>
+<%= request.getParameter("dong")%> 
  <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 </body>
 </html>

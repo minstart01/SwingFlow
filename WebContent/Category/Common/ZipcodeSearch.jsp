@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="Common.Address"%>
+<%@page import="Movie.DAO.MovieDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -46,19 +49,46 @@
 </head>
 
 <body>
+<form action="ZipcodeSearch.jsp">
 <div style="margin-left:5px;">
 <h2>우편번호검색</h2></div>
 <div class="zipcodesearch">
 <div class="search_box">
 <div style="width:120px; float:left; margin-top:5px; margin-right:3px; font-weight:bold">검색어(읍/면/동)</div>
-<div style="width:260px; float:left;"><input type="text" size="25" /><input type="button" value="검색" class="search" /></div>
+<div style="width:260px; float:left;"><input type="text" size="25" name="dong"/><input type="submit" value="검색" class="search" /></div>
 
 </div>
 <div style="margin:20px 0 0 7px; font-weight:bold;">검색결과</div>
 <div class="search_result">
-					
-</div>
+	<table border="1">
+		<tr>
+			<td>우편번호</td>
+			<td>주소</td>
+		</tr>
+		<%
+	MovieDAO dao = new MovieDAO();
+	Address addr = new Address();
+	ArrayList<Address> addrL = new ArrayList<Address>();
+	
+	String dong = request.getParameter("dong");
+	
 
+		addrL = dao.zipSelect(dong);
+
+	for(int i=0;i<addrL.size();i++){
+		addr = (Address)addrL.get(i);
+	
+%>
+
+	<tr>
+		<td><%=addr.getZipcode() %></td>
+		<td><%=addr.getDong() %></td>
+	</tr>
+	<%} %>
+	</table>			
 </div>
+<%=dong %>
+</div>
+</form>
 </body>
 </html>
