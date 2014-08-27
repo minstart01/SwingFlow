@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.*" %>	
-<%@ page import="Common.Spring" %>	
+<%@ page import="Common.Spring" %>
+<%-- <fmt:setLocale value="en"/> --%>
+	 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,9 +23,11 @@
 %>
 </head>
 <body>
+<fmt:bundle basename="resource.MultiLanguage.Shopping">
 	<div id="sidebarSec" class="column-left">
 		<ul class="menu">
-			<h2><%=Spring.getMessage("001") %></h2>
+<%-- 			<h2><%=Spring.getMessage("001") %></h2> --%>
+			<h2><fmt:message key="menu001"/></h2>
 			<li num="7" class="g7"><a
 				href="/SwingFlow/Category/Shopping/Discount/Discount.jsp#"
 				cate="700" class="depth1"><%=Spring.getMessage("002") %></a>
@@ -363,5 +369,6 @@
 				</div></li>
 		</ul>
 	</div>
+	</fmt:bundle>
 </body>
 </html>
