@@ -34,13 +34,16 @@ public class DBCityTestMain {
 
 		City city1 = new City(3,"김포(GMP)", "하네다(HND)");
 		City city2 = new City(4,"하네다(HND)", "김포(GMP)");
-		City city3 = new City(5,"700,000원", "900,000원");
+		City city3 = new City(1,"인천(ICN)", "로스엔젤레스(LAX)");
+		City city4 = new City(2,"하네다(HND)", "홍콩(HKG)");
+		City city5 = new City(5,"로스엔젤레스(LAX)", "인천(ICN)");
+		City city6 = new City(6,"인천(ICN)", "싱가폴(SGP)");
 
 		// Test용DB insert
 
 		// drop table
-		cityDB.drop();
-		cityDB.create();
+//		cityDB.drop();
+//		cityDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + city1.toString());
@@ -69,16 +72,16 @@ public class DBCityTestMain {
 		
 
 		// delete예제
-		System.out.println("delete 전 ALL 출력  : ");
-		city3.setR_No(0); 
-		cityDB.allListPrint(city3);
-
-		city3.setR_No(5); 
-		ret = cityDB.delete( city3);
-
-		System.out.println("delete 후 ALL 출력  : ");
-		city3.setR_No(0); 
-		cityDB.allListPrint(city3);
+//		System.out.println("delete 전 ALL 출력  : ");
+//		city3.setR_No(0); 
+//		cityDB.allListPrint(city3);
+//
+//		city3.setR_No(5); 
+//		ret = cityDB.delete( city3);
+//
+//		System.out.println("delete 후 ALL 출력  : ");
+//		city3.setR_No(0); 
+//		cityDB.allListPrint(city3);
 
 		// 사용한 디비 닫아줄것
 		cityDB.close();

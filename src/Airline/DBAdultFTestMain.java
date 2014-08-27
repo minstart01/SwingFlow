@@ -35,15 +35,15 @@ public class DBAdultFTestMain {
 //		a_Travel	트래블	NVARCHAR2(20)
 //		a_Business	비즈니스	NVARCHAR2(20)
 //		a_First	퍼스트	NVARCHAR2(20)
-		AdultF adultF1 = new AdultF(1,"500,000원", "700,000원", "1,000,000원");
-		AdultF adultF2 = new AdultF(2,"500,000원", "700,000원", "1,000,000원");
-		AdultF adultF3 = new AdultF(3,"700,000원", "900,000원", "1,200,000원");
-		AdultF adultF4 = new AdultF(4,"700,000원", "900,000원", "1,200,000원");
+		AdultF adultF1 = new AdultF(5,"750,000원", "900,000원", "1,200,000원");
+		AdultF adultF2 = new AdultF(6,"800,000원", "1,000,000원", "1,300,000원");
+		AdultF adultF3 = new AdultF(7,"850,000원", "1,200,000원", "1,400,000원");
+		AdultF adultF4 = new AdultF(8,"900,000원", "1,350,000원", "1,500,000원");
 		// Test용DB insert
 
 		// drop table
-		adultFDB.drop();
-		adultFDB.create();
+//		adultFDB.drop();
+//		adultFDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + adultF1.toString());
@@ -72,16 +72,16 @@ public class DBAdultFTestMain {
 		
 
 		// delete예제
-		System.out.println("delete 전 ALL 출력  : ");
-		adultF4.setR_No(0); 
-		adultFDB.allListPrint(adultF4);
-
-		adultF4.setR_No(4); 
-		ret = adultFDB.delete( adultF4);
-
-		System.out.println("delete 후 ALL 출력  : ");
-		adultF4.setR_No(0); 
-		adultFDB.allListPrint(adultF4);
+//		System.out.println("delete 전 ALL 출력  : ");
+//		adultF4.setR_No(0); 
+//		adultFDB.allListPrint(adultF4);
+//
+//		adultF4.setR_No(4); 
+//		ret = adultFDB.delete( adultF4);
+//
+//		System.out.println("delete 후 ALL 출력  : ");
+//		adultF4.setR_No(0); 
+//		adultFDB.allListPrint(adultF4);
 
 		// 사용한 디비 닫아줄것
 		adultFDB.close();

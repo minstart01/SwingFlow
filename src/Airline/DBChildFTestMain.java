@@ -32,15 +32,15 @@ public class DBChildFTestMain {
 		List<ChildF> luser = null;
 		// DB객체생성,값설정
 
-		ChildF childF1 = new ChildF(1,"250,000원", "500,000원", "700,000원");
-		ChildF childF2 = new ChildF(2,"250,000원", "500,000원", "700,000원");
-		ChildF childF3 = new ChildF(3,"500,000원", "700,000원", "900,000원");
-		ChildF childF4 = new ChildF(4,"555", "9333", "1,4345");
+		ChildF childF1 = new ChildF(4,"300,000원", "550,000원", "750,000원");
+		ChildF childF2 = new ChildF(5,"350,000원", "600,000원", "800,000원");
+		ChildF childF3 = new ChildF(6,"400,000원", "650,000원", "850,000원");
+		ChildF childF4 = new ChildF(7,"450,000원", "700,000원", "1,000,000원");
 		// Test용DB insert
 
 		// drop table
-		childFDB.drop();
-		childFDB.create();
+//		childFDB.drop();
+//		childFDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + childF1.toString());
@@ -69,16 +69,16 @@ public class DBChildFTestMain {
 		
 
 		// delete예제
-		System.out.println("delete 전 ALL 출력  : ");
-		childF4.setR_No(0); 
-		childFDB.allListPrint(childF4);
-
-		childF4.setR_No(4); 
-		ret = childFDB.delete( childF4);
-
-		System.out.println("delete 후 ALL 출력  : ");
-		childF4.setR_No(0); 
-		childFDB.allListPrint(childF4);
+//		System.out.println("delete 전 ALL 출력  : ");
+//		childF4.setR_No(0); 
+//		childFDB.allListPrint(childF4);
+//
+//		childF4.setR_No(4); 
+//		ret = childFDB.delete( childF4);
+//
+//		System.out.println("delete 후 ALL 출력  : ");
+//		childF4.setR_No(0); 
+//		childFDB.allListPrint(childF4);
 
 		// 사용한 디비 닫아줄것
 		childFDB.close();

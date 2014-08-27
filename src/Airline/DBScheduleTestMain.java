@@ -32,9 +32,13 @@ public class DBScheduleTestMain {
 		List<Schedule> luser = null;
 		// DB객체생성,값설정
 		Schedule schedule1 = new Schedule(java.sql.Date.valueOf("2014-08-20"), "14:00", java.sql.Date.valueOf("2014-08-21"), "17:00", "03:00" );
-		Schedule schedule2 = new Schedule(java.sql.Date.valueOf("2014-08-25"), "15:00", java.sql.Date.valueOf("2014-08-27"), "19:00", "05:00" );
+		Schedule schedule2 = new Schedule(java.sql.Date.valueOf("2014-08-25"), "15:00", java.sql.Date.valueOf("2014-08-27"), "19:00", "04:00" );
 		Schedule schedule3 = new Schedule(java.sql.Date.valueOf("2014-08-27"), "17:00", java.sql.Date.valueOf("2014-09-27"), "23:00", "10:00" );
-		Schedule schedule4 = new Schedule(java.sql.Date.valueOf("2014-08-27"), "17:00", java.sql.Date.valueOf("2014-09-27"), "23:00", "10:00" );
+		Schedule schedule4 = new Schedule(java.sql.Date.valueOf("2014-08-27"), "17:00", java.sql.Date.valueOf("2014-09-28"), "23:00", "10:00" );
+		Schedule schedule5 = new Schedule(java.sql.Date.valueOf("2014-08-28"), "18:00", java.sql.Date.valueOf("2014-08-29"), "17:00", "06:00" );
+		Schedule schedule6 = new Schedule(java.sql.Date.valueOf("2014-08-29"), "19:00", java.sql.Date.valueOf("2014-08-30"), "19:00", "07:00" );
+		Schedule schedule7 = new Schedule(java.sql.Date.valueOf("2014-08-30"), "20:00", java.sql.Date.valueOf("2014-08-31"), "23:00", "08:00" );
+		Schedule schedule8 = new Schedule(java.sql.Date.valueOf("2014-09-01"), "21:00", java.sql.Date.valueOf("2014-09-02"), "23:00", "09:00" );
 		
 		// Test용DB insert
 

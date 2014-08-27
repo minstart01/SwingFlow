@@ -39,12 +39,15 @@ public class DBPassengerInfoTestMain {
 		// DB객체생성,값설정
 		PassengerInfo passengerInfo1 = new PassengerInfo("lim","yu","여","P123445",19, 2);
 		PassengerInfo passengerInfo2 = new PassengerInfo("lim","yu","여","P123445",20, 1);
-		PassengerInfo passengerInfo3 = new PassengerInfo("lim","yu","여","P123445",20, 2);
+		PassengerInfo passengerInfo3 = new PassengerInfo("lim","yu","여","P123445",21, 2);
+		PassengerInfo passengerInfo4 = new PassengerInfo("kim","yuky","남","P123445",22, 3);
+		PassengerInfo passengerInfo5 = new PassengerInfo("lee","kyungyu","남","P123445",19, 1);
+		PassengerInfo passengerInfo6 = new PassengerInfo("lim","aaa","남","P123445",21, 2);
 		// Test용DB insert
 
 		// drop table
-		passengerInfoDB.drop();
-		passengerInfoDB.create();
+//		passengerInfoDB.drop();
+//		passengerInfoDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + passengerInfo1.toString());
@@ -73,16 +76,16 @@ public class DBPassengerInfoTestMain {
 		
 
 		// delete예제
-		System.out.println("delete 전 ALL 출력  : ");
-		passengerInfo3.setFl_No(0);
-		passengerInfoDB.allListPrint(passengerInfo3);
-
-		passengerInfo3.setFl_No(20);
-		ret = passengerInfoDB.delete( passengerInfo3);
-
-		System.out.println("delete 후 ALL 출력  : ");
-		passengerInfo3.setFl_No(0); 
-		passengerInfoDB.allListPrint(passengerInfo3);
+//		System.out.println("delete 전 ALL 출력  : ");
+//		passengerInfo3.setFl_No(0);
+//		passengerInfoDB.allListPrint(passengerInfo3);
+//
+//		passengerInfo3.setFl_No(20);
+//		ret = passengerInfoDB.delete( passengerInfo3);
+//
+//		System.out.println("delete 후 ALL 출력  : ");
+//		passengerInfo3.setFl_No(0); 
+//		passengerInfoDB.allListPrint(passengerInfo3);
 
 		// 사용한 디비 닫아줄것
 		passengerInfoDB.close();

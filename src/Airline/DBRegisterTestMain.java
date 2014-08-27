@@ -31,15 +31,15 @@ public class DBRegisterTestMain {
 		// 리턴값 받을 변수(List)
 		List<Register> luser = null;
 		// DB객체생성,값설정
-		Register register1 = new Register(1,5);
-		Register register2 = new Register(2,5);
-		Register register3 = new Register(3,6);
-		Register register4 = new Register(4,6);
+		Register register1 = new Register(5,28);
+		Register register2 = new Register(6,29);
+		Register register3 = new Register(7,30);
+		Register register4 = new Register(8,28);
 		// Test용DB insert
 
 		// drop table
-		scheduleDB.drop();
-		scheduleDB.create();
+//		scheduleDB.drop();
+//		scheduleDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + register1.toString());
@@ -68,16 +68,16 @@ public class DBRegisterTestMain {
 		
 
 		// delete예제
-		System.out.println("delete 전 ALL 출력  : ");
-		register4.setR_No(0); 
-		scheduleDB.allListPrint(register4);
-
-		register4.setR_No(4); 
-		ret = scheduleDB.delete( register4);
-
-		System.out.println("delete 후 ALL 출력  : ");
-		register4.setR_No(0); 
-		scheduleDB.allListPrint(register4);
+//		System.out.println("delete 전 ALL 출력  : ");
+//		register4.setR_No(0); 
+//		scheduleDB.allListPrint(register4);
+//
+//		register4.setR_No(4); 
+//		ret = scheduleDB.delete( register4);
+//
+//		System.out.println("delete 후 ALL 출력  : ");
+//		register4.setR_No(0); 
+//		scheduleDB.allListPrint(register4);
 
 		// 사용한 디비 닫아줄것
 		scheduleDB.close();

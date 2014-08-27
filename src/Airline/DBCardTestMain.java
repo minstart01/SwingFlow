@@ -32,15 +32,15 @@ public class DBCardTestMain {
 		List<Card> luser = null;
 		// DB객체생성,값설정
 
-		Card card1 = new Card(1, "임유경","신용카드","국민카드","일시불");
-		Card card2 = new Card(2, "임유경","계좌이체","비씨카드","3개월");
-		Card card3 = new Card(3, "임유경","계좌이체","비씨카드","3개월");
+		Card card1 = new Card(4, "임유","신용카드","신한카드","일시불");
+		Card card2 = new Card(5, "홍길동","계좌이체",null,"6개월");
+		Card card3 = new Card(6, "이순신","계좌이체",null,"일시불");
 
 		// Test용DB insert
 
 		// drop table
-		cardDB.drop();
-		cardDB.create();
+//		cardDB.drop();
+//		cardDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + card1.toString());
@@ -69,16 +69,16 @@ public class DBCardTestMain {
 		
 
 		// delete예제
-		System.out.println("delete 전 ALL 출력  : ");
-		card3.setFl_No(0); 
-		cardDB.allListPrint(card3);
-
-		card3.setFl_No(3); 
-		ret = cardDB.delete( card3);
-
-		System.out.println("delete 후 ALL 출력  : ");
-		card3.setFl_No(0); 
-		cardDB.allListPrint(card3);
+//		System.out.println("delete 전 ALL 출력  : ");
+//		card3.setFl_No(0); 
+//		cardDB.allListPrint(card3);
+//
+//		card3.setFl_No(3); 
+//		ret = cardDB.delete( card3);
+//
+//		System.out.println("delete 후 ALL 출력  : ");
+//		card3.setFl_No(0); 
+//		cardDB.allListPrint(card3);
 
 		// 사용한 디비 닫아줄것
 		cardDB.close();

@@ -42,8 +42,8 @@ public class DBFlightNoTestMain {
 		// Test용DB insert
 
 		// drop table
-		flightNoDB.drop();
-		flightNoDB.create();
+//		flightNoDB.drop();
+//		flightNoDB.create();
 
 		// 1
 		System.out.println("입력할 자료 :" + flightNo1.toString());
@@ -72,16 +72,16 @@ public class DBFlightNoTestMain {
 		
 
 		// delete예제
-		System.out.println("delete 전 ALL 출력  : ");
-		flightNo4.setR_No(0); 
-		flightNoDB.allListPrint(flightNo4);
-
-		flightNo4.setR_No(4); 
-		ret = flightNoDB.delete( flightNo4);
-
-		System.out.println("delete 후 ALL 출력  : ");
-		flightNo4.setR_No(0); 
-		flightNoDB.allListPrint(flightNo4);
+//		System.out.println("delete 전 ALL 출력  : ");
+//		flightNo4.setR_No(0); 
+//		flightNoDB.allListPrint(flightNo4);
+//
+//		flightNo4.setR_No(4); 
+//		ret = flightNoDB.delete( flightNo4);
+//
+//		System.out.println("delete 후 ALL 출력  : ");
+//		flightNo4.setR_No(0); 
+//		flightNoDB.allListPrint(flightNo4);
 
 		// 사용한 디비 닫아줄것
 		flightNoDB.close();

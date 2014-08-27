@@ -1,5 +1,15 @@
+<%@page import="Airline.DTO.Admin_list"%>
+<%@page import="Airline.AdminDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Driver"%>
+<%@page import="java.sql.Connection"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,7 +46,13 @@
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-
+	<% 
+	
+	Admin_list dto = new Admin_list();
+	AdminDAO dao = new AdminDAO();
+	ArrayList<Admin_list> dtoL = dao.admin_list();
+	
+	%>
 	<h2>예약리스트</h2>
 	<table border="1" cellpadding="6" cellspacing="0" width="900" >
 	  <tr align="center">
@@ -48,12 +64,7 @@
       </tr>
 	  <tr align="center">
 	    <td><form name="form1" method="post" action="">
-	      <select name="select3" id="select3">
-          <option>-예약상태-</option>
-	        <option>예약접수</option>
-	        <option>예약완료</option>
-	        <option>예약취소</option>
-          </select>
+	 
         
 		  <select name="select4" id="select4">
           <option>-예약자명-</option>
@@ -66,65 +77,43 @@
       </tr>
 </table>
 	<p>&nbsp;</p>
-	<p >총 618건의 예약 내역이 검색되었습니다.</p>
+	<p >총 <%=dtoL.size() %>건의 예약 내역이 검색되었습니다.</p>
+	  <%	for(int i=0;i<dtoL.size();i++){
+dto = (Admin_list)dtoL.get(i);%>
 	<table border="1" cellpadding="6" cellspacing="0" >
 		 <tr align="center">
 			<td width="150">예약정보</td>
 			<td width="410">예약정보</td>
 			<td width="160">예약일시</td>
-			<td width="135">예약상태</td>
 			<td width="125">관리</td>
 	  </tr>
+
+	<tbody>
+
 		<tr align="center">
-			<td><div>박명희</div>
-				<div>010-2961-8363</div></td>
+				  
+
+
+
+			<td><div><%=dto.getFname() %>, <%=dto.getLname() %></div></td>
 			<td><div>
 					<div>
-						<a href="">미국LAX / 왕복</a>
+						<a href=""><%=dto.getC_arrcity() %> / 왕복</a>
 					</div>
 				</div>
 				<div>
-					<div>운임: 2,440,000</div>
+					<div>운임: <%=dto.getFl_fare() %></div>
 				</div>
-				<div>출발지역 : 07:00 김포</div>
-				<div>예약일자 : 2015-01-05</div>
-				<div>예약인원 : 2명(소인 : 1명 / 대인 : 1명)</div></td>
-			<td>2014-07-07 10:25:32</td>
-			<td><form name="form1" method="post" action="">
-			  <select name="select" id="select">
-			    <option>예약접수</option>
-			    <option>예약완료</option>
-			    <option>예약취소</option>
-		      </select>
-		    </form></td>
+				<div>출발지역 : 07:00 <%=dto.getC_depcity() %></div>
+				<div>예약일자 : <%=dto.getFl_sys() %></div>
+				<div>예약인원 : <%=dto.getP_nadult()+dto.getP_nchild()+dto.getP_ninfant() %>명(성인: <%=dto.getP_nadult() %>명 / 소아 : <%=dto.getP_nchild() %>명 / 유아 : <%=dto.getP_ninfant() %>명)</div></td>
+			<td><%=dto.getFl_sys() %></td>
+		
 			<td><input type="submit" name="button" id="button" value="수정" />
 				<input type="submit" name="button3" id="button3" value="삭제" /></td>
 		</tr>
-		 <tr align="center">
-			<td><div>박명희</div>
-				<div>010-2961-8363</div></td>
-			<td><div>
-					<div>미국LAX / 왕복</div>
-				</div>
-				<div>
-					<div>운임: 2,440,000</div>
-				</div>
-				<div>출발지역 : 07:00 김포</div>
-				<div>예약일자 : 2015-01-05</div>
-				<div>예약인원 : 2명(소인 : 1명 / 대인 : 1명)</div></td>
-			<td>2014-07-07 10:25:32</td>
-			<td><form name="form1" method="post" action="">
-			  <select name="select2" id="select2">
-			    <option>예약접수</option>
-			    <option>예약완료</option>
-			    <option>예약취소</option>
-		      </select>
-		    </form></td>
-<td><input type="submit" name="button" id="button" value="수정" />
-				<input type="submit" name="button3" id="button3" value="삭제" /></td>
-		</tr>
-</table>
-
+</tbody></table>
+<% } %>
     <div class="div_button">
 	<input type="submit" value="등록하기" />
   	<input type="button" value="뒤로가기" />
