@@ -37,7 +37,7 @@
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
-			<value>/Category/Shopping/</value>
+			<value>/Category/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
