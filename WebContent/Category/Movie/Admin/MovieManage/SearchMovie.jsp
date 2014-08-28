@@ -117,7 +117,7 @@
 				url : 'mNameSearch.jsp',
 				type : 'GET',
 				data : {
-					mName : mName,
+					mName : encodeURI(mName),
 				},
 				success : SearchmName
 			});
