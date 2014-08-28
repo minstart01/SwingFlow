@@ -15,6 +15,14 @@
 		<result property="sCode" column="sCode" />
 		<result property="mPlayDate" column="mPlayDate" />
 	</resultMap>
+	
+	<resultMap id="stringResult" class="java.lang.String" >
+		<result property="" column="mcode" />
+		<result property="" column="mino" />
+		<result property="" column="tcode" />
+		<result property="" column="MNAME" />
+		<result property="" column="TNAME" />
+	</resultMap>
 
 	<select id="find" parameterClass="Movie.MovieInfo" resultMap="resultMovieInfo">
 		SELECT * FROM MovieInfo
@@ -40,11 +48,9 @@
 			 and  m.mcode=i.MCODE and t.TCODE = i.TCODE;
 		</dynamic>
 	</select>
-	<resultMap id="stringResult" class="java.lang.String" >
-		<result property="" column="Result" />
-	</resultMap>
-
 	
+	
+
 <!-- 	select m.mcode,i.mino,t.tcode,m.MNAME,t.TNAME from movieinfo  m ,movieinsert i, THEATERINFO t  -->
 <!-- 	where m.MNAME like '%명량%'  or t.TNAME like '%CG%' and  m.mcode=i.MCODE and t.TCODE = i.TCODE; -->
 
