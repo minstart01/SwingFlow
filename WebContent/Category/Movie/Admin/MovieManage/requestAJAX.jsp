@@ -1,4 +1,4 @@
-<%@page import="java.util.List"%><%@page import="Movie.Api.Proxy"%><%@page import="Movie.MovieInfo"%><%@page import="Common.MyBatis"%><%@ page language="java" contentType="text/xml; charset=UTF-8" pageEncoding="UTF-8"%><%
+<%-- <%@page import="java.util.List"%><%@page import="Movie.Api.Proxy"%><%@page import="Movie.MovieInfo"%><%@page import="Common.MyBatis"%><%@ page language="java" contentType="text/xml; charset=UTF-8" pageEncoding="UTF-8"%><%
 	Proxy proxy = new Proxy();
 	String sRequest = request.getParameter("request");
 	
@@ -23,3 +23,4 @@
 	}
 	out.print(proxy.GetApiText("http://apis.daum.net/contents/movie?apikey=6080f3487be7091f1082f66fc2e62020ba90c578&q=" + mName));
 %>					
+ --%>

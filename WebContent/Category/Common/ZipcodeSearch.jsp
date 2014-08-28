@@ -49,7 +49,7 @@
 </head>
 
 <body>
-<form action="ZipcodeSearch.jsp">
+<form action="NewFile.jsp">
 <div style="margin-left:5px;">
 <h2>우편번호검색</h2></div>
 <div class="zipcodesearch">
@@ -65,29 +65,10 @@
 			<td>우편번호</td>
 			<td>주소</td>
 		</tr>
-		<%
-	MovieDAO dao = new MovieDAO();
-	Address addr = new Address();
-	ArrayList<Address> addrL = new ArrayList<Address>();
 	
-	String dong = request.getParameter("dong");
-	
-
-		addrL = dao.zipSelect(dong);
-
-	for(int i=0;i<addrL.size();i++){
-		addr = (Address)addrL.get(i);
-	
-%>
-
-	<tr>
-		<td><%=addr.getZipcode() %></td>
-		<td><%=addr.getDong() %></td>
-	</tr>
-	<%} %>
 	</table>			
 </div>
-<%=dong %>
+
 </div>
 </form>
 </body>

@@ -16,6 +16,11 @@ public class MovieDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	
+	public String a(){
+		
+		return "a";
+	}
+	
 	public ArrayList<Address> zipSelect(String dong)	{
 		ArrayList<Address> addrL = new ArrayList<Address>();
 		conn = DbSet.getConnection();
@@ -35,8 +40,9 @@ public class MovieDAO {
 				addr.setRi(rs.getString("ri"));
 				addr.setBunji(rs.getString("bunji"));
 				
-				
-			}}catch (SQLException e) {
+				addrL.add(addr);
+			}
+		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 		finally	{
