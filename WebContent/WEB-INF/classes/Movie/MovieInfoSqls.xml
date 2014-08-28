@@ -22,8 +22,31 @@
 			<isNotEqual prepend=" AND " property="mCode" compareValue="0">
 				mCode = #mCode#
 			</isNotEqual>
+			<isNotEmpty prepend=" AND " property="mName" >
+				mName = #mName#
+			</isNotEmpty>
 		</dynamic>
 	</select>
+
+	<select id="findMovie01" parameterClass="Movie.MovieInfo" resultMap="stringResult">
+		m.mcode,i.mino,t.tcode,m.MNAME,t.TNAME from movieinfo  m ,movieinsert i, THEATERINFO t 
+		<dynamic prepend=" WHERE ">
+			<isNotEmpty prepend=" AND " property="mName" >
+				m.MNAME like #mName#
+			</isNotEmpty>
+			<isNotEmpty prepend=" AND " property="mPoster" >
+				t.TNAME like #mPoster#
+			</isNotEmpty>
+			 and  m.mcode=i.MCODE and t.TCODE = i.TCODE;
+		</dynamic>
+	</select>
+	<resultMap id="stringResult" class="java.lang.String" >
+		<result property="" column="Result" />
+	</resultMap>
+
+	
+<!-- 	select m.mcode,i.mino,t.tcode,m.MNAME,t.TNAME from movieinfo  m ,movieinsert i, THEATERINFO t  -->
+<!-- 	where m.MNAME like '%명량%'  or t.TNAME like '%CG%' and  m.mcode=i.MCODE and t.TCODE = i.TCODE; -->
 
 	<select id="UserDefined" parameterClass="java.lang.String"
 		resultMap="resultMovieInfo">

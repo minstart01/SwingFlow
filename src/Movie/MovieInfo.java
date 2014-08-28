@@ -14,7 +14,7 @@ public class MovieInfo {
 	private int sCode;
 	private java.sql.Date mPlayDate;
 	
-	MovieInfo(){}
+	public MovieInfo(){}
 	public MovieInfo(String mName, String mPoster, String mGenre,
 			String mDirector, String mTime, String mActor, int sCode,
 			Date mPlayDate) {

@@ -5,6 +5,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(".search input:button").click(searchBtnProc)
+	
+	function searchBtnProc(e){
+		var choiceGubun=$(".search select option:selected").val()
+		var inputTXT = $(".search input:text").val()
+		$.ajax({
+			url : 'mNameSearchAJAX.jsp',
+			type : 'GET',
+			data : {
+				mName : encodeURI(mName),
+			},
+			success : SearchmName
+		});
+
+	});
+});
+function SearchmName(data) {
+	var items = $(data).find("item");
+	$("#b").empty();
+	for (var i = 0; i < items.length; i++) {
+		$(".result_box").append(
+				$(items[i]).find("title").find("content").text());
+	}
+}
+	}
+
+</script>
 <style>
 #wrapper{
 	width:1250px;

@@ -89,8 +89,38 @@ public class MyBatis<T> {
 		List ret = null;
 		try {
 			this.sqlMap.startTransaction();
-			ret = this.sqlMap.queryForList(nameSpaceString
+			if(null==name || name.equals("")){
+				ret = this.sqlMap.queryForList(nameSpaceString
+						, query);
+			} else {
+				ret = this.sqlMap.queryForList(nameSpaceString
 					+ "."+name, query);
+			}
+			this.sqlMap.commitTransaction();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				this.sqlMap.endTransaction();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return ret;
+		}
+	}
+	
+	public List nameSql(String name,T parameter) {
+		List ret = null;
+		try {
+			this.sqlMap.startTransaction();
+			if(null==name || name.equals("")){
+				ret = this.sqlMap.queryForList(nameSpaceString
+						, parameter);
+			} else {
+				ret = this.sqlMap.queryForList(nameSpaceString
+					+ "."+name, parameter);
+			}
 			this.sqlMap.commitTransaction();
 		} catch (SQLException e) {
 			e.printStackTrace();

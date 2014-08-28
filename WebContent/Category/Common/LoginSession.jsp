@@ -16,7 +16,7 @@
 	if(Id.equals(Pwd)){
 		session.setAttribute("MemberId", Id);
 		session.setMaxInactiveInterval(5*30);
-		Member = (String)session.getAttribute("MemberId");
+// 		Member = (String)session.getAttribute("MemberId");
 %>		
 <%=Member %>로그인<br>
 

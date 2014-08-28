@@ -15,6 +15,7 @@
 		<property name="mappings">
 			<props>
 				<prop key="/Category/Shopping/Shop/ShopJoin.do">ShopJoinController</prop>
+				<prop key="/Category/Movie/Admin/MovieManage/ListMovie.do">ListMovieController</prop>
 <!-- 	여기추가하세요 LYM -->
 
 
@@ -25,6 +26,7 @@
 	</bean>
 
 	<bean id="ShopJoinController" class="Shopping.Controller.Shop.ShopJoinController" />
+	<bean id="ListMovieController" class="Movie.Controller.Admin.MovieManage.ListMovieController" />
 <!-- 	여기추가하세요 LYM -->
 
 	<bean class="org.springframework.web.servlet.view.XmlViewResolver">

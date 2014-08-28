@@ -37,7 +37,7 @@
 				<div style="float: left; margin-left: 5px;">
 					<h1>쇼핑몰 등록</h1>
 				</div>
-				<hr style="width: 720px; border: 1px solid #d9d9d9;" />
+				<hr style="width: 90%; border: 1px solid #d9d9d9;" />
 			</div>
 			<table class="join_table" cellpadding="6">
 				<tr>
