@@ -3,13 +3,13 @@
 
 <sqlMap namespace="Common.ReceiveSMS">
 
-	<resultMap id="resultReceiveSMS" class="Common.ReceiveSMS">
+	<resultMap id="resultReceiveSMS" class="Common.DTO.ReceiveSMS">
 		<result property="pCode" column="pCode" />
 		<result property="pReceive" column="pReceive" />
 	</resultMap>
 
 
-	<select id="find" parameterClass="Common.ReceiveSMS" resultMap="resultReceiveSMS">
+	<select id="find" parameterClass="Common.DTO.ReceiveSMS" resultMap="resultReceiveSMS">
 		SELECT * FROM ReceiveSMS
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="pCode" compareValue="0">
@@ -23,7 +23,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Common.ReceiveSMS">
+	<insert id="insert" parameterClass="Common.DTO.ReceiveSMS">
 		INSERT INTO ReceiveSMS (
 		pCode,pReceive
 		) VALUES (
@@ -31,7 +31,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Common.ReceiveSMS">
+	<update id="update" parameterClass="Common.DTO.ReceiveSMS">
 		UPDATE ReceiveSMS SET
 		pCode = #pCode# ,
 		pReceive = #pReceive#
@@ -42,7 +42,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Common.ReceiveSMS">
+	<delete id="delete" parameterClass="Common.DTO.ReceiveSMS">
 		DELETE FROM ReceiveSMS
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="pCode" compareValue="0">
@@ -53,6 +53,9 @@
 
 	<statement id="drop">
 		DROP TABLE ReceiveSMS CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		TRUNCATE TABLE ReceiveSMS
 	</statement>
 
 	<statement id="create">

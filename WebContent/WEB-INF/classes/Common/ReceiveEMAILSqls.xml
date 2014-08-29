@@ -3,13 +3,13 @@
 
 <sqlMap namespace="Common.ReceiveEMAIL">
 
-	<resultMap id="resultReceiveEMAIL" class="Common.ReceiveEMAIL">
+	<resultMap id="resultReceiveEMAIL" class="Common.DTO.ReceiveEMAIL">
 		<result property="eCode" column="eCode" />
 		<result property="eReceive" column="eReceive" />
 	</resultMap>
 
 
-	<select id="find" parameterClass="Common.ReceiveEMAIL" resultMap="resultReceiveEMAIL">
+	<select id="find" parameterClass="Common.DTO.ReceiveEMAIL" resultMap="resultReceiveEMAIL">
 		SELECT * FROM ReceiveEMAIL
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="eCode" compareValue="0">
@@ -23,7 +23,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Common.ReceiveEMAIL">
+	<insert id="insert" parameterClass="Common.DTO.ReceiveEMAIL">
 		INSERT INTO ReceiveEMAIL (
 		eCode,eReceive
 		) VALUES (
@@ -31,7 +31,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Common.ReceiveEMAIL">
+	<update id="update" parameterClass="Common.DTO.ReceiveEMAIL">
 		UPDATE ReceiveEMAIL SET
 		eCode = #eCode# ,
 		eReceive = #bReceiveEMAIL#
@@ -42,7 +42,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Common.ReceiveEMAIL">
+	<delete id="delete" parameterClass="Common.DTO.ReceiveEMAIL">
 		DELETE FROM ReceiveEMAIL
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="eCode" compareValue="0">
@@ -53,6 +53,9 @@
 
 	<statement id="drop">
 		DROP TABLE ReceiveEMAIL CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE ReceiveEMAIL
 	</statement>
 
 	<statement id="create">

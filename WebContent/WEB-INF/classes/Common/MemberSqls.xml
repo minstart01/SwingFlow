@@ -3,7 +3,7 @@
 
 <sqlMap namespace="Common.Member">
 
-	<resultMap id="resultMember" class="Common.Member">
+	<resultMap id="resultMember" class="Common.DTO.Member">
 		<result property="mNo" column="mNo" />
 		<result property="mId" column="mId" />
 		<result property="mPwd" column="mPwd" />
@@ -23,7 +23,7 @@
 		<result property="mProductNo" column="mProductNo" />
 	</resultMap>
 
-	<select id="find" parameterClass="Common.Member" resultMap="resultMember">
+	<select id="find" parameterClass="Common.DTO.Member" resultMap="resultMember">
 		SELECT * FROM Member
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
@@ -44,7 +44,7 @@
 	</select>
 
 
-	<insert id="insert" parameterClass="Common.Member">
+	<insert id="insert" parameterClass="Common.DTO.Member">
 		INSERT INTO
 		Member (
 		mNo,mId,mPwd,mName,sCode,mBirth,bCode,aCode,mDetailAddr,mEmail,eCode,mPhone,pCode,mProduct,mCode,mJoinDate,mProductNo
@@ -53,7 +53,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Common.Member">
+	<update id="update" parameterClass="Common.DTO.Member">
 		UPDATE WONDERGIRLS SET
 		mNo = #mNo# ,
 		mId = #mId#,
@@ -85,7 +85,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Common.Member">
+	<delete id="delete" parameterClass="Common.DTO.Member">
 		DELETE FROM Member
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
@@ -102,6 +102,9 @@
 
 	<statement id="drop">
 		DROP TABLE Member CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		TRUNCATE TABLE Member
 	</statement>
 
 	<statement id="create">

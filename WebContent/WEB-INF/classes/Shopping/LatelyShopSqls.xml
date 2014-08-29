@@ -3,14 +3,14 @@
 
 <sqlMap namespace="Shopping.LatelyShop">
 
-	<resultMap id="resultLatelyShop" class="Shopping.LatelyShop">
+	<resultMap id="resultLatelyShop" class="Shopping.DTO.LatelyShop">
 		<result property="latelyShopSeq" column="latelyShopSeq" />
 		<result property="mNo" column="mNo" />
 		<result property="shopSeq" column="shopSeq" />
 		<result property="count" column="count" />
 	</resultMap>
 	
-	<select id="find" parameterClass="Shopping.LatelyShop" resultMap="resultLatelyShop">
+	<select id="find" parameterClass="Shopping.DTO.LatelyShop" resultMap="resultLatelyShop">
 		SELECT * FROM LatelyShop
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="latelyShopSeq" compareValue="0">
@@ -24,7 +24,7 @@
 		$value$
 	</select>
 	
-	<insert id="insert" parameterClass="Shopping.LatelyShop">
+	<insert id="insert" parameterClass="Shopping.DTO.LatelyShop">
 		INSERT INTO
 		LatelyShop (
 		latelyShopSeq,mNo,shopSeq,count
@@ -33,7 +33,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Shopping.LatelyShop">
+	<update id="update" parameterClass="Shopping.DTO.LatelyShop">
 		UPDATE LatelyShop SET
 		latelyShopSeq = #latelyShopSeq# ,
 		mNo = #mNo# ,
@@ -46,7 +46,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Shopping.LatelyShop">
+	<delete id="delete" parameterClass="Shopping.DTO.LatelyShop">
 		DELETE FROM LatelyShop
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="latelyShopSeq" compareValue="0">
@@ -57,6 +57,9 @@
 
 	<statement id="drop">
 		DROP TABLE LatelyShop CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate  TABLE LatelyShop
 	</statement>
 
 	<statement id="create">

@@ -3,12 +3,12 @@
 
 <sqlMap namespace="Shopping.KindGubun">
 
-	<resultMap id="resultKindGubun" class="Shopping.KindGubun">
+	<resultMap id="resultKindGubun" class="Shopping.DTO.KindGubun">
 		<result property="kindSeq" column="kindSeq" />
 		<result property="kindName" column="kindName" />
 	</resultMap>
 	
-	<select id="find" parameterClass="Shopping.KindGubun" resultMap="resultKindGubun">
+	<select id="find" parameterClass="Shopping.DTO.KindGubun" resultMap="resultKindGubun">
 		SELECT * FROM KindGubun
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="kindSeq" compareValue="0">
@@ -22,7 +22,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Shopping.KindGubun">
+	<insert id="insert" parameterClass="Shopping.DTO.KindGubun">
 		INSERT INTO
 		KindGubun (
 		kindSeq,kindName
@@ -31,7 +31,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Shopping.KindGubun">
+	<update id="update" parameterClass="Shopping.DTO.KindGubun">
 		UPDATE KindGubun SET
 		kindSeq = #kindSeq# ,
 		kindName = #kindName# 
@@ -42,7 +42,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Shopping.KindGubun">
+	<delete id="delete" parameterClass="Shopping.DTO.KindGubun">
 		DELETE FROM KindGubun
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="kindSeq" compareValue="0">
@@ -53,6 +53,9 @@
 
 	<statement id="drop">
 		DROP TABLE KindGubun CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE KindGubun
 	</statement>
 
 	<statement id="create">

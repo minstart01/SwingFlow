@@ -3,12 +3,12 @@
 
 <sqlMap namespace="Shopping.DivGubun">
 
-	<resultMap id="resultDivGubun" class="Shopping.DivGubun">
+	<resultMap id="resultDivGubun" class="Shopping.DTO.DivGubun">
 		<result property="divSeq" column="divSeq" />
 		<result property="divName" column="divName" />
 	</resultMap>
 
-	<select id="find" parameterClass="Shopping.DivGubun" resultMap="resultDivGubun">
+	<select id="find" parameterClass="Shopping.DTO.DivGubun" resultMap="resultDivGubun">
 		SELECT * FROM DivGubun
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="divSeq" compareValue="0">
@@ -23,7 +23,7 @@
 	</select>
 
 
-	<insert id="insert" parameterClass="Shopping.DivGubun">
+	<insert id="insert" parameterClass="Shopping.DTO.DivGubun">
 		INSERT INTO
 		DivGubun (
 		divSeq,divName
@@ -32,7 +32,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Shopping.DivGubun">
+	<update id="update" parameterClass="Shopping.DTO.DivGubun">
 		UPDATE DivGubun SET
 		divSeq = #divSeq# ,
 		divName = #divName#
@@ -43,7 +43,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Shopping.DivGubun">
+	<delete id="delete" parameterClass="Shopping.DTO.DivGubun">
 		DELETE FROM DivGubun
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="divSeq" compareValue="0">
@@ -54,6 +54,9 @@
 
 	<statement id="drop">
 		DROP TABLE DivGubun CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE DivGubun
 	</statement>
 
 	<statement id="create">

@@ -3,7 +3,7 @@
 
 <sqlMap namespace="Shopping.Coupon">
 
-	<resultMap id="resultCoupon" class="Shopping.Coupon">
+	<resultMap id="resultCoupon" class="Shopping.DTO.Coupon">
 		<result property="couponSeq" column="couponSeq" />
 		<result property="shopSeq" column="shopSeq" />
 		<result property="couponName" column="couponName" />
@@ -19,7 +19,7 @@
 		<result property="cpnMobDtlPath" column="cpnMobDtlPath" />
 	</resultMap>
 	
-	<select id="find" parameterClass="Shopping.Coupon" resultMap="resultCoupon">
+	<select id="find" parameterClass="Shopping.DTO.Coupon" resultMap="resultCoupon">
 		SELECT * FROM Coupon
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="couponSeq" compareValue="0">
@@ -33,7 +33,7 @@
 		$value$
 	</select>
 		
-	<insert id="insert" parameterClass="Shopping.Coupon">
+	<insert id="insert" parameterClass="Shopping.DTO.Coupon">
 		INSERT INTO
 		Coupon (
 		couponSeq,shopSeq,couponName,expiryYn,expryDate,useCondition,dcType
@@ -44,7 +44,7 @@
 		)
 	</insert>
 	
-	<update id="update" parameterClass="Shopping.Coupon">
+	<update id="update" parameterClass="Shopping.DTO.Coupon">
 		UPDATE Coupon SET
 		couponSeq = #couponSeq# ,
 		shopSeq = #shopSeq# ,
@@ -66,7 +66,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Shopping.Coupon">
+	<delete id="delete" parameterClass="Shopping.DTO.Coupon">
 		DELETE FROM Coupon
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="couponSeq" compareValue="0">
@@ -77,6 +77,9 @@
 
 	<statement id="drop">
 		DROP TABLE Coupon CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE Coupon
 	</statement>
 
 	<statement id="create">

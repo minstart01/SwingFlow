@@ -3,7 +3,7 @@
 
 <sqlMap namespace="Shopping.BuyEstimate">
 
-	<resultMap id="resultBuyEstimate" class="Shopping.BuyEstimate">
+	<resultMap id="resultBuyEstimate" class="Shopping.DTO.BuyEstimate">
 		<result property="buyEstimateSeq" column="buyEstimateSeq" />
 		<result property="mNo" column="mNo" />
 		<result property="buyDate" column="buyDate" />
@@ -11,7 +11,7 @@
 		<result property="prodSeq" column="prodSeq" />
 	</resultMap>
 	
-	<select id="find" parameterClass="Shopping.BuyEstimate" resultMap="resultBuyEstimate">
+	<select id="find" parameterClass="Shopping.DTO.BuyEstimate" resultMap="resultBuyEstimate">
 		SELECT * FROM BuyEstimate
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="buyEstimateSeq" compareValue="0">
@@ -25,7 +25,7 @@
 		$value$
 	</select>
 	
-	<insert id="insert" parameterClass="Shopping.BuyEstimate">
+	<insert id="insert" parameterClass="Shopping.DTO.BuyEstimate">
 		INSERT INTO
 		BuyEstimate (
 		buyEstimateSeq,mNo,buyDate,point,prodSeq
@@ -34,7 +34,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Shopping.BuyEstimate">
+	<update id="update" parameterClass="Shopping.DTO.BuyEstimate">
 		UPDATE BuyEstimate SET
 		buyEstimateSeq = #buyEstimateSeq# ,
 		mNo = #mNo# ,
@@ -48,7 +48,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Shopping.BuyEstimate">
+	<delete id="delete" parameterClass="Shopping.DTO.BuyEstimate">
 		DELETE FROM BuyEstimate
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="buyEstimateSeq" compareValue="0">
@@ -59,6 +59,9 @@
 
 	<statement id="drop">
 		DROP TABLE BuyEstimate CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE BuyEstimate
 	</statement>
 
 	<statement id="create">

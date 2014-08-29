@@ -3,13 +3,13 @@
 
 <sqlMap namespace="Common.Sex">
 
-	<resultMap id="resultSex" class="Common.Sex">
+	<resultMap id="resultSex" class="Common.DTO.Sex">
 		<result property="sCode" column="sCode" />
 		<result property="sSex" column="sSex" />
 	</resultMap>
 
 
-	<select id="find" parameterClass="Common.Sex" resultMap="resultSex">
+	<select id="find" parameterClass="Common.DTO.Sex" resultMap="resultSex">
 		SELECT * FROM Sex
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="sCode" compareValue="0">
@@ -23,7 +23,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Common.Sex">
+	<insert id="insert" parameterClass="Common.DTO.Sex">
 		INSERT INTO Sex (
 		sCode,sSex
 		) VALUES (
@@ -31,7 +31,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Common.Sex">
+	<update id="update" parameterClass="Common.DTO.Sex">
 		UPDATE Sex SET
 		sCode = #sCode# ,
 		sSex = #sSex#
@@ -42,7 +42,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Common.Sex">
+	<delete id="delete" parameterClass="Common.DTO.Sex">
 		DELETE FROM Sex
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="sCode" compareValue="0">
@@ -53,6 +53,9 @@
 
 	<statement id="drop">
 		DROP TABLE Sex CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		TRUNCATE TABLE Sex
 	</statement>
 
 	<statement id="create">

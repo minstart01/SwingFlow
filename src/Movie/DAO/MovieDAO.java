@@ -30,7 +30,9 @@ public class MovieDAO {
 		pstmt.setString(1, dong);
 		rs = pstmt.executeQuery();
 		
-			if(rs.next()){
+		
+			while(rs.next()){
+				
 				Address addr = new Address();
 				addr.setaCode(rs.getInt("acode"));
 				addr.setZipcode(rs.getString("zipcode"));

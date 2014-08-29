@@ -238,6 +238,20 @@ public class MyBatis<T> {
 			return ret;
 		}
 	}
+	public int truncate() {
+		int ret = 1;
+		try {
+			ret = (int) this.sqlMap.update(nameSpaceString + ".truncate", null);
+		} catch (NestedSQLException ne) {
+			ret = -2;
+			ne.printStackTrace();
+		} catch (SQLException e) {
+			ret = -1;
+			e.printStackTrace();
+		} finally {
+			return ret;
+		}
+	}
 
 	public Reader getReader() {
 		return reader;

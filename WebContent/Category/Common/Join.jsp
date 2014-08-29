@@ -99,17 +99,20 @@ function date(date){
 		$(".select_month").hide();
 		$(".select_day").hide();
 		$("." + date + "_div").attr("onclick","date('off')");
+		
 			
 	} else if(date=="month"){
 		$(".select_" + date).show();
 		$(".select_year").hide();
 		$(".select_day").hide();
 		$("." + date + "_div").attr("onclick","date('off')");
+		
 	}else if(date=="day"){
 		$(".select_" + date).show();
 		$(".select_month").hide();
 		$(".select_year").hide();
 		$("." + date + "_div").attr("onclick","date('off')");
+	
 	}else if(date=="off"){
 		$(".select_year").hide();
 		$(".year_div").attr("onclick","date('year')");
@@ -123,7 +126,11 @@ function date(date){
 function select(date,no){
 	$(".select_" + date).hide();
 	$(".span_" + date).text($(".sel_" + date + no).text());
-	
+	if(no<10){
+		$(".m" + date).val("0" + $(".sel_" + date + no).text());
+	}else{
+		$(".m" + date).val($(".sel_" + date + no).text());
+	}
 }
 
 /* 팝업창 */
@@ -131,14 +138,42 @@ function popup(url,width,height){
 	
 	var iwidth = ($("body").innerWidth()/2) - (width/2);
 	var iheight = ($("body").innerHeight()/2) - height;
-	alert(iwidth);
-	alert(iheight);
+	/* alert(iwidth);
+	alert(iheight); */
 	window.open(url,"popup","width=" + width + ", height=" + height + ",left=" + iwidth + ",top=" + iheight);
 }
+
+
+function Join(){
+	$(".mBirth").val($(".myear").val() + $(".mmonth").val() + $(".mday").val());
+	document.frm.submit();
+}
+
+function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
+	
+	var zipcode1 = zipcode.substring(0,3);
+	var zipcode2 = zipcode.substring(4,7);
+	
+	$(".zipcode1").val(zipcode1);
+	$(".zipcode2").val(zipcode2);
+	
+	$(".addrtext").val(sido + " " + gugun + " " + dong + " " + ri);
+	$(".addrdetail").val(bunji + " ");
+	$(".addrdetail").focus();
+	
+
+}
+
 </script>
 </head>
 
 <body>
+<form action="JoinPro.jsp" name="frm">
+<input type="hidden" class="myear">
+<input type="hidden" class="mmonth">
+<input type="hidden" class="mday">
+<input type="hidden" class="mBirth" name="mBirth">
+
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 
 <center><div class="join_form">
@@ -150,13 +185,13 @@ function popup(url,width,height){
 	<table class="join_table" cellpadding="6"  >
     	<tr>
         	<td class="first_td"><label for="id">아이디</label></td>
-            <td><input type="text" class="text1" id="id" name="id" onkeyup="regChk();" /><input type="button" value="중복확인" class="over_button"/></td>
+            <td><input type="text" class="text1" id="id" name="mId" onkeyup="regChk();" /><input type="button" value="중복확인" class="over_button"/></td>
             <td width="155"><span id="idcheck" style="font-size:13px;">영문소문자,숫자 조합 6~40자(-,_사용가능)</span></td>
         </tr>
       	<tr>
         	<td class="first_td"><label for="password">비밀번호</label></td>
-            <td><input type="password" class="text" id="pwd" name="pwd" onkeyup="pwdLength();"/></td>
-            <td width="155"><span id="pwdlength"></td>
+            <td><input type="password" class="text" id="pwd" name="mPwd" onkeyup="pwdLength();"/></td>
+            <td width="155"><span id="pwdlength"></span></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="repassword">비밀번호 확인</label></td>
@@ -165,12 +200,12 @@ function popup(url,width,height){
         </tr>
         <tr>
         	<td class="first_td"><label for="name">이름</label></td>
-            <td><input type="text" class="text" id="name" name="name"/></td>
+            <td><input type="text" class="text" id="name" name="mName"/></td>
             <td></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="sex">성별</label></td>
-            <td><input type="radio" class="sex" name="sex"/>남자<input type="radio" class="sex" name="sex" />여자</td>
+            <td><input type="radio" class="sex" name="sCode" value="1"/>남자<input type="radio" class="sex" name="sCode" value="2" />여자</td>
             <td></td>
         </tr>
         <tr>
@@ -181,17 +216,12 @@ function popup(url,width,height){
             <span class="span_year select_span">년도</span><span class="img_span"><img src="/SwingFlow/images/Common/button.png" /></span>
              <div class="select_div select_year">
             	<ul>
+            		
               		<li><a href="javascript:select('year',0);" class="sel_year0">년도</a></li>
-                	<li><a href="javascript:select('year',1);" class="sel_year1">2014</a></li>
-                 	<li><a href="javascript:select('year',2);" class="sel_year2">2013</a></li>
-                    <li><a href="javascript:select('year',3);" class="sel_year3">2012</a></li>
-                    <li><a href="javascript:select('year',4);" class="sel_year4">2011</a></li>
-                    <li><a href="javascript:select('year',5);" class="sel_year5">2010</a></li>
-                    <li><a href="javascript:select('year',6);" class="sel_year6">2009</a></li>
-                    <li><a href="javascript:select('year',7);" class="sel_year7">2008</a></li>
-                    <li><a href="javascript:select('year',8);" class="sel_year8">2007</a></li>
-                    <li><a href="javascript:select('year',9);" class="sel_year9">2006</a></li>
-                </ul>
+              		<% for(int i=1;i<=80;i++){ %>
+                	<li><a href="javascript:select('year',<%=i %>);" class="sel_year<%=i %>"><%=2015-i %></a></li>
+                	<%}%>
+                 </ul>
             	
             </div>
 
@@ -202,17 +232,9 @@ function popup(url,width,height){
               <div class="select_div select_month">
             	<ul>
                 	<li><a href="javascript:select('month',0);" class="sel_month0">월</a></li>
-                	<li><a href="javascript:select('month',1);" class="sel_month1">1</a></li>
-                 	<li><a href="javascript:select('month',2);" class="sel_month2">2</a></li>
-                	<li><a href="javascript:select('month',3);" class="sel_month3">3</a></li>
-                    <li><a href="javascript:select('month',4);" class="sel_month4">4</a></li>
-                	<li><a href="javascript:select('month',5);" class="sel_month5">5</a></li>
-                    <li><a href="javascript:select('month',6);" class="sel_month6">6</a></li>
-                	<li><a href="javascript:select('month',7);" class="sel_month7">7</a></li>
-                    <li><a href="javascript:select('month',8);" class="sel_month8">8</a></li>
-                	<li><a href="javascript:select('month',9);" class="sel_month9">9</a></li>
-                    <li><a href="javascript:select('month',10);" class="sel_month10">10</a></li>
-                	<li><a href="javascript:select('month',11);" class="sel_month11">11</a></li>
+                	<% for(int i=1;i<=12;i++){ %>
+                	<li><a href="javascript:select('month',<%=i %>);" class="sel_month<%=i %>"><%=i %></a></li>
+                	<%} %>
                 </ul>
             	
             </div>
@@ -225,20 +247,10 @@ function popup(url,width,height){
             <div class="select_div select_day">
             	<ul>
                		<li><a href="javascript:select('day',0);" class="sel_day0">일</a></li>
-                	<li><a href="javascript:select('day',1);" class="sel_day1">1</a></li>
-                    <li><a href="javascript:select('day',2);" class="sel_day2">2</a></li>
-                    <li><a href="javascript:select('day',3);" class="sel_day3">3</a></li>
-                    <li><a href="javascript:select('day',4);" class="sel_day4">4</a></li>
-                    <li><a href="javascript:select('day',5);" class="sel_day5">5</a></li>
-                    <li><a href="javascript:select('day',6);" class="sel_day6">6</a></li>
-                    <li><a href="javascript:select('day',7);" class="sel_day7">7</a></li>
-                    <li><a href="javascript:select('day',8);" class="sel_day8">8</a></li>
-                    <li><a href="javascript:select('day',9);" class="sel_day9">9</a></li>
-                    <li><a href="javascript:select('day',10);" class="sel_day10">10</a></li>
-                    <li><a href="javascript:select('day',11);" class="sel_day11">11</a></li>
-                    <li><a href="javascript:select('day',12);" class="sel_day12">12</a></li>
-                    <li><a href="javascript:select('day',13);" class="sel_day13">13</a></li>
-                    <li><a href="javascript:select('day',14);" class="sel_day14">14</a></li>
+               		<% for(int i=1;i<=31;i++){ %>
+                	<li><a href="javascript:select('day',<%=i %>);" class="sel_day<%=i %>"><%=i %></a></li>
+                	<%} %>
+                  
                  	
                 </ul>
             	
@@ -246,43 +258,43 @@ function popup(url,width,height){
              </div>
             
             <span class="font_span">일</span>
-            <input type="radio" name="sl" class="sl" />양력<input type="radio" name="sl" class="sl" />음력</td>
+            <input type="radio" name="bCode" class="sl" />양력<input type="radio" name="bCode" class="sl" />음력</td>
             
             <td></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="zipcode">우편번호</label></td>
-        	<td><input type="text" class="zipcode">&nbsp;-&nbsp;<input type="text" class="zipcode"><input type="button" value="검색" class="zipcode_bt" onclick="popup('/SwingFlow/Category/Common/ZipcodeSearch.jsp','440','360');"></td>
+        	<td><input type="text" class="zipcode1 zipcode">&nbsp;-&nbsp;<input type="text" class="zipcode2 zipcode"><input type="button" value="검색" class="zipcode_bt" onclick="popup('/SwingFlow/Category/Common/ZipcodeSearch.jsp','475','360');"></td>
             <td></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="address">주소</label></td>
-        	<td><input type="text" class="text"/></td>
+        	<td><input type="text" class="addrtext text"/></td>
             <td></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="detailaddress">상세주소</label></td>
-        	<td><input type="text" class="text" />
+        	<td><input type="text" class="text addrdetail" name="mDetailAddr" />
             <td></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="email">이메일</label></td>
-            <td><input type="text" class="text" /></td>
+            <td><input type="text" class="text" name="mEmail" /></td>
             <td></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="email">이메일수신</label></td>
-            <td><input type="radio" name="emailcheck" checked="checked"/>수신함<input type="radio" name="emailcheck"/>수신안함</td>
+            <td><input type="radio" name="eCode" checked="checked" value="1"/>수신함<input type="radio" name="eCode" value="2"/>수신안함</td>
             <td></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="phone">휴대폰</label></td>
-            <td><input type="text" class="text" /></td>
+            <td><input type="text" class="text" name="mPhone" /></td>
             <td></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="email">SMS수신</label></td>
-            <td><input type="radio" name="smscheck" checked="checked"/>수신함<input type="radio" name="smscheck"/>수신안함</td>
+            <td><input type="radio" name="pCode" checked="checked" value="1"/>수신함<input type="radio" name="pCode"/>수신안함</td>
             <td></td>
         </tr>
     </table>
@@ -290,13 +302,14 @@ function popup(url,width,height){
   <hr style="width:720px; border:1px solid #d9d9d9;" />
 </div>
 <div class="bt_box" align="center">
-	<input type="button" class="submit" value="가입하기"/><input type="button" value="다시입력" />
+	<input type="button" class="submit" value="가입하기" onclick="Join();"/><input type="button" value="다시입력" />
 </div>
 </div>
 
 </center>
-<%request.setCharacterEncoding("UTF-8"); %>
-<%= request.getParameter("dong")%> 
+
+
  <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
+ </form>
 </body>
 </html>

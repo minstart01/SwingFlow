@@ -18,7 +18,7 @@
 		session.setMaxInactiveInterval(5*30);
 // 		Member = (String)session.getAttribute("MemberId");
 %>		
-<%=Member %>로그인<br>
+<%=Id %>로그인<br>
 
 <%
 }else{
