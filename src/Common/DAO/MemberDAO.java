@@ -22,13 +22,13 @@ public class MemberDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	
-	public int Join(Common.DTO.Join member){
+	public int Join(Common.DTO.Join member){	/* 회원가입 */
 		conn = DbSet.getConnection();
-		sql = "INSERT INTO MEMBER(MNO, MID, MPWD, MNAME, SCODE, MBIRTH, BCODE, ACODE, MDETAILADDR, MEMAIL, ECODE, MPHONE, PCODE, MCODE, MJOINDATE) VALUES (MEMBERNO.NEXTVAL, ? , ?, ?, ?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, ?, ?, ?, ?, ?, sysdate)";
+		sql = "INSERT INTO MEMBER(MNO, MID, MPWD, MNAME, SCODE, MBIRTH, BCODE, ACODE, MDETAILADDR, MEMAIL, ECODE, MPHONE, PCODE, MCODE, MJOINDATE, MPRODUCT, MPRODUCTNO) VALUES (MEMBERNO.NEXTVAL, ? , ?, ?, ?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, ?, ?, ?, ?, ?, 1, sysdate, 0, 0)";
 			try {
 			pstmt = conn.prepareStatement(sql);
 	 
-			pstmt.setString(1, member.getmName());
+			pstmt.setString(1, member.getmId());
 			pstmt.setString(2, member.getmPwd());
 			pstmt.setString(3, member.getmName());
 			pstmt.setInt(4, member.getsCode());
@@ -41,7 +41,7 @@ public class MemberDAO {
 			pstmt.setString(11, member.getmPhone());
 			pstmt.setInt(12, member.getpCode());
 			
-				
+		
 				su = pstmt.executeUpdate();
 				
 			
@@ -54,8 +54,11 @@ public class MemberDAO {
 			
 		return su;
 	}
+	public void SelectAddr() {
+		
+	}
 	
-	public ArrayList<Address> SelectAddr(String dong){
+	public ArrayList<Address> SelectAddr(String dong){		/* 주소 */
 		ArrayList<Address> list = new ArrayList<Address>();
 		conn = DbSet.getConnection();
 		sql = "SELECT * FROM ADDRESS where DONG like ?";
@@ -63,6 +66,7 @@ public class MemberDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%" + dong + "%");
+		
 			
 			rs = pstmt.executeQuery();
 			

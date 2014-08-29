@@ -1,7 +1,7 @@
 package Common.DTO;
 
 public class Join {
-	private int mNo;
+	
 	private String mId;
 	private String mPwd;
 	private String mName;
@@ -14,16 +14,10 @@ public class Join {
 	private int eCode;
 	private String mPhone;
 	private int pCode;
-	private int mProduct;
 	private int mCode;
 	private String mJoinDate;
-	private int mProductNo;
-	public int getmNo() {
-		return mNo;
-	}
-	public void setmNo(int mNo) {
-		this.mNo = mNo;
-	}
+
+
 	public String getmId() {
 		return mId;
 	}
@@ -96,12 +90,6 @@ public class Join {
 	public void setpCode(int pCode) {
 		this.pCode = pCode;
 	}
-	public int getmProduct() {
-		return mProduct;
-	}
-	public void setmProduct(int mProduct) {
-		this.mProduct = mProduct;
-	}
 	public int getmCode() {
 		return mCode;
 	}
@@ -114,12 +102,8 @@ public class Join {
 	public void setmJoinDate(String mJoinDate) {
 		this.mJoinDate = mJoinDate;
 	}
-	public int getmProductNo() {
-		return mProductNo;
-	}
-	public void setmProductNo(int mProductNo) {
-		this.mProductNo = mProductNo;
-	}
+	
+	
 	
 	
 }

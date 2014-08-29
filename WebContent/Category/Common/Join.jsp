@@ -1,3 +1,5 @@
+<%@page import="Common.DAO.MemberDAO"%>
+<%@page import="Common.DTO.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,6 +12,7 @@
 
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script>
+
 /* 아이디 중복확인 */
 function idChk(check){
  var id = $("#id").val();
@@ -77,6 +80,23 @@ function pwdChk(){
 	}
 }
 
+/* 핸드폰 번호 체크 */
+function phone_check(txt)
+{
+     var num = "0123456789";
+     var check = 0;
+     var str = txt.value;
+     var len = txt.value.length;
+
+    for(var i=0; i<len; i++)
+    	if(num.indexOf(str.substring(i,i+1)) >= 0) 
+    		check++;
+    	
+     if(check != len){
+            alert('숫자만 입력이 가능합니다')
+            txt.value=''
+     }
+}
 
 
 /* 아이디 검사 */
@@ -126,7 +146,7 @@ function date(date){
 function select(date,no){
 	$(".select_" + date).hide();
 	$(".span_" + date).text($(".sel_" + date + no).text());
-	if(no<10){
+	if((date == "month" || date == "day") && no<10){
 		$(".m" + date).val("0" + $(".sel_" + date + no).text());
 	}else{
 		$(".m" + date).val($(".sel_" + date + no).text());
@@ -151,6 +171,7 @@ function Join(){
 
 function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
 	
+	$(".aCode").val(seq);
 	var zipcode1 = zipcode.substring(0,3);
 	var zipcode2 = zipcode.substring(4,7);
 	
@@ -160,7 +181,7 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
 	$(".addrtext").val(sido + " " + gugun + " " + dong + " " + ri);
 	$(".addrdetail").val(bunji + " ");
 	$(".addrdetail").focus();
-	
+	var a;
 
 }
 
@@ -173,6 +194,7 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
 <input type="hidden" class="mmonth">
 <input type="hidden" class="mday">
 <input type="hidden" class="mBirth" name="mBirth">
+<input type="hidden" class="aCode" name="aCode">
 
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 
@@ -219,7 +241,7 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
             		
               		<li><a href="javascript:select('year',0);" class="sel_year0">년도</a></li>
               		<% for(int i=1;i<=80;i++){ %>
-                	<li><a href="javascript:select('year',<%=i %>);" class="sel_year<%=i %>"><%=2015-i %></a></li>
+                	<li onclick="select('year',<%=i %>);"><a href="javascript:select('year',<%=i %>);" class="sel_year<%=i %>"><%=2015-i %></a></li>
                 	<%}%>
                  </ul>
             	
@@ -233,7 +255,7 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
             	<ul>
                 	<li><a href="javascript:select('month',0);" class="sel_month0">월</a></li>
                 	<% for(int i=1;i<=12;i++){ %>
-                	<li><a href="javascript:select('month',<%=i %>);" class="sel_month<%=i %>"><%=i %></a></li>
+                	<li onclick="select('month',<%=i %>);"><a href="javascript:select('month',<%=i %>);" class="sel_month<%=i %>"><%=i %></a></li>
                 	<%} %>
                 </ul>
             	
@@ -248,7 +270,7 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
             	<ul>
                		<li><a href="javascript:select('day',0);" class="sel_day0">일</a></li>
                		<% for(int i=1;i<=31;i++){ %>
-                	<li><a href="javascript:select('day',<%=i %>);" class="sel_day<%=i %>"><%=i %></a></li>
+                	<li onclick="select('day',<%=i %>);"><a href="javascript:select('day',<%=i %>);" class="sel_day<%=i %>"><%=i %></a></li>
                 	<%} %>
                   
                  	
@@ -258,18 +280,18 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
              </div>
             
             <span class="font_span">일</span>
-            <input type="radio" name="bCode" class="sl" />양력<input type="radio" name="bCode" class="sl" />음력</td>
+            <input type="radio" name="bCode" class="sl" value="1" />양력<input type="radio" name="bCode" class="sl" value="2"/>음력</td>
             
             <td></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="zipcode">우편번호</label></td>
-        	<td><input type="text" class="zipcode1 zipcode">&nbsp;-&nbsp;<input type="text" class="zipcode2 zipcode"><input type="button" value="검색" class="zipcode_bt" onclick="popup('/SwingFlow/Category/Common/ZipcodeSearch.jsp','475','360');"></td>
+        	<td><input type="text" readonly="readonly" class="zipcode1 zipcode">&nbsp;-&nbsp;<input type="text" class="zipcode2 zipcode" readonly="readonly"><input type="button" value="검색" class="zipcode_bt" onclick="popup('/SwingFlow/Category/Common/ZipcodeSearch.jsp','475','360');"></td>
             <td></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="address">주소</label></td>
-        	<td><input type="text" class="addrtext text"/></td>
+        	<td><input type="text" class="addrtext text" readonly="readonly"/></td>
             <td></td>
         </tr>
         <tr>
@@ -289,8 +311,8 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
         </tr>
         <tr>
         	<td class="first_td"><label for="phone">휴대폰</label></td>
-            <td><input type="text" class="text" name="mPhone" /></td>
-            <td></td>
+            <td><input type="text" class="text" name="mPhone" onkeyup="phone_check(mPhone);" /></td>
+            <td width="155"><span id="phonecheck" style="font-size:13px;">-&nbsp;제외</span></td>
         </tr>
         <tr>
         	<td class="first_td"><label for="email">SMS수신</label></td>

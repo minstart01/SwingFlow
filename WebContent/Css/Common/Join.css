@@ -32,6 +32,7 @@
  	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
 	color:white;
 	border: none;
+	cursor: pointer;
 }
 .text1{
 	padding-left:7px;

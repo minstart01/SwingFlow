@@ -85,46 +85,7 @@
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script src="/SwingFlow/Script/Movie/ajaxJson.js"></script>
 <script type="text/javascript">
-	// AJAX before
-	// AJAX before
-	// AJAX before
-// 	var xhr = new xhRequest();
-// 	// load Event
-// 	$(function(e) {
-// 		// 초기
-// 		xhr.SetXHRequest();
 
-// 		// Event
-// 		// event
-// 		$("#searchbt").click(function(e) {
-// 			var mName = $("#msearch").val();
-// 			alert("aa");
-// 			xhr.openGet("mNameSearch.jsp?mName=" + mName, SearchmName);
-
-// 		});
-// 	});
-
-// 	function SearchmName() {
-// 		if (xhr.xhReq.readyState == 4) {
-// 			// xhReq.status == 200 : 성공
-// 			if (xhr.xhReq.status == 200) {
-
-// 				// alert(xhr.xhReq.getResponseHeader("Content-Type"));
-// 				var xml = xhr.xhReq.responseXML; // xml객체 리턴
-// 				var items = $(xml).find("item");
-// 				$("#b").empty();
-// 				for (var i = 0; i < items.length; i++) {
-// 					$(".result_box").append(
-// 							$(items[i]).find("title").find("content").text());
-
-// 				}
-// 			}
-// 		}
-// 	}
-
-	//AJAX After
-	//AJAX After
-	//AJAX After
 	
 	var plus=1;
 	$(function(e) {
@@ -215,8 +176,11 @@
 		var grade = $(items).find("audits").find("audit").find("watchGradeNm").text();
 		var genre =  $(items).find("genres").find("genre").find("genreNm").text();
 		var mdate = $(items).find("openDt").text()
-		var sdate = mdate.substring(0,4) + "년 " + mdate.substring(4,6) + "월 " + mdate.substring(6,8) + "일";
-		
+		if(mdate==""){
+			var sdate ="";
+		}else{
+			var sdate = mdate.substring(0,4) + "년 " + mdate.substring(4,6) + "월 " + mdate.substring(6,8) + "일";
+		}
 		for(var i=0;i<actor.length;i++){
 	
 		if(i==4 || i+1 == actor.length){
@@ -238,6 +202,49 @@
 		
 		
 		plus++;
+	}
+	
+	function searchenter(){
+		if(window.event.keyCode == 13){
+
+			var cate = $("#select_cate").val();
+			
+			
+			
+			$(".result_table").empty();
+			
+			if(cate==1){
+			
+			var mName = $("#msearch").val();
+			var gubun="name";
+			// 		alert("aa");
+			$.ajax({
+				url : 'mNameSearch.jsp',
+				type : 'GET',
+				data : {
+					mName : encodeURI(mName),
+					gubun : encodeURI(gubun),
+				},
+				success : SearchmName
+			});
+			}else if(cate==2){
+				var mName = $("#msearch").val();
+				var gubun="director";
+				// 		alert("aa");
+				$.ajax({
+					url : 'mNameSearch.jsp',
+					type : 'GET',
+					data : {
+						mName : encodeURI(mName),
+						gubun : encodeURI(gubun),
+					},
+					success : SearchmName
+				});
+				
+			}
+
+	
+		}		
 	}
 	
 	function selmovie(no){
@@ -272,7 +279,7 @@
             </select>
 			</div>
 			<div class="search_txt">
-				<input type="text" id="msearch" size="35" name="a" />
+				<input type="text" id="msearch" size="35" name="a" onkeyup="searchenter();" />
 			</div>
 			<div class="search_bt">
 				<input type="button" value="검색" id="searchbt" />
