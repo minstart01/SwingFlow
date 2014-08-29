@@ -3,14 +3,14 @@
 
 <sqlMap namespace="Shopping.LatelyProd">
 
-	<resultMap id="resultLatelyProd" class="Shopping.LatelyProd">
+	<resultMap id="resultLatelyProd" class="Shopping.DTO.LatelyProd">
 		<result property="latelyProdSeq" column="latelyProdSeq" />
 		<result property="mNo" column="mNo" />
 		<result property="prodSeq" column="prodSeq" />
 		<result property="count" column="count" />
 	</resultMap>
 	
-	<select id="find" parameterClass="Shopping.LatelyProd" resultMap="resultLatelyProd">
+	<select id="find" parameterClass="Shopping.DTO.LatelyProd" resultMap="resultLatelyProd">
 		SELECT * FROM LatelyProd
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="latelyProdSeq" compareValue="0">
@@ -24,7 +24,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Shopping.LatelyProd">
+	<insert id="insert" parameterClass="Shopping.DTO.LatelyProd">
 		INSERT INTO
 		LatelyProd (
 		latelyProdSeq,mNo,prodSeq,count
@@ -33,7 +33,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Shopping.LatelyProd">
+	<update id="update" parameterClass="Shopping.DTO.LatelyProd">
 		UPDATE LatelyProd SET
 		latelyProdSeq = #latelyProdSeq# ,
 		mNo = #mNo# ,
@@ -46,7 +46,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Shopping.LatelyProd">
+	<delete id="delete" parameterClass="Shopping.DTO.LatelyProd">
 		DELETE FROM LatelyProd
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="latelyProdSeq" compareValue="0">
@@ -57,6 +57,9 @@
 
 	<statement id="drop">
 		DROP TABLE LatelyProd CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE LatelyProd CASCADE CONSTRAINT
 	</statement>
 
 	<statement id="create">

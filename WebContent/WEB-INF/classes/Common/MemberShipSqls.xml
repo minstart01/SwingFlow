@@ -3,13 +3,13 @@
 
 <sqlMap namespace="Common.MemberShip">
 
-	<resultMap id="resultMemberShip" class="Common.MemberShip">
+	<resultMap id="resultMemberShip" class="Common.DTO.MemberShip">
 		<result property="mCode" column="mCode" />
 		<result property="mGrade" column="mGrade" />
 	</resultMap>
 
 
-	<select id="find" parameterClass="Common.MemberShip" resultMap="resultMemberShip">
+	<select id="find" parameterClass="Common.DTO.MemberShip" resultMap="resultMemberShip">
 		SELECT * FROM MemberShip
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="mCode" compareValue="0">
@@ -23,7 +23,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Common.MemberShip">
+	<insert id="insert" parameterClass="Common.DTO.MemberShip">
 		INSERT INTO MemberShip (
 		mCode,mGrade
 		) VALUES (
@@ -31,7 +31,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Common.MemberShip">
+	<update id="update" parameterClass="Common.DTO.MemberShip">
 		UPDATE MemberShip SET
 		mCode = #mCode# ,
 		mGrade = #mGrade#
@@ -42,7 +42,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Common.MemberShip">
+	<delete id="delete" parameterClass="Common.DTO.MemberShip">
 		DELETE FROM MemberShip
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="mCode" compareValue="0">
@@ -53,6 +53,9 @@
 
 	<statement id="drop">
 		DROP TABLE MemberShip CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE MemberShip
 	</statement>
 
 	<statement id="create">

@@ -3,7 +3,7 @@
 
 <sqlMap namespace="Shopping.ProdCate">
 
-	<resultMap id="resultProdCate" class="Shopping.ProdCate">
+	<resultMap id="resultProdCate" class="Shopping.DTO.ProdCate">
 		<result property="prodCateSeq" column="prodCateSeq" />
 		<result property="parentCateSeq" column="parentCateSeq" />
 		<result property="cateLevel" column="cateLevel" />
@@ -11,7 +11,7 @@
 		<result property="catePath" column="catePath" />
 	</resultMap>
 	
-	<select id="find" parameterClass="Shopping.ProdCate" resultMap="resultProdCate">
+	<select id="find" parameterClass="Shopping.DTO.ProdCate" resultMap="resultProdCate">
 		SELECT * FROM ProdCate
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="prodCateSeq" compareValue="0">
@@ -25,7 +25,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Shopping.ProdCate">
+	<insert id="insert" parameterClass="Shopping.DTO.ProdCate">
 		INSERT INTO
 		ProdCate (
 		prodCateSeq,parentCateSeq,cateLevel,cateName,catePath
@@ -34,7 +34,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Shopping.ProdCate">
+	<update id="update" parameterClass="Shopping.DTO.ProdCate">
 		UPDATE ProdCate SET
 		prodCateSeq = #prodCateSeq# ,
 		parentCateSeq = #parentCateSeq# ,
@@ -48,7 +48,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Shopping.ProdCate">
+	<delete id="delete" parameterClass="Shopping.DTO.ProdCate">
 		DELETE FROM ProdCate
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="prodCateSeq" compareValue="0">
@@ -59,6 +59,9 @@
 
 	<statement id="drop">
 		DROP TABLE ProdCate CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE ProdCate CASCADE CONSTRAINT
 	</statement>
 
 	<statement id="create">

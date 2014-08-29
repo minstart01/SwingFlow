@@ -3,12 +3,12 @@
 
 <sqlMap namespace="Shopping.MExtInfo">
 
-	<resultMap id="resultMExtInfo" class="Shopping.MExtInfo">
+	<resultMap id="resultMExtInfo" class="Shopping.DTO.MExtInfo">
 		<result property="mNo" column="mNo" />
 		<result property="mileage" column="mileage" />
 	</resultMap>
 
-	<select id="find" parameterClass="Shopping.MExtInfo" resultMap="resultMExtInfo">
+	<select id="find" parameterClass="Shopping.DTO.MExtInfo" resultMap="resultMExtInfo">
 		SELECT * FROM MExtInfo
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
@@ -23,7 +23,7 @@
 	</select>
 
 
-	<insert id="insert" parameterClass="Shopping.MExtInfo">
+	<insert id="insert" parameterClass="Shopping.DTO.MExtInfo">
 		INSERT INTO
 		MExtInfo (
 		mNo,mileage
@@ -32,7 +32,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Shopping.MExtInfo">
+	<update id="update" parameterClass="Shopping.DTO.MExtInfo">
 		UPDATE MExtInfo SET
 		mNo = #mNo# ,
 		mileage = #mileage#
@@ -43,7 +43,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Shopping.MExtInfo">
+	<delete id="delete" parameterClass="Shopping.DTO.MExtInfo">
 		DELETE FROM MExtInfo
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="mNo" compareValue="0">
@@ -54,6 +54,9 @@
 
 	<statement id="drop">
 		DROP TABLE MExtInfo CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE MExtInfo
 	</statement>
 
 	<statement id="create">

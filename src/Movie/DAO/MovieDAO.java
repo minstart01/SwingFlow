@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Common.Address;
+import Common.DTO.Address;
 
 public class MovieDAO {
 

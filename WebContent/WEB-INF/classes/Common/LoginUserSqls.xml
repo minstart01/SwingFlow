@@ -10,7 +10,7 @@
 	</resultMap>
 
 
-	<select id="find" parameterClass="Common.LoginUser" resultMap="resultLoginUser">
+	<select id="find" parameterClass="Common.DTO.LoginUser" resultMap="resultLoginUser">
 		SELECT * FROM LoginUser
 		<dynamic prepend=" WHERE ">
 			<isNotEmpty prepend=" AND " property="id">
@@ -27,13 +27,13 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Common.LoginUser">
+	<insert id="insert" parameterClass="Common.DTO.LoginUser">
 		INSERT INTO
 		LoginUser ( ID, PASSWORD, NAME )
 		VALUES ( #id# , #password# , #name# )
 	</insert>
 
-	<update id="update" parameterClass="Common.LoginUser">
+	<update id="update" parameterClass="Common.DTO.LoginUser">
 		UPDATE WONDERGIRLS SET
 		ID = #id# ,
 		PASSWORD = #password#,
@@ -48,7 +48,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Common.LoginUser">
+	<delete id="delete" parameterClass="Common.DTO.LoginUser">
 		DELETE FROM LoginUser
 		<dynamic prepend=" WHERE ">
 			<isNotEmpty prepend=" AND " property="id">
@@ -61,7 +61,10 @@
 	</delete>
 
 	<statement id="drop">
-		DROP TABLE LoginUser CASCADE
+		DROP TABLE LoginUser CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE LoginUser 
 	</statement>
 	
 	<statement id="create">

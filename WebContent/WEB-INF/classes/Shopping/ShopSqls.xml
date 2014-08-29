@@ -3,7 +3,7 @@
 
 <sqlMap namespace="Shopping.Shop">
 
-	<resultMap id="resultShop" class="Shopping.Shop">
+	<resultMap id="resultShop" class="Shopping.DTO.Shop">
 		<result property="shopSeq" column="shopSeq" />
 		<result property="adType" column="adType" />
 		<result property="adStateCode" column="adStateCode" />
@@ -27,7 +27,7 @@
 		<result property="prodCount" column="prodCount" />
 	</resultMap>
 	
-	<select id="find" parameterClass="Shopping.Shop" resultMap="resultShop">
+	<select id="find" parameterClass="Shopping.DTO.Shop" resultMap="resultShop">
 		SELECT * FROM Shop
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="shopSeq" compareValue="0">
@@ -48,7 +48,7 @@
 		resultMap="stringResult">
 		SELECT $value$ AS "Result" FROM Shop
 	</select>	
-	<insert id="insert" parameterClass="Shopping.Shop">
+	<insert id="insert" parameterClass="Shopping.DTO.Shop">
 		INSERT INTO
 		Shop (
 		shopSeq,adType,adStateCode,shopName,shopDomain,shopMobDomain,webUrl,mobUrl
@@ -61,7 +61,7 @@
 		)
 	</insert>
 	
-	<update id="update" parameterClass="Shopping.Shop">
+	<update id="update" parameterClass="Shopping.DTO.Shop">
 		UPDATE Shop SET
 		shopSeq = #shopSeq# ,
 		adType = #adType# ,
@@ -91,7 +91,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Shopping.Shop">
+	<delete id="delete" parameterClass="Shopping.DTO.Shop">
 		DELETE FROM Shop
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="shopSeq" compareValue="0">
@@ -102,6 +102,9 @@
 
 	<statement id="drop">
 		DROP TABLE Shop CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE Shop
 	</statement>
 
 	<statement id="create">

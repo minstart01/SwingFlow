@@ -1,5 +1,5 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="Common.Address"%>
+<%@page import="Common.DTO.Address"%>
 <%@page import="Movie.DAO.MovieDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

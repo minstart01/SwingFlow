@@ -3,7 +3,7 @@
 
 <sqlMap namespace="Shopping.DownCoupon">
 
-	<resultMap id="resultDownCoupon" class="Shopping.DownCoupon">
+	<resultMap id="resultDownCoupon" class="Shopping.DTO.DownCoupon">
 		<result property="downCouponSeq" column="downCouponSeq" />
 		<result property="mNo" column="mNo" />
 		<result property="couponSeq" column="couponSeq" />
@@ -11,7 +11,7 @@
 		<result property="downDate" column="downDate" />
 	</resultMap>
 	
-	<select id="find" parameterClass="Shopping.DownCoupon" resultMap="resultDownCoupon">
+	<select id="find" parameterClass="Shopping.DTO.DownCoupon" resultMap="resultDownCoupon">
 		SELECT * FROM DownCoupon
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="downCouponSeq" compareValue="0">
@@ -25,7 +25,7 @@
 		$value$
 	</select>
 	
-	<insert id="insert" parameterClass="Shopping.DownCoupon">
+	<insert id="insert" parameterClass="Shopping.DTO.DownCoupon">
 		INSERT INTO
 		DownCoupon (
 		downCouponSeq,mNo,couponSeq,couponCode,downDate
@@ -34,7 +34,7 @@
 		)
 	</insert>
 	
-	<update id="update" parameterClass="Shopping.DownCoupon">
+	<update id="update" parameterClass="Shopping.DTO.DownCoupon">
 		UPDATE DownCoupon SET
 		downCouponSeq = #downCouponSeq# ,
 		mNo = #mNo# ,
@@ -48,7 +48,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Shopping.DownCoupon">
+	<delete id="delete" parameterClass="Shopping.DTO.DownCoupon">
 		DELETE FROM DownCoupon
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="downCouponSeq" compareValue="0">
@@ -59,6 +59,9 @@
 
 	<statement id="drop">
 		DROP TABLE DownCoupon CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE DownCoupon
 	</statement>
 
 	<statement id="create">

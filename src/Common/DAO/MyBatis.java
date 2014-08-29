@@ -1,4 +1,4 @@
-package Common;
+package Common.DAO;
 
 import java.io.IOException;
 import java.io.Reader;

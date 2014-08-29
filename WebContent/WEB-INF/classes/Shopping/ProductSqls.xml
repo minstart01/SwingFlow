@@ -3,7 +3,7 @@
 
 <sqlMap namespace="Shopping.Product">
 
-	<resultMap id="resultProduct" class="Shopping.Product">
+	<resultMap id="resultProduct" class="Shopping.DTO.Product">
 		<result property="prodSeq" column="prodSeq" />
 		<result property="shopSeq" column="shopSeq" />
 		<result property="prodCateSeq" column="prodCateSeq" />
@@ -18,7 +18,7 @@
 		<result property="couponSeq" column="couponSeq" />
 	</resultMap>
 	
-	<select id="find" parameterClass="Shopping.Product" resultMap="resultProduct">
+	<select id="find" parameterClass="Shopping.DTO.Product" resultMap="resultProduct">
 		SELECT * FROM Product
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="prodSeq" compareValue="0">
@@ -32,7 +32,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Shopping.Product">
+	<insert id="insert" parameterClass="Shopping.DTO.Product">
 		INSERT INTO
 		Product (
 		prodSeq,shopSeq,prodCateSeq,newYn,imgPath,detailImgPath,price,dcPrice,bestOrder,stickerPath,kindSeq,couponSeq
@@ -41,7 +41,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Shopping.Product">
+	<update id="update" parameterClass="Shopping.DTO.Product">
 		UPDATE Product SET
 		prodSeq = #prodSeq# ,
 		shopSeq = #shopSeq# ,
@@ -62,7 +62,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Shopping.Product">
+	<delete id="delete" parameterClass="Shopping.DTO.Product">
 		DELETE FROM Product
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="prodSeq" compareValue="0">
@@ -73,6 +73,9 @@
 
 	<statement id="drop">
 		DROP TABLE Product CASCADE CONSTRAINT
+	</statement>
+	<statement id="truncate">
+		truncate TABLE Product CASCADE CONSTRAINT
 	</statement>
 
 	<statement id="create">
