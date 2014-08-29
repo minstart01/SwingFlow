@@ -1,4 +1,4 @@
-package Shopping;
+package Shopping.DTO;
 
 public class LatelyShop {
 	private int latelyShopSeq;

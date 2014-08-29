@@ -1,4 +1,4 @@
-package Shopping;
+package Shopping.DTO;
 
 public class KindGubun {
 	private int kindSeq;

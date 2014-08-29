@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import Common.MyBatis;
-import Shopping.Shop;
+import Shopping.DTO.Shop;
 
 @Controller
 public class ShopJoinController {

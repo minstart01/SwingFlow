@@ -1,12 +1,16 @@
 @CHARSET "UTF-8";
-.join_form
+.shopjoin_form
 {	
-	
-	width:780px;
+	position: relative;
+	top: 5px;
+	left: 5px;
+	overflow: auto;
+	overflow-y: hidden;
+/* 	width: 90%; */
 	padding-top: 10px;
 	margin-bottom: 20px;	
 }
-.join_table{
+.shopjoin_table{
 	font-size:17px;	
 	font-weight:bold;	
 	font-family:돋움;

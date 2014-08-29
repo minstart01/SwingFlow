@@ -1,4 +1,4 @@
-package Shopping;
+package Shopping.DTO;
 
 import java.sql.Date;
 

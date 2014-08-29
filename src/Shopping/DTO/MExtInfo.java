@@ -1,4 +1,4 @@
-package Shopping;
+package Shopping.DTO;
 
 public class MExtInfo {
 	private int mNo;

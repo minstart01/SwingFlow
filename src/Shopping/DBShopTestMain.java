@@ -3,6 +3,7 @@ package Shopping;
 import java.sql.Date;
 import java.util.List;
 
+import Shopping.DTO.Shop;
 import Common.MyBatis;
 
 public class DBShopTestMain {
