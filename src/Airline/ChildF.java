@@ -6,11 +6,11 @@ public class ChildF {
 	}
 
 	private int r_No;
-	private String c_Travel;
-	private String c_Business;
-	private String c_First;
+	private int c_Travel;
+	private int c_Business;
+	private int c_First;
 
-	public ChildF(int r_No, String c_Travel, String c_Business, String c_First) {
+	public ChildF(int r_No, int c_Travel, int c_Business, int c_First) {
 		super();
 		this.r_No = r_No;
 		this.c_Travel = c_Travel;
@@ -26,32 +26,28 @@ public class ChildF {
 		this.r_No = r_No;
 	}
 
-	public String getC_Travel() {
+	public int getC_Travel() {
 		return c_Travel;
 	}
 
-	public void setC_Travel(String c_Travel) {
+	public void setC_Travel(int c_Travel) {
 		this.c_Travel = c_Travel;
 	}
 
-	public String getC_Business() {
+	public int getC_Business() {
 		return c_Business;
 	}
 
-	public void setC_Business(String c_Business) {
+	public void setC_Business(int c_Business) {
 		this.c_Business = c_Business;
 	}
 
-	public String getC_First() {
+	public int getC_First() {
 		return c_First;
 	}
 
-	public void setC_First(String c_First) {
+	public void setC_First(int c_First) {
 		this.c_First = c_First;
 	}
-	public String toString() {
-		return this.r_No + ":" + this.c_Travel + "," + this.c_Business + ","
-				+ this.c_First;
 
-	}
 }

@@ -6,6 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import Airline.AdultF;
+import Airline.ChildF;
+import Airline.City;
+import Airline.FlightNo;
+import Airline.Register;
 import Airline.Schedule;
 import Airline.DTO.Admin_list;
 import Airline.DTO.DbClose;
@@ -16,32 +21,123 @@ public class AdminDAO {
  String sql;
  PreparedStatement pstmt;
  ResultSet rs;
- String schedule;
+ String qsch;
+ String qreg; 
+ int maxSel;
  int su=0;
+ int su01=0;
+ 
  public static AdminDAO getInstance(){
   AdminDAO aDao = new AdminDAO();
   return aDao;
  }
  public int ScheduleIns(Schedule sch){
 	 conn = DbSet.getConnection();
-	 schedule="INSERT INTO SWINGFLOW.SCHEDULE (S_DEPDAY, S_DEPTTIME, S_ARRTTIME, S_FLIGHTTIME ) VALUES (?,?,?,?)";
-	 
+	 qsch="INSERT INTO SCHEDULE (s_Code, S_DEPDAY, S_DEPTTIME, S_ARRTTIME, S_FLIGHTTIME ) VALUES (scheseq.nextval,?,?,?,?)";
+	// "INSERT INTO register VALUES (?,(select max(s_code) from schedule))";
+	
 	 try {
-		pstmt = conn.prepareStatement(schedule);
-		pstmt.setDate(1, sch.getS_DepDay());
+		pstmt = conn.prepareStatement(qsch);
+		pstmt.setString(1, sch.getS_DepDay());
 		pstmt.setString(2, sch.getS_DeptTime());
 		pstmt.setString(3, sch.getS_ArrtTime());
 		pstmt.setString(4, sch.getS_FlightTime());
-		
-		su = pstmt.executeUpdate();
-
-	} catch (SQLException e) {
+		su = pstmt.executeUpdate();	
+	} 
+	 catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}finally{
 		DbClose.close(pstmt, conn);
 	}
 	return su;	 
+ }
+ 
+ public int RegisterIns(Register reg){
+	conn = DbSet.getConnection();
+	try {
+		pstmt = conn.prepareStatement("select max(s_code) from schedule");
+		rs = pstmt.executeQuery();
+		if (rs.next()) {
+			maxSel = rs.getInt(1);
+			pstmt = conn.prepareStatement("INSERT INTO register VALUES (registerseq.nextval,?)");
+			pstmt.setInt(1, maxSel);
+			su = pstmt.executeUpdate();
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return su;	 
+ }
+
+ public int flightNoIns(FlightNo flno){
+	conn = DbSet.getConnection();
+	try {
+		pstmt = conn.prepareStatement("INSERT INTO FLIGHTNO (R_NO, FN_AIR, R_SEATTOTAL, FN_NO ) VALUES  ( FlightNoseq.nextval, ?,?,? )");
+		pstmt.setString(1, flno.getFn_air());
+		pstmt.setInt(2, flno.getR_SeatTotal());
+		pstmt.setString(3, flno.getFn_no());
+		su = pstmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	return su;
+} 
+
+ public int cityIns(City city){
+	 conn = DbSet.getConnection();
+	 try {
+		pstmt = conn.prepareStatement("INSERT INTO CITY (R_NO, C_DEPCITY, C_ARRCITY ) VALUES  ( cityseq.nextval, ?, ? )");
+		pstmt.setString(1, city.getC_DepCity());
+		pstmt.setString(2, city.getC_ArrCity());
+		su = pstmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	 return su;
+ }
+
+ public int adultIns(AdultF af){
+	 conn = DbSet.getConnection();
+	 try {
+		pstmt = conn.prepareStatement("INSERT INTO ADULTF (R_NO, A_TRAVEL, A_BUSINESS, A_FIRST ) VALUES  ( AdultFseq.nextval, ?, ?, ?)");
+		pstmt.setInt(1, af.getA_Travel());
+		pstmt.setInt(2, af.getA_Business());
+		pstmt.setInt(3, af.getA_First());
+		su= pstmt.executeUpdate();
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	 return su;
+ }
+ 
+ public int childIns(ChildF cf){
+	 conn = DbSet.getConnection();
+	 try {
+		pstmt = conn.prepareStatement("INSERT INTO CHILDF (R_NO, C_TRAVEL, C_BUSINESS, C_FIRST ) VALUES  ( ChildFseq.nextval, ?, ?, ?)");
+		pstmt.setInt(1, cf.getC_Travel());
+		pstmt.setInt(2, cf.getC_Business());
+		pstmt.setInt(3, cf.getC_First());
+		su= pstmt.executeUpdate();
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	 return su;
  }
  
  public ArrayList<Admin_list> admin_list(){
