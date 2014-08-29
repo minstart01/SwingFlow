@@ -9,8 +9,29 @@
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script src="/SwingFlow/Script/Movie/InsertMovie.js"></script>
+<script type="text/javascript">
 
+function popup(url,width,height){
+	
+	
+	window.open(url,"popup","width=" + width + ", height=" + height + ",left=400,top=200");
+	
+}
+/* , time, grade, genre, date */
+function setChildValue(name, director, actor, time, grade, genre, date){
+    $(".mName").text(name);
+    $(".mDirector").text(director);
+    $(".mActor").text(actor);
+    $(".mTime").text(time);
+    $(".mGrade").text(grade);
+    $(".mGenre").text(genre);
+    $(".mStart").text(date);
+
+}
+</script>
+</head>
 <body>
+<form name="pfrm">
 
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <div id="wrapper">
@@ -19,47 +40,47 @@
 
 <div id="main_content" >
 
-<div class="insert_title">영화등록하기</div>
+<div class="insert_title">영화등록하기<%=request.getParameter("a") %></div>
 
 <div class="title_box">영화선택</div>
 
 
  <section id="moviebox">
 
-  
+  <input type="hidden" name="abc" id="a">
     	<table border="1" cellspacing="0" width="800">
     	<tr>
         	<td width="230" height="300" align="center" rowspan="6"><label for="movie">포스터</label></td>
             <td width="87" align="center">영화명</td>
-            <td></td>
+            <td class="mName"></td>
     
         </tr>
     	<tr>
         	<td  align="center"><label for="director">감독</label></td>
-            <td></td>
+            <td class="mDirector"></td>
         
         </tr>
         <tr>
         	<td align="center"><label for="actor">출연배우</label></td>
-            <td></td>
+            <td class="mActor"></td>
      
         </tr>
         <tr>
         	<td align="center"><label for="mtime">상영시간</label></td>
-            <td></td>
+            <td class="mTime"></td>
         </tr>
         <tr>
         	<td align="center"> <label for="grade">관람가</label></td>
-            <td></td>
+            <td class="mGrade"></td>
         </tr>
         <tr>
         	<td align="center"><label for="genre">장르</label></td>
-            <td></td>	
+            <td class="mGenre"></td>	
         </tr>
          <tr>
-         	<td height="50" align="center" class="m_bt">검색</td>
+         	<td height="50" align="center" class="m_bt" onclick="popup('SearchMovie.jsp','470','320');">검색</td>
         	<td align="center"><label for="mstart">개봉일</label></td>
-            <td></td>
+            <td class="mStart"></td>
            
               
         </tr>
@@ -368,3 +389,6 @@
 </div>
 </div>
 <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
+</form>
+</body>
+</html>

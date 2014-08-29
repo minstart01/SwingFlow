@@ -6,35 +6,36 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+
 .title_box {
-	border: 1px solid black;
+	font-weight:bold;
 	width: 400px;
 	font-size: 23px;
 	margin: 5px 0 15px 5px;
 }
 
 .mbox {
-	border: 1px solid black;
+
 	width: 450px;
 	margin-bottom: 15px;
 	height: 30px;
 }
 
 .cate {
-	border: 1px solid black;
+	
 	float: left;
 	margin-left: 5px;
 }
 
 .search_txt {
 	float: left;
-	border: 1px solid black;
+
 	margin-left: 5px;
 }
 
 .search_bt {
 	float: left;
-	border: 1px solid black;
+
 	margin-left: 5px;
 }
 
@@ -48,22 +49,37 @@
 	color: white;
 	border: none;
 	height: 25px;
+	cursor: pointer;
 }
 
 .result_txt {
-	border: 1px solid black;
+
 	float: left;
 	margin-left: 5px;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .result_box {
 	float: left;
-	border: 1px solid black;
+
 	width: 430px;
-	height: 220px;
+	height: 180px;
 	overflow: auto;
 	margin-left: 5px;
+}
+.table_title{
+		background: #0043A8;
+	background: -moz-linear-gradient(#43A9FF, #0043A8);
+	background: -o-linear-gradient(#43A9FF, #0043A8);
+	background: -webkit-linear-gradient(#43A9FF, #0043A8);
+	color: white;
+	font-weight:bold;
+}
+.result_table tr{
+	cursor:pointer;	
+}
+.result_table tr:hover{
+	background:#B4FFFF;
 }
 </style>
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
@@ -109,56 +125,172 @@
 	//AJAX After
 	//AJAX After
 	//AJAX After
+	
+	var plus=1;
 	$(function(e) {
+		
+		
+		
+		$("#msearch").focus();
+		
 		$("#searchbt").click(function(e) {
+			
+			var cate = $("#select_cate").val();
+			
+			
+			
+			$(".result_table").empty();
+			
+			if(cate==1){
+			
 			var mName = $("#msearch").val();
+			var gubun="name";
 			// 		alert("aa");
 			$.ajax({
 				url : 'mNameSearch.jsp',
 				type : 'GET',
 				data : {
 					mName : encodeURI(mName),
+					gubun : encodeURI(gubun),
 				},
 				success : SearchmName
 			});
+			}else if(cate==2){
+				var mName = $("#msearch").val();
+				var gubun="director";
+				// 		alert("aa");
+				$.ajax({
+					url : 'mNameSearch.jsp',
+					type : 'GET',
+					data : {
+						mName : encodeURI(mName),
+						gubun : encodeURI(gubun),
+					},
+					success : SearchmName
+				});
+				
+			}
 
 		});
 	});
 	function SearchmName(data) {
-		var items = $(data).find("item");
-		$("#b").empty();
+		var items = $(data).find("movie");
+		
 		for (var i = 0; i < items.length; i++) {
-			$(".result_box").append(
-					$(items[i]).find("title").find("content").text());
+			var mCode = $(items[i]).find("movieCd").text();
+			
+			$.ajax({
+				url : 'mNameSearch.jsp',
+				type : 'GET',
+				data : {
+					mCode : encodeURI(mCode),
+					gubun : encodeURI("code"),
+					
+				},
+				success : SearchmCode
+			});
+			
+			}
+			
 		}
+	
+	function SearchmCode(data) {
+		var items = $(data).find("movieInfo");
+		
+		var hidden = "<input type='hidden' class='mName" + plus + "' name='mName'>";
+		hidden +="<input type='hidden' class='mDirector" + plus + "' name='mDirector'>";
+		hidden += "<input type='hidden' class='mActor" + plus + "' name='mActor'>";
+		hidden += "<input type='hidden' class='mTime" + plus + "' name='mTime'>";
+		hidden += "<input type='hidden' class='mGrade" + plus + "' name='mGrade'>";
+		hidden += "<input type='hidden' class='mGenre" + plus + "' name='mGenre'>";
+		hidden += "<input type='hidden' class='mDate" + plus + "' name='mDate'>";
+		
+		
+		$(".result_table").append("<tr class='sel_movie' onclick='selmovie(" + plus + ")'><td width='290' align='center'>" + $(items).find("movieNm").text() + "</td><td width='130' align='center'>" + $(items).find("directors").find("director").find("peopleNm").text() + hidden + "</td>/tr>");
+		var name = $(items).find("movieNm").text();
+		var director = $(items).find("directors").find("director").find("peopleNm").text();
+		var actor = $(items).find("actors").find("actor");
+		var actors = "";
+		var time = $(items).find("showTm").text() + "분";
+		var grade = $(items).find("audits").find("audit").find("watchGradeNm").text();
+		var genre =  $(items).find("genres").find("genre").find("genreNm").text();
+		var mdate = $(items).find("openDt").text()
+		var sdate = mdate.substring(0,4) + "년 " + mdate.substring(4,6) + "월 " + mdate.substring(6,8) + "일";
+		
+		for(var i=0;i<actor.length;i++){
+	
+		if(i==4 || i+1 == actor.length){
+			actors += $(actor[i]).find("peopleNm").text();
+			break;
+		}else{
+			actors += $(actor[i]).find("peopleNm").text() + ", ";
+			}
+		}
+		
+		$(".mName" + plus).val(name);
+		$(".mDirector" + plus).val(director);
+		$(".mActor" + plus).val(actors);
+		$(".mTime" + plus).val(time);
+		$(".mGrade" + plus).val(grade);
+		$(".mGenre" + plus).val(genre);
+		$(".mDate" + plus).val(sdate);
+		
+		
+		
+		plus++;
 	}
+	
+	function selmovie(no){
+		
+		alert(no);
+		opener.setChildValue($(".mName" + no).val(), $(".mDirector" + no).val(), $(".mActor" + no).val(), $(".mTime" + no).val(), $(".mGrade" + no).val(), $(".mGenre" + no).val(), $(".mDate" + no).val() );
+		window.close();
+	}
+
+	
+	function selectMovie(){
+			
+			opener.setChildValue($("#mName").val(), $("#mDirector").val(), $("#mActor").val());
+			window.close();
+	}
+			
+	
 </script>
 
 
 </head>
+<form action="InsertMovie.jsp" name="frm">
 
-<body>
-	<div style="border: 1px solid black; width: 450px; height: 500px;">
+
+<div style="width: 450px; height: 300px;">
 		<div class="title_box">영화검색</div>
 		<div class="mbox">
 			<div class="cate">
-				<select>
-					<option>영화명</option>
-					<option>감독명</option>
-					<option>배우명</option>
-				</select>
+			<select id="select_cate">
+            	<option value="1">영화명</option>
+                <option value="2">감독명</option>
+            </select>
 			</div>
 			<div class="search_txt">
-				<input type="text" id="msearch" size="35" />
+				<input type="text" id="msearch" size="35" name="a" />
 			</div>
 			<div class="search_bt">
 				<input type="button" value="검색" id="searchbt" />
 			</div>
 		</div>
 		<div class="result_txt">검색결과</div>
-		<div class="result_box"></div>
+		<div class="result_box">
+			<table cellspacing="0" cellpadding="5" class="table_title">
+				<tr>
+					<td width="290" align="center" style="border-right:1px solid white;">영화명</td>
+					<td width="130" align="center" class="movie_sel">감독</td>
+                   
+				</tr>
+			</table>
+			<table class="result_table" cellspacing="0" cellpadding="5">
+			
+			</table>
+		</div>
 	</div>
-
-
-</body>
+</form>
 </html>
