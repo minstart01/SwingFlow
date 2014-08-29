@@ -61,7 +61,7 @@
 <nav id="sidebar" class="column-left">
 		<ul>
         <h2>항공권 예매</h2>
-			<li class="li"><a href="R1_Regist.jsp">국제선</a></li>
+			<li class="li"><a href="R1_.jsp">국제선</a></li>
 			<li><a href="#">예약조회</a></li>
 		</ul>
 		<ul>
@@ -77,6 +77,12 @@
 		<h2>스케줄 조회</h2>
 			<li class="li"><a href="#">스케줄 조회</a></li>
 		</ul>
+				<ul>
+		<h2>관리자페이지</h2>
+		  	<li><a href="Admin_insertSchedule.jsp">스케줄관리</a></li>
+			 <li><a href="Admin_list.jsp">예약관리</a></li>
+			 <li><a href="Admin_memberlist.jsp">회원관리</a></li>
+</ul>
 		
 		</nav>
 </body>

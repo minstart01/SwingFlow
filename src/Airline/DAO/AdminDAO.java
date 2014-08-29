@@ -15,6 +15,7 @@ import Airline.Schedule;
 import Airline.DTO.Admin_list;
 import Airline.DTO.DbClose;
 import Airline.DTO.DbSet;
+import Airline.DTO.ScheduleListDTO;
 
 public class AdminDAO {
  Connection conn;
@@ -171,9 +172,36 @@ public class AdminDAO {
   }finally{
    DbClose.close(pstmt, conn, rs);
   }
-  
-  
   return aDtoL;
+ }
+ 
+ public ArrayList<ScheduleListDTO> schedule_list(){
+	 ArrayList<ScheduleListDTO> sDtoL = new ArrayList<>();
+	 conn = DbSet.getConnection();
+	 sql="select r.r_No, fn.fn_air, fn.fn_no, c.c_DepCity, c.c_ArrCity, s.s_DeptTime, to_char(s.s_DepDay,'yyyy-mm-dd') from Register r, Schedule s,  City c, FlightNo fn where r.r_no=fn.r_no and r.r_no=c.r_no and r.s_code=s.s_code";
+	
+	 try {
+		pstmt = conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+		while (rs.next()) {
+			ScheduleListDTO dto = new ScheduleListDTO();
+	//		R_NO	FN_AIR	FN_NO	C_DEPCITY	C_ARRCITY	S_DEPTTIME	TO_CHAR(S.S_DEPDAY,'YYYY-MM-DD')	
+			dto.setR_No(rs.getInt(1));
+			dto.setFn_air(rs.getString(2));
+			dto.setFn_no(rs.getString(3));
+			dto.setC_DepCity(rs.getString(4));
+			dto.setC_ArrCity(rs.getString(5));
+			dto.setS_DeptTime(rs.getString(6));
+			dto.setS_DepDay(rs.getString(7));
+			
+			sDtoL.add(dto);
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	 return sDtoL;
+	 
  }
 }
 
