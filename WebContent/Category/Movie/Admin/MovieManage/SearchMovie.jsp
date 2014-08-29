@@ -242,24 +242,24 @@
 	
 	function selmovie(no){
 		
-		alert(no);
+		
 		opener.setChildValue($(".mName" + no).val(), $(".mDirector" + no).val(), $(".mActor" + no).val(), $(".mTime" + no).val(), $(".mGrade" + no).val(), $(".mGenre" + no).val(), $(".mDate" + no).val() );
 		window.close();
 	}
 
 	
-	function selectMovie(){
+	/* function selectMovie(){
 			
 			opener.setChildValue($("#mName").val(), $("#mDirector").val(), $("#mActor").val());
 			window.close();
-	}
+	} */
 			
 	
 </script>
 
 
 </head>
-<form action="InsertMovie.jsp" name="frm">
+<body>
 
 
 <div style="width: 450px; height: 300px;">
@@ -292,5 +292,5 @@
 			</table>
 		</div>
 	</div>
-</form>
+</body>
 </html>
