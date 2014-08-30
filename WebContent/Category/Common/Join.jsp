@@ -13,13 +13,93 @@
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script>
 
-/* 아이디 중복확인 */
-function idChk(check){
- var id = $("#id").val();
- if(id==check){
-  alert("아이디가 중복됩니다");
- }
-}
+
+$(function (){
+	/* 아이디 중복확인 */
+	$(".over_button").click(function (e){
+
+		
+		var id = $("#id").val();
+		
+				
+		$("#idcheck").load("IdCheck.jsp?mId=" + id);
+		
+		
+		/* $.ajax({
+			url : 'IdCheck.jsp',
+			type : 'GET',
+			data : {
+				mId : encodeURI(id),
+			},
+			success : overcheck
+		}); */
+	});
+	
+	/* 항목 입력 */
+	$(".submit").click(function (e){
+		var id = $("#id").val();
+		var pwd = $("#pwd").val();
+		var pwd2 = $("#pwd2").val();
+		var name = $("#name").val();
+		var sex = $(':radio[name="sCode"]:checked').val();
+		var year = $(".span_year").text();
+		var month = $(".span_month").text();
+		var day = $(".span_day").text();
+		var sl = $(':radio[name="bCode"]:checked').val();
+		var zipcode = $(".zipcode1").val();
+		var zipcode2 = $(".zipcode1").val();
+		var addrtest = $(".addrtext").val();
+		var addrdetail = $(".addrdetail").val();
+		var email = $(".email").val();
+		var phone = $(".phone").val();
+				
+		if(id == ""){
+			alert("아이디를 입력하세요.")
+		}
+		if(pwd == "" || pwd2 == ""){
+			alert("비밀번호를 입력하세요.");
+		}
+		if(name == ""){
+			alert("이름을 입력하세요.");
+		}
+		if(sex == null){
+			alert("성별을 체크하세요.");
+		}
+		if(year == "년도"){
+			alert("년도를 입력하세요.");
+		}
+		if(month == "월"){
+			alert("월을 입력하세요.");
+		}
+		if(day == "일"){
+			alert("일을 입력하세요.");
+		}
+		if(sl == null){
+			alert("양력/음력을 체크하세요");
+		}
+		if(zipcode == "" || zipcode2 =="" || addrtest == ""){
+			alert("주소를 입력하세요");
+		}
+		if(addrdetail == ""){
+			alert("상세 주소를 입력하세요");
+		}
+		if(email == ""){
+			alert("이메일을 입력하세요");
+		}
+		if(phone == ""){
+			alert("핸드폰을 입력하세요");
+		}
+		if(id != "" && pwd != "" && pwd2 != "" && name != "" && sex != null && year != "년도" && month != "월" && day != "일" && sl != null && zipcode != "" && zipcode2 != "" && addrtest != "" && addrdetail != "" && email != "" && phone != ""){
+			$(".mBirth").val($(".myear").val() + $(".mmonth").val() + $(".mday").val());
+			document.frm.submit();
+		}
+		
+	});
+});
+
+
+
+
 
 /* 비밀번호 길이 */
 function pwdLength(){
@@ -105,14 +185,16 @@ function regChk(){
  var regx = /^[a-z0-9-_]*$/;
   if (!regx.test(id) || id.length<6){
  	$("#idcheck").css("color","red");
+ 	$("#idcheck").text("영문소문자,숫자 조합 6~40자(-,_사용가능)");
  }else{
 	$("#idcheck").css("color","black");
+	$("#idcheck").text("영문소문자,숫자 조합 6~40자(-,_사용가능)");
  }
+  
 
 }
 
-
-
+/* 생년월일 */
 function date(date){
 	if(date=="year"){
 		$(".select_" + date).show();
@@ -163,12 +245,14 @@ function popup(url,width,height){
 	window.open(url,"popup","width=" + width + ", height=" + height + ",left=" + iwidth + ",top=" + iheight);
 }
 
-
-function Join(){
+/* 회원가입 버튼 */
+/* function Join(){
 	$(".mBirth").val($(".myear").val() + $(".mmonth").val() + $(".mday").val());
 	document.frm.submit();
 }
+ */
 
+/* 우편번호 */
 function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
 	
 	$(".aCode").val(seq);
@@ -181,9 +265,10 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
 	$(".addrtext").val(sido + " " + gugun + " " + dong + " " + ri);
 	$(".addrdetail").val(bunji + " ");
 	$(".addrdetail").focus();
-	var a;
 
 }
+
+
 
 </script>
 </head>
@@ -233,7 +318,6 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
         <tr>
         	<td class="first_td"><label for="birth">생년월일</label></td>
             <td>
-            
             <div class="year_div" onclick="date('year');">
             <span class="span_year select_span">년도</span><span class="img_span"><img src="/SwingFlow/images/Common/button.png" /></span>
              <div class="select_div select_year">
@@ -301,7 +385,7 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
         </tr>
         <tr>
         	<td class="first_td"><label for="email">이메일</label></td>
-            <td><input type="text" class="text" name="mEmail" /></td>
+            <td><input type="text" class="text email" name="mEmail" /></td>
             <td></td>
         </tr>
         <tr>
@@ -311,7 +395,7 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
         </tr>
         <tr>
         	<td class="first_td"><label for="phone">휴대폰</label></td>
-            <td><input type="text" class="text" name="mPhone" onkeyup="phone_check(mPhone);" /></td>
+            <td><input type="text" class="text phone" name="mPhone" onkeyup="phone_check(mPhone);" /></td>
             <td width="155"><span id="phonecheck" style="font-size:13px;">-&nbsp;제외</span></td>
         </tr>
         <tr>
@@ -330,7 +414,7 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
 
 </center>
 
-
+<div id="resultid">aaa</div>
  <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
  </form>
 </body>

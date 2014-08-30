@@ -54,9 +54,28 @@ public class MemberDAO {
 			
 		return su;
 	}
-	public void SelectAddr() {
+	
+	public String IdCheck(String mId){
 		
+		conn = DbSet.getConnection();
+		sql = "SELECT MID FROM MEMBER where MID=?";
+		String CheckID="";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mId);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				CheckID = rs.getString("MID");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		return CheckID;
 	}
+	
 	
 	public ArrayList<Address> SelectAddr(String dong){		/* 주소 */
 		ArrayList<Address> list = new ArrayList<Address>();

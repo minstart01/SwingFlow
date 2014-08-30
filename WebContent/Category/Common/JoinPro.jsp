@@ -26,4 +26,4 @@ MemberDAO dao = new MemberDAO();
 dto.getmId() + " " + dto.getmPwd() + " "  + dto.getmName() + " " + dto.getsCode() + " " + dto.getmBirth() + " " + dto.getmBirth() + " " + dto.getbCode() + " " + dto.getaCode() + " " + 
 dto.getmDetailAddr() + " " + dto.getmEmail() + " " + dto.geteCode() + " " + dto.getmPhone() + " " + dto.getpCode()
 
-  %>
+ %> 
