@@ -1,5 +1,13 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="Airline.DAO.AdminDAO"%>
+<%@page import="Airline.DTO.ScheduleDetailDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    ScheduleDetailDTO sDto = new ScheduleDetailDTO();
+    AdminDAO dao = new AdminDAO();
+dao.sDetail(v_no);
+    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -47,7 +55,7 @@ function nextEdit(){
 <div id="main_content">
 
 
-<h2>운항스케줄 등록</h2><form action="Admin_insertSchedulePro.jsp" name="next">
+<h2>운항스케줄  수정</h2><form action="Admin_insertSchedulePro.jsp" name="next">
 <table border="1" cellpadding="6" cellspacing="0">
 <tr>
 	<td width="100">항공사</td>

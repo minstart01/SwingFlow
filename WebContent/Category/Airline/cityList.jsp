@@ -112,7 +112,7 @@ color:black;
 	<ul id="JP">
 	<li><a href="#none" class="citylist">도쿄/나리타 (NRT)</a></li>
 	<li><a href="#none" class="citylist">하네다(HND)</a></li>
-	<li><a href="#none" class="citylist">오사카(간사이)(OSA)</a></li>
+	<li><a href="#none" class="citylist">오사카(OSA)</a></li>
 	</ul>
 	<ul id="EA">
 	<li><a href="#none" class="citylist">방콕</a></li>

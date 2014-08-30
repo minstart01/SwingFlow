@@ -86,7 +86,7 @@ function nextEdit(){
    %>
   <tr id="r_no">
     <td><%=i+1 %></td>
-    <td><%=dto.getFn_air() %><input type="hidden"></td>
+    <td><%=dto.getFn_air() %><input type="hidden" name=""></td>
     <td><%=dto.getFn_no() %></td>
     <td>Y</td>
     <td></td>

@@ -15,6 +15,7 @@ import Airline.Schedule;
 import Airline.DTO.Admin_list;
 import Airline.DTO.DbClose;
 import Airline.DTO.DbSet;
+import Airline.DTO.ScheduleDetailDTO;
 import Airline.DTO.ScheduleListDTO;
 
 public class AdminDAO {
@@ -203,10 +204,43 @@ public class AdminDAO {
 	 return sDtoL;
 	 
  }
- select r.r_No, fn.fn_air, fn.fn_no, fn.r_SeatTotal, s.s_FlightTime, c.c_DepCity, c.c_ArrCity, af.a_Travel, af.a_business, af.a_first, 
- cf.c_travel, cf.c_business, cf.c_first,s.s_DeptTime, to_char(s.s_DepDay,'yyyy-mm-dd') 
- from Register r, Schedule s,  City c, FlightNo fn, AdultF af, ChildF cf 
- where r.r_no=fn.r_no and r.r_no=c.r_no and r.s_code=s.s_code and r.r_no=af.r_no and r.r_no=cf.r_no and r.r_no=18;
+ 
+public ScheduleDetailDTO sDetail(int v_no){
+	ScheduleDetailDTO dto = new ScheduleDetailDTO();
+	conn = DbSet.getConnection();
+	sql=" select r.r_No, fn.fn_air, fn.fn_no, fn.r_SeatTotal, s.s_FlightTime, c.c_DepCity, c.c_ArrCity, af.a_Travel, af.a_business, af.a_first, cf.c_travel, cf.c_business, cf.c_first,"
+			+ "s.s_DeptTime, to_char(s.s_DepDay,'yyyy-mm-dd') from Register r, Schedule s,  City c, FlightNo fn, AdultF af, ChildF cf where r.r_no=fn.r_no and r.r_no=c.r_no and r.s_code=s.s_code and r.r_no=af.r_no and r.r_no=cf.r_no and r.r_no=?";
+	try {
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, v_no);
+		rs = pstmt.executeQuery();
+		while (rs.next()) {
+			dto.setR_no(rs.getInt(1));
+			dto.setFn_air(rs.getString(2));
+			dto.setFn_no(rs.getString(3));
+			dto.setR_seattotal(rs.getInt(4));
+			dto.setS_FLIGHTTIME(rs.getString(5));
+			dto.setC_DEPCITY(rs.getString(6));
+			dto.setC_ARRCITY(rs.getString(7));
+			dto.setA_TRAVEL(rs.getInt(8));
+			dto.setA_BUSINESS(rs.getInt(9));
+			dto.setA_FIRST(rs.getInt(10));
+			dto.setC_TRAVEL(rs.getInt(11));
+			dto.setC_BUSINESS(rs.getInt(12));
+			dto.setS_DEPTTIME(rs.getString(13));
+			dto.setS_DEPDAY(rs.getString(14));
+		}
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally{
+		DbClose.close(pstmt, conn, rs);
+	}	
+	return dto;
+	
+}
+
 
 }
 
