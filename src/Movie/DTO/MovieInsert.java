@@ -1,4 +1,4 @@
-package Movie;
+package Movie.DTO;
 
 import java.sql.Date;
 

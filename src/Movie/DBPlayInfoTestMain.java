@@ -3,6 +3,7 @@ package Movie;
 import java.util.List;
 
 import Common.MyBatis;
+import Movie.DTO.PlayInfo;
 
 public class DBPlayInfoTestMain {
 
@@ -28,7 +29,7 @@ public class DBPlayInfoTestMain {
 				 * 
 				 * 사용 방법: boolean playInfoDB.find(nameSpace, MyClassObject)
 				 **/
-				MyBatis<PlayInfo> playInfoDB = new MyBatis<PlayInfo>("Movie.PlayInfo");
+				MyBatis<PlayInfo> playInfoDB = new MyBatis<PlayInfo>("Movie.DTO.PlayInfo");
 				int ret = 0;
 				// 리턴값 받을 변수(List)
 				List<PlayInfo> luser = null;

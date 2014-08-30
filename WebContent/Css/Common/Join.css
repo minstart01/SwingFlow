@@ -34,6 +34,11 @@
 	border: none;
 	cursor: pointer;
 }
+.over_button:hover, .zipcode_bt:hover{
+
+color: white;
+	text-shadow: 1px 1px #43A9FF;
+}
 .text1{
 	padding-left:7px;
 	height:28px;
@@ -69,13 +74,17 @@
  	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
 	color:white;
 	border: none;
+	cursor: pointer;
 }
 .submit{
 	margin-right:15px;	
 	
 }
 
-
+.bt_box input:hover{
+	color: white;
+	text-shadow: 1px 1px #43A9FF;	
+}
 
 
 

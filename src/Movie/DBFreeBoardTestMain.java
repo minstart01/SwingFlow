@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import Common.MyBatis;
+import Movie.DTO.FreeBoard;
 
 public class DBFreeBoardTestMain {
 
@@ -29,7 +30,7 @@ public class DBFreeBoardTestMain {
 				 * 
 				 * 사용 방법: boolean freeBoardDB.find(nameSpace, MyClassObject)
 				 **/
-				MyBatis<FreeBoard> freeBoardDB = new MyBatis<FreeBoard>("Movie.FreeBoard");
+				MyBatis<FreeBoard> freeBoardDB = new MyBatis<FreeBoard>("Movie.DTO.FreeBoard");
 				int ret = 0;
 				// 리턴값 받을 변수(List)
 				List<FreeBoard> luser = null;

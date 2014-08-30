@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Common.Address;
+import Common.DTO.Address;
 
 public class MovieDAO {
 
@@ -16,41 +16,58 @@ public class MovieDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	
-	public String a(){
-		
-		return "a";
-	}
-	
-	public ArrayList<Address> zipSelect(String dong)	{
-		ArrayList<Address> addrL = new ArrayList<Address>();
+	/* 영화관 검색 */
+	public ArrayList<Address> SelectAddr(String sido, String sido1){		
+		ArrayList<Address> list = new ArrayList<Address>();
 		conn = DbSet.getConnection();
-		try {
-		sql = "SELECT * FROM ADDRESS WHERE sido=?";
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, dong);
-		rs = pstmt.executeQuery();
-		
-		
-			while(rs.next()){
-				
-				Address addr = new Address();
-				addr.setaCode(rs.getInt("acode"));
-				addr.setZipcode(rs.getString("zipcode"));
-				addr.setSido(rs.getString("sido"));
-				addr.setGugun(rs.getString("gugun"));
-				addr.setDong(rs.getString("dong"));
-				addr.setRi(rs.getString("ri"));
-				addr.setBunji(rs.getString("bunji"));
-				
-				addrL.add(addr);
-			}
-		}catch (SQLException e) {
-			e.printStackTrace();
+		if(("one").equals(sido1)){
+			sql = "SELECT T.TCODE, T.TNAME, A.ZIPCODE, A.SIDO, A.GUGUN, A.DONG, A.RI, T.TDETAILADDR, T.TSCREEN, T.TTOTALSIT, T.TPHONE FROM THEATERINFO T, ADDRESS A WHERE T.ACODE = A.ACODE and A.sido like ?";
+		}else{
+			sql = "SELECT T.TCODE, T.TNAME, A.ZIPCODE, A.SIDO, A.GUGUN, A.DONG, A.RI, T.TDETAILADDR, T.TSCREEN, T.TTOTALSIT, T.TPHONE FROM THEATERINFO T, ADDRESS A WHERE T.ACODE = A.ACODE and (A.sido like ? or A.sido like ?)";
 		}
-		finally	{
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			if(("one").equals(sido1)){
+				pstmt.setString(1, "%" + sido + "%");
+			}else{
+				pstmt.setString(1, "%" + sido + "%");
+				pstmt.setString(2, "%" + sido1 + "%");
+			}
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				Address dto = new Address();
+				
+				dto.settCode(rs.getInt("T.TCODE"));
+				dto.settName(rs.getString("T.TNAME"));
+			/*	dto.setaCode(rs.getInt("A.aCode"));*/
+				dto.setZipcode(rs.getString("A.ZIPCODE"));
+				dto.setSido(rs.getString("A.SIDO"));
+				dto.setGugun(rs.getString("A.GUGUN"));
+				dto.setDong(rs.getString("A.DONG"));
+				dto.settDetailAddr(rs.getString("T.TDETAILADDR"));
+				dto.settScreen(rs.getInt("T.TSCREEN"));
+				dto.settTotalSit(rs.getInt("T.TTOTALSIT"));
+				dto.settPhone(rs.getString("T.TPHONE"));
+				if(rs.getString("A.RI") != null){
+					dto.setRi(rs.getString("A.RI"));
+				}else{
+					dto.setRi("");
+				}
+				
+				list.add(dto);
+			
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
 			DbClose.close(rs, pstmt, conn);
 		}
-		return addrL;
+		return list;
 	}
 	
 }

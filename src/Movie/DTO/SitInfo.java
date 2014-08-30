@@ -1,4 +1,4 @@
-package Movie;
+package Movie.DTO;
 
 public class SitInfo {
 	private int rNo;

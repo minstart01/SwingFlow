@@ -3,6 +3,7 @@ package Movie;
 import java.util.List;
 
 import Common.MyBatis;
+import Movie.DTO.ReserveSit;
 
 public class DBReserveSitTestMain {
 
@@ -28,7 +29,7 @@ public class DBReserveSitTestMain {
 				 * 
 				 * 사용 방법: boolean reserveSitDB.find(nameSpace, MyClassObject)
 				 **/
-				MyBatis<ReserveSit> reserveSitDB = new MyBatis<ReserveSit>("Movie.ReserveSit");
+				MyBatis<ReserveSit> reserveSitDB = new MyBatis<ReserveSit>("Movie.DTO.ReserveSit");
 				int ret = 0;
 				// 리턴값 받을 변수(List)
 				List<ReserveSit> luser = null;

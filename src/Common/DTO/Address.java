@@ -8,6 +8,17 @@ public class Address {
 	private String dong;
 	private String ri;
 	private String bunji;
+	
+	
+	/* 영화 조인 */
+	private int tCode;
+	private String tName;
+	private String tDetailAddr;
+	private String tPhone;
+	private int tScreen;
+	private int tTotalSit;
+	
+	
 	public Address(){}
 	public Address(int aCode, String zipcode, String sido, String gugun,
 			String dong, String ri, String bunji) {
@@ -61,6 +72,47 @@ public class Address {
 	public void setBunji(String bunji) {
 		this.bunji = bunji;
 	}
+	
+	
+	/* 영화 조인 */	
+	public int gettCode() {
+		return tCode;
+	}
+	public void settCode(int tCode) {
+		this.tCode = tCode;
+	}
+	public String gettName() {
+		return tName;
+	}
+	public void settName(String tName) {
+		this.tName = tName;
+	}
+	public String gettDetailAddr() {
+		return tDetailAddr;
+	}
+	public void settDetailAddr(String tDetailAddr) {
+		this.tDetailAddr = tDetailAddr;
+	}
+	public String gettPhone() {
+		return tPhone;
+	}
+	public void settPhone(String tPhone) {
+		this.tPhone = tPhone;
+	}
+	public int gettScreen() {
+		return tScreen;
+	}
+	public void settScreen(int tScreen) {
+		this.tScreen = tScreen;
+	}
+	public int gettTotalSit() {
+		return tTotalSit;
+	}
+	public void settTotalSit(int tTotalSit) {
+		this.tTotalSit = tTotalSit;
+	}
+	
+	
 	public String toString(){
 		return aCode+":"+zipcode+":"+sido+":"+gugun+":"+dong+":"+ri+":"+bunji;
 	}

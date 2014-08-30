@@ -1,4 +1,4 @@
-package Movie;
+package Movie.DTO;
 
 public class TheaterInfo {
 	
@@ -11,7 +11,7 @@ public class TheaterInfo {
 	private String tPhone;
 	
 	
-	TheaterInfo(){}
+	public TheaterInfo(){}
 	
 	public TheaterInfo(int tCode, String tName, int aCode, String tDetailAddr,
 			int tScreen, int tTotalSit, String tPhone) {

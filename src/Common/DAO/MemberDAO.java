@@ -22,7 +22,8 @@ public class MemberDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	
-	public int Join(Common.DTO.Join member){	/* 회원가입 */
+	/* 회원가입 */
+	public int Join(Common.DTO.Join member){	
 		conn = DbSet.getConnection();
 		sql = "INSERT INTO MEMBER(MNO, MID, MPWD, MNAME, SCODE, MBIRTH, BCODE, ACODE, MDETAILADDR, MEMAIL, ECODE, MPHONE, PCODE, MCODE, MJOINDATE, MPRODUCT, MPRODUCTNO) VALUES (MEMBERNO.NEXTVAL, ? , ?, ?, ?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, ?, ?, ?, ?, ?, 1, sysdate, 0, 0)";
 			try {
@@ -55,6 +56,7 @@ public class MemberDAO {
 		return su;
 	}
 	
+	/* 아이디 중복 검사 */
 	public String IdCheck(String mId){
 		
 		conn = DbSet.getConnection();
@@ -76,8 +78,8 @@ public class MemberDAO {
 		return CheckID;
 	}
 	
-	
-	public ArrayList<Address> SelectAddr(String dong){		/* 주소 */
+	/* 주소 검색 */
+	public ArrayList<Address> SelectAddr(String dong){		
 		ArrayList<Address> list = new ArrayList<Address>();
 		conn = DbSet.getConnection();
 		sql = "SELECT * FROM ADDRESS where DONG like ?";
@@ -119,5 +121,27 @@ public class MemberDAO {
 			DbClose.close(rs, pstmt, conn);
 		}
 		return list;
+	}
+	
+	
+	public String LoginChk(String mId, String mPwd){
+		conn = DbSet.getConnection();
+		sql = "SELECT MID FROM MEMBER where MID=? and MPWD=?";
+		String ID="";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mId);
+			pstmt.setString(2, mPwd);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				ID = rs.getString("MID");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		return ID;
 	}
 }

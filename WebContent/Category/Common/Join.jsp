@@ -16,6 +16,8 @@
 
 $(function (){
 	/* 아이디 중복확인 */
+	$("#id").focus();
+	
 	$(".over_button").click(function (e){
 
 		
@@ -35,8 +37,9 @@ $(function (){
 		}); */
 	});
 	
-	/* 항목 입력 */
+/* 회원가입 버튼 */
 	$(".submit").click(function (e){
+		/* 항목 검사 */
 		var id = $("#id").val();
 		var pwd = $("#pwd").val();
 		var pwd2 = $("#pwd2").val();
@@ -52,12 +55,35 @@ $(function (){
 		var addrdetail = $(".addrdetail").val();
 		var email = $(".email").val();
 		var phone = $(".phone").val();
-				
+		var idcheck = $("#idcheck").text();
+		var overid = $(".overid").text();
+		var pwdlength = $("#pwdlength").text();
+		var pwdcheck = $("#pwdcheck").text();
+		
+		
 		if(id == ""){
 			alert("아이디를 입력하세요.")
 		}
+		if(idcheck == "영문소문자,숫자 조합 6~40자(-,_사용가능)"){
+			alert("아이디 중복체크를 해주세요.");
+		}
+		if(overid == "아이디가 중복됩니다."){
+			alert("아이디가 중복됩니다.");
+		}
 		if(pwd == "" || pwd2 == ""){
 			alert("비밀번호를 입력하세요.");
+		}
+		if(pwdlength == "비밀번호는 6자리 이상으로 입력해주세요."){
+			alert("비밀번호는 6자리 이상으로 입력해주세요.");
+			$("#pwd").focus();
+		}
+		if(pwdlength == "비밀번호는 영문과 숫자 모두 포함되어야 합니다."){
+			alert("비밀번호는 영문과 숫자 모두 포함되어야 합니다.");
+			$("#pwd").focus();
+		}
+		if(pwdcheck == "비밀번호 불일치"){
+			alert("비밀번가 일치하지 않습니다.")
+			$("#pwd2").focus();
 		}
 		if(name == ""){
 			alert("이름을 입력하세요.");
@@ -89,11 +115,18 @@ $(function (){
 		if(phone == ""){
 			alert("핸드폰을 입력하세요");
 		}
-		if(id != "" && pwd != "" && pwd2 != "" && name != "" && sex != null && year != "년도" && month != "월" && day != "일" && sl != null && zipcode != "" && zipcode2 != "" && addrtest != "" && addrdetail != "" && email != "" && phone != ""){
+		
+		/* 회원가입하기 */
+		if(id != "" && pwd != "" && pwd2 != "" && name != "" && sex != null && year != "년도" && month != "월" && day != "일" && sl != null && zipcode != "" && zipcode2 != "" && addrtest != "" && addrdetail != "" && email != "" && phone != "" && idcheck != "영문소문자,숫자 조합 6~40자(-,_사용가능)" && overid != "아이디가 중복됩니다." && pwdcheck != "비밀번호 불일치" && pwdlength != "비밀번호는 6자리 이상으로 입력해주세요." && pwdlength != "비밀번호는 영문과 숫자 모두 포함되어야 합니다."){
 			$(".mBirth").val($(".myear").val() + $(".mmonth").val() + $(".mday").val());
-			document.frm.submit();
+			
+		 document.frm.submit();
 		}
 		
+	});
+	
+	$(".reset").click(function (e){
+		location.reload();
 	});
 });
 
@@ -408,13 +441,12 @@ function setChildValue(seq, zipcode, sido, gugun, dong, ri, bunji){
   <hr style="width:720px; border:1px solid #d9d9d9;" />
 </div>
 <div class="bt_box" align="center">
-	<input type="button" class="submit" value="가입하기" onclick="Join();"/><input type="button" value="다시입력" />
+	<input type="button" class="submit" value="가입하기" onclick="Join();"/><input type="button" class="reset" value="다시입력" />
 </div>
 </div>
 
 </center>
 
-<div id="resultid">aaa</div>
  <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
  </form>
 </body>

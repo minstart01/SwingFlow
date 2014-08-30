@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import Common.MyBatis;
+import Movie.DTO.Reply;
 
 public class DBReplyTestMain {
 
@@ -29,7 +30,7 @@ public class DBReplyTestMain {
 				 * 
 				 * 사용 방법: boolean replyDB.find(nameSpace, MyClassObject)
 				 **/
-				MyBatis<Reply> replyDB = new MyBatis<Reply>("Movie.Reply");
+				MyBatis<Reply> replyDB = new MyBatis<Reply>("Movie.DTO.Reply");
 				int ret = 0;
 				// 리턴값 받을 변수(List)
 				List<Reply> luser = null;

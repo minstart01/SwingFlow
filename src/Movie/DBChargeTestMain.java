@@ -3,6 +3,7 @@ package Movie;
 import java.util.List;
 
 import Common.MyBatis;
+import Movie.DTO.Charge;
 
 public class DBChargeTestMain {
 
@@ -28,7 +29,7 @@ public class DBChargeTestMain {
 				 * 
 				 * 사용 방법: boolean chargeDB.find(nameSpace, MyClassObject)
 				 **/
-				MyBatis<Charge> chargeDB = new MyBatis<Charge>("Movie.Charge");
+				MyBatis<Charge> chargeDB = new MyBatis<Charge>("Movie.DTO.Charge");
 				int ret = 0;
 				// 리턴값 받을 변수(List)
 				List<Charge> luser = null;

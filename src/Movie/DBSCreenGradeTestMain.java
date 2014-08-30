@@ -3,7 +3,7 @@ package Movie;
 import java.util.List;
 
 import Common.MyBatis;
-import Movie.ScreenGrade;
+import Movie.DTO.ScreenGrade;
 
 public class DBSCreenGradeTestMain {
 
@@ -29,7 +29,7 @@ public class DBSCreenGradeTestMain {
 		 * 사용 방법: boolean screenGradeDB.find(nameSpace, MyClassObject)
 		 **/
 		MyBatis<ScreenGrade> screenGradeDB = new MyBatis<ScreenGrade>(
-				"Movie.ScreenGrade");
+				"Movie.DTO.ScreenGrade");
 		int ret = 0;
 		// 리턴값 받을 변수(List)
 		List<ScreenGrade> luser = null;

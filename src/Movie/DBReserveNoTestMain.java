@@ -3,6 +3,7 @@ package Movie;
 import java.util.List;
 
 import Common.MyBatis;
+import Movie.DTO.ReserveNo;
 
 public class DBReserveNoTestMain {
 
@@ -28,7 +29,7 @@ public class DBReserveNoTestMain {
 				 * 
 				 * 사용 방법: boolean reserveNoDB.find(nameSpace, MyClassObject)
 				 **/
-				MyBatis<ReserveNo> reserveNoDB = new MyBatis<ReserveNo>("Movie.ReserveNo");
+				MyBatis<ReserveNo> reserveNoDB = new MyBatis<ReserveNo>("Movie.DTO.ReserveNo");
 				int ret = 0;
 				// 리턴값 받을 변수(List)
 				List<ReserveNo> luser = null;

@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import Common.MyBatis;
+import Movie.DTO.Notice;
 
 public class DBNoticeTestMain {
 
@@ -29,7 +30,7 @@ public class DBNoticeTestMain {
 				 * 
 				 * 사용 방법: boolean noticeDB.find(nameSpace, MyClassObject)
 				 **/
-				MyBatis<Notice> noticeDB = new MyBatis<Notice>("Movie.Notice");
+				MyBatis<Notice> noticeDB = new MyBatis<Notice>("Movie.DTO.Notice");
 				int ret = 0;
 				// 리턴값 받을 변수(List)
 				List<Notice> luser = null;

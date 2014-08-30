@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import Common.MyBatis;
+import Movie.DTO.MovieInsert;
 
 public class DBMovieInsertTestMain {
 
@@ -29,7 +30,7 @@ public class DBMovieInsertTestMain {
 				 * 
 				 * 사용 방법: boolean movieInsertDB.find(nameSpace, MyClassObject)
 				 **/
-				MyBatis<MovieInsert> movieInsertDB = new MyBatis<MovieInsert>("Movie.MovieInsert");
+				MyBatis<MovieInsert> movieInsertDB = new MyBatis<MovieInsert>("Movie.DTO.MovieInsert");
 				int ret = 0;
 				// 리턴값 받을 변수(List)
 				List<MovieInsert> luser = null;

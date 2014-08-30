@@ -1,3 +1,4 @@
+<%@page import="Common.DAO.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page session="true" %>
@@ -10,22 +11,31 @@
 <body>
 
 <% 
-	String Id = request.getParameter("id");
-	String Pwd = request.getParameter("pwd");
+	String mId = request.getParameter("id");
+	String mPwd = request.getParameter("pwd");
+	
+	MemberDAO dao = new MemberDAO();
+	String Login = dao.LoginChk(mId, mPwd);
+	String url = "";
 	String Member="";
-	if(Id.equals(Pwd)){
-		session.setAttribute("MemberId", Id);
-		session.setMaxInactiveInterval(5*30);
+	if(Login.equals(mId)){
+		session.setAttribute("MemberId", mId);
+		session.setMaxInactiveInterval(60*60);
 // 		Member = (String)session.getAttribute("MemberId");
-%>		
-<%=Id %>로그인<br>
-
+		url = "/SwingFlow/Category/Main/index.jsp";
+%>
+<script>
+	
+	location.href="<%=url%>";
+</script>		
 <%
+
+
 }else{
 %>
 <script>
 	alert("로그인 실패");
-	history.go(-1);s
+	history.go(-1);
 </script>
 	
 <%

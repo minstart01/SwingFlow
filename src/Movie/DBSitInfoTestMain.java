@@ -3,6 +3,7 @@ package Movie;
 import java.util.List;
 
 import Common.MyBatis;
+import Movie.DTO.SitInfo;
 
 public class DBSitInfoTestMain {
 
@@ -28,7 +29,7 @@ public class DBSitInfoTestMain {
 				 * 
 				 * 사용 방법: boolean sitInfoDB.find(nameSpace, MyClassObject)
 				 **/
-				MyBatis<SitInfo> sitInfoDB = new MyBatis<SitInfo>("Movie.SitInfo");
+				MyBatis<SitInfo> sitInfoDB = new MyBatis<SitInfo>("Movie.DTO.SitInfo");
 				int ret = 0;
 				// 리턴값 받을 변수(List)
 				List<SitInfo> luser = null;

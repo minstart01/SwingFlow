@@ -1,3 +1,6 @@
+<%@page import="Common.DTO.Address"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Movie.DAO.MovieDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,10 +15,8 @@
 <script type="text/javascript">
 
 function popup(url,width,height){
-	
-	
 	window.open(url,"popup","width=" + width + ", height=" + height + ",left=400,top=200");
-	
+
 }
 /* , time, grade, genre, date */
 function setChildValue(name, director, actor, time, grade, genre, date){
@@ -26,8 +27,44 @@ function setChildValue(name, director, actor, time, grade, genre, date){
     $(".mGrade").text(grade);
     $(".mGenre").text(genre);
     $(".mStart").text(date);
+    
+    
+    $.ajax({
+		url : 'mNameSearch.jsp',
+		type : 'GET',
+		data : {
+			mPoster : encodeURI(name),
+			gubun : encodeURI("poster"),
+			
+		},
+		success : SearchmPoster
+	});
 
+    function SearchmPoster(data) {
+		var items = $(data).find("item");
+		
+		$(".img_poster").attr("src",$(items).find("image").text());
+		$(".img_poster").attr({width:"230",height:"300"});
+    }
 }
+
+	function selLocal(local){
+		$("." + local + "_except").hide();
+		$(".sel_" + local).show();	
+	}
+		
+
+	$(function (){
+		$(".sel_local").click(function(e) {
+			$(".sel_local").addClass("local_off");
+			$(".local_on").removeClass("local_on");
+	        $(this).addClass("local_on");
+			$(this).removeClass("local_off");
+
+
+			
+	    });
+	});
 </script>
 </head>
 <body>
@@ -40,7 +77,14 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 
 <div id="main_content" >
 
-<div class="insert_title">영화등록하기<%=request.getParameter("a") %></div>
+<div class="insert_title"><% 
+						MovieDAO dao = new MovieDAO();
+						ArrayList<Address> list = new ArrayList<Address>();
+						Address dto = new Address();
+						
+						list = dao.SelectAddr("서울", "무안");
+						out.print(list.size());
+					%></div>
 
 <div class="title_box">영화선택</div>
 
@@ -50,7 +94,10 @@ function setChildValue(name, director, actor, time, grade, genre, date){
   <input type="hidden" name="abc" id="a">
     	<table border="1" cellspacing="0" width="800">
     	<tr>
-        	<td width="230" height="300" align="center" rowspan="6"><label for="movie">포스터</label></td>
+        	<td width="230" height="300" align="center" rowspan="6">
+        	<label for="movie">
+        		<img src="" alt="포스터" class="img_poster" width="" height="">
+        	</label></td>
             <td width="87" align="center">영화명</td>
             <td class="mName"></td>
     
@@ -98,6 +145,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 			<div id="sel_theater"
 				class="sel_theater sel_seoul incheon_except busan_except daegu_except daejeon_except gwangju_except">
 				<ul class="list">
+					
 					<li class="sel_local local_on">CGV</li>
 					<li class="sel_local local_off">롯데시네마</li>
 					<li class="sel_local local_off">메가박스</li>
