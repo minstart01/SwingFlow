@@ -20,31 +20,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Updert title here</title>
 </head>
 <body>
-	<%
+	<%	
+// 	int b = Integer.parseInt(request.getParameter("a_Business"));
+// out.print(b);
+// int rno = Integer.parseInt(request.getParameter("rno")) ;
+	/* out.print(rno); */
+ AdminDAO dao = AdminDAO.getInstance();
+int su = dao.ScheduleUpd(schedule)+ dao.ChildUpd(childF)+dao.adultUpd(adultF)+dao.cityUpd(city)+dao.flightNoUpd(flightNo);
 
-AdminDAO dao = AdminDAO.getInstance();
-int su = dao.ScheduleIns(schedule)+dao.RegisterIns(register)+dao.adultIns(adultF)+dao.childIns(childF)+dao.cityIns(city)
-+dao.flightNoIns(flightNo);
 
 out.print(su);
 String msg = "";
 String url="";
 if(su!=0){
-	msg="스케줄이 등록되었습니다!";
+	msg="스케줄이 수정되었습니다!";
 	url="Admin_insertScheduleList.jsp";
 }else{
 	msg="스케줄을 입력하세요!";
-	url="Admin_updateSchedule.jsp";
-}
- %> 
-	<script type="text/javascript">
+	url="Admin_updateSchedule.jsp?rno=";
+} 
+%>
+ <script type="text/javascript">
 alert("<%=msg%>");
 location.href="<%=url%>";
-</script> 
-
-
+</script>
+ 
 </body>
 </html>

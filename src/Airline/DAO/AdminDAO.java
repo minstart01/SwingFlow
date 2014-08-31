@@ -55,6 +55,29 @@ public class AdminDAO {
 	return su;	 
  }
  
+ public int ScheduleUpd(Schedule sch){
+	 conn = DbSet.getConnection();
+	 qsch="UPDATE SCHEDULE SET S_DEPDAY =?, S_DEPTTIME = ?, S_ARRTTIME = ?, S_FLIGHTTIME = ? WHERE S_CODE = ?";
+	// "INSERT INTO register VALUES (?,(select max(s_code) from schedule))";
+	
+	 try {
+		pstmt = conn.prepareStatement(qsch);
+		pstmt.setString(1, sch.getS_DepDay());
+		pstmt.setString(2, sch.getS_DeptTime());
+		pstmt.setString(3, sch.getS_ArrtTime());
+		pstmt.setString(4, sch.getS_FlightTime());
+		pstmt.setInt(5, sch.getS_Code());
+		su = pstmt.executeUpdate();	
+	} 
+	 catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	return su;	 
+ }
+ 
  public int RegisterIns(Register reg){
 	conn = DbSet.getConnection();
 	try {
@@ -89,6 +112,25 @@ public class AdminDAO {
 	}
 	return su;
 } 
+ 
+ public int flightNoUpd(FlightNo flno){
+	conn = DbSet.getConnection();
+	try {
+		pstmt = conn.prepareStatement("UPDATE FLIGHTNO SET FN_AIR = ?, R_SEATTOTAL = ?, FN_NO = ? WHERE R_NO = ?");
+		pstmt.setString(1, flno.getFn_air());
+		pstmt.setInt(2, flno.getR_SeatTotal());
+		pstmt.setString(3, flno.getFn_no());
+		pstmt.setInt(4, flno.getR_No());
+		su = pstmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	return su;
+} 
+
 
  public int cityIns(City city){
 	 conn = DbSet.getConnection();
@@ -96,6 +138,23 @@ public class AdminDAO {
 		pstmt = conn.prepareStatement("INSERT INTO CITY (R_NO, C_DEPCITY, C_ARRCITY ) VALUES  ( cityseq.nextval, ?, ? )");
 		pstmt.setString(1, city.getC_DepCity());
 		pstmt.setString(2, city.getC_ArrCity());
+		su = pstmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	 return su;
+ }
+ public int cityUpd(City city){
+	 conn = DbSet.getConnection();
+	 try {
+		pstmt = conn.prepareStatement("UPDATE CITY SET C_DEPCITY = ?, C_ARRCITY = ? WHERE R_NO = ?");
+		
+		pstmt.setString(1, city.getC_DepCity());
+		pstmt.setString(2, city.getC_ArrCity());
+		pstmt.setInt(3,city.getR_No());
 		su = pstmt.executeUpdate();
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
@@ -124,6 +183,25 @@ public class AdminDAO {
 	 return su;
  }
  
+ public int adultUpd(AdultF af){
+	 conn = DbSet.getConnection();
+	 try {
+		pstmt = conn.prepareStatement("UPDATE ADULTF SET A_TRAVEL = ?, A_BUSINESS = ?, A_FIRST = ? WHERE r_no = ?");
+		pstmt.setInt(1, af.getA_Travel());
+		pstmt.setInt(2, af.getA_Business());
+		pstmt.setInt(3, af.getA_First());
+		pstmt.setInt(4, af.getR_No());
+		su= pstmt.executeUpdate();
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	 return su;
+ }
+ 
  public int childIns(ChildF cf){
 	 conn = DbSet.getConnection();
 	 try {
@@ -131,6 +209,25 @@ public class AdminDAO {
 		pstmt.setInt(1, cf.getC_Travel());
 		pstmt.setInt(2, cf.getC_Business());
 		pstmt.setInt(3, cf.getC_First());
+		su= pstmt.executeUpdate();
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	 return su;
+ }
+ 
+ public int ChildUpd(ChildF cf){
+	 conn = DbSet.getConnection();
+	 try {
+		pstmt = conn.prepareStatement("UPDATE CHILDF SET C_TRAVEL = ?, C_BUSINESS = ?, C_FIRST = ? WHERE r_no = ?");
+		pstmt.setInt(1, cf.getC_Travel());
+		pstmt.setInt(2, cf.getC_Business());
+		pstmt.setInt(3, cf.getC_First());
+		pstmt.setInt(4, cf.getR_No());
 		su= pstmt.executeUpdate();
 		
 	} catch (SQLException e) {
@@ -209,26 +306,30 @@ public ScheduleDetailDTO sDetail(int v_no){
 	ScheduleDetailDTO dto = new ScheduleDetailDTO();
 	conn = DbSet.getConnection();
 	sql=" select r.r_No, fn.fn_air, fn.fn_no, fn.r_SeatTotal, s.s_FlightTime, c.c_DepCity, c.c_ArrCity, af.a_Travel, af.a_business, af.a_first, cf.c_travel, cf.c_business, cf.c_first,"
-			+ "s.s_DeptTime, to_char(s.s_DepDay,'yyyy-mm-dd') from Register r, Schedule s,  City c, FlightNo fn, AdultF af, ChildF cf where r.r_no=fn.r_no and r.r_no=c.r_no and r.s_code=s.s_code and r.r_no=af.r_no and r.r_no=cf.r_no and r.r_no=?";
+			+ "s.s_DeptTime, s.s_ArrtTime, to_char(s.s_DepDay,'yyyy-mm-dd'),s.s_code from Register r, Schedule s,  City c, FlightNo fn, AdultF af, ChildF cf where r.r_no=fn.r_no and r.r_no=c.r_no and r.s_code=s.s_code and r.r_no=af.r_no and r.r_no=cf.r_no and r.r_no=?";
 	try {
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, v_no);
 		rs = pstmt.executeQuery();
 		while (rs.next()) {
-			dto.setR_no(rs.getInt(1));
+			dto.setR_No(rs.getInt(1));
 			dto.setFn_air(rs.getString(2));
 			dto.setFn_no(rs.getString(3));
-			dto.setR_seattotal(rs.getInt(4));
-			dto.setS_FLIGHTTIME(rs.getString(5));
-			dto.setC_DEPCITY(rs.getString(6));
-			dto.setC_ARRCITY(rs.getString(7));
-			dto.setA_TRAVEL(rs.getInt(8));
-			dto.setA_BUSINESS(rs.getInt(9));
-			dto.setA_FIRST(rs.getInt(10));
-			dto.setC_TRAVEL(rs.getInt(11));
-			dto.setC_BUSINESS(rs.getInt(12));
-			dto.setS_DEPTTIME(rs.getString(13));
-			dto.setS_DEPDAY(rs.getString(14));
+			dto.setR_SeatTotal(rs.getInt(4));
+			dto.setS_FlightTime(rs.getString(5));
+			dto.setC_DepCity(rs.getString(6));
+			dto.setC_ArrCity(rs.getString(7));
+			dto.setA_Travel(rs.getInt(8));
+			dto.setA_Business(rs.getInt(9));
+			dto.setA_First(rs.getInt(10));
+			dto.setC_Travel(rs.getInt(11));
+			dto.setC_Business(rs.getInt(12));
+			dto.setC_First(rs.getInt(13));
+			dto.setS_DeptTime(rs.getString(14));
+			dto.setS_ArrtTime(rs.getString(15));
+			dto.setS_DepDay(rs.getString(16));
+			dto.setS_Code(rs.getInt(17));
+			dto.seta
 		}
 		
 	} catch (SQLException e) {

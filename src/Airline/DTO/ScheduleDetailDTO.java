@@ -1,54 +1,57 @@
 package Airline.DTO;
 
 public class ScheduleDetailDTO {
-	int r_no;
+	int r_No;
 	String fn_air;
 	String fn_no;
-	int r_seattotal;
-	String S_FLIGHTTIME;
-	String C_DEPCITY;
-	String C_ARRCITY;
-	int A_TRAVEL;
-	int A_BUSINESS;
-	int A_FIRST;
-	int C_TRAVEL;
-	int C_BUSINESS;
-	int C_FIRST;
-	String S_DEPTTIME;
-	String S_DEPDAY;
+	int r_SeatTotal;
+	int s_Code;
+	String s_DepDay;
+	String s_DeptTime;
+	String s_ArrtTime;
+	String s_FlightTime;
+	String c_DepCity;
+	String c_ArrCity;
+	int a_Travel;
+	int a_Business;
+	int a_First;
+	int c_Travel;
+	int c_Business;
+	int c_First;
+	
+	public ScheduleDetailDTO(){}
 
-	public ScheduleDetailDTO() {
-	}
-
-	public ScheduleDetailDTO(int r_no, String fn_air, String fn_no,
-			int r_seattotal, String s_FLIGHTTIME, String c_DEPCITY,
-			String c_ARRCITY, int a_TRAVEL, int a_BUSINESS, int a_FIRST,
-			int c_TRAVEL, int c_BUSINESS, int c_FIRST, String s_DEPTTIME,
-			String s_DEPDAY) {
+	public ScheduleDetailDTO(int r_No, String fn_air, String fn_no,
+			int r_SeatTotal, int s_Code, String s_DepDay, String s_DeptTime,
+			String s_ArrtTime, String s_FlightTime, String c_DepCity,
+			String c_ArrCity, int a_Travel, int a_Business, int a_First,
+			int c_Travel, int c_Business, int c_First) {
 		super();
-		this.r_no = r_no;
+		this.r_No = r_No;
 		this.fn_air = fn_air;
 		this.fn_no = fn_no;
-		this.r_seattotal = r_seattotal;
-		S_FLIGHTTIME = s_FLIGHTTIME;
-		C_DEPCITY = c_DEPCITY;
-		C_ARRCITY = c_ARRCITY;
-		A_TRAVEL = a_TRAVEL;
-		A_BUSINESS = a_BUSINESS;
-		A_FIRST = a_FIRST;
-		C_TRAVEL = c_TRAVEL;
-		C_BUSINESS = c_BUSINESS;
-		C_FIRST = c_FIRST;
-		S_DEPTTIME = s_DEPTTIME;
-		S_DEPDAY = s_DEPDAY;
+		this.r_SeatTotal = r_SeatTotal;
+		this.s_Code = s_Code;
+		this.s_DepDay = s_DepDay;
+		this.s_DeptTime = s_DeptTime;
+		this.s_ArrtTime = s_ArrtTime;
+		this.s_FlightTime = s_FlightTime;
+		this.c_DepCity = c_DepCity;
+		this.c_ArrCity = c_ArrCity;
+		this.a_Travel = a_Travel;
+		this.a_Business = a_Business;
+		this.a_First = a_First;
+		this.c_Travel = c_Travel;
+		this.c_Business = c_Business;
+		this.c_First = c_First;
 	}
 
-	public int getR_no() {
-		return r_no;
+	public int getR_No() {
+		return r_No;
 	}
 
-	public void setR_no(int r_no) {
-		this.r_no = r_no;
+	public void setR_No(int r_No) {
+		this.r_No = r_No;
 	}
 
 	public String getFn_air() {
@@ -67,100 +70,118 @@ public class ScheduleDetailDTO {
 		this.fn_no = fn_no;
 	}
 
-	public int getR_seattotal() {
-		return r_seattotal;
+	public int getR_SeatTotal() {
+		return r_SeatTotal;
 	}
 
-	public void setR_seattotal(int r_seattotal) {
-		this.r_seattotal = r_seattotal;
+	public void setR_SeatTotal(int r_SeatTotal) {
+		this.r_SeatTotal = r_SeatTotal;
 	}
 
-	public String getS_FLIGHTTIME() {
-		return S_FLIGHTTIME;
+	public int getS_Code() {
+		return s_Code;
 	}
 
-	public void setS_FLIGHTTIME(String s_FLIGHTTIME) {
-		S_FLIGHTTIME = s_FLIGHTTIME;
+	public void setS_Code(int s_Code) {
+		this.s_Code = s_Code;
 	}
 
-	public String getC_DEPCITY() {
-		return C_DEPCITY;
+	public String getS_DepDay() {
+		return s_DepDay;
 	}
 
-	public void setC_DEPCITY(String c_DEPCITY) {
-		C_DEPCITY = c_DEPCITY;
+	public void setS_DepDay(String s_DepDay) {
+		this.s_DepDay = s_DepDay;
 	}
 
-	public String getC_ARRCITY() {
-		return C_ARRCITY;
+	public String getS_DeptTime() {
+		return s_DeptTime;
 	}
 
-	public void setC_ARRCITY(String c_ARRCITY) {
-		C_ARRCITY = c_ARRCITY;
+	public void setS_DeptTime(String s_DeptTime) {
+		this.s_DeptTime = s_DeptTime;
 	}
 
-	public int getA_TRAVEL() {
-		return A_TRAVEL;
+	public String getS_ArrtTime() {
+		return s_ArrtTime;
 	}
 
-	public void setA_TRAVEL(int a_TRAVEL) {
-		A_TRAVEL = a_TRAVEL;
+	public void setS_ArrtTime(String s_ArrtTime) {
+		this.s_ArrtTime = s_ArrtTime;
 	}
 
-	public int getA_BUSINESS() {
-		return A_BUSINESS;
+	public String getS_FlightTime() {
+		return s_FlightTime;
 	}
 
-	public void setA_BUSINESS(int a_BUSINESS) {
-		A_BUSINESS = a_BUSINESS;
+	public void setS_FlightTime(String s_FlightTime) {
+		this.s_FlightTime = s_FlightTime;
 	}
 
-	public int getA_FIRST() {
-		return A_FIRST;
+	public String getC_DepCity() {
+		return c_DepCity;
 	}
 
-	public void setA_FIRST(int a_FIRST) {
-		A_FIRST = a_FIRST;
+	public void setC_DepCity(String c_DepCity) {
+		this.c_DepCity = c_DepCity;
 	}
 
-	public int getC_TRAVEL() {
-		return C_TRAVEL;
+	public String getC_ArrCity() {
+		return c_ArrCity;
 	}
 
-	public void setC_TRAVEL(int c_TRAVEL) {
-		C_TRAVEL = c_TRAVEL;
+	public void setC_ArrCity(String c_ArrCity) {
+		this.c_ArrCity = c_ArrCity;
 	}
 
-	public int getC_BUSINESS() {
-		return C_BUSINESS;
+	public int getA_Travel() {
+		return a_Travel;
 	}
 
-	public void setC_BUSINESS(int c_BUSINESS) {
-		C_BUSINESS = c_BUSINESS;
+	public void setA_Travel(int a_Travel) {
+		this.a_Travel = a_Travel;
 	}
 
-	public int getC_FIRST() {
-		return C_FIRST;
+	public int getA_Business() {
+		return a_Business;
 	}
 
-	public void setC_FIRST(int c_FIRST) {
-		C_FIRST = c_FIRST;
+	public void setA_Business(int a_Business) {
+		this.a_Business = a_Business;
 	}
 
-	public String getS_DEPTTIME() {
-		return S_DEPTTIME;
+	public int getA_First() {
+		return a_First;
 	}
 
-	public void setS_DEPTTIME(String s_DEPTTIME) {
-		S_DEPTTIME = s_DEPTTIME;
+	public void setA_First(int a_First) {
+		this.a_First = a_First;
 	}
 
-	public String getS_DEPDAY() {
-		return S_DEPDAY;
+	public int getC_Travel() {
+		return c_Travel;
 	}
 
-	public void setS_DEPDAY(String s_DEPDAY) {
-		S_DEPDAY = s_DEPDAY;
+	public void setC_Travel(int c_Travel) {
+		this.c_Travel = c_Travel;
 	}
 
+	public int getC_Business() {
+		return c_Business;
+	}
+
+	public void setC_Business(int c_Business) {
+		this.c_Business = c_Business;
+	}
+
+	public int getC_First() {
+		return c_First;
+	}
+
+	public void setC_First(int c_First) {
+		this.c_First = c_First;
+	}
+
+	
+	
 }
