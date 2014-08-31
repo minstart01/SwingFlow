@@ -43,9 +43,9 @@ public class DBMovieInfoMain {
 				// Test용DB insert
 
 				// drop table
-				movieInfoDB.drop();
+/*				movieInfoDB.drop();
 				movieInfoDB.create();
-
+*/
 				// 1
 				System.out.println("입력할 자료 : " + movieInfo1.toString());
 				ret = movieInfoDB.insert(movieInfo1);

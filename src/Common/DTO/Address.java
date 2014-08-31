@@ -17,7 +17,7 @@ public class Address {
 	private String tPhone;
 	private int tScreen;
 	private int tTotalSit;
-	
+	private String fulladdr;
 	
 	public Address(){}
 	public Address(int aCode, String zipcode, String sido, String gugun,
@@ -110,6 +110,12 @@ public class Address {
 	}
 	public void settTotalSit(int tTotalSit) {
 		this.tTotalSit = tTotalSit;
+	}
+		public String getFulladdr() {
+		return fulladdr;
+	}
+	public void setFulladdr(String fulladdr) {
+		this.fulladdr = fulladdr;
 	}
 	
 	

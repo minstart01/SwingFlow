@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="Movie.MovieInfo">
+<sqlMap namespace="Movie.DTO.MovieInfo">
 
 
-	<resultMap id="resultMovieInfo" class="Movie.MovieInfo">
+	<resultMap id="resultMovieInfo" class="Movie.DTO.MovieInfo">
 		<result property="mCode" column="mCode" />
 		<result property="mName" column="mName" />
 		<result property="mPoster" column="mPoster" />
@@ -16,7 +16,7 @@
 		<result property="mPlayDate" column="mPlayDate" />
 	</resultMap>
 
-	<select id="find" parameterClass="Movie.MovieInfo" resultMap="resultMovieInfo">
+	<select id="find" parameterClass="Movie.DTO.MovieInfo" resultMap="resultMovieInfo">
 		SELECT * FROM MovieInfo
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="mCode" compareValue="0">
@@ -28,7 +28,7 @@
 		</dynamic>
 	</select>
 
-	<select id="findMovie01" parameterClass="Movie.MovieInfo" resultMap="stringResult">
+	<!-- <select id="findMovie01" parameterClass="Movie.DTO.MovieInfo" resultMap="stringResult">
 		m.mcode,i.mino,t.tcode,m.MNAME,t.TNAME from movieinfo  m ,movieinsert i, THEATERINFO t 
 		<dynamic prepend=" WHERE ">
 			<isNotEmpty prepend=" AND " property="mName" >
@@ -39,7 +39,7 @@
 			</isNotEmpty>
 			 and  m.mcode=i.MCODE and t.TCODE = i.TCODE;
 		</dynamic>
-	</select>
+	</select> -->
 	<resultMap id="stringResult" class="java.lang.String" >
 		<result property="" column="Result" />
 	</resultMap>
@@ -53,7 +53,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Movie.MovieInfo">
+	<insert id="insert" parameterClass="Movie.DTO.MovieInfo">
 		INSERT INTO MovieInfo (
 		mCode, mName, mPoster, mGenre, mDirector, mTime, mActor, sCode, mPlayDate 
 		) VALUES (
@@ -61,7 +61,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Movie.MovieInfo">
+	<update id="update" parameterClass="Movie.DTO.MovieInfo">
 		UPDATE MovieInfo SET
 		mName = #mName#,
 		mPoster = #mPoster#,
@@ -78,7 +78,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Movie.MovieInfo">
+	<delete id="delete" parameterClass="Movie.DTO.MovieInfo">
 		DELETE FROM MovieInfo
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="mCode" compareValue="0">

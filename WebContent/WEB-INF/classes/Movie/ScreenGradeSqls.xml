@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="Movie.ScreenGrade">
+<sqlMap namespace="Movie.DTO.ScreenGrade">
 
-	<resultMap id="resultScreenGrade" class="Movie.ScreenGrade">
+	<resultMap id="resultScreenGrade" class="Movie.DTO.ScreenGrade">
 		<result property="sCode" column="sCode" />
 		<result property="sGrade" column="sGrade" />
 	</resultMap>
 
-	<select id="find" parameterClass="Movie.ScreenGrade" resultMap="resultScreenGrade">
+	<select id="find" parameterClass="Movie.DTO.ScreenGrade" resultMap="resultScreenGrade">
 		SELECT * FROM ScreenGrade
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="sCode" compareValue="0">
@@ -22,7 +22,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Movie.ScreenGrade">
+	<insert id="insert" parameterClass="Movie.DTO.ScreenGrade">
 		INSERT INTO ScreenGrade (
 		sCode,sGrade
 		) VALUES (
@@ -31,7 +31,7 @@
 	</insert>
 
 
-	<update id="update" parameterClass="Movie.ScreenGrade">
+	<update id="update" parameterClass="Movie.DTO.ScreenGrade">
 		UPDATE ScreenGrade SET
 		sCode = #sCode# ,
 		sGrade = #sGrade#
@@ -42,7 +42,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Movie.ScreenGrade">
+	<delete id="delete" parameterClass="Movie.DTO.ScreenGrade">
 		DELETE FROM ScreenGrade
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="sCode" compareValue="0">

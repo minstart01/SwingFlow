@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.COM/DTD SQL MAP 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="Movie.MovieInsert">
+<sqlMap namespace="Movie.DTO.MovieInsert">
 
-	<resultMap id="resultMovieInsert" class="Movie.MovieInsert">
+	<resultMap id="resultMovieInsert" class="Movie.DTO.MovieInsert">
 		<result property="miNo" column="miNo" />
 		<result property="mCode" column="mCode" />
 		<result property="tCode" column="tCode" />
@@ -11,7 +11,7 @@
 		<result property="mEnd" column="mEnd" />
 	</resultMap>
 
-	<select id="find" parameterClass="Movie.MovieInsert" resultMap="resultMovieInsert">
+	<select id="find" parameterClass="Movie.DTO.MovieInsert" resultMap="resultMovieInsert">
 		SELECT * FROM MovieInsert
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="miNo" compareValue="0">
@@ -25,7 +25,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Movie.MovieInsert">
+	<insert id="insert" parameterClass="Movie.DTO.MovieInsert">
 		INSERT INTO MovieInsert (
 		miNo, mCode, tCode, mStart, mEnd 
 		) VALUES (
@@ -33,7 +33,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Movie.MovieInsert">
+	<update id="update" parameterClass="Movie.DTO.MovieInsert">
 		UPDATE MovieInsert SET
 		mCode = #mCode#,
 		tCode = #tCode#,
@@ -46,7 +46,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Movie.MovieInsert">
+	<delete id="delete" parameterClass="Movie.DTO.MovieInsert">
 		DELETE FROM MovieInsert
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="miNo" compareValue="0">

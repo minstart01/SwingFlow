@@ -3,6 +3,8 @@
 <%@page import="Movie.DAO.MovieDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="dao" class="Movie.DAO.MovieDAO"></jsp:useBean>
+<jsp:useBean id="dto" class="Common.DTO.Address"></jsp:useBean>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,15 +22,33 @@ function popup(url,width,height){
 }
 /* , time, grade, genre, date */
 function setChildValue(name, director, actor, time, grade, genre, date){
-    $(".mName").text(name);
-    $(".mDirector").text(director);
-    $(".mActor").text(actor);
-    $(".mTime").text(time);
-    $(".mGrade").text(grade);
-    $(".mGenre").text(genre);
-    $(".mStart").text(date);
+    $(".textmName").text(name);
+    $(".textmDirector").text(director);
+    $(".textmActor").text(actor);
+    $(".textmTime").text(time);
+    $(".textmGrade").text(grade);
+    $(".textmGenre").text(genre);
+    $(".textmStart").text(date);
     
+    var str = date.substring(1,4) + date.substring(6,8) + date.substring(10,12);
     
+    if(grade=="전체관람가"){
+    	$(".sCode").val(1);
+    }else if(grade=="12세관람가"){
+    	$(".sCode").val(2);
+    }else if(grade=="15세이상관람가"){
+    	$(".sCode").val(3);
+    }else{
+    	$(".sCode").val(4);
+    }
+    
+    $(".mName").val(name);
+    $(".mDirector").val(director);
+    $(".mTime").val(time);
+    $(".mActor").val(actor);
+    $(".mPlayDate").val(str);
+    $(".mGenre").val(genre);
+
     $.ajax({
 		url : 'mNameSearch.jsp',
 		type : 'GET',
@@ -42,6 +62,9 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 
     function SearchmPoster(data) {
 		var items = $(data).find("item");
+		var poster = $(items).find("image").text();
+		
+		$(".mPoster").val(poster);
 		
 		$(".img_poster").attr("src",$(items).find("image").text());
 		$(".img_poster").attr({width:"230",height:"300"});
@@ -60,15 +83,149 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 			$(".local_on").removeClass("local_on");
 	        $(this).addClass("local_on");
 			$(this).removeClass("local_off");
-
-
-			
 	    });
+	
+		
 	});
+	
+	/* 극장정보 뿌리기 */
+	function theaterinfo(local, no){
+		$(".tName").text($("." + local +"name" + no).val());
+		$(".tAddress").text($("." + local +"addr" + no).val());
+		$(".tAddresss").text($("." + local +"addrs" + no).val());
+		$(".tPhone").text($("." + local +"phone" + no).val());
+		$(".tScreen").text($("." + local +"screen" + no).val());
+		$(".tTotalSit").text($("." + local +"sit" + no).val());
+		$(".tCode").val($("." + local +"tcode" + no).val());
+		
+
+	}
+	
+	/* 상영시간 선택 */
+	function addtime(){
+		var gwan = $(".gwan_div").text();
+		var hour = $(".hour_div").text();
+		var min = $(".min_div").text();
+		var on = "on";
+		if(gwan!="관" && hour!="시간" && min!="분"){
+		$(".timebox").append("<div class='thover'><div class='checkbox'><input type='checkbox'></div><div class='timebox1'>" + gwan + "관" + "</div><div class='timebox2'>" + hour + ":" + min + "</div></div>");
+		}
+	}
+	
 </script>
 </head>
 <body>
-<form name="pfrm">
+
+
+
+<form name="pfrm" action="InsertMoviePro.jsp">
+<input type="hidden" class="tCode" name="tCode">
+<input type="hidden" class="mName" name="mName">
+<input type="hidden" class="mPoster" name="mPoster">
+<input type="hidden" class="mGenre" name="mGenre">
+<input type="hidden" class="mDirector" name="mDirector">
+<input type="hidden" class="mTime" name="mTime">
+<input type="hidden" class="mActor" name="mActor">
+<input type="hidden" class="sCode" name="sCode">
+<input type="hidden" class="mPlayDate" name="mPlayDate">
+<!-- 극장정보 뿌리기위한 히든값 -->
+<%
+	ArrayList<Address> list = new ArrayList<Address>();
+	list = (ArrayList<Address>)dao.SelectAddr("서울", "one", "one", "one");
+	for(int i=0;i<list.size();i++){
+		dto = list.get(i);
+		%>
+		<input type="hidden" class="stcode<%=i %>" value="<%=dto.gettCode() %>">
+		<input type="hidden" class="sname<%=i %>" value="<%=dto.gettName() %>">	
+		<input type="hidden" class="saddr<%=i %>" value="<%=dto.getFulladdr() %>">	
+		<input type="hidden" class="saddrs<%=i %>" value="<%=dto.gettDetailAddr() %>">	
+		<input type="hidden" class="sphone<%=i %>" value="<%=dto.gettPhone() %>">	
+		<input type="hidden" class="sscreen<%=i %>" value="<%=dto.gettScreen() %>">	
+		<input type="hidden" class="ssit<%=i %>" value="<%=dto.gettTotalSit() %>">	
+			
+		<%
+	}
+%>
+<%
+	list = (ArrayList<Address>)dao.SelectAddr("경기", "인천", "two", "two");
+	for(int i=0;i<list.size();i++){
+		dto = list.get(i);
+		%>
+		<input type="hidden" class="gtcode<%=i %>" value="<%=dto.gettCode() %>">
+		<input type="hidden" class="gname<%=i %>" value="<%=dto.gettName() %>">	
+		<input type="hidden" class="gaddr<%=i %>" value="<%=dto.getFulladdr() %>">	
+		<input type="hidden" class="gaddrs<%=i %>" value="<%=dto.gettDetailAddr() %>">	
+		<input type="hidden" class="gphone<%=i %>" value="<%=dto.gettPhone() %>">	
+		<input type="hidden" class="gscreen<%=i %>" value="<%=dto.gettScreen() %>">	
+		<input type="hidden" class="gsit<%=i %>" value="<%=dto.gettTotalSit() %>">	
+			
+		<%
+	}
+%>
+<%
+	list = (ArrayList<Address>)dao.SelectAddr("부산", "울산", "경남", "three");
+	for(int i=0;i<list.size();i++){
+		dto = list.get(i);
+		%>
+		<input type="hidden" class="ptcode<%=i %>" value="<%=dto.gettCode() %>">
+		<input type="hidden" class="pname<%=i %>" value="<%=dto.gettName() %>">	
+		<input type="hidden" class="paddr<%=i %>" value="<%=dto.getFulladdr() %>">	
+		<input type="hidden" class="paddrs<%=i %>" value="<%=dto.gettDetailAddr() %>">	
+		<input type="hidden" class="pphone<%=i %>" value="<%=dto.gettPhone() %>">	
+		<input type="hidden" class="pscreen<%=i %>" value="<%=dto.gettScreen() %>">	
+		<input type="hidden" class="psit<%=i %>" value="<%=dto.gettTotalSit() %>">	
+			
+		<%
+	}
+%>
+<%
+	list = (ArrayList<Address>)dao.SelectAddr("대구", "경북", "two", "two");
+	for(int i=0;i<list.size();i++){
+		dto = list.get(i);
+		%>
+		<input type="hidden" class="dtcode<%=i %>" value="<%=dto.gettCode() %>">
+		<input type="hidden" class="dname<%=i %>" value="<%=dto.gettName() %>">	
+		<input type="hidden" class="daddr<%=i %>" value="<%=dto.getFulladdr() %>">	
+		<input type="hidden" class="daddrs<%=i %>" value="<%=dto.gettDetailAddr() %>">	
+		<input type="hidden" class="dphone<%=i %>" value="<%=dto.gettPhone() %>">	
+		<input type="hidden" class="dscreen<%=i %>" value="<%=dto.gettScreen() %>">	
+		<input type="hidden" class="dsit<%=i %>" value="<%=dto.gettTotalSit() %>">	
+			
+		<%
+	}
+%>
+<%
+	list = (ArrayList<Address>)dao.SelectAddr("대전", "충천", "강원", "three");
+	for(int i=0;i<list.size();i++){
+		dto = list.get(i);
+		%>
+		<input type="hidden" class="djtcode<%=i %>" value="<%=dto.gettCode() %>">
+		<input type="hidden" class="djname<%=i %>" value="<%=dto.gettName() %>">	
+		<input type="hidden" class="djaddr<%=i %>" value="<%=dto.getFulladdr() %>">	
+		<input type="hidden" class="djaddrs<%=i %>" value="<%=dto.gettDetailAddr() %>">	
+		<input type="hidden" class="djphone<%=i %>" value="<%=dto.gettPhone() %>">	
+		<input type="hidden" class="djscreen<%=i %>" value="<%=dto.gettScreen() %>">	
+		<input type="hidden" class="djsit<%=i %>" value="<%=dto.gettTotalSit() %>">	
+			
+		<%
+	}
+%>
+<%
+	list = (ArrayList<Address>)dao.SelectAddr("광주", "전남", "전북", "제주");
+	for(int i=0;i<list.size();i++){
+		dto = list.get(i);
+		%>
+		<input type="hidden" class="jtcode<%=i %>" value="<%=dto.gettCode() %>">
+		<input type="hidden" class="jname<%=i %>" value="<%=dto.gettName() %>">	
+		<input type="hidden" class="jaddr<%=i %>" value="<%=dto.getFulladdr() %>">	
+		<input type="hidden" class="jaddrs<%=i %>" value="<%=dto.gettDetailAddr() %>">	
+		<input type="hidden" class="jphone<%=i %>" value="<%=dto.gettPhone() %>">	
+		<input type="hidden" class="jscreen<%=i %>" value="<%=dto.gettScreen() %>">	
+		<input type="hidden" class="jsit<%=i %>" value="<%=dto.gettTotalSit() %>">	
+			
+		<%
+	}
+%>
 
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <div id="wrapper">
@@ -77,21 +234,14 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 
 <div id="main_content" >
 
-<div class="insert_title"><% 
-						MovieDAO dao = new MovieDAO();
-						ArrayList<Address> list = new ArrayList<Address>();
-						Address dto = new Address();
-						
-						list = dao.SelectAddr("서울", "무안");
-						out.print(list.size());
-					%></div>
+<div class="insert_title"></div>
 
 <div class="title_box">영화선택</div>
 
 
  <section id="moviebox">
 
-  <input type="hidden" name="abc" id="a">
+ 
     	<table border="1" cellspacing="0" width="800">
     	<tr>
         	<td width="230" height="300" align="center" rowspan="6">
@@ -99,35 +249,35 @@ function setChildValue(name, director, actor, time, grade, genre, date){
         		<img src="" alt="포스터" class="img_poster" width="" height="">
         	</label></td>
             <td width="87" align="center">영화명</td>
-            <td class="mName"></td>
+            <td class="textmName txt"></td>
     
         </tr>
     	<tr>
         	<td  align="center"><label for="director">감독</label></td>
-            <td class="mDirector"></td>
+            <td class="textmDirector txt"></td>
         
         </tr>
         <tr>
         	<td align="center"><label for="actor">출연배우</label></td>
-            <td class="mActor"></td>
+            <td class="textmActor txt"></td>
      
         </tr>
         <tr>
         	<td align="center"><label for="mtime">상영시간</label></td>
-            <td class="mTime"></td>
+            <td class="textmTime txt"></td>
         </tr>
         <tr>
         	<td align="center"> <label for="grade">관람가</label></td>
-            <td class="mGrade"></td>
+            <td class="textmGrade txt"></td>
         </tr>
         <tr>
         	<td align="center"><label for="genre">장르</label></td>
-            <td class="mGenre"></td>	
+            <td class="textmGenre txt"></td>	
         </tr>
          <tr>
          	<td height="50" align="center" class="m_bt" onclick="popup('SearchMovie.jsp','470','320');">검색</td>
         	<td align="center"><label for="mstart">개봉일</label></td>
-            <td class="mStart"></td>
+            <td class="textmStart txt"></td>
            
               
         </tr>
@@ -145,29 +295,17 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 			<div id="sel_theater"
 				class="sel_theater sel_seoul incheon_except busan_except daegu_except daejeon_except gwangju_except">
 				<ul class="list">
-					
-					<li class="sel_local local_on">CGV</li>
-					<li class="sel_local local_off">롯데시네마</li>
-					<li class="sel_local local_off">메가박스</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("서울", "one", "one", "one");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							if(i==0){%>
+								<li class="sel_local local_<%="on" %>" onclick="theaterinfo('s','<%=i%>');"><%=dto.gettName()%></li><%
+							}else{%>
+								<li class="sel_local local_off" onclick="theaterinfo('s','<%=i%>');"><%=dto.gettName() %></li><%
+							}
+						}
+				%>
 				</ul>
 			</div>
 			<div class="local local_incheon" style="border-top: 1px solid black;"
@@ -175,140 +313,85 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 			<div id="sel_theater"
 				class="sel_theater sel_incheon seoul_except busan_except daegu_except daejeon_except gwangju_except">
 				<ul class="list">
-					<li class="sel_local local_on">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("경기", "인천", "two", "two");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							if(i==0){%>
+								<li class="sel_local local_<%="on" %>" onclick="theaterinfo('g','<%=i%>');"><%=dto.gettName()%></li><%
+							}else{%>
+								<li class="sel_local local_off" onclick="theaterinfo('g','<%=i%>');"><%=dto.gettName() %></li><%
+							}
+						}
+				%>
 				</ul>
 			</div>
 			<div class="local local_busan" onclick="selLocal('busan');">부산/울산/경남</div>
 			<div id="sel_theater"
 				class="sel_theater sel_busan incheon_except seoul_except daegu_except daejeon_except gwangju_except">
 				<ul class="list">
-					<li class="sel_local local_on">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("부산", "울산", "경남", "three");
+					for(int i=0;i<list.size();i++){
+						dto = (Address)list.get(i);
+						if(i==0){%>
+							<li class="sel_local local_<%="on" %>" onclick="theaterinfo('p','<%=i%>');"><%=dto.gettName()%></li><%
+						}else{%>
+							<li class="sel_local local_off" onclick="theaterinfo('p','<%=i%>');"><%=dto.gettName() %></li><%
+						}
+					}
+			%>
 				</ul>
 			</div>
 			<div class="local local_daegu" onclick="selLocal('daegu');">대구/경북</div>
 			<div id="sel_theater"
 				class="sel_theater sel_daegu incheon_except seoul_except busan_except daejeon_except gwangju_except">
 				<ul class="list">
-					<li class="sel_local local_on">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("대구", "경북", "two", "two");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							if(i==0){%>
+								<li class="sel_local local_<%="on" %>" onclick="theaterinfo('d','<%=i%>');"><%=dto.gettName()%></li><%
+							}else{%>
+								<li class="sel_local local_off" onclick="theaterinfo('d','<%=i%>');"><%=dto.gettName() %></li><%
+							}
+						}
+				%>
 				</ul>
 			</div>
 			<div class="local local_daejeon" onclick="selLocal('daejeon');">대전/충청/강원</div>
 			<div id="sel_theater"
 				class="sel_theater sel_daejeon incheon_except seoul_except busan_except daegu_except gwangju_except">
 				<ul class="list">
-					<li class="sel_local local_on">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("대전", "충청", "강원", "three");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							if(i==0){%>
+								<li class="sel_local local_<%="on" %>" onclick="theaterinfo('dj','<%=i%>');"><%=dto.gettName()%></li><%
+							}else{%>
+								<li class="sel_local local_off" onclick="theaterinfo('dj','<%=i%>');"><%=dto.gettName() %></li><%
+							}
+						}
+				%>
 				</ul>
 			</div>
 			<div class="local local_gwangju" onclick="selLocal('gwangju');">광주/전라/제주</div>
 			<div id="sel_theater"
 				class="sel_theater sel_gwangju incheon_except seoul_except busan_except daegu_except daejeon_except">
 				<ul class="list">
-					<li class="sel_local local_on">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("광주", "전남", "전북", "제주");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							if(i==0){%>
+								<li class="sel_local local_<%="on" %>" onclick="theaterinfo('j','<%=i%>');"><%=dto.gettName()%></li><%
+							}else{%>
+								<li class="sel_local local_off" onclick="theaterinfo('j','<%=i%>');"><%=dto.gettName() %></li><%
+							}
+						}
+				%>
 				</ul>
 			</div>
 
@@ -316,117 +399,113 @@ function setChildValue(name, director, actor, time, grade, genre, date){
             <section style="float:left; width:650px;">
     	<table border="1" cellspacing="0" width="560" height="400">
     	<tr>
-        	<td width="80">영화관명</td>
-            <td></td>
+        	<td width="80" align="center">영화관명</td>
+            <td class="tName txt"></td>
         </tr>
         <tr>
-        	<td>영화관명</td>
-            <td></td>
+        	<td align="center">주소</td>
+            <td class="tAddress txt"></td>
         </tr>
         <tr>
-        	<td>주소</td>
-            <td></td>
+        	<td align="center">상세주소</td>        	
+            <td class="tAddresss txt"></td>
         </tr>
          <tr>
-        	<td>전화번호</td>
-            <td></td>
+        	<td align="center">전화번호</td>
+            <td class="tPhone txt"></td>
         </tr>
         <tr>
-        	<td>스크린수</td>
-            <td></td>
+        	<td align="center">스크린수</td>
+            <td class="tScreen txt"></td>
         </tr>
         <tr>
-        	<td>총좌석</td>
-            <td></td>
+        	<td align="center">총좌석</td>
+            <td class="tTotalSit txt"></td>
         </tr>
     </table>
     </section>
     
     <div style="float:left; width:900px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영기간선택</div>
     <section style="float:left; width:800px;">
-	<input type="date" />~<input type="date" />
+	<input type="date" name="mStart"/>&nbsp;~&nbsp;<input type="date" name="mEnd"/>
 
     </section>
     <div style="float:left; width:900px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영기간선택</div>
   
     <section style="float:left; width:300px; height:200px;">
    <div class="sel_div_box">
-  <div class="gwan_div"  onclick="time('gwan');">
-  <div class="sel_txt">관</div><img src="/SwingFlow/images/Common/button.png" /></div>
-  <div class="select_gwan" style="border:1px solid black; position:relative; display:none; overflow:auto; height:185px;">
+  <div class="gwan_div1">
+  <div class="sel_txt gwan_div" onclick="time('gwan');">관</div><img src="/SwingFlow/images/Common/button.png" onclick="time('gwan');"/></div>
+  <div class="select_gwan" style="border:1px solid black; position:relative; display:none; overflow:auto; height:185px; background: white;">
   	<ul class="sel_list">
-    	<li><a href="javascript:select('gwan',0);" class="sel_gwan0">관</a></li>
-                	<li><a href="javascript:select('gwan',1);" class="sel_gwan1">1</a></li>
-                 	<li><a href="javascript:select('gwan',2);" class="sel_gwan2">2</a></li>
-                    <li><a href="javascript:select('gwan',3);" class="sel_gwan3">3</a></li>
-                    <li><a href="javascript:select('gwan',4);" class="sel_gwan4">4</a></li>
-                    <li><a href="javascript:select('gwan',5);" class="sel_gwan5">5</a></li>
-                    <li><a href="javascript:select('gwan',6);" class="sel_gwan6">5</a></li>
-                    <li><a href="javascript:select('gwan',7);" class="sel_gwan7">5</a></li>
-                    <li><a href="javascript:select('gwan',8);" class="sel_gwan8">5</a></li>
-                    <li><a href="javascript:select('gwan',9);" class="sel_gwan9">5</a></li> 
-    </ul>
+  	   	<li><a href="javascript:select('gwan',0);" class="sel_gwan0">관</a></li>
+  	   	<%for(int i=1;i<=10;i++){ %>
+       		<li><a href="javascript:select('gwan',<%=i %>);" class="sel_gwan<%=i%>"><%=i %></a></li>
+       	<%} %>
+        </ul>
   </div>
  </div>
   <div style="width:20px; float:left; margin-top:3px; font-size:16px; margin-right:2px;margin-top:4px;">관</div>
  <div class="sel_div_box1">
-  <div class="hour_div" onclick="time('hour');">
-  <div class="sel_txt1">시간</div><img src="/SwingFlow/images/Common/button.png" /></div>
-  <div class="select_hour" style="border:1px solid black; position:relative; display:none; overflow:auto; height:185px">
+  <div class="hour_div1">
+  <div class="sel_txt1 hour_div"  onclick="time('hour');">시간</div><img src="/SwingFlow/images/Common/button.png" onclick="time('hour');" /></div>
+  <div class="select_hour" style="border:1px solid black; position:relative; display:none; overflow:auto; height:185px; background: white;">
   	<ul class="sel_list">
     	<li><a href="javascript:select('hour',0);" class="sel_hour0">시간</a></li>
-                	<li><a href="javascript:select('hour',1);" class="sel_hour1">4</a></li>
-                 	<li><a href="javascript:select('hour',2);" class="sel_hour2">3</a></li>
-                    <li><a href="javascript:select('hour',3);" class="sel_hour3">2</a></li>
-                    <li><a href="javascript:select('hour',4);" class="sel_hour4">1</a></li>
-                    <li><a href="javascript:select('hour',5);" class="sel_hour5">1</a></li>
-                    <li><a href="javascript:select('hour',6);" class="sel_hour6">2</a></li>
-                    <li><a href="javascript:select('hour',7);" class="sel_hour7">8</a></li>
-                    <li><a href="javascript:select('hour',8);" class="sel_hour8">7</a></li>
-                    <li><a href="javascript:select('hour',9);" class="sel_hour9">6</a></li> 
+        <%for(int i=1;i<=24;i++){
+			if(i<10){
+				%>
+				<li><a href="javascript:select('hour',<%=i %>);" class="sel_hour<%=i%>"><%="0" + i%></a></li>
+		<%		
+			}else{
+		%>
+              	<li><a href="javascript:select('hour',<%=i %>);" class="sel_hour<%=i%>"><%=i%></a></li>
+        <%} }%>
     </ul>
   </div>
  </div>
- <div style="width:40px; float:left; margin-top:3px; font-size:16px; margin-right:2px; margin-top:4px;">시간</div>
+ <div style="width:40px; float:left; margin-top:3px; font-size:16px; margin-right:2px; margin-top:4px;">&nbsp;시</div>
  <div class="sel_div_box">
-  <div class="min_div" onclick="time('min');">
-  <div class="sel_txt">분</div><img src="/SwingFlow/images/Common/button.png" /></div>
-  <div class="select_min" style="border:1px solid black; position:relative; display:none; overflow:auto; height:185px">
+  <div class="min_div1" >
+  <div class="sel_txt min_div" onclick="time('min');">분</div><img src="/SwingFlow/images/Common/button.png" onclick="time('min');"/></div>
+  <div class="select_min" style="border:1px solid black; position:relative; display:none; overflow:auto; height:185px; background: white;">
   	<ul class="sel_list">
     	<li><a href="javascript:select('min',0);" class="sel_min0">분</a></li>
-                	<li><a href="javascript:select('min',1);" class="sel_min1">4</a></li>
-                 	<li><a href="javascript:select('min',2);" class="sel_min2">3</a></li>
-                    <li><a href="javascript:select('min',3);" class="sel_min3">2</a></li>
-                    <li><a href="javascript:select('min',4);" class="sel_min4">1</a></li>
-                    <li><a href="javascript:select('min',5);" class="sel_min5">0</a></li>
-                    <li><a href="javascript:select('min',6);" class="sel_min6">a</a></li>
-                    <li><a href="javascript:select('min',7);" class="sel_min7">8</a></li>
-                    <li><a href="javascript:select('m
-                    in',8);" class="sel_min8">7</a></li>
-                    <li><a href="javascript:select('min',9);" class="sel_min9">6</a></li> 
+      	<li><a href="javascript:select('min',1);" class="sel_min1">00</a></li>
+        <li><a href="javascript:select('min',2);" class="sel_min2">05</a></li>
+        <li><a href="javascript:select('min',3);" class="sel_min3">10</a></li>
+        <%
+        int min=15;
+        for(int i=4;min<=55;i++){ %>  
+                    <li><a href="javascript:select('min',<%=i %>);" class="sel_min<%=i%>"><%=min %></a></li>
+                    
+        <%
+        min += 5;
+        } %>
+                  
     </ul>
   </div>
  </div>
   <div style="width:40px; float:left; margin-top:2px; font-size:16px; margin-top:4px;">분</div>
+  <div class="time_bt">
+ 	 <input type="button" value="추가" class="add_bt" onclick="addtime();">
+ 	 <input type="button" value="삭제" class="del_bt">
+  </div>
   
 
     </section>
-        <section style="float:left; width:450px;">
-    <div style="overflow:auto; height:250px; border:1px solid black;">
-   <ul style="list-style:none;">
-    	<li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+        <section style="float:left; width:422px;">
+    <div class="timebox" style="overflow:auto; height:250px; border:1px solid black;">
+   		
+   
+  	<!-- <table border="1" cellpadding="6" cellspacing="0">
+  		<tr>
+  			<td width="100">1관</td>
+  			<td width="150">20:10</td>
+  		</tr>
+  	</table> -->
+  	
+  	
     </div>
     
     </section> 
