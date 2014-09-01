@@ -7,6 +7,21 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <style>
+
+.bt_login
+{
+	width:80px;
+	height:30px;
+	font-size:12px;
+	font-weight:bold;
+	background: #0043A8;
+  	background: -moz-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -o-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
+	color:white;
+	
+}
+
 #wrapper{
 	width:1200px;
 	}

@@ -35,6 +35,28 @@ font-weight: bold;
 color: #5c5f66;
 }
 
+.div_button
+{
+	border:1px solid black;
+	margin-top:7px;
+	width:900px;;
+	text-align:center;
+}
+
+.bt_login
+{
+	width:80px;
+	height:30px;
+	font-size:12px;
+	font-weight:bold;
+	background: #0043A8;
+  	background: -moz-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -o-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
+	color:white;
+	
+}
+
 </style>
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 </head>
@@ -211,8 +233,8 @@ color: #5c5f66;
   </tr>
 </table>
     <div class="div_button">
-	<input type="submit" value="이전단계" />
-  	<input type="button" value="운임확인" id="FareComfirm"/>
+	<input type="submit" value="이전단계" class="bt_login"/>
+  	<input type="button" value="운임확인" id="FareComfirm" class="bt_login"/>
 </div>
 
 <div id="dvResult"></div>

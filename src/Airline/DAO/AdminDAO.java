@@ -304,7 +304,7 @@ public class AdminDAO {
  
 public ScheduleDetailDTO sDetail(int v_no){
 	ScheduleDetailDTO dto = new ScheduleDetailDTO();
-	conn = DbSet.getConnection();
+     conn = DbSet.getConnection();
 	sql=" select r.r_No, fn.fn_air, fn.fn_no, fn.r_SeatTotal, s.s_FlightTime, c.c_DepCity, c.c_ArrCity, af.a_Travel, af.a_business, af.a_first, cf.c_travel, cf.c_business, cf.c_first,"
 			+ "s.s_DeptTime, s.s_ArrtTime, to_char(s.s_DepDay,'yyyy-mm-dd'),s.s_code from Register r, Schedule s,  City c, FlightNo fn, AdultF af, ChildF cf where r.r_no=fn.r_no and r.r_no=c.r_no and r.s_code=s.s_code and r.r_no=af.r_no and r.r_no=cf.r_no and r.r_no=?";
 	try {
@@ -328,8 +328,7 @@ public ScheduleDetailDTO sDetail(int v_no){
 			dto.setS_DeptTime(rs.getString(14));
 			dto.setS_ArrtTime(rs.getString(15));
 			dto.setS_DepDay(rs.getString(16));
-			dto.setS_Code(rs.getInt(17));
-			dto.seta
+			dto.setS_Code(rs.getInt(17));			
 		}
 		
 	} catch (SQLException e) {
@@ -342,6 +341,23 @@ public ScheduleDetailDTO sDetail(int v_no){
 	
 }
 
+public int rDelete(int v_no){
+	conn = DbSet.getConnection();
+	sql="DELETE FROM REGISTER WHERE R_NO = ?";
+	try {
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, v_no);
+		su = pstmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally{
+		DbClose.close(pstmt, conn );
+	}
+
+	return su;
+	
+}
 
 }
 

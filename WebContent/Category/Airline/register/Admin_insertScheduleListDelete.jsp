@@ -24,24 +24,20 @@
 </head>
 <body>
 	<%	
-// 	int b = Integer.parseInt(request.getParameter("a_Business"));
-// out.print(b);
-// int rno = Integer.parseInt(request.getParameter("rno")) ;
-	/* out.print(rno); */
+ int v_no = Integer.parseInt(request.getParameter("r_No"));
+// 	out.print(a);
+
  AdminDAO dao = AdminDAO.getInstance();
-int su = dao.ScheduleUpd(schedule)+ dao.ChildUpd(childF)+dao.adultUpd(adultF)+dao.cityUpd(city)+dao.flightNoUpd(flightNo);
+int su = dao.rDelete(v_no);
 
 
 out.print(su);
 String msg = "";
 String url="";
 if(su!=0){
-	msg="스케줄이 수정되었습니다!";
+	msg="스케줄이 삭제되었습니다!";
 	url="Admin_insertScheduleList.jsp";
-}else{
-	msg="스케줄을 입력하세요!";
-	url="Admin_updateSchedule.jsp?rno=";
-} 
+}
 %>
  <script type="text/javascript">
 alert("<%=msg%>");

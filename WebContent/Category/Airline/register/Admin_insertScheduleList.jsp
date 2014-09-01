@@ -105,8 +105,8 @@
     <td><%=dto.getC_ArrCity() %></td>
     <td align="right"><%=dto.getS_DeptTime() %></td>
     <td><%= dto.getS_DepDay()%> </td>
-    <td><input type="button" value="수정" onclick="location.href='Admin_updateSchedule.jsp?rno=<%=rno%>'"></td>
-    <td><input type="submit" name="button" id="button" value="삭제"></td>
+    <td><input type="button" value="수정" onclick="location.href='Admin_updateSchedule.jsp?r_No=<%=rno%>'"></td>
+    <td><input type="button" value="삭제" onclick="location.href='Admin_insertScheduleListDelete.jsp?r_No=<%=rno%>'"></td>
   </tr>
   <%} %>
 

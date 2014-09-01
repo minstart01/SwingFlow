@@ -19,6 +19,8 @@ public class ScheduleDetailDTO {
 	int c_Business;
 	int c_First;
 	
+
+	
 	public ScheduleDetailDTO(){}
 
 	public ScheduleDetailDTO(int r_No, String fn_air, String fn_no,
