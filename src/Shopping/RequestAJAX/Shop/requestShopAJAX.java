@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import Common.MyBatis;
-import Movie.MovieInfo;
 import Shopping.DTO.Shop;
 
 

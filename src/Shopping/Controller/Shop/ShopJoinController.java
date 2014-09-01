@@ -12,7 +12,7 @@ import Shopping.DTO.Shop;
 public class ShopJoinController {
 
 	@RequestMapping("/Category/Shopping/Shop/ShopJoin.do")
-	public ModelAndView shopJoin() {
+	public ModelAndView shopJoin(Shop shop) {
 		ModelAndView mv = new ModelAndView();
 		  // view 설정
 		mv.setViewName("ShopJoinView"); // view의 이름을 제공

@@ -7,7 +7,10 @@
 		class="org.springframework.web.servlet.view.JstlView">
 		<property name="url" value="/Category/Shopping/Shop/ShopJoin.jsp" />
 	</bean>
+	<bean id="Shop" class="Shopping.DTO.Shop">
 	<!-- 	여기추가하세요 LYM -->
+	
+	</bean>
 	<bean id="ListMovieView"
 		class="org.springframework.web.servlet.view.JstlView">
 		<property name="url" value="/Category/Movie/Admin/MovieManage/ListMovie.jsp" />
