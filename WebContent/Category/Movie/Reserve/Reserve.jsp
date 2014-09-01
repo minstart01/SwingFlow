@@ -1,5 +1,11 @@
+<%@page import="Movie.DTO.MovieInfo"%>
+<%@page import="Common.DTO.Address"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:useBean id="dao" class="Movie.DAO.MovieDAO"></jsp:useBean>
+<jsp:useBean id="dto" class="Common.DTO.Address"></jsp:useBean>
+<jsp:useBean id="moviedto" class="Movie.DTO.MovieInfo"></jsp:useBean>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,7 +41,10 @@
 </head>
 
 <body>
-
+<%
+	ArrayList<Address> list = new ArrayList<Address>();
+	ArrayList<MovieInfo> movielist = new ArrayList<MovieInfo>();
+%>
 	<jsp:include page="/Category/Common/top.jsp"></jsp:include>
 	<div id="wrapper">
 
@@ -64,8 +73,16 @@
 			</div>
 			<div id="sel_movie">
 				<ul class="list">
-					<li class="sel_movie movie_on">명량</li>
-					<li class="sel_movie movie_off">해적</li>
+					<%
+						movielist = dao.MovieName();
+						
+					for(int i=0;i<movielist.size();i++){
+						moviedto = movielist.get(i);
+						String posterimg = dao.PosterIMG(moviedto.getmName());
+					%>
+					<li class="sel_movie movie_off"><%= moviedto.getmName() %><input type="hidden" class="posterimg" value="<%=posterimg%>"></li>
+					<%} %>
+					<!-- <li class="sel_movie movie_off">해적</li>
 					<li class="sel_movie movie_off">드래곤길들이기</li>
 					<li class="sel_movie movie_off">군도</li>
 					<li class="sel_movie movie_off">명량</li>
@@ -85,7 +102,7 @@
 					<li class="sel_movie movie_off">명량</li>
 					<li class="sel_movie movie_off">명량</li>
 					<li class="sel_movie movie_off">명량</li>
-					<li class="sel_movie movie_off">명량</li>
+					<li class="sel_movie movie_off">명량</li> -->
 				</ul>
 			</div>
 			</section>
@@ -99,28 +116,14 @@
 			<div id="sel_theater"
 				class="sel_theater sel_seoul incheon_except busan_except daegu_except daejeon_except gwangju_except">
 				<ul class="list">
-					<li class="sel_local local_on">CGV</li>
-					<li class="sel_local local_off">롯데시네마</li>
-					<li class="sel_local local_off">메가박스</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("서울", "one", "one", "one");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+						%>
+								<li class="sel_local local_off" onclick="theaterinfo('s','<%=i%>');"><%=dto.gettName() %></li><%
+						}
+				%>
 				</ul>
 			</div>
 			<div class="local local_incheon" style="border-top: 1px solid black;"
@@ -128,140 +131,72 @@
 			<div id="sel_theater"
 				class="sel_theater sel_incheon seoul_except busan_except daegu_except daejeon_except gwangju_except">
 				<ul class="list">
-					<li class="sel_local local_on">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("경기", "인천", "two", "two");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							%>
+								<li class="sel_local local_off" onclick="theaterinfo('g','<%=i%>');"><%=dto.gettName() %></li><%
+						}
+				%>
 				</ul>
 			</div>
 			<div class="local local_busan" onclick="selLocal('busan');">부산/울산/경남</div>
 			<div id="sel_theater"
 				class="sel_theater sel_busan incheon_except seoul_except daegu_except daejeon_except gwangju_except">
 				<ul class="list">
-					<li class="sel_local local_on">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("부산", "울산", "경남", "three");
+					for(int i=0;i<list.size();i++){
+						dto = (Address)list.get(i);
+						%>
+							<li class="sel_local local_off" onclick="theaterinfo('p','<%=i%>');"><%=dto.gettName() %></li><%
+						}
+					
+			%>
 				</ul>
 			</div>
 			<div class="local local_daegu" onclick="selLocal('daegu');">대구/경북</div>
 			<div id="sel_theater"
 				class="sel_theater sel_daegu incheon_except seoul_except busan_except daejeon_except gwangju_except">
 				<ul class="list">
-					<li class="sel_local local_on">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("대구", "경북", "two", "two");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							%>
+								<li class="sel_local local_off" onclick="theaterinfo('d','<%=i%>');"><%=dto.gettName() %></li><%
+							}
+				%>
 				</ul>
 			</div>
 			<div class="local local_daejeon" onclick="selLocal('daejeon');">대전/충청/강원</div>
 			<div id="sel_theater"
 				class="sel_theater sel_daejeon incheon_except seoul_except busan_except daegu_except gwangju_except">
 				<ul class="list">
-					<li class="sel_local local_on">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("대전", "충청", "강원", "three");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							%>
+								<li class="sel_local local_off" onclick="theaterinfo('dj','<%=i%>');"><%=dto.gettName() %></li><%
+							
+						}
+				%>
 				</ul>
 			</div>
 			<div class="local local_gwangju" onclick="selLocal('gwangju');">광주/전라/제주</div>
 			<div id="sel_theater"
 				class="sel_theater sel_gwangju incheon_except seoul_except busan_except daegu_except daejeon_except">
 				<ul class="list">
-					<li class="sel_local local_on">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
-					<li class="sel_local local_off">명량</li>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("광주", "전남", "전북", "제주");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							%>
+								<li class="sel_local local_off" onclick="theaterinfo('j','<%=i%>');"><%=dto.gettName() %></li><%
+							}
+						%>
 				</ul>
 			</div>
 
@@ -425,7 +360,7 @@
 
 			<section id="info_reserve">
 			<div class="poster_img">
-				<img src="/SwingFlow/images/Movie/Reserve/poster.gif" />
+				<img src="/SwingFlow/images/Movie/Reserve/posterimg.gif" class="postername" width="86" height="124" />
 			</div>
 			<div style="margin-top: 8px; float: left; height: 130px;">
 				<div class="movie_info">영화를 선택하세요</div>

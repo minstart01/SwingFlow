@@ -137,9 +137,10 @@
 {
 	float:left;
 
-	margin-top:7px;
+	margin-top:30px;
 	text-align:center;
 	width:700px;	
+
 }
 .div_button input{
 	width:100px;	
@@ -243,26 +244,28 @@ text-align:center;
 
 /* 상영시간 추가 */
 .timebox1{
-	width: 70px; 
+	width: 60px; 
 	float: left; 
 	text-align: center; 
 	padding: 5px 0 5px 0;
+	
 }
 .timebox2{
-	width: 120px; float: left; 
+	width: 90px; float: left; 
 	text-align: center; 
 	padding: 5px 0 5px 0;
+	
 }
 .checkbox{
 	width: 20px;
 
-	padding: 5px 0 5px 0;
+	padding: 2px 0 2px 0;
 	float: left;
 }
 .thover{
 	
 	height: 27px;
-	width: 210px;
+	width: 170px;
 	float: left;
 }
 

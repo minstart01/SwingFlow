@@ -100,7 +100,15 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 		$(".tTotalSit").text($("." + local +"sit" + no).val());
 		$(".tCode").val($("." + local +"tcode" + no).val());
 		
-
+		var screensu = $("." + local +"screen" + no).val();
+		var gwan1="'gwan'";
+		var firstline = "<li><a href='javascript:select('gwan',0);' class='sel_gwan0'>관</a></li>";
+		$(".gwan_sel_list").empty();
+		$(".gwan_sel_list").append(firstline);
+		for(var i=1;i<=screensu;i++){
+			$(".gwan_sel_list").append("<li><a href=javascript:select(" + "'gwan'," + i + "); class='sel_gwan" + i + "'>" + i + "</a></li>");
+	  	   			
+		}
 	}
 	
 	/* 상영시간 선택 */
@@ -110,7 +118,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 		var min = $(".min_div").text();
 		var on = "on";
 		if(gwan!="관" && hour!="시간" && min!="분"){
-		$(".timebox").append("<div class='thover'><div class='checkbox'><input type='checkbox'></div><div class='timebox1'>" + gwan + "관" + "</div><input type='hidden' name='pArea" + playinfo + "' value='" + playinfo + "'><div class='timebox2'>" + hour + ":" + min + "</div></div>");
+		$(".timebox").append("<div class='thover'><div class='checkbox'><input type='checkbox'></div><div class='timebox1'>" + gwan + "관" + "</div><input type='hidden' name='pArea" + playinfo + "' value='" + gwan + "'><div class='timebox2'>" + hour + ":" + min + "</div><input type='hidden' name='pPlayStart" + playinfo +"' value='" + hour + ":" + min + "'></div>");
 		
 		$(".playinfo").val(playinfo);
 		playinfo++;
@@ -124,7 +132,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 		$(".insert_bt").click(function (e){
 			var str = $(".textmStarts").val();
 			var start = str.substring(0,4) + str.substring(5,7) + str.substring(8,10);
-			alert(start);
+			
 			var str1 = $(".textmEnd").val();
 			var end = str1.substring(0,4) + str1.substring(5,7) + str1.substring(8,10);
 			
@@ -404,7 +412,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 
 			</section>
             <section style="float:left; width:650px;">
-    	<table border="1" cellspacing="0" width="509" height="210">
+    	<table border="1" cellspacing="0" width="509" height="230">
     	<tr>
         	<td width="80" align="center">영화관명</td>
             <td class="tName txt"></td>
@@ -432,23 +440,43 @@ function setChildValue(name, director, actor, time, grade, genre, date){
     </table>
     </section>
     
-    <div style="float:left; width:560px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영기간선택</div>
-    <section style="float:left; width:560px;">
+    <div style="float:left; width:560px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:15px;">요금선택</div>
+    <section style="float:left; width:560px; height:50px;">학생&nbsp;<input type="text" name="cTeen" size="10" style="margin-bottom: 6px;"/>원&nbsp;&nbsp;&nbsp;&nbsp;성인&nbsp;<input type="text" name="cAdult" size="10"/>원
+
+    </section>
+    
+    <div style="float:left; width:850px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영기간선택</div>
+    <section style="float:left; width:320px;">
 	<input type="date" class="textmStarts"/>&nbsp;~&nbsp;<input type="date" class="textmEnd"/>
 
     </section>
-    <div style="float:left; width:560px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영기간선택</div>
+    <section style="float:right; width:360px; margin-right:206px;">
+    <div class="timebox" style="overflow:auto; height:180px; border:1px solid black;">
+   		
+   
+  	<!-- <table border="1" cellpadding="6" cellspacing="0">
+  		<tr>
+  			<td width="100">1관</td>
+  			<td width="150">20:10</td>
+  		</tr>
+  	</table> -->
+  	
+  	
+    </div>
+    
+    </section> 
+    
+    
+    <div style="float:left; width:300px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영시간선택</div>
   
-    <section style="float:left; width:560px; height:80px;">
+    <section style="float:left; width:305px; height:80px;">
    <div class="sel_div_box">
   <div class="gwan_div1">
   <div class="sel_txt gwan_div" onclick="time('gwan');">관</div><img src="/SwingFlow/images/Common/button.png" onclick="time('gwan');"/></div>
-  <div class="select_gwan" style="border:1px solid black; position:relative; display:none; overflow:auto; height:185px; background: white;">
-  	<ul class="sel_list">
+  <div class="select_gwan" style="border:1px solid black; position:relative; display:none; overflow:auto; height:155px; background: white;">
+  	<ul class="sel_list gwan_sel_list">
   	   	<li><a href="javascript:select('gwan',0);" class="sel_gwan0">관</a></li>
-  	   	<%for(int i=1;i<=10;i++){ %>
-       		<li><a href="javascript:select('gwan',<%=i %>);" class="sel_gwan<%=i%>"><%=i %></a></li>
-       	<%} %>
+  	   
         </ul>
   </div>
  </div>
@@ -456,7 +484,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
  <div class="sel_div_box1">
   <div class="hour_div1">
   <div class="sel_txt1 hour_div"  onclick="time('hour');">시간</div><img src="/SwingFlow/images/Common/button.png" onclick="time('hour');" /></div>
-  <div class="select_hour" style="border:1px solid black; position:relative; display:none; overflow:auto; height:185px; background: white;">
+  <div class="select_hour" style="border:1px solid black; position:relative; display:none; overflow:auto; height:155px; background: white;">
   	<ul class="sel_list">
     	<li><a href="javascript:select('hour',0);" class="sel_hour0">시간</a></li>
         <%for(int i=1;i<=24;i++){
@@ -475,7 +503,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
  <div class="sel_div_box">
   <div class="min_div1" >
   <div class="sel_txt min_div" onclick="time('min');">분</div><img src="/SwingFlow/images/Common/button.png" onclick="time('min');"/></div>
-  <div class="select_min" style="border:1px solid black; position:relative; display:none; overflow:auto; height:185px; background: white;">
+  <div class="select_min" style="border:1px solid black; position:relative; display:none; overflow:auto; height:155px; background: white;">
   	<ul class="sel_list">
     	<li><a href="javascript:select('min',0);" class="sel_min0">분</a></li>
       	<li><a href="javascript:select('min',1);" class="sel_min1">00</a></li>
@@ -501,21 +529,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
   
 
     </section>
-        <section style="float:left; width:439px;">
-    <div class="timebox" style="overflow:auto; height:180px; border:1px solid black;">
-   		
-   
-  	<!-- <table border="1" cellpadding="6" cellspacing="0">
-  		<tr>
-  			<td width="100">1관</td>
-  			<td width="150">20:10</td>
-  		</tr>
-  	</table> -->
-  	
-  	
-    </div>
-    
-    </section> 
+        
     <div class="div_button">
 	<input type="submit" value="등록하기" class="insert_bt"/>
   	<input type="button" value="뒤로가기" />

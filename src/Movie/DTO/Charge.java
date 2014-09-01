@@ -6,7 +6,7 @@ public class Charge {
 	private int cTeen;
 	private int cAdult;
 	
-	Charge(){}
+	public Charge(){}
 
 	public Charge(int miNo, int cTeen, int cAdult) {
 		super();

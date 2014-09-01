@@ -14,6 +14,13 @@ public class PlayInfo {
 		this.pArea = pArea;
 		this.pPlayStart = pPlayStart;
 	}
+	
+
+	public PlayInfo(int pArea, String pPlayStart) {
+		super();
+		this.pArea = pArea;
+		this.pPlayStart = pPlayStart;
+	}
 
 	public int getMiNo() {
 		return miNo;

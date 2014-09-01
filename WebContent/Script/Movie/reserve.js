@@ -150,6 +150,7 @@ $(function(){
 		$(this).removeClass("movie_off");
 		$(".movie_info").text("");
 		$(".movie_info").append($(this).text());
+		$(".postername").attr("src", $(".movie_on input").val());
 		
     });
 	

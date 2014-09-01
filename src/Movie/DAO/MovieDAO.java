@@ -7,9 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Common.DTO.Address;
-import Movie.DTO.MovieInfo;
-import Movie.DTO.MovieInsert;
-import Movie.DTO.PlayInfo;
+import Movie.DTO.*;
+
 
 public class MovieDAO {
 
@@ -147,7 +146,7 @@ public class MovieDAO {
 	
 	public int PlayInfo(PlayInfo dto){
 		conn = DbSet.getConnection();
-		sql = "INSERT INTO PLAYINFO(MINO, PAREA, PPLAYSTART) VALUES((select max(mino) from movieinsert), ?, ?)";
+		sql = "INSERT INTO PLAYINFO(MINO, PAREA, PPLAYSTART) VALUES((SELECT MAX(MINO) FROM MOVIEINSERT), ?, ?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -167,4 +166,76 @@ public class MovieDAO {
 		
 		
 	}
+	
+	public int Charge(Charge dto){
+		conn = DbSet.getConnection();
+		sql = "INSERT INTO CHARGE(MINO, CTEEN, CADULT) VALUES((SELECT MAX(MINO) FROM MOVIEINSERT), ?, ?)";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, dto.getcTeen());
+			pstmt.setInt(2, dto.getcAdult());
+			
+			su = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;
+		
+		
+	}
+	
+	public ArrayList<MovieInfo> MovieName(){
+		ArrayList<MovieInfo> list =  new ArrayList<MovieInfo>();
+		conn = DbSet.getConnection();
+		sql = "SELECT DISTINCT MNAME FROM MOVIEINFO";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				MovieInfo dto = new MovieInfo();
+				dto.setmName(rs.getString(1));
+				
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
+	
+	public String PosterIMG(String mName){
+		conn = DbSet.getConnection();
+		sql = "SELECT DISTINCT MPOSTER FROM MOVIEINFO WHERE MNAME = ?";
+		String MovieName="";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mName);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				MovieName = rs.getString(1);
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		return MovieName;
+	}
+	
 }
