@@ -14,10 +14,10 @@
 <link rel="stylesheet" type="text/css"
 	href="/SwingFlow/Css/Common/Join.css" />
 <link rel="stylesheet" type="text/css"
-	href="/SwingFlow/Css/Shopping/ShopJoin.css" />
+	href="/SwingFlow/Css/Shopping/Shop.css" />
 
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
-<script src="/SwingFlow/WebContent/Category/Shopping/JS/FNames.js"></script>
+<script src="/SwingFlow/Category/Shopping/JS/FNames.js"></script>
 
 <script type="text/javascript">
 	function ShopInput() {
@@ -70,14 +70,14 @@
 <body>
 	<jsp:include page="/Category/Common/top.jsp"></jsp:include>
 	<jsp:include page="/Category/Shopping/Sidebar.jsp"></jsp:include>
-	<div class="shopjoin_form">
+	<div class="ShopJoin_Form">
 		<div align="center" style="margin-bottom: 30px; width: 100%;">
 			<div style="float: left; margin-left: 5px;">
 				<h1>쇼핑몰 등록</h1>
 			</div>
 			<hr style="width: 90%; border: 1px solid #d9d9d9;" />
 		</div>
-		<table class="shopjoin_table" cellpadding="6">
+		<table class="ShopJoin_Table" cellpadding="6">
 			<tr>
 				<td class="first_td"><label>쇼핑몰코드</label></td>
 				<td><input type="text" class="text1" id="shopSeq"

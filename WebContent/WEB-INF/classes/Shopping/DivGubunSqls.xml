@@ -7,6 +7,15 @@
 		<result property="divSeq" column="divSeq" />
 		<result property="divName" column="divName" />
 	</resultMap>
+	
+	<resultMap id="stringResult" class="java.lang.String" >
+		<result property="" column="Result" />
+	</resultMap>
+
+	<select id="MaxNumber" parameterClass="java.lang.String"
+		resultMap="stringResult">
+		SELECT $value$ AS "Result" FROM Shop
+	</select>	
 
 	<select id="find" parameterClass="Shopping.DTO.DivGubun" resultMap="resultDivGubun">
 		SELECT * FROM DivGubun

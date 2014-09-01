@@ -3,14 +3,34 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
  
+<!--  MVC 적용 작성순서 LYM -->
+<!-- 1. /SwingFlow/WebContent/Category/Shopping/Shop/DivGubunJoin.jsp -->
+<!-- 	view작성 -->
+<!-- 2. /SwingFlow/src/Shopping/Controller/Shop/ShopController.java -->
+<!-- 	컨트롤러에 뷰등록 및 비지니스로직 작성	 -->
+<!-- 3. /SwingFlow/WebContent/WEB-INF/swingflow-views.xml -->
+<!-- 	view등록,bean등록 -->
+<!-- 4. /SwingFlow/WebContent/WEB-INF/dispatcher-servlet.xml -->
+<!-- 	컨트롤러와 뷰연결 -->
+<!-- 5. /SwingFlow/WebContent/WEB-INF/classes/Shopping/DivGubunSqls.xml -->
+<!-- 	mybatis sql문 등록 -->
+ 
 	<bean id="ShopJoinView"
 		class="org.springframework.web.servlet.view.JstlView">
 		<property name="url" value="/Category/Shopping/Shop/ShopJoin.jsp" />
 	</bean>
 	<bean id="Shop" class="Shopping.DTO.Shop">
-	<!-- 	여기추가하세요 LYM -->
-	
 	</bean>
+	
+	<!-- 	여기추가하세요 LYM -->
+	<bean id="DivGubunJoinView"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/Category/Shopping/Shop/DivGubunJoin.jsp" />
+	</bean>
+	<bean id="DivGubun" class="Shopping.DTO.DivGubun">
+	</bean>
+	
+	
 	<bean id="ListMovieView"
 		class="org.springframework.web.servlet.view.JstlView">
 		<property name="url" value="/Category/Movie/Admin/MovieManage/ListMovie.jsp" />

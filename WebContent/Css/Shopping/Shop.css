@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+/* /SwingFlow/WebContent/Category/Shopping/Shop/ShopJoin.jsp */
+.ShopJoin_Form
+{	
+	position: relative;
+	top: 5px;
+	left: 5px;
+	overflow: auto;
+	overflow-y: hidden;
+/* 	width: 90%; */
+	padding-top: 10px;
+	margin-bottom: 20px;	
+}
+.Shopjoin_Table{
+	font-size:17px;	
+	font-weight:bold;	
+	font-family:돋움;
+}
+
+/* /SwingFlow/WebContent/Category/Shopping/Shop/DivGubunJoin.jsp */
+.DivGubunJoin_Form
+{	
+	position: relative;
+	top: 5px;
+	left: 5px;
+	overflow: auto;
+	overflow-y: hidden;
+/* 	width: 90%; */
+	padding-top: 10px;
+	margin-bottom: 20px;	
+}
+.DivGubunJoin_table{
+	font-size:17px;	
+	font-weight:bold;	
+	font-family:돋움;
+}

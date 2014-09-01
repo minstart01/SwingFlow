@@ -27,15 +27,6 @@
 		$(window).resize(function(e) {
 			$(".itemListWid").css("width", $(window).width() - 313)
 		})
-		$()
-		$("#sidebarSec li").each(function(para) {
-			$(this).hover(function(e) {
-				$(this).find(".sub").css("top", e.pageY - 30);
-				$(this).find(".sub").show();
-			}, function(e) {
-				$(this).find(".sub").hide();
-			});
-		});
 	})
 </script>
 <!-- 다국어사용시 설정이나 방법 start -->

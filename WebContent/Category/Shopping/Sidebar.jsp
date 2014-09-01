@@ -16,11 +16,24 @@
 	href="/SwingFlow/Css/Shopping/base.css">
 <link rel="stylesheet" type="text/css"
 	href="/SwingFlow/Css/Common/Main.css">
+	
 <title>Insert title here</title>
 <%
 // 	Spring.setLocale("english");
 	Spring.setNameSpace("Shopping.Sidebar.menu");
 %>
+<script type="text/javascript">
+	$(function() {
+		$("#sidebarSec li").each(function(para) {
+			$(this).hover(function(e) {
+				$(this).find(".sub").css("top", e.pageY - 30);
+				$(this).find(".sub").show();
+			}, function(e) {
+				$(this).find(".sub").hide();
+			});
+		});
+	})
+</script>
 </head>
 <body>
 <fmt:bundle basename="resource.MultiLanguage.Shopping">
@@ -348,6 +361,9 @@
 			<li class="li"><a href="#" title="쇼핑몰관리"><%=Spring.getMessage("012") %></a>
 				<div class="sub" style="display: none;">
 					<dl>
+						<dd>
+							<a href="/SwingFlow/Category/Shopping/Shop/DivGubunJoin.do" cate="400">대구분 등록</a>
+						</dd>
 						<dd>
 							<a href="/SwingFlow/Category/Shopping/Shop/ShopJoin.do" cate="400">쇼핑몰 등록</a>
 						</dd>

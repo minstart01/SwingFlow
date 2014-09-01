@@ -14,7 +14,8 @@
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
-				<prop key="/Category/Shopping/Shop/ShopJoin.do">ShopJoinController</prop>
+				<prop key="/Category/Shopping/Shop/ShopJoin.do">ShopController</prop>
+				<prop key="/Category/Shopping/Shop/DivGubunJoin.do">ShopController</prop>
 				<prop key="/Category/Movie/Admin/MovieManage/ListMovie.do">ListMovieController</prop>
 <!-- 	여기추가하세요 LYM -->
 
@@ -25,7 +26,7 @@
 		<property name="order" value="2" />
 	</bean>
 
-	<bean id="ShopJoinController" class="Shopping.Controller.Shop.ShopJoinController" />
+	<bean id="ShopController" class="Shopping.Controller.Shop.ShopController" />
 	<bean id="ListMovieController" class="Movie.Controller.Admin.MovieManage.ListMovieController" />
 <!-- 	여기추가하세요 LYM -->
 
