@@ -4,7 +4,7 @@
 <sqlMap namespace="Movie.TheaterInfo">
 
 
-	<resultMap id="resultTheaterInfo" class="Movie.TheaterInfo">
+	<resultMap id="resultTheaterInfo" class="Movie.DTO.TheaterInfo">
 		<result property="tCode" column="tCode" />
 		<result property="tName" column="tName" />
 		<result property="aCode" column="aCode" />
@@ -15,7 +15,7 @@
 	
 	</resultMap>
 
-	<select id="find" parameterClass="Movie.TheaterInfo" resultMap="resultTheaterInfo">
+	<select id="find" parameterClass="Movie.DTO.TheaterInfo" resultMap="resultTheaterInfo">
 		SELECT * FROM TheaterInfo
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="tCode" compareValue="0">
@@ -29,7 +29,7 @@
 		$value$
 	</select>
 
-	<insert id="insert" parameterClass="Movie.TheaterInfo">
+	<insert id="insert" parameterClass="Movie.DTO.TheaterInfo">
 		INSERT INTO TheaterInfo (
 		tCode, tName, aCode, tDetailAddr, tScreen, tTotalSit, tPhone
 		) VALUES (
@@ -37,7 +37,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterClass="Movie.TheaterInfo">
+	<update id="update" parameterClass="Movie.DTO.TheaterInfo">
 		UPDATE TheaterInfo SET
 		tName = #tName#,
 		aCode = #aCode#,
@@ -52,7 +52,7 @@
 		</dynamic>
 	</update>
 
-	<delete id="delete" parameterClass="Movie.TheaterInfo">
+	<delete id="delete" parameterClass="Movie.DTO.TheaterInfo">
 		DELETE FROM TheaterInfo
 		<dynamic prepend=" WHERE ">
 			<isNotEqual prepend=" AND " property="tCode" compareValue="0">

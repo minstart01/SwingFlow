@@ -244,7 +244,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
  
     	<table border="1" cellspacing="0" width="800">
     	<tr>
-        	<td width="230" height="300" align="center" rowspan="6">
+        	<td width="230" height="200" align="center" rowspan="6">
         	<label for="movie">
         		<img src="" alt="포스터" class="img_poster" width="" height="">
         	</label></td>
@@ -299,11 +299,9 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 						list = (ArrayList<Address>)dao.SelectAddr("서울", "one", "one", "one");
 						for(int i=0;i<list.size();i++){
 							dto = (Address)list.get(i);
-							if(i==0){%>
-								<li class="sel_local local_<%="on" %>" onclick="theaterinfo('s','<%=i%>');"><%=dto.gettName()%></li><%
-							}else{%>
+						%>
 								<li class="sel_local local_off" onclick="theaterinfo('s','<%=i%>');"><%=dto.gettName() %></li><%
-							}
+					
 						}
 				%>
 				</ul>
@@ -317,11 +315,9 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 						list = (ArrayList<Address>)dao.SelectAddr("경기", "인천", "two", "two");
 						for(int i=0;i<list.size();i++){
 							dto = (Address)list.get(i);
-							if(i==0){%>
-								<li class="sel_local local_<%="on" %>" onclick="theaterinfo('g','<%=i%>');"><%=dto.gettName()%></li><%
-							}else{%>
+							%>
 								<li class="sel_local local_off" onclick="theaterinfo('g','<%=i%>');"><%=dto.gettName() %></li><%
-							}
+							
 						}
 				%>
 				</ul>
@@ -334,12 +330,10 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 						list = (ArrayList<Address>)dao.SelectAddr("부산", "울산", "경남", "three");
 					for(int i=0;i<list.size();i++){
 						dto = (Address)list.get(i);
-						if(i==0){%>
-							<li class="sel_local local_<%="on" %>" onclick="theaterinfo('p','<%=i%>');"><%=dto.gettName()%></li><%
-						}else{%>
+						%>
 							<li class="sel_local local_off" onclick="theaterinfo('p','<%=i%>');"><%=dto.gettName() %></li><%
 						}
-					}
+					
 			%>
 				</ul>
 			</div>
@@ -351,12 +345,9 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 						list = (ArrayList<Address>)dao.SelectAddr("대구", "경북", "two", "two");
 						for(int i=0;i<list.size();i++){
 							dto = (Address)list.get(i);
-							if(i==0){%>
-								<li class="sel_local local_<%="on" %>" onclick="theaterinfo('d','<%=i%>');"><%=dto.gettName()%></li><%
-							}else{%>
+							%>
 								<li class="sel_local local_off" onclick="theaterinfo('d','<%=i%>');"><%=dto.gettName() %></li><%
 							}
-						}
 				%>
 				</ul>
 			</div>
@@ -368,11 +359,9 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 						list = (ArrayList<Address>)dao.SelectAddr("대전", "충청", "강원", "three");
 						for(int i=0;i<list.size();i++){
 							dto = (Address)list.get(i);
-							if(i==0){%>
-								<li class="sel_local local_<%="on" %>" onclick="theaterinfo('dj','<%=i%>');"><%=dto.gettName()%></li><%
-							}else{%>
+							%>
 								<li class="sel_local local_off" onclick="theaterinfo('dj','<%=i%>');"><%=dto.gettName() %></li><%
-							}
+							
 						}
 				%>
 				</ul>
@@ -385,19 +374,16 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 						list = (ArrayList<Address>)dao.SelectAddr("광주", "전남", "전북", "제주");
 						for(int i=0;i<list.size();i++){
 							dto = (Address)list.get(i);
-							if(i==0){%>
-								<li class="sel_local local_<%="on" %>" onclick="theaterinfo('j','<%=i%>');"><%=dto.gettName()%></li><%
-							}else{%>
+							%>
 								<li class="sel_local local_off" onclick="theaterinfo('j','<%=i%>');"><%=dto.gettName() %></li><%
 							}
-						}
-				%>
+						%>
 				</ul>
 			</div>
 
 			</section>
             <section style="float:left; width:650px;">
-    	<table border="1" cellspacing="0" width="560" height="400">
+    	<table border="1" cellspacing="0" width="560" height="300">
     	<tr>
         	<td width="80" align="center">영화관명</td>
             <td class="tName txt"></td>
