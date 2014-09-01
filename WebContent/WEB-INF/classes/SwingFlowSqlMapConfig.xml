@@ -30,7 +30,7 @@
 	<sqlMap resource="Common/MemberSqls.xml" />
 	<sqlMap resource="Common/BirthSqls.xml" />
 	<sqlMap resource="Airline/CitySqls.xml" />
-	<sqlMap resource="Movie/MovieInfoSqls.xml" />		
+<!-- 	<sqlMap resource="Movie/MovieInfoSqls.xml" />	 -->	
 	<sqlMap resource="Common/ReceiveEMAILSqls.xml" />
 	<sqlMap resource="Common/ReceiveSMSSqls.xml" />
 	<sqlMap resource="Common/MemberShipSqls.xml" />
@@ -48,9 +48,9 @@
 	<sqlMap resource="Shopping/CouponSqls.xml" />
 	<sqlMap resource="Shopping/ShopSqls.xml" />
 	<sqlMap resource="Shopping/BuyEstimateSqls.xml" />
-	<sqlMap resource="Movie/ScreenGradeSqls.xml" />				
+<!-- 	<sqlMap resource="Movie/ScreenGradeSqls.xml" />				
 	<sqlMap resource="Movie/TheaterInfoSqls.xml" />					
-	<sqlMap resource="Movie/TheaterSitSqls.xml" />						
+	<sqlMap resource="Movie/TheaterSitSqls.xml" />			 -->			
 	<sqlMap resource="Airline/PassengerSSqls.xml" />	
 	<sqlMap resource="Airline/SeatSqls.xml" />
 	<sqlMap resource="Airline/ScheduleSqls.xml" />
@@ -63,7 +63,7 @@
 	<sqlMap resource="Airline/CardSqls.xml" />
 	<sqlMap resource="Airline/PassengerSqls.xml" />
 	<sqlMap resource="Airline/PassengerInfoSqls.xml" />
-	<sqlMap resource="Movie/MovieInsertSqls.xml" />				
+<!-- 	<sqlMap resource="Movie/MovieInsertSqls.xml" />				
 	<sqlMap resource="Movie/ChargeSqls.xml" />				
 	<sqlMap resource="Movie/ReserveSitSqls.xml" />				
 	<sqlMap resource="Movie/PlayInfoSqls.xml" />				
@@ -72,7 +72,7 @@
 	<sqlMap resource="Movie/ReserveNoSqls.xml" />			
 	<sqlMap resource="Movie/NoticeSqls.xml" />			
 	<sqlMap resource="Movie/FreeBoardSqls.xml" />			
-	<sqlMap resource="Movie/ReplySqls.xml" />			
+	<sqlMap resource="Movie/ReplySqls.xml" />	 -->		
 		
 	
 	
