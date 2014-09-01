@@ -15,6 +15,8 @@
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script src="/SwingFlow/Script/Movie/InsertMovie.js"></script>
 <script type="text/javascript">
+var playinfo = 1;
+
 
 function popup(url,width,height){
 	window.open(url,"popup","width=" + width + ", height=" + height + ",left=400,top=200");
@@ -30,7 +32,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
     $(".textmGenre").text(genre);
     $(".textmStart").text(date);
     
-    var str = date.substring(1,4) + date.substring(6,8) + date.substring(10,12);
+    var str = date.substring(0,4) + date.substring(6,8) + date.substring(10,12);
     
     if(grade=="전체관람가"){
     	$(".sCode").val(1);
@@ -108,7 +110,11 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 		var min = $(".min_div").text();
 		var on = "on";
 		if(gwan!="관" && hour!="시간" && min!="분"){
-		$(".timebox").append("<div class='thover'><div class='checkbox'><input type='checkbox'></div><div class='timebox1'>" + gwan + "관" + "</div><div class='timebox2'>" + hour + ":" + min + "</div></div>");
+		$(".timebox").append("<div class='thover'><div class='checkbox'><input type='checkbox'></div><div class='timebox1'>" + gwan + "관" + "</div><input type='hidden' name='pArea" + playinfo + "' value='" + playinfo + "'><div class='timebox2'>" + hour + ":" + min + "</div></div>");
+		
+		$(".playinfo").val(playinfo);
+		playinfo++;
+		
 		}
 	}
 	
@@ -116,8 +122,9 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 	
 	$(function (){
 		$(".insert_bt").click(function (e){
-			var str = $(".textmStart").val();
+			var str = $(".textmStarts").val();
 			var start = str.substring(0,4) + str.substring(5,7) + str.substring(8,10);
+			alert(start);
 			var str1 = $(".textmEnd").val();
 			var end = str1.substring(0,4) + str1.substring(5,7) + str1.substring(8,10);
 			
@@ -144,6 +151,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 <input type="hidden" class="mPlayDate" name="mPlayDate">
 <input type="hidden" class="mStart" name="mStart">
 <input type="hidden" class="mEnd" name="mEnd">
+<input type="hidden" class="playinfo" name="playinfo">
 <!-- 극장정보 뿌리기위한 히든값 -->
 <%
 	ArrayList<Address> list = new ArrayList<Address>();
@@ -426,7 +434,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
     
     <div style="float:left; width:560px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영기간선택</div>
     <section style="float:left; width:560px;">
-	<input type="date" class="textmStart"/>&nbsp;~&nbsp;<input type="date" class="textmEnd"/>
+	<input type="date" class="textmStarts"/>&nbsp;~&nbsp;<input type="date" class="textmEnd"/>
 
     </section>
     <div style="float:left; width:560px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영기간선택</div>
@@ -512,6 +520,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 	<input type="submit" value="등록하기" class="insert_bt"/>
   	<input type="button" value="뒤로가기" />
 	</div>
+
 </div>
 </div>
 <jsp:include page="/Category/Common/footer.jsp"></jsp:include>

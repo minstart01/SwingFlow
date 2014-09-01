@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import Common.DTO.Address;
 import Movie.DTO.MovieInfo;
 import Movie.DTO.MovieInsert;
+import Movie.DTO.PlayInfo;
 
 public class MovieDAO {
 
@@ -93,7 +94,7 @@ public class MovieDAO {
 
 	public int MovieInfo(MovieInfo dto){
 		conn = DbSet.getConnection();
-		sql = "INSERT INTO MOVIEINFO(MCODE, MNAME, MPOSTER, MGENRE, MDIRECTOR, MTIME, MACTOR, SCODE, MPLAYDATE) VALUES(MOVIENO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, TO_CHAR(?, 'YYYYMMDD'))";
+		sql = "INSERT INTO MOVIEINFO(MCODE, MNAME, MPOSTER, MGENRE, MDIRECTOR, MTIME, MACTOR, SCODE, MPLAYDATE) VALUES(MOVIENO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, TO_DATE(?, 'YYYYMMDD'))";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -122,14 +123,17 @@ public class MovieDAO {
 	public int MovieInsert(MovieInsert dto){
 		
 		conn = DbSet.getConnection();
-		sql = "INSERT INTO MOVIEINSERT(MINO, MCODE, TCODE, MSTART, MEND) VALUES(MOVIESEQ.NEXTVAL, ?, ?, TO_DATE(?,'YYYYMMDD'), TO_DATE(?,'YYYYMMDD'))";
+		sql = "INSERT INTO MOVIEINSERT(MINO, MCODE, TCODE, MSTART, MEND) VALUES(MOVIESEQ.NEXTVAL, (SELECT MAX(MCODE) FROM MOVIEINFO),?, TO_DATE(?,'YYYYMMDD'), TO_DATE(?,'YYYYMMDD'))";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getmCode());
-			pstmt.setInt(2, dto.gettCode());
-			pstmt.setString(3, dto.getmStart());
-			pstmt.setString(4, dto.getmEnd());
+		
+	
+			pstmt.setInt(1, dto.gettCode());
+			pstmt.setString(2, dto.getmStart());
+			pstmt.setString(3, dto.getmEnd());
+			
+			su = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -139,5 +143,28 @@ public class MovieDAO {
 		}
 		return su;
 
+	}
+	
+	public int PlayInfo(PlayInfo dto){
+		conn = DbSet.getConnection();
+		sql = "INSERT INTO PLAYINFO(MINO, PAREA, PPLAYSTART) VALUES((select max(mino) from movieinsert), ?, ?)";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, dto.getpArea());
+			pstmt.setString(2, dto.getpPlayStart());
+			
+			su = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;
+		
+		
 	}
 }
