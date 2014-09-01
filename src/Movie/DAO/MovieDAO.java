@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Common.DTO.Address;
+import Movie.DTO.MovieInfo;
+import Movie.DTO.MovieInsert;
 
 public class MovieDAO {
 
@@ -89,9 +91,53 @@ public class MovieDAO {
 		return list;
 	}
 
+	public int MovieInfo(MovieInfo dto){
+		conn = DbSet.getConnection();
+		sql = "INSERT INTO MOVIEINFO(MCODE, MNAME, MPOSTER, MGENRE, MDIRECTOR, MTIME, MACTOR, SCODE, MPLAYDATE) VALUES(MOVIENO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, TO_CHAR(?, 'YYYYMMDD'))";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+		
+			pstmt.setString(1, dto.getmName());
+			pstmt.setString(2, dto.getmPoster());
+			pstmt.setString(3, dto.getmGenre());
+			pstmt.setString(4, dto.getmDirector());
+			pstmt.setString(5, dto.getmTime());
+			pstmt.setString(6, dto.getmActor());
+			pstmt.setInt(7, dto.getsCode());
+			pstmt.setString(8, dto.getmPlayDate());
+			
+			su = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;
+
+	}
 	
-	
-/*	INSERT INTO MOVIEINSERT(MINO, MCODE, TCODE, MSTART, MEND) 
-	VALUES(MOVIESEQ.NEXTVAL, 1, 2, TO_DATE('20140801','YYYYMMDD'), TO_DATE('20140930','YYYYMMDD'));*/
-	
+	public int MovieInsert(MovieInsert dto){
+		
+		conn = DbSet.getConnection();
+		sql = "INSERT INTO MOVIEINSERT(MINO, MCODE, TCODE, MSTART, MEND) VALUES(MOVIESEQ.NEXTVAL, ?, ?, TO_DATE(?,'YYYYMMDD'), TO_DATE(?,'YYYYMMDD'))";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dto.getmCode());
+			pstmt.setInt(2, dto.gettCode());
+			pstmt.setString(3, dto.getmStart());
+			pstmt.setString(4, dto.getmEnd());
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;
+
+	}
 }

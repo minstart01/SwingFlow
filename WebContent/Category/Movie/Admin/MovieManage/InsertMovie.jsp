@@ -67,7 +67,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 		$(".mPoster").val(poster);
 		
 		$(".img_poster").attr("src",$(items).find("image").text());
-		$(".img_poster").attr({width:"230",height:"300"});
+		$(".img_poster").attr({width:"150",height:"200"});
     }
 }
 
@@ -112,6 +112,20 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 		}
 	}
 	
+	/* 등록버튼 */
+	
+	$(function (){
+		$(".insert_bt").click(function (e){
+			var str = $(".textmStart").val();
+			var start = str.substring(0,4) + str.substring(5,7) + str.substring(8,10);
+			var str1 = $(".textmEnd").val();
+			var end = str1.substring(0,4) + str1.substring(5,7) + str1.substring(8,10);
+			
+			$(".mStart").val(start);
+			$(".mEnd").val(end);
+		});
+	});
+	
 </script>
 </head>
 <body>
@@ -128,6 +142,8 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 <input type="hidden" class="mActor" name="mActor">
 <input type="hidden" class="sCode" name="sCode">
 <input type="hidden" class="mPlayDate" name="mPlayDate">
+<input type="hidden" class="mStart" name="mStart">
+<input type="hidden" class="mEnd" name="mEnd">
 <!-- 극장정보 뿌리기위한 히든값 -->
 <%
 	ArrayList<Address> list = new ArrayList<Address>();
@@ -242,9 +258,9 @@ function setChildValue(name, director, actor, time, grade, genre, date){
  <section id="moviebox">
 
  
-    	<table border="1" cellspacing="0" width="800">
+    	<table border="1" cellspacing="0" width="700">
     	<tr>
-        	<td width="230" height="200" align="center" rowspan="6">
+        	<td width="150" height="200" align="center" rowspan="6">
         	<label for="movie">
         		<img src="" alt="포스터" class="img_poster" width="" height="">
         	</label></td>
@@ -275,7 +291,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
             <td class="textmGenre txt"></td>	
         </tr>
          <tr>
-         	<td height="50" align="center" class="m_bt" onclick="popup('SearchMovie.jsp','470','320');">검색</td>
+         	<td height="31" align="center" class="m_bt" onclick="popup('SearchMovie.jsp','470','320');">검색</td>
         	<td align="center"><label for="mstart">개봉일</label></td>
             <td class="textmStart txt"></td>
            
@@ -283,13 +299,10 @@ function setChildValue(name, director, actor, time, grade, genre, date){
         </tr>
     </table>
     </section>
-    <div style="float:left; margin-top:10px; width:240px; font-size:20px; margin-bottom:5px; font-weight:bold;">극장선택</div>
+    <div style="float:left; margin-top:10px; width:190px; font-size:20px; margin-bottom:5px; font-weight:bold;">극장선택</div>
     <div style="float:left; margin-top:10px; width:600px; font-size:20px; margin-bottom:5px; font-weight:bold;">극장정보</div>
     <section id="theaterbox">
-			<div style="border-bottom: 1px solid black; padding: 3px 0 3px 3px;">
-				<input type="text" id="search_theater" placeholder="극장명을 입력하세요"
-					size="18" /> <input type="button" value="검색" id="bt_theater" />
-			</div>
+			
 			<div style="padding: 5px 0 5px 10px; border-bottom: solid 1px black;"
 				class="local_seoul" onclick="selLocal('seoul');">서울</div>
 			<div id="sel_theater"
@@ -383,7 +396,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 
 			</section>
             <section style="float:left; width:650px;">
-    	<table border="1" cellspacing="0" width="560" height="300">
+    	<table border="1" cellspacing="0" width="509" height="210">
     	<tr>
         	<td width="80" align="center">영화관명</td>
             <td class="tName txt"></td>
@@ -411,14 +424,14 @@ function setChildValue(name, director, actor, time, grade, genre, date){
     </table>
     </section>
     
-    <div style="float:left; width:900px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영기간선택</div>
-    <section style="float:left; width:800px;">
-	<input type="date" name="mStart"/>&nbsp;~&nbsp;<input type="date" name="mEnd"/>
+    <div style="float:left; width:560px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영기간선택</div>
+    <section style="float:left; width:560px;">
+	<input type="date" class="textmStart"/>&nbsp;~&nbsp;<input type="date" class="textmEnd"/>
 
     </section>
-    <div style="float:left; width:900px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영기간선택</div>
+    <div style="float:left; width:560px; font-size:20px; margin-bottom:5px; font-weight:bold; margin-top:10px;">상영기간선택</div>
   
-    <section style="float:left; width:300px; height:200px;">
+    <section style="float:left; width:560px; height:80px;">
    <div class="sel_div_box">
   <div class="gwan_div1">
   <div class="sel_txt gwan_div" onclick="time('gwan');">관</div><img src="/SwingFlow/images/Common/button.png" onclick="time('gwan');"/></div>
@@ -480,8 +493,8 @@ function setChildValue(name, director, actor, time, grade, genre, date){
   
 
     </section>
-        <section style="float:left; width:422px;">
-    <div class="timebox" style="overflow:auto; height:250px; border:1px solid black;">
+        <section style="float:left; width:439px;">
+    <div class="timebox" style="overflow:auto; height:180px; border:1px solid black;">
    		
    
   	<!-- <table border="1" cellpadding="6" cellspacing="0">
@@ -496,7 +509,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
     
     </section> 
     <div class="div_button">
-	<input type="submit" value="등록하기" />
+	<input type="submit" value="등록하기" class="insert_bt"/>
   	<input type="button" value="뒤로가기" />
 	</div>
 </div>

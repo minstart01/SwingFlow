@@ -7,25 +7,29 @@ public class MovieInsert {
 	private int miNo;
 	private int mCode;
 	private int tCode;
-	private Date mStart;
-	private Date mEnd;
+	private String mStart;
+	private String mEnd;
 	
+	/*private Date mStart;
+	private Date mEnd;*/
+	
+
 	public MovieInsert(){}
 	public MovieInsert(int miNo, int mCode, int tCode, Date mStart, Date mEnd) {
 		super();
 		this.miNo = miNo;
 		this.mCode = mCode;
 		this.tCode = tCode;
-		this.mStart = mStart;
-		this.mEnd = mEnd;
+		/*this.mStart = mStart;
+		this.mEnd = mEnd;*/
 	}
 	public MovieInsert(int mCode, int tCode, Date mStart, Date mEnd) {
 		super();
 		
 		this.mCode = mCode;
 		this.tCode = tCode;
-		this.mStart = mStart;
-		this.mEnd = mEnd;
+	/*	this.mStart = mStart;
+		this.mEnd = mEnd;*/
 	}
 	public int getMiNo() {
 		return miNo;
@@ -45,7 +49,22 @@ public class MovieInsert {
 	public void settCode(int tCode) {
 		this.tCode = tCode;
 	}
-	public Date getmStart() {
+	public String getmStart() {
+		return mStart;
+	}
+	public void setmStart(String mStart) {
+		this.mStart = mStart;
+	}
+	public String getmEnd() {
+		return mEnd;
+	}
+	public void setmEnd(String mEnd) {
+		this.mEnd = mEnd;
+	}
+	
+	
+	
+/*	public Date getmStart() {
 		return mStart;
 	}
 	public void setmStart(Date mStart) {
@@ -60,5 +79,5 @@ public class MovieInsert {
 	public String toString(){
 		return miNo + " : " + mCode + " : " + tCode + " : " + mStart + " : " + mEnd; 
 	}
-	
+	*/
 }

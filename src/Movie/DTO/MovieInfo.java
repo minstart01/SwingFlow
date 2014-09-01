@@ -12,7 +12,8 @@ public class MovieInfo {
 	private String mTime;
 	private String mActor;
 	private int sCode;
-	private java.sql.Date mPlayDate;
+	/*private java.sql.Date mPlayDate;*/
+	private String mPlayDate;
 	
 	public MovieInfo(){}
 	public MovieInfo(String mName, String mPoster, String mGenre,
@@ -27,7 +28,7 @@ public class MovieInfo {
 		this.mTime = mTime;
 		this.mActor = mActor;
 		this.sCode = sCode;
-		this.mPlayDate = mPlayDate;
+	/*	this.mPlayDate = mPlayDate;*/
 	}
 	
 	
@@ -44,7 +45,7 @@ public class MovieInfo {
 		this.mTime = mTime;
 		this.mActor = mActor;
 		this.sCode = sCode;
-		this.mPlayDate = mPlayDate;
+	/*	this.mPlayDate = mPlayDate;*/
 	}
 
 	
@@ -158,10 +159,17 @@ public class MovieInfo {
 	public void setsCode(int sCode) {
 		this.sCode = sCode;
 	}
+	public String getmPlayDate() {
+		return mPlayDate;
+	}
+	public void setmPlayDate(String mPlayDate) {
+		this.mPlayDate = mPlayDate;
+	}
+
+	
 
 
-
-
+/*
 	public java.sql.Date getmPlayDate() {
 		return mPlayDate;
 	}
@@ -175,7 +183,7 @@ public class MovieInfo {
 
 	public String toString(){
 		return mCode + " : " + mName + " : " + mPoster + " : " + mGenre + " : " + mDirector + " : " + mTime + " : " + mActor + " : " + sCode + " : " + mPlayDate;
-	}
+	}*/
 	
 
 }

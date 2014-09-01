@@ -8,6 +8,9 @@
 <style>
 .remove {
 list-style: none;
+padding-left: 0px;
+margin-top: 0px;
+
 }
 .remove li a {
 text-decoration: none;
@@ -29,7 +32,27 @@ color:black;
 	font-size:13px;
 	
 }
+.remove li{
+	padding:5px 0px 5px 10px;
+	border-bottom: 1px solid #d2d2f0;
+	margin-left: 0px;
+}
+ #KR li, #CH li, #JP li, #EA li, #US li{
+ 	padding: 5px 0px 5px 0px;
+ 
+ 	
+ }
+ #kr01, #ch01, #jp01, #ea01, #us01{
+ 	background: #f2f2f2;
+ }
 
+
+ #kr01:hover, #ch01:hover, #jp01:hover, #ea01:hover, #us01:hover{
+ 	font-weight: bold;
+ 	background:white;
+ 	color:#201cb4;
+ 	cursor: pointer;
+ }
 
 </style>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
@@ -78,7 +101,7 @@ $(function(){
 	  });
   /* 도시리스트 ========= ============================================================================================*/
   $(function(){
-	$('#KR').hide();
+
     $('#kr01').click(function(e){
     	$('#EA').hide();
     	$('#US').hide();
@@ -182,18 +205,18 @@ function close(){
     <td width="218">
     <div style="float: left;"><img id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif" style="padding-top: 10px;" >
     <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
-<div>출발 예정도시를 선택하세요.<a href="javascript:close();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
-<div style="border:1px solid black; width:130px; height:240px; float:left;">
+<div style="padding: 8px 0px 23px 8px; border-bottom: 1px solid #d2d2f0">출발 예정도시를 선택하세요.<a href="javascript:close();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
+<div style="width:130px; height:240px; float:left;">
 <ul class="remove">
-<li id="kr01"><a href="#none">한 국</a></li>
-<li id="jp01"><a href="#none">일 본</a></li>
-<li id="ch01"><a href="#none">중 국</a></li>
-<li id="ea01"><a href="#none">동남아시아</a></li>
-<li id="us01"><a href="#none">미 국</a></li>
+<li id="kr01">한 국</li>
+<li id="jp01">일 본</li>
+<li id="ch01">중 국</li>
+<li id="ea01">동남아시아</li>
+<li id="us01">미 국</li>
 </ul>
 
 </div>
-<div style="border:1px solid red; width:180px; height:480px; float:left;" class="remove01">
+<div style="width:180px; height:480px; float:left;" class="remove01">
 <ul id="KR">
 	<li><a href="#none" class="citylist">인천 (ICN)</a></li>
 	<li><a href="#none" class="citylist">김포 (GMP)</a></li>
@@ -236,11 +259,11 @@ function close(){
 <div>출발 예정도시를 선택하세요.<a href="javascript:close();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
 <div style="border:1px solid black; width:130px; height:200px; float:left;">
 <ul class="remove">
-<li id="kr01"><a href="#none">한 국</a></li>
-<li id="jp01"><a href="#none">일 본</a></li>
-<li id="ch01"><a href="#none">중 국</a></li>
-<li id="ea01"><a href="#none">동남아시아</a></li>
-<li id="us01"><a href="#none">미 국</a></li>
+<li id="kr01">한 국</li>
+<li id="jp01">일 본</li>
+<li id="ch01">중 국</li>
+<li id="ea01">동남아시아</li>
+<li id="us01">미 국</li>
 </ul>
 
 </div>

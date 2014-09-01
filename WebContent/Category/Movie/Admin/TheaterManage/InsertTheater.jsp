@@ -88,6 +88,7 @@
 		
 		var str = "<td>행<select><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option><option>g</option><option>f</option></select>";
  	  		 str += "열<select><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option><option>g</option><option>f</option></select>총좌석</td>";
+ 	  		$(".tbodys").empty();
 		for(var i=1;i<=number;i++){	
 			$(".tbodys").append("<tr><td>" + i + "관</td><td>행<select class='sel" + i + " selr' onchange='tsit(" + i + ");'>" + sel1 + "</select>열<select class='sels" + i + " selc' onchange='tsit(" + i + ");'>" +  sel2 + "</select>총좌석 : <span class='tsit" + i + "'></span></td></tr>");
 		}
