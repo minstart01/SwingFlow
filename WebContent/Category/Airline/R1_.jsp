@@ -5,6 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+function nextEdit() {
+	document.next.submit();
+};
+</script>
 <style>
 .remove {
 list-style: none;
@@ -37,22 +42,24 @@ color:black;
 	border-bottom: 1px solid #d2d2f0;
 	margin-left: 0px;
 }
- #KR li, #CH li, #JP li, #EA li, #US li{
+ #KR li, #CH li, #JP li, #EA li, #US li, #KR01 li, #CH01 li, #JP01 li, #EA01 li, #US01 li {
  	padding: 5px 0px 5px 0px;
  
  	
  }
- #kr01, #ch01, #jp01, #ea01, #us01{
+
+ #kr01, #ch01, #jp01, #ea01, #us01, #kr02, #ch02, #jp02, #ea02, #us02{
  	background: #f2f2f2;
  }
 
 
- #kr01:hover, #ch01:hover, #jp01:hover, #ea01:hover, #us01:hover{
+ #kr01:hover, #ch01:hover, #jp01:hover, #ea01:hover, #us01:hover, #kr02:hover, #ch02:hover, #jp02:hover, #ea02:hover, #us02:hover{
  	font-weight: bold;
  	background:white;
  	color:#201cb4;
  	cursor: pointer;
  }
+
 
 </style>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
@@ -91,7 +98,7 @@ $(function(){
   $(function() {
 
 	    $("#datepicker01" ).datepicker({
-	    	dateFormat: "yymmdd",
+	    	dateFormat: "yy-mm-dd",
 	  showOn: "button",
 	  buttonImage: "/SwingFlow/images/Airline/reserv/calendar.png",
 	  buttonImageOnly:true,
@@ -99,7 +106,7 @@ $(function(){
 	  changeYear: true
 	    });
 	  });
-  /* 도시리스트 ========= ============================================================================================*/
+  /* 도시리스트 =====================================================================================================*/
   $(function(){
 
     $('#kr01').click(function(e){
@@ -166,6 +173,73 @@ function close(){
 
 	$('#city').hide();
 }
+//=====================================================도착도시========================================================================
+  $(function(){
+
+    $('#kr02').click(function(e){
+    	$('#EA01').hide();
+    	$('#US01').hide();
+    	$('#JP01').hide();
+    	$('#CH01').hide();
+    	$('#KR01').show();
+	});	
+});
+$(function(){
+	$('#CH01').hide();	
+	$('#ch02').click(function(e){
+    	$('#EA01').hide();
+    	$('#US01').hide();
+		$('#KR01').hide();
+		$('#JP01').hide();
+		$('#CH01').show();
+	});	
+});	
+$(function(){
+	$('#JP01').hide();	
+	$('#jp02').click(function(e){
+    	$('#EA01').hide();
+    	$('#US01').hide();
+		$('#KR01').hide();
+		$('#CH01').hide();
+		$('#JP01').show();
+	});	
+});	
+$(function(){
+	$('#EA01').hide();	
+	$('#ea02').click(function(e){
+    	$('#JP01').hide();
+    	$('#US01').hide();
+		$('#KR01').hide();
+		$('#CH01').hide();
+		$('#EA01').show();
+	});	
+});	
+$(function(){
+	$('#US01').hide();	
+	$('#us02').click(function(e){
+    	$('#JP01').hide();
+    	$('#EA01').hide();
+		$('#KR01').hide();
+		$('#CH01').hide();
+		$('#US01').show();
+	});	
+});	
+$(function(){
+	$('#btn_search5').click(function(){
+		$('#city01').show();
+	});
+});
+$(function(){
+	$('.citylist01').click(function(){
+		$('#txt02').val($(this).text());
+		$('#city01').hide();
+	});
+});
+
+function close01(){
+
+	$('#city01').hide();
+}
  </script>
 
 
@@ -190,14 +264,15 @@ function close(){
     <div>
     </div>
 </header>
+<form action="R2_.jsp" name="next">
 <div class="wrapper">
 
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 
 <div class="main_content">
 
-<div id="radio"><input type="radio" id="radio1" name="radio"><label for="radio1">왕 복</label>
-<input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">편 도</label></div>						
+<div id="radio"><input type="radio" id="radio1" ><label for="radio1">왕 복</label>
+<input type="radio" id="radio2"  checked="checked"><label for="radio2">편 도</label></div>						
 <div>
 <table width="589" height="79" border="1" cellpadding="0" cellspacing="0">
   <tr>
@@ -254,52 +329,52 @@ function close(){
     </td>
     <td width="70">도착</td>
      <td width="218">
-    <div style="float: left;"><img id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif" style="padding-top: 10px;" >
-    <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
-<div>출발 예정도시를 선택하세요.<a href="javascript:close();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
+    <div style="float: left;"><img id="btn_search5" src="/SwingFlow/images/Airline/reserv/btn_search4.gif" style="padding-top: 10px;" >
+    <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city01">
+<div>출발 예정도시를 선택하세요.<a href="javascript:close01();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
 <div style="border:1px solid black; width:130px; height:200px; float:left;">
 <ul class="remove">
-<li id="kr01">한 국</li>
-<li id="jp01">일 본</li>
-<li id="ch01">중 국</li>
-<li id="ea01">동남아시아</li>
-<li id="us01">미 국</li>
+<li id="kr02">한 국</li>
+<li id="jp02">일 본</li>
+<li id="ch02">중 국</li>
+<li id="ea02">동남아시아</li>
+<li id="us02">미 국</li>
 </ul>
 
 </div>
 <div style="border:1px solid red; width:180px; height:200px; float:left;" class="remove01">
-<ul id="KR">
-	<li><a href="#none" class="citylist">인천 (ICN)</a></li>
-	<li><a href="#none" class="citylist">김포 (GMP)</a></li>
-	<li><a href="#none" class="citylist">부산 (PUS)</a></li>
+<ul id="KR01">
+	<li><a href="#none" class="citylist01">인천 (ICN)</a></li>
+	<li><a href="#none" class="citylist01">김포 (GMP)</a></li>
+	<li><a href="#none" class="citylist01">부산 (PUS)</a></li>
 	</ul>
-	<ul id="CH">
-	<li><a href="#none" class="citylist">베이징(BJS)</a></li>
-	<li><a href="#none" class="citylist">홍콩(HKG)</a></li>
+	<ul id="CH01">
+	<li><a href="#none" class="citylist01">베이징(BJS)</a></li>
+	<li><a href="#none" class="citylist01">홍콩(HKG)</a></li>
 	</ul>
-	<ul id="JP">
-	<li><a href="#none" class="citylist">도쿄/나리타 (NRT)</a></li>
-	<li><a href="#none" class="citylist">하네다(HND)</a></li>
-	<li><a href="#none" class="citylist">오사카(간사이)(OSA)</a></li>
+	<ul id="JP01">
+	<li><a href="#none" class="citylist01">도쿄/나리타 (NRT)</a></li>
+	<li><a href="#none" class="citylist01">하네다(HND)</a></li>
+	<li><a href="#none" class="citylist01">오사카(간사이)(OSA)</a></li>
 	</ul>
-	<ul id="EA">
-	<li><a href="#none" class="citylist">방콕</a></li>
-	<li><a href="#none" class="citylist">세부(HND)</a></li>
-	<li><a href="#none" class="citylist">싱가폴(OSA)</a></li>
-	<li><a href="#none" class="citylist">푸켓</a></li>
+	<ul id="EA01">
+	<li><a href="#none" class="citylist01">방콕</a></li>
+	<li><a href="#none" class="citylist01">세부(HND)</a></li>
+	<li><a href="#none" class="citylist01">싱가폴(OSA)</a></li>
+	<li><a href="#none" class="citylist01">푸켓</a></li>
 	</ul>
-	<ul id="US">
-	<li><a href="#none" class="citylist">로스앤젤레스 (LAX)</a></li>
-	<li><a href="#none" class="citylist">샌프란시스코 (SFO)</a></li>
-	<li><a href="#none" class="citylist">뉴욕(JFK)</a></li>
-	<li><a href="#none" class="citylist">시애틀 (SEA)</a></li>
-    <li><a href="#none" class="citylist">시카고(ORD)</a></li>
+	<ul id="US01">
+	<li><a href="#none" class="citylist01">로스앤젤레스 (LAX)</a></li>
+	<li><a href="#none" class="citylist01">샌프란시스코 (SFO)</a></li>
+	<li><a href="#none" class="citylist01">뉴욕(JFK)</a></li>
+	<li><a href="#none" class="citylist01">시애틀 (SEA)</a></li>
+    <li><a href="#none" class="citylist01">시카고(ORD)</a></li>
 	</ul>
 </div>
 
 </div>
 </div>
-   	 <div style="float:left; "><input type="text" id="txt01" style="height: 24px; margin-top: 10px; margin-left: 0px; padding-left: 10px;"></div>
+   	 <div style="float:left; "><input type="text" id="txt02" style="height: 24px; margin-top: 10px; margin-left: 0px; padding-left: 10px;"></div>
   </tr>
   <tr>
     <td id="getOut">가는날</td>
@@ -311,14 +386,14 @@ function close(){
 <table width="600" height="74" cellpadding="0" cellspacing="0" border="1">
   <col width="70" span="3" />
   <tr>
-    <td width="70" height="39"><select name="">
+    <td width="70" height="39"><select >
       <option>성인1</option><option>성인2</option><option>성인3</option><option>성인4</option><option>성인5</option><option>성인6</option><option>성인7</option><option>성인8</option><option>성인9</option>
   </select></td>
     <td width="70"><select name="select" id="select">
-      <option>소아1</option>
+       <option>소아1</option><option>소아2</option><option>소아3</option><option>소아4</option><option>소아5</option><option>소아6</option><option>소아7</option><option>소아8</option><option>소아9</option>
     </select></td>
     <td width="70"><select name="select2" id="select2">
-      <option>유아1</option>
+       <option>유아1</option><option>유아2</option><option>유아3</option><option>유아4</option><option>유아5</option><option>유아6</option><option>유아7</option><option>유아8</option><option>유아9</option>
     </select></td>
   </tr>
     <tr>
@@ -329,15 +404,21 @@ function close(){
   <tr>
     <td height="33" colspan="3"><select name="select3" id="select3">
       <option>트래블</option>
+      <option>비즈니스</option>
+      <option>퍼스트</option>
     </select></td>
   </tr>
 </table>
 </div>
+
 <p>
-  <input type="submit" name="button" id="button" value="항공편 조회하기" />
+  <input type="submit"  value="항공편 조회하기" />
 </p>
+
 </div>
+
 </div>
+</form>
 <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 </body>
 </html>
