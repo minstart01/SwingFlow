@@ -177,7 +177,7 @@ ArrayList<City> cDtoL = dao.citySel();
 						<option>-도시-</option>
 						<%for(int i=0;i<cDtoL.size();i++){
 							city = cDtoL.get(i);%>
-					<option value="<%=dto.getN_Code()%>"><%=city.getC_Name()%></option>
+					<option value="<%=city.getC_Code()%>"><%=city.getC_Name()%></option>
 					<% }%>	
 						</select></td>
 						<td>도착도시</td>
