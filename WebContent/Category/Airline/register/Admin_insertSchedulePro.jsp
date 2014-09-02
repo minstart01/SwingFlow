@@ -26,8 +26,7 @@
 	<%
 
 AdminDAO dao = AdminDAO.getInstance();
-int su = dao.ScheduleIns(schedule)+dao.RegisterIns(register)+dao.adultIns(adultF)+dao.childIns(childF)+dao.cityIns(city)
-+dao.flightNoIns(flightNo);
+int su = dao.ScheduleIns(schedule)+dao.RegisterIns(register)+dao.adultIns(adultF)+dao.childIns(childF)+dao.flightNoIns(flightNo);
 
 out.print(su);
 String msg = "";

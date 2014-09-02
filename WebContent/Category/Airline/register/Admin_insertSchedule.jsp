@@ -1,15 +1,20 @@
+<%@page import="Airline.City"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Airline.Nation"%>
 <%@page import="Airline.DAO.AdminDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	<jsp:useBean id="nation" class="Airline.Nation"/>
+ <jsp:setProperty property="*" name="nation" />
 <%
 AdminDAO dao = AdminDAO.getInstance();
 Nation dto = new Nation();
 ArrayList<Nation> dtoL  = dao.nationSel();
+City city = new City();
+ArrayList<City> cDtoL = dao.citySel();
+
 //out.print(dtoL.size());
 %>
-	<jsp:useBean id="nation" class="Airline.Nation"/>
- <jsp:setProperty property="*" name="nation" />
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -162,15 +167,19 @@ ArrayList<Nation> dtoL  = dao.nationSel();
 					<tr>
 						<td>출발도시</td>
 					<td><select name="select7" id="country">
-					<option>-선택-</option>
+					<option>-국가-</option>
 						<%for(int i=0;i<dtoL.size();i++){
 							dto = dtoL.get(i);%>
-							
-						 
-
-								<option value="<%=dto.getN_Code()%>"><%=dto.getN_Name() %></option>
+<option value="<%=dto.getN_Code()%>"><%=dto.getN_Name() %></option>
 <%}%>
-						</select> <select name="c_DepCity" id="select8"></select></td>
+						</select> 
+						<select name="c_DepCity" id="select8">
+						<option>-도시-</option>
+						<%for(int i=0;i<cDtoL.size();i++){
+							city = cDtoL.get(i);%>
+					<option value="<%=dto.getN_Code()%>"><%=city.getC_Name()%></option>
+					<% }%>	
+						</select></td>
 						<td>도착도시</td>
 						<td><select name="select7" id="country01">
 								<option>-선택-</option>

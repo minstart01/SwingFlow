@@ -35,6 +35,22 @@ public class AdminDAO {
   return aDao;
  }
  
+ public int airlineIns(String airline){
+	 conn = DbSet.getConnection();
+	 sql="INSERT INTO AIRLINE (A_CODE, A_NAME ) VALUES  ( airlineseq.nextval, ? )";
+	 try {
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, airline);
+		su = pstmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	return su;
+ }
+ 
  public int nationIns(String nation){
 	 conn = DbSet.getConnection();
 	 sql="INSERT INTO NATION (N_CODE, N_NAME ) VALUES  ( nationseq.nextval, ? )";
