@@ -61,6 +61,14 @@ color: #5c5f66;
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 </head>
 <body>
+<%
+String dCity="";
+String aCity="";
+String dDay="";
+request.getParameter("seat_Class");
+ dCity = request.getParameter("c_DepCity");
+
+%>
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <div id="wrapper">
 
@@ -74,7 +82,7 @@ color: #5c5f66;
   <tr>
     <td width="136">2014/08/20 <br />
       인천(ICN)</td>
-    <td width="72">&lt;=&gt;</td>
+    <td width="72">&lt;=&gt;<% out.print(dCity); %></td>
     <td width="271">2014/08/30 <br />
       도쿄/나리타(NRT)</td>
   </tr>

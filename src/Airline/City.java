@@ -1,49 +1,34 @@
 package Airline;
 
 public class City {
-
-	private int r_No;	
-	private String c_DepCity;
-	private String c_ArrCity;
+	int	c_Code;
+	String	c_Name;	
+	int	n_Code;
 	public City(){}
-	
-	public City(int r_No, String c_DepCity, String c_ArrCity) {
+	public City(int c_Code, String c_Name, int n_Code) {
 		super();
-		this.r_No = r_No;
-		this.c_DepCity = c_DepCity;
-		this.c_ArrCity = c_ArrCity;
+		this.c_Code = c_Code;
+		this.c_Name = c_Name;
+		this.n_Code = n_Code;
 	}
-
-	
-	public int getR_No() {
-		return r_No;
+	public int getC_Code() {
+		return c_Code;
 	}
-
-	public void setR_No(int r_No) {
-		this.r_No = r_No;
+	public void setC_Code(int c_Code) {
+		this.c_Code = c_Code;
 	}
-
-	public String getC_DepCity() {
-		return c_DepCity;
+	public String getC_Name() {
+		return c_Name;
 	}
-
-	public void setC_DepCity(String c_DepCity) {
-		this.c_DepCity = c_DepCity;
+	public void setC_Name(String c_Name) {
+		this.c_Name = c_Name;
 	}
-
-	public String getC_ArrCity() {
-		return c_ArrCity;
+	public int getN_Code() {
+		return n_Code;
 	}
-
-	public void setC_ArrCity(String c_ArrCity) {
-		this.c_ArrCity = c_ArrCity;
+	public void setN_Code(int n_Code) {
+		this.n_Code = n_Code;
 	}
-
-	public String toString(){
-		
-		return this.r_No +":"+ this.c_DepCity +":"+ this.c_DepCity;
-	}
-	
 	
 }
 

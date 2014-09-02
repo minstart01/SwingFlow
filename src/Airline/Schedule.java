@@ -1,31 +1,29 @@
 package Airline;
 
 public class Schedule {
-	private int s_Code;
-	private String s_DepDay;	
-	private String s_DeptTime;	
-	private String s_ArrtTime;	
-	private String s_FlightTime;
-	
-	public Schedule(int s_Code, String s_DepDay, String s_DeptTime,String s_ArrtTime, String s_FlightTime) {
+
+	int s_Code;
+	String s_DepDay;	
+	String s_DeptTime;	
+	String s_ArrtTime;	
+	String s_FlightTime;	
+	int c_Code;
+	int c_Code2;
+
+	Schedule(){}
+
+	public Schedule(int s_Code, String s_DepDay, String s_DeptTime,
+			String s_ArrtTime, String s_FlightTime, int c_Code, int c_Code2) {
 		super();
 		this.s_Code = s_Code;
 		this.s_DepDay = s_DepDay;
 		this.s_DeptTime = s_DeptTime;
-	
 		this.s_ArrtTime = s_ArrtTime;
 		this.s_FlightTime = s_FlightTime;
-	}
-	public Schedule( String s_DepDay, String s_DeptTime,String s_ArrtTime, String s_FlightTime) {
-		super();
-		this.s_DepDay = s_DepDay;
-		this.s_DeptTime = s_DeptTime;
-
-		this.s_ArrtTime = s_ArrtTime;
-		this.s_FlightTime = s_FlightTime;
+		this.c_Code = c_Code;
+		this.c_Code2 = c_Code2;
 	}
 
-	public Schedule(){}
 	public int getS_Code() {
 		return s_Code;
 	}
@@ -65,8 +63,21 @@ public class Schedule {
 	public void setS_FlightTime(String s_FlightTime) {
 		this.s_FlightTime = s_FlightTime;
 	}
-public String toString(){
-	return this.s_Code +":" + this.s_DepDay + "," + this.s_DeptTime + "," + this.s_ArrtTime + "," + this.s_FlightTime;	
-}
 
+	public int getC_Code() {
+		return c_Code;
+	}
+
+	public void setC_Code(int c_Code) {
+		this.c_Code = c_Code;
+	}
+
+	public int getC_Code2() {
+		return c_Code2;
+	}
+
+	public void setC_Code2(int c_Code2) {
+		this.c_Code2 = c_Code2;
+	}
+	
 }

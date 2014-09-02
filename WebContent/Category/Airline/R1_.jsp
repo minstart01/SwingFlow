@@ -323,7 +323,7 @@ function close01(){
 
 </div>
 </div>
-   	 <div style="float:left; "><input type="text" id="txt01" style="height: 24px; margin-top: 10px; margin-left: 0px; padding-left: 10px;"></div>
+   	 <div style="float:left; "><input type="text" id="txt01" name="c_DepCity" style="height: 24px; margin-top: 10px; margin-left: 0px; padding-left: 10px;"></div>
     <br>
     
     </td>
@@ -374,25 +374,25 @@ function close01(){
 
 </div>
 </div>
-   	 <div style="float:left; "><input type="text" id="txt02" style="height: 24px; margin-top: 10px; margin-left: 0px; padding-left: 10px;"></div>
+   	 <div style="float:left; "><input type="text" id="txt02" name="c_ArrCity" style="height: 24px; margin-top: 10px; margin-left: 0px; padding-left: 10px;"></div>
   </tr>
   <tr>
     <td id="getOut">가는날</td>
-    <td><input type="text" id="datepicker"></td>
+    <td><input type="text" id="datepicker" name="s_DepDay"></td>
     <td class="getIn">오는날</td>
-    <td class="getIn"><input type="text" id="datepicker01"></td>
+    <td class="getIn"><input type="text" id="datepicker01" name="s_DepDay"></td>
   </tr>
 </table>
 <table width="600" height="74" cellpadding="0" cellspacing="0" border="1">
   <col width="70" span="3" />
   <tr>
-    <td width="70" height="39"><select >
+    <td width="70" height="39"><select name="p_nAdult">
       <option>성인1</option><option>성인2</option><option>성인3</option><option>성인4</option><option>성인5</option><option>성인6</option><option>성인7</option><option>성인8</option><option>성인9</option>
   </select></td>
-    <td width="70"><select name="select" id="select">
+    <td width="70"><select id="select" name="p_nChild">
        <option>소아1</option><option>소아2</option><option>소아3</option><option>소아4</option><option>소아5</option><option>소아6</option><option>소아7</option><option>소아8</option><option>소아9</option>
     </select></td>
-    <td width="70"><select name="select2" id="select2">
+    <td width="70"><select id="select2" name="p_nInfant">
        <option>유아1</option><option>유아2</option><option>유아3</option><option>유아4</option><option>유아5</option><option>유아6</option><option>유아7</option><option>유아8</option><option>유아9</option>
     </select></td>
   </tr>
@@ -402,7 +402,7 @@ function close01(){
     <td width="70">(2세 미만)</td>
   </tr>
   <tr>
-    <td height="33" colspan="3"><select name="select3" id="select3">
+    <td height="33" colspan="3"><select name="seat_Class" id="select3">
       <option>트래블</option>
       <option>비즈니스</option>
       <option>퍼스트</option>

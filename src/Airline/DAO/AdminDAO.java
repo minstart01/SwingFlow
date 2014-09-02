@@ -10,6 +10,7 @@ import Airline.AdultF;
 import Airline.ChildF;
 import Airline.City;
 import Airline.FlightNo;
+import Airline.Nation;
 import Airline.Register;
 import Airline.Schedule;
 import Airline.DTO.Admin_list;
@@ -33,6 +34,89 @@ public class AdminDAO {
   AdminDAO aDao = new AdminDAO();
   return aDao;
  }
+ 
+ public int nationIns(String nation){
+	 conn = DbSet.getConnection();
+	 sql="INSERT INTO NATION (N_CODE, N_NAME ) VALUES  ( nationseq.nextval, ? )";
+	 try {
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, nation);
+		su = pstmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	return su;	 
+ }
+ 
+	public ArrayList<Nation> nationSel() {
+		ArrayList<Nation> nDtoL = new ArrayList<>();
+		conn = DbSet.getConnection();
+		sql = "select * from nation";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Nation dto = new Nation();
+				dto.setN_Code(rs.getInt(1));
+				dto.setN_Name(rs.getString(2));
+				nDtoL.add(dto);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DbClose.close(pstmt, conn, rs);
+		}
+		return nDtoL;
+	}
+	
+	public ArrayList<City> citySel() {
+		ArrayList<City> cDtoL = new ArrayList<>();
+		conn = DbSet.getConnection();
+		sql = "select * from city";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				City dto = new City();
+		dto.setC_Code(rs.getInt(1));
+		dto.setC_Name(rs.getString(2));
+		dto.setN_Code(rs.getInt(3));
+		cDtoL.add(dto);
+		
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DbClose.close(pstmt, conn, rs);
+		}
+		return cDtoL;
+	}
+ 
+	 public int cityIns(String city, int nCode){
+		 conn = DbSet.getConnection();
+
+		 sql="INSERT INTO CITY (C_CODE, C_NAME, N_CODE ) VALUES  ( cityseq.nextval, ?, ? )";
+		 try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, city);
+			pstmt.setInt(2, nCode);
+			su = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;	 
+	 }
+	 
  public int ScheduleIns(Schedule sch){
 	 conn = DbSet.getConnection();
 	 qsch="INSERT INTO SCHEDULE (s_Code, S_DEPDAY, S_DEPTTIME, S_ARRTTIME, S_FLIGHTTIME ) VALUES (scheseq.nextval,?,?,?,?)";
@@ -132,38 +216,7 @@ public class AdminDAO {
 } 
 
 
- public int cityIns(City city){
-	 conn = DbSet.getConnection();
-	 try {
-		pstmt = conn.prepareStatement("INSERT INTO CITY (R_NO, C_DEPCITY, C_ARRCITY ) VALUES  ( cityseq.nextval, ?, ? )");
-		pstmt.setString(1, city.getC_DepCity());
-		pstmt.setString(2, city.getC_ArrCity());
-		su = pstmt.executeUpdate();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}finally{
-		DbClose.close(pstmt, conn);
-	}
-	 return su;
- }
- public int cityUpd(City city){
-	 conn = DbSet.getConnection();
-	 try {
-		pstmt = conn.prepareStatement("UPDATE CITY SET C_DEPCITY = ?, C_ARRCITY = ? WHERE R_NO = ?");
-		
-		pstmt.setString(1, city.getC_DepCity());
-		pstmt.setString(2, city.getC_ArrCity());
-		pstmt.setInt(3,city.getR_No());
-		su = pstmt.executeUpdate();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}finally{
-		DbClose.close(pstmt, conn);
-	}
-	 return su;
- }
+
 
  public int adultIns(AdultF af){
 	 conn = DbSet.getConnection();

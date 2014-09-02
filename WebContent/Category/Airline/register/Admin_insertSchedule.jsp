@@ -1,5 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Airline.Nation"%>
+<%@page import="Airline.DAO.AdminDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+AdminDAO dao = AdminDAO.getInstance();
+Nation dto = new Nation();
+ArrayList<Nation> dtoL  = dao.nationSel();
+//out.print(dtoL.size());
+%>
+	<jsp:useBean id="nation" class="Airline.Nation"/>
+ <jsp:setProperty property="*" name="nation" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,87 +21,87 @@
 		document.next.submit();
 	};
 
-	$(function() {
-		var city = "";
-		var KR = [ '인천(ICN)', '김포(GMP)', '부산(PUS)', '제주(JCU)' ];
-		var JP = [ '도쿄/나리타(NRT)', '오사카(OSA)', '하네다(HND)' ];
-		var CH = [ '베이징(BJS)', '홍콩(HKG)' ];
-		var EA = [ '세부(HND)', '싱가폴(OSA)' ];
-		var US = [ '로스앤젤레스 (LAX)', '샌프란시스코 (SFO)', '뉴욕(JFK)', '시애틀 (SEA)',
-				'시카고(ORD)' ];
+// 	$(function() {
+// 		var city = "";
+// 		var KR = [ '인천(ICN)', '김포(GMP)', '부산(PUS)', '제주(JCU)' ];
+// 		var JP = [ '도쿄/나리타(NRT)', '오사카(OSA)', '하네다(HND)' ];
+// 		var CH = [ '베이징(BJS)', '홍콩(HKG)' ];
+// 		var EA = [ '세부(HND)', '싱가폴(OSA)' ];
+// 		var US = [ '로스앤젤레스 (LAX)', '샌프란시스코 (SFO)', '뉴욕(JFK)', '시애틀 (SEA)',
+// 				'시카고(ORD)' ];
 
-		$('#country').change(function(e) {
-			$('#select8').empty();
-			if ($(this).val() == "한국") {
-				city = "";
-				for (var i = 0; i < KR.length; i++) {
-					city += "<option>" + KR[i] + "</option>";
-				}
-				$('#select8').append(city);
-			} else if ($(this).val() == "일본") {
-				city = "";
-				for (var i = 0; i < JP.length; i++) {
-					city += "<option>" + JP[i] + "</option>";
-				}
-				$('#select8').append(city);
-			} else if ($(this).val() == "중국") {
-				city = "";
-				for (var i = 0; i < CH.length; i++) {
-					city += "<option>" + CH[i] + "</option>";
-				}
-				$('#select8').append(city);
-			} else if ($(this).val() == "동남아") {
-				city = "";
-				for (var i = 0; i < EA.length; i++) {
-					city += "<option>" + EA[i] + "</option>";
-				}
-				$('#select8').append(city);
-			} else if ($(this).val() == "미국") {
-				city = "";
-				for (var i = 0; i < US.length; i++) {
-					city += "<option>" + US[i] + "</option>";
-				}
-				$('#select8').append(city);
-			}
+// 		$('#country').change(function(e) {
+// 			$('#select8').empty();
+// 			if ($(this).val() == "한국") {
+// 				city = "";
+// 				for (var i = 0; i < KR.length; i++) {
+// 					city += "<option>" + KR[i] + "</option>";
+// 				}
+// 				$('#select8').append(city);
+// 			} else if ($(this).val() == "일본") {
+// 				city = "";
+// 				for (var i = 0; i < JP.length; i++) {
+// 					city += "<option>" + JP[i] + "</option>";
+// 				}
+// 				$('#select8').append(city);
+// 			} else if ($(this).val() == "중국") {
+// 				city = "";
+// 				for (var i = 0; i < CH.length; i++) {
+// 					city += "<option>" + CH[i] + "</option>";
+// 				}
+// 				$('#select8').append(city);
+// 			} else if ($(this).val() == "동남아") {
+// 				city = "";
+// 				for (var i = 0; i < EA.length; i++) {
+// 					city += "<option>" + EA[i] + "</option>";
+// 				}
+// 				$('#select8').append(city);
+// 			} else if ($(this).val() == "미국") {
+// 				city = "";
+// 				for (var i = 0; i < US.length; i++) {
+// 					city += "<option>" + US[i] + "</option>";
+// 				}
+// 				$('#select8').append(city);
+// 			}
 
-		});
-		$('#country01').change(function(e) {
-			$('#select9').empty();
-			if ($(this).val() == "한국") {
-				city = "";
-				for (var i = 0; i < KR.length; i++) {
-					city += "<option>" + KR[i] + "</option>";
-				}
-				$('#select9').append(city);
-			} else if ($(this).val() == "일본") {
-				city = "";
-				for (var i = 0; i < JP.length; i++) {
-					city += "<option>" + JP[i] + "</option>";
-				}
-				$('#select9').append(city);
-			} else if ($(this).val() == "중국") {
-				city = "";
-				for (var i = 0; i < CH.length; i++) {
-					city += "<option>" + CH[i] + "</option>";
-				}
-				$('#select9').append(city);
-			} else if ($(this).val() == "동남아") {
-				city = "";
-				for (var i = 0; i < EA.length; i++) {
-					city += "<option>" + EA[i] + "</option>";
-				}
-				$('#select9').append(city);
-			} else if ($(this).val() == "미국") {
-				city = "";
-				for (var i = 0; i < US.length; i++) {
-					city += "<option>" + US[i] + "</option>";
-				}
-				$('#select9').append(city);
-			}
+// 		});
+// 		$('#country01').change(function(e) {
+// 			$('#select9').empty();
+// 			if ($(this).val() == "한국") {
+// 				city = "";
+// 				for (var i = 0; i < KR.length; i++) {
+// 					city += "<option>" + KR[i] + "</option>";
+// 				}
+// 				$('#select9').append(city);
+// 			} else if ($(this).val() == "일본") {
+// 				city = "";
+// 				for (var i = 0; i < JP.length; i++) {
+// 					city += "<option>" + JP[i] + "</option>";
+// 				}
+// 				$('#select9').append(city);
+// 			} else if ($(this).val() == "중국") {
+// 				city = "";
+// 				for (var i = 0; i < CH.length; i++) {
+// 					city += "<option>" + CH[i] + "</option>";
+// 				}
+// 				$('#select9').append(city);
+// 			} else if ($(this).val() == "동남아") {
+// 				city = "";
+// 				for (var i = 0; i < EA.length; i++) {
+// 					city += "<option>" + EA[i] + "</option>";
+// 				}
+// 				$('#select9').append(city);
+// 			} else if ($(this).val() == "미국") {
+// 				city = "";
+// 				for (var i = 0; i < US.length; i++) {
+// 					city += "<option>" + US[i] + "</option>";
+// 				}
+// 				$('#select9').append(city);
+// 			}
 
-		});
+// 		});
 
-	});
+// 	});
 </script>
 <style type="text/css">
 /* 버튼 */
@@ -151,13 +161,15 @@
 					</tr>
 					<tr>
 						<td>출발도시</td>
-						<td><select name="select7" id="country">
-								<option>-선택-</option>
-								<option>한국</option>
-								<option>일본</option>
-								<option>중국</option>
-								<option>동남아</option>
-								<option>미국</option>
+					<td><select name="select7" id="country">
+					<option>-선택-</option>
+						<%for(int i=0;i<dtoL.size();i++){
+							dto = dtoL.get(i);%>
+							
+						 
+
+								<option value="<%=dto.getN_Code()%>"><%=dto.getN_Name() %></option>
+<%}%>
 						</select> <select name="c_DepCity" id="select8"></select></td>
 						<td>도착도시</td>
 						<td><select name="select7" id="country01">
