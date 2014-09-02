@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
-/* /SwingFlow/WebContent/Category/Shopping/Shop/ShopJoin.jsp */
-.ShopJoin_Form
+/* /SwingFlow/WebContent/Category/Shopping/Shop/ShopInput.jsp */
+.ShopInput_Form
 {	
 	position: relative;
 	top: 5px;
@@ -11,14 +11,14 @@
 	padding-top: 10px;
 	margin-bottom: 20px;	
 }
-.Shopjoin_Table{
+.ShopInput_Table{
 	font-size:17px;	
 	font-weight:bold;	
 	font-family:돋움;
 }
 
-/* /SwingFlow/WebContent/Category/Shopping/Shop/DivGubunJoin.jsp */
-.DivGubunJoin_Form
+/* /SwingFlow/WebContent/Category/Shopping/Shop/DivGubunInput.jsp */
+.DivGubunInput_Form
 {	
 	position: relative;
 	top: 5px;
@@ -29,7 +29,7 @@
 	padding-top: 10px;
 	margin-bottom: 20px;	
 }
-.DivGubunJoin_table{
+.DivGubunInput_table{
 	font-size:17px;	
 	font-weight:bold;	
 	font-family:돋움;

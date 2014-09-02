@@ -17,51 +17,40 @@
 	href="/SwingFlow/Css/Shopping/Shop.css" />
 
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
+<script src="/SwingFlow/Script/Shopping/jquery.alerts.js" type="text/javascript"></script>
+<link href="/SwingFlow/Css/Shopping/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen">
 <script src="/SwingFlow/Category/Shopping/JS/FNames.js"></script>
 
 <script type="text/javascript">
 	function ShopInput() {
-		if (ShopJoinChk()) {
+		if (ShopInputChk()) {
 			
-			var objJSON = {
-					   "msg" : MSG
-					  };
+			var dataJSON = FNames.getForms('Shopping','Shop')
 			$.ajax({
-				url : 'requestShopAjax.jsp',
+				url : '/SwingFlow/Category/Shopping/Shop/requestShopAJAX.ajax',
 				type : 'GET',
+				contentType: "application/json; charset=utf-8",
+				mimeType: 'application/json',
+			    dataType: "json",
 				data : {
-					request : 'ShopInputDB',
-					id : id
+					request : 'shopInputDB',
+					shop : JSON && JSON.stringify(dataJSON)
 				},
 				success : function(data) {
 					var responseTxt = data;
 					if (null != responseTxt) {
-						var userJson = JSON && JSON.parse(responseTxt);
-						if (userJson.response != "notfound") {
-
-							oMsg.style.display = "block";
-							oMsg.className = "error gm";
-							oMsg.innerHTML = "멋진 아이디네요!";
-							$(oMsg).css("color", "BLUE");
-							window.idFlag = true;
-							$("#" + nextFocusId).focus();
-							return true;
+// 						var userJson = JSON && JSON.parse(responseTxt);
+						if (data.result == "OK") {
+							jAlert("등록 성공!!!!");
 						} else {
-							oMsg.style.display = "block";
-							oMsg.className = "error";
-							oMsg.innerHTML = "ID를 확인하세요 찾을수 없습니다.";
-							$(oMsg).css("color", "RED");
-							$("#id").focus();
-							return false;
+							jAlert("등록 실패!!!!");
 						}
-						;
 					}
-					;
 				}
 			});
 		}
 	}
-	function ShopJoinChk() {
+	function ShopInputChk() {
 		return true;
 	}
 </script>
@@ -70,14 +59,14 @@
 <body>
 	<jsp:include page="/Category/Common/top.jsp"></jsp:include>
 	<jsp:include page="/Category/Shopping/Sidebar.jsp"></jsp:include>
-	<div class="ShopJoin_Form">
+	<div class="ShopInput_Form">
 		<div align="center" style="margin-bottom: 30px; width: 100%;">
 			<div style="float: left; margin-left: 5px;">
 				<h1>쇼핑몰 등록</h1>
 			</div>
 			<hr style="width: 90%; border: 1px solid #d9d9d9;" />
 		</div>
-		<table class="ShopJoin_Table" cellpadding="6">
+		<table class="ShopInput_Table" cellpadding="6">
 			<tr>
 				<td class="first_td"><label>쇼핑몰코드</label></td>
 				<td><input type="text" class="text1" id="shopSeq"
@@ -145,6 +134,11 @@
 				<td class="first_td"><label for="adLogoPath1">추가로고경로1</label></td>
 				<td><input type="text" class="text1" id="adLogoPath1"
 					name="adLogoPath1" onkeyup="regChk();" /></td>
+			</tr>
+			<tr>
+				<td class="first_td"><label for="adLogoPath2">추가로고경로2</label></td>
+				<td><input type="text" class="text1" id="adLogoPath2"
+					name="adLogoPath2" onkeyup="regChk();" /></td>
 			</tr>
 			<tr>
 				<td class="first_td"><label for="mobDetailPath">모바일 상세

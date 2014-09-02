@@ -21,7 +21,12 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	 <context-param>
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>*.ajax</url-pattern>
+	</servlet-mapping>
+	
+	<context-param>
 	<param-name>contextConfigLocation</param-name>
 	<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
   </context-param>

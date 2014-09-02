@@ -3,7 +3,7 @@
  */
 var FNames = {}
 FNames.Shopping = {}
-FNames.Shopping.Shop = [ 'shopSeq', 'shopSeq', 'adType', 'adStateCode',
+FNames.Shopping.Shop = [ 'shopSeq', 'adType', 'adStateCode',
 		'shopName', 'shopDomain', 'shopMobDomain', 'webUrl', 'mobUrl',
 		'shopCateNames', 'prodCateNames', 'logoPath1', 'logoPath2',
 		'adLogoPath1', 'adLogoPath2', 'mobDetailPath', 'shopDescription',
@@ -59,3 +59,12 @@ FNames.Common.Address = [ 'aCode', 'zipcode', 'sido', 'gugun', 'dong', 'ri',
 		'bunji' ]
 
 FNames.Common.ReceiveSMS = [ 'pCode', 'pReceive' ]
+
+FNames.getForms = function(namespace,tableName) {
+	var search = FNames[namespace]
+	var ret = {} 
+	$.each(search[tableName],function(cnt,dataName){
+		ret[dataName]=$("#"+dataName).val()
+	})
+	return ret;
+}

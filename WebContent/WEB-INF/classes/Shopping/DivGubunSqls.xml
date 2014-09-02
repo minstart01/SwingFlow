@@ -14,7 +14,7 @@
 
 	<select id="MaxNumber" parameterClass="java.lang.String"
 		resultMap="stringResult">
-		SELECT $value$ AS "Result" FROM Shop
+		SELECT $value$ AS "Result" FROM DivGubun
 	</select>	
 
 	<select id="find" parameterClass="Shopping.DTO.DivGubun" resultMap="resultDivGubun">

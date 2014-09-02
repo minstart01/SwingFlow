@@ -362,10 +362,13 @@
 				<div class="sub" style="display: none;">
 					<dl>
 						<dd>
-							<a href="/SwingFlow/Category/Shopping/Shop/DivGubunJoin.do" cate="400">대구분 등록</a>
+							<a href="/SwingFlow/Category/Shopping/Shop/DivGubunInput.do" >대구분 등록</a>
 						</dd>
 						<dd>
-							<a href="/SwingFlow/Category/Shopping/Shop/ShopJoin.do" cate="400">쇼핑몰 등록</a>
+							<a href="/SwingFlow/Category/Shopping/Shop/DivGubunSearch.do">대구분 검색</a>
+						</dd>
+						<dd>
+							<a href="/SwingFlow/Category/Shopping/Shop/ShopInput.do" cate="400">쇼핑몰 등록</a>
 						</dd>
 						<dd>
 							<a href="" cate="401">쇼핑몰 조회</a>

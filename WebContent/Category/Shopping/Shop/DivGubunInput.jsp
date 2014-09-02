@@ -17,51 +17,46 @@
 	href="/SwingFlow/Css/Shopping/Shop.css" />
 
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
+<script src="/SwingFlow/Script/Shopping/jquery.alerts.js" type="text/javascript"></script>
+<link href="/SwingFlow/Css/Shopping/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen">
+
 <script src="/SwingFlow/Category/Shopping/JS/FNames.js"></script>
 
 <script type="text/javascript">
-	function ShopInput() {
-		if (ShopJoinChk()) {
+	function divGubunInput() {
+		if (divGubunInputChk()) {
 
-			var objJSON = {
-				"msg" : MSG
+			var dataJSON = { 
+					"divSeq" : $("#divSeq").val(),
+					"divName" : $("#divName").val()
 			};
 			$.ajax({
-				url : 'requestShopAjax.jsp',
+				url : '/SwingFlow/Category/Shopping/Shop/requestShopAJAX.ajax',
 				type : 'GET',
+				contentType: "application/json; charset=utf-8",
+				mimeType: 'application/json',
+			    dataType: "json",
 				data : {
-					request : 'ShopInputDB',
-					id : id
+					request : 'divGubunInputDB',
+					divGubun : JSON && JSON.stringify(dataJSON)
 				},
 				success : function(data) {
 					var responseTxt = data;
 					if (null != responseTxt) {
-						var userJson = JSON && JSON.parse(responseTxt);
-						if (userJson.response != "notfound") {
-
-							oMsg.style.display = "block";
-							oMsg.className = "error gm";
-							oMsg.innerHTML = "멋진 아이디네요!";
-							$(oMsg).css("color", "BLUE");
-							window.idFlag = true;
-							$("#" + nextFocusId).focus();
-							return true;
+// 						var userJson = JSON && JSON.parse(responseTxt);
+						if (data.result == "OK") {
+							jAlert("등록 성공!!!!");
 						} else {
-							oMsg.style.display = "block";
-							oMsg.className = "error";
-							oMsg.innerHTML = "ID를 확인하세요 찾을수 없습니다.";
-							$(oMsg).css("color", "RED");
-							$("#id").focus();
-							return false;
+							jAlert("등록 실패!!!!");
 						}
-						;
 					}
-					;
+				}, failure: function(errMsg) {
+				        alert(errMsg);
 				}
-			});
+			})
 		}
 	}
-	function ShopJoinChk() {
+	function divGubunInputChk() {
 		return true;
 	}
 </script>
@@ -70,29 +65,29 @@
 <body>
 	<jsp:include page="/Category/Common/top.jsp"></jsp:include>
 	<jsp:include page="/Category/Shopping/Sidebar.jsp"></jsp:include>
-	<div class="DivGubunJoin_Form">
+	<div class="DivGubunInput_Form">
 		<div align="center" style="margin-bottom: 30px; width: 100%;">
 			<div style="float: left; margin-left: 5px;">
 				<h1>대분류 등록</h1>
 			</div>
 			<hr style="width: 90%; border: 1px solid #d9d9d9;" />
 		</div>
-		<table class="DivGubunJoin_Table" cellpadding="6">
+		<table class="DivGubunInput_Table" cellpadding="6">
 			<tr>
 				<td class="first_td"><label>대분류 코드</label></td>
-				<td><input type="text" class="text1" id="shopSeq"
-					value=${maxShopSeqNumber } name="shopSeq" readonly="readonly" /></td>
+				<td><input type="text" class="text1" id="divSeq"
+					value=${maxDivSeqNumber } name="divSeq" readonly="readonly" /></td>
 			</tr>
 			<tr>
-				<td class="first_td"><label for="shopName">대분류명</label></td>
-				<td><input type="text" class="text1" id="shopName"
-					name="shopName" onkeyup="regChk();" /></td>
+				<td class="first_td"><label for="divName">대분류명</label></td>
+				<td><input type="text" class="text1" id="divName"
+					name="divName" onkeyup="regChk();" /></td>
 			</tr>
 		</table>
 		<hr style="width: 90%; border: 1px solid #d9d9d9;" />
 		<div class="bt_box" align="center">
 			<input type="button" class="submit" value="등록하기"
-				onclick="javascript:DivGubunInput();" />
+				onclick="javascript:divGubunInput();" />
 		</div>
 	</div>
 
