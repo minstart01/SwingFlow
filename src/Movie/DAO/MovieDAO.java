@@ -243,45 +243,56 @@ public class MovieDAO {
 		return MovieName;
 	}
 	
-	public ArrayList<MovieInsert> SelTheater(){
-		ArrayList<MovieInsert> list = new ArrayList<MovieInsert>();
-		return list;
-	}
-	
-	public ArrayList<MovieInsert> SelTheater(String mName){
+	public ArrayList<MovieInsert> SelTheater(String mName, String sido, String sido1, String sido2, String sido3){
 		ArrayList<MovieInsert> list = new ArrayList<MovieInsert>();
 		conn = DbSet.getConnection();
-		sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND M.MNAME = ?";
-		
+		if(("one").equals(sido1) && ("one").equals(sido2) && ("one").equals(sido3)){
+			sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, ADDRESS A WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND A.ACODE = T.ACODE AND M.MNAME = ? AND A.SIDO LIKE ?";
+		}else if(("two").equals(sido2) && ("two").equals(sido3)){
+			sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, ADDRESS A WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND A.ACODE = T.ACODE AND M.MNAME = ? (A.SIDO LIKE ? OR A.SIDO LIKE ?)";
+		}else if(("three").equals(sido3)){
+			sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, ADDRESS A WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND A.ACODE = T.ACODE AND M.MNAME = ?  (A.SIDO LIKE ? OR A.SIDO LIKE ? OR A.SIDO LIKE ?)";
+		}else{
+			sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, ADDRESS A WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND A.ACODE = T.ACODE AND M.MNAME = ?  (A.SIDO LIKE ? OR A.SIDO LIKE ? OR A.SIDO LIKE ? OR A.SIDO LIKE ?)";
+		}
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, mName);
+			
+			if(("one").equals(sido1) && ("one").equals(sido2) && ("one").equals(sido3)){
+				pstmt.setString(1, mName);
+				pstmt.setString(2, "%" + sido + "%");
+			}else if(("two").equals(sido2) && ("two").equals(sido3)){
+				pstmt.setString(1, mName);
+				pstmt.setString(2, "%" + sido + "%");
+				pstmt.setString(3, "%" + sido1 + "%");
+			}else if(("three").equals(sido3)){
+				pstmt.setString(1, mName);
+				pstmt.setString(2, "%" + sido + "%");
+				pstmt.setString(3, "%" + sido1 + "%");
+				pstmt.setString(4, "%" + sido2 + "%");
+			}else{
+				pstmt.setString(1, mName);
+				pstmt.setString(2, "%" + sido + "%");
+				pstmt.setString(3, "%" + sido1 + "%");
+				pstmt.setString(4, "%" + sido2 + "%");
+				pstmt.setString(5, "%" + sido3 + "%");
+			}
+			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
 				MovieInsert dto = new MovieInsert();
-				
-				dto.setMiNo(rs.getInt(1));
 				dto.settName(rs.getString(2));
 				
 				list.add(dto);
 			}
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
+		} finally{
 			DbClose.close(rs, pstmt, conn);
 		}
 		return list;
-	}
-	
-	
-	
-/*	public ArrayList<PlayInfo> PlayInfo(PlayInfo dto){
-		conn = DbSet.getConnection();
-		sql = "SELECT M.MINO, P.PAREA, P.PPLAYSTART	FROM THEATERINFO T, MOVIEINSERT M, PLAYINFO P WHERE T.TCODE = M.TCODE AND M.MINO = P.MINO;"
 		
-	}*/
-	
+	}
 }

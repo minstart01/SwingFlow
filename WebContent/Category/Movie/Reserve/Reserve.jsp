@@ -40,10 +40,47 @@
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script src="/SwingFlow/Script/Movie/reserve.js"></script>
 <script>
+$(function(e) {
+	
+	
+	
+	$("#msearch").focus();
+	
+	$("#sel_movie").click(function(e) {
+		
+		var mName = $(".movie_on").text();
+		
+			alert(mName);
+		
+	
+		$.ajax({
+			url : 'reserveAjax.jsp',
+			type : 'GET',
+			data : {
+				mName : mName,
+			
+			},
+			success : SearchmName
+		});
+	
+});
+});
+function SearchmName(data) {
 
-	function locals(){
-		local
-	}
+	
+	alert(data);
+	
+	var item = $(data).find("li");
+		
+	alert($(data).find("li"));
+	
+	alert(item.length);
+	alert($(item[1]).text());
+	
+		}
+		
+
+
 </script>
 </head>
 
@@ -88,7 +125,7 @@
 							moviedto = movielist.get(i);
 							String posterimg = dao.PosterIMG(moviedto.getmName());
 					%>
-					<li class="sel_movie movie_off" onclick="locals();"><%=moviedto.getmName()%><input
+					<li class="sel_movie movie_off"><%=moviedto.getmName()%><input
 						type="hidden" class="posterimg" value="<%=posterimg%>"></li>
 					<%
 						}
