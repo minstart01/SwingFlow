@@ -12,6 +12,9 @@ public class MovieInsert {
 	
 	/*private Date mStart;
 	private Date mEnd;*/
+	/* 조인 */
+	private String tName;
+	private String mName;
 	
 
 	public MovieInsert(){}
@@ -60,6 +63,18 @@ public class MovieInsert {
 	}
 	public void setmEnd(String mEnd) {
 		this.mEnd = mEnd;
+	}
+	public String gettName() {
+		return tName;
+	}
+	public void settName(String tName) {
+		this.tName = tName;
+	}
+	public String getmName() {
+		return mName;
+	}
+	public void setmName(String mName) {
+		this.mName = mName;
 	}
 	
 	

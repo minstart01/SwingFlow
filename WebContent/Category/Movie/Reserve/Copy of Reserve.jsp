@@ -1,5 +1,3 @@
-<%@page import="Movie.DTO.MovieInsert"%>
-<%@page import="Movie.DAO.MovieDAO"%>
 <%@page import="Movie.DTO.MovieInfo"%>
 <%@page import="Common.DTO.Address"%>
 <%@page import="java.util.ArrayList"%>
@@ -39,19 +37,14 @@
 	href="/SwingFlow/Css/Common/Main.css" />
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script src="/SwingFlow/Script/Movie/reserve.js"></script>
-<script>
 
-	function locals(){
-		local
-	}
-</script>
 </head>
 
 <body>
-	<%
-		ArrayList<Address> list = new ArrayList<Address>();
-		ArrayList<MovieInfo> movielist = new ArrayList<MovieInfo>();
-	%>
+<%
+	ArrayList<Address> list = new ArrayList<Address>();
+	ArrayList<MovieInfo> movielist = new ArrayList<MovieInfo>();
+%>
 	<jsp:include page="/Category/Common/top.jsp"></jsp:include>
 	<div id="wrapper">
 
@@ -78,21 +71,17 @@
 				<input type="text" id="search_movie" placeholder="영화명을 입력하세요"
 					size="23" /> <input type="button" value="검색" id="bt_movie" />
 			</div>
-			
 			<div id="sel_movie">
 				<ul class="list">
 					<%
 						movielist = dao.MovieName();
-
-						for (int i = 0; i < movielist.size(); i++) {
-							moviedto = movielist.get(i);
-							String posterimg = dao.PosterIMG(moviedto.getmName());
+						
+					for(int i=0;i<movielist.size();i++){
+						moviedto = movielist.get(i);
+						String posterimg = dao.PosterIMG(moviedto.getmName());
 					%>
-					<li class="sel_movie movie_off" onclick="locals();"><%=moviedto.getmName()%><input
-						type="hidden" class="posterimg" value="<%=posterimg%>"></li>
-					<%
-						}
-					%>
+					<li class="sel_movie movie_off"><%= moviedto.getmName() %><input type="hidden" class="posterimg" value="<%=posterimg%>"></li>
+					<%} %>
 					<!-- <li class="sel_movie movie_off">해적</li>
 					<li class="sel_movie movie_off">드래곤길들이기</li>
 					<li class="sel_movie movie_off">군도</li>
@@ -127,17 +116,14 @@
 			<div id="sel_theater"
 				class="sel_theater sel_seoul incheon_except busan_except daegu_except daejeon_except gwangju_except">
 				<ul class="list">
-					<%
-						list = (ArrayList<Address>) dao.SelectAddr("서울", "one", "one",
-								"one");
-						for (int i = 0; i < list.size(); i++) {
-							dto = (Address) list.get(i);
-					%>
-					<li class="sel_local local_off"
-						onclick="theaterinfo('s','<%=i%>');"><%=dto.gettName()%></li>
-					<%
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("서울", "one", "one", "one");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+						%>
+								<li class="sel_local local_off" onclick="theaterinfo('s','<%=i%>');"><%=dto.gettName() %></li><%
 						}
-					%>
+				%>
 				</ul>
 			</div>
 			<div class="local local_incheon" style="border-top: 1px solid black;"
@@ -145,84 +131,72 @@
 			<div id="sel_theater"
 				class="sel_theater sel_incheon seoul_except busan_except daegu_except daejeon_except gwangju_except">
 				<ul class="list">
-					<%
-						list = (ArrayList<Address>) dao
-								.SelectAddr("경기", "인천", "two", "two");
-						for (int i = 0; i < list.size(); i++) {
-							dto = (Address) list.get(i);
-					%>
-					<li class="sel_local local_off"
-						onclick="theaterinfo('g','<%=i%>');"><%=dto.gettName()%></li>
-					<%
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("경기", "인천", "two", "two");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							%>
+								<li class="sel_local local_off" onclick="theaterinfo('g','<%=i%>');"><%=dto.gettName() %></li><%
 						}
-					%>
+				%>
 				</ul>
 			</div>
 			<div class="local local_busan" onclick="selLocal('busan');">부산/울산/경남</div>
 			<div id="sel_theater"
 				class="sel_theater sel_busan incheon_except seoul_except daegu_except daejeon_except gwangju_except">
 				<ul class="list">
-					<%
-						list = (ArrayList<Address>) dao.SelectAddr("부산", "울산", "경남",
-								"three");
-						for (int i = 0; i < list.size(); i++) {
-							dto = (Address) list.get(i);
-					%>
-					<li class="sel_local local_off"
-						onclick="theaterinfo('p','<%=i%>');"><%=dto.gettName()%></li>
-					<%
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("부산", "울산", "경남", "three");
+					for(int i=0;i<list.size();i++){
+						dto = (Address)list.get(i);
+						%>
+							<li class="sel_local local_off" onclick="theaterinfo('p','<%=i%>');"><%=dto.gettName() %></li><%
 						}
-					%>
+					
+			%>
 				</ul>
 			</div>
 			<div class="local local_daegu" onclick="selLocal('daegu');">대구/경북</div>
 			<div id="sel_theater"
 				class="sel_theater sel_daegu incheon_except seoul_except busan_except daejeon_except gwangju_except">
 				<ul class="list">
-					<%
-						list = (ArrayList<Address>) dao
-								.SelectAddr("대구", "경북", "two", "two");
-						for (int i = 0; i < list.size(); i++) {
-							dto = (Address) list.get(i);
-					%>
-					<li class="sel_local local_off"
-						onclick="theaterinfo('d','<%=i%>');"><%=dto.gettName()%></li>
-					<%
-						}
-					%>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("대구", "경북", "two", "two");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							%>
+								<li class="sel_local local_off" onclick="theaterinfo('d','<%=i%>');"><%=dto.gettName() %></li><%
+							}
+				%>
 				</ul>
 			</div>
 			<div class="local local_daejeon" onclick="selLocal('daejeon');">대전/충청/강원</div>
 			<div id="sel_theater"
 				class="sel_theater sel_daejeon incheon_except seoul_except busan_except daegu_except gwangju_except">
 				<ul class="list">
-					<%
-						list = (ArrayList<Address>) dao.SelectAddr("대전", "충청", "강원",
-								"three");
-						for (int i = 0; i < list.size(); i++) {
-							dto = (Address) list.get(i);
-					%>
-					<li class="sel_local local_off"
-						onclick="theaterinfo('dj','<%=i%>');"><%=dto.gettName()%></li>
-					<%
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("대전", "충청", "강원", "three");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							%>
+								<li class="sel_local local_off" onclick="theaterinfo('dj','<%=i%>');"><%=dto.gettName() %></li><%
+							
 						}
-					%>
+				%>
 				</ul>
 			</div>
 			<div class="local local_gwangju" onclick="selLocal('gwangju');">광주/전라/제주</div>
 			<div id="sel_theater"
 				class="sel_theater sel_gwangju incheon_except seoul_except busan_except daegu_except daejeon_except">
 				<ul class="list">
-					<%
-						list = (ArrayList<Address>) dao.SelectAddr("광주", "전남", "전북", "제주");
-						for (int i = 0; i < list.size(); i++) {
-							dto = (Address) list.get(i);
-					%>
-					<li class="sel_local local_off"
-						onclick="theaterinfo('j','<%=i%>');"><%=dto.gettName()%></li>
-					<%
-						}
-					%>
+					<% 
+						list = (ArrayList<Address>)dao.SelectAddr("광주", "전남", "전북", "제주");
+						for(int i=0;i<list.size();i++){
+							dto = (Address)list.get(i);
+							%>
+								<li class="sel_local local_off" onclick="theaterinfo('j','<%=i%>');"><%=dto.gettName() %></li><%
+							}
+						%>
 				</ul>
 			</div>
 
@@ -238,13 +212,85 @@
 									<div class="prev_month">
 										<a href="javascript:ViewPrevMonth();"><span>이전달</span></a>
 									</div>
-									<div class="currunt_month" id="curYearMonth"></div>
+									<div class="currunt_month" id="curYearMonth">2014년 8월</div>
 									<div class="next_month">
 										<a href="javascript:ViewNextMonth();"><span>다음달</span></a>
 									</div>
 								</div>
-								<div id="datepi"></div>
-
+								<div id="calendar">
+									<table>
+										<tbody>
+											<tr class="week">
+												<td colspan="7"><img alt=""
+													src="http://movie-img.yes24.com/reserve/cal_week.gif"></td>
+											</tr>
+											<tr>
+												<td class="another_month">27</td>
+												<td class="another_month">28</td>
+												<td class="another_month">29</td>
+												<td class="another_month">30</td>
+												<td class="another_month">31</td>
+												<td>1</td>
+												<td>2</td>
+											</tr>
+											<tr>
+												<td>3</td>
+												<td>4</td>
+												<td>5</td>
+												<td>6</td>
+												<td class="selected"
+													onclick="javascript:SelPlayDate('2014-08-07',4);">7</td>
+												<td class="ableDay"
+													onmouseover="javascript:TdMouseOver(this);"
+													onmouseout="javascript:TdMouseOut(this);"
+													onclick="javascript:SelPlayDate('2014-08-08',5);">8</td>
+												<td class="ableDay"
+													onmouseover="javascript:TdMouseOver(this);"
+													onmouseout="javascript:TdMouseOut(this);"
+													onclick="javascript:SelPlayDate('2014-08-09',6);">9</td>
+											</tr>
+											<tr>
+												<td class="ableDay"
+													onmouseover="javascript:TdMouseOver(this);"
+													onmouseout="javascript:TdMouseOut(this);"
+													onclick="javascript:SelPlayDate('2014-08-10',0);">10</td>
+												<td>11</td>
+												<td>12</td>
+												<td>13</td>
+												<td>14</td>
+												<td>15</td>
+												<td>16</td>
+											</tr>
+											<tr>
+												<td>17</td>
+												<td>18</td>
+												<td>19</td>
+												<td>20</td>
+												<td>21</td>
+												<td>22</td>
+												<td>23</td>
+											</tr>
+											<tr>
+												<td>24</td>
+												<td>25</td>
+												<td>26</td>
+												<td>27</td>
+												<td>28</td>
+												<td>29</td>
+												<td>30</td>
+											</tr>
+											<tr>
+												<td>31</td>
+												<td class="another_month">1</td>
+												<td class="another_month">2</td>
+												<td class="another_month">3</td>
+												<td class="another_month">4</td>
+												<td class="another_month">5</td>
+												<td class="another_month">6</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -314,8 +360,7 @@
 
 			<section id="info_reserve">
 			<div class="poster_img">
-				<img src="/SwingFlow/images/Movie/Reserve/posterimg.gif"
-					class="postername" width="86" height="124" />
+				<img src="/SwingFlow/images/Movie/Reserve/posterimg.gif" class="postername" width="86" height="124" />
 			</div>
 			<div style="margin-top: 8px; float: left; height: 130px;">
 				<div class="movie_info">영화를 선택하세요</div>

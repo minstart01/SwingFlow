@@ -91,6 +91,7 @@ public class MovieDAO {
 		return list;
 	}
 
+	/* 영화정보 등록 */
 	public int MovieInfo(MovieInfo dto){
 		conn = DbSet.getConnection();
 		sql = "INSERT INTO MOVIEINFO(MCODE, MNAME, MPOSTER, MGENRE, MDIRECTOR, MTIME, MACTOR, SCODE, MPLAYDATE) VALUES(MOVIENO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, TO_DATE(?, 'YYYYMMDD'))";
@@ -119,6 +120,7 @@ public class MovieDAO {
 
 	}
 	
+	/* 영화등록 */
 	public int MovieInsert(MovieInsert dto){
 		
 		conn = DbSet.getConnection();
@@ -144,6 +146,7 @@ public class MovieDAO {
 
 	}
 	
+	/* 상영시간표 등록 */
 	public int PlayInfo(PlayInfo dto){
 		conn = DbSet.getConnection();
 		sql = "INSERT INTO PLAYINFO(MINO, PAREA, PPLAYSTART) VALUES((SELECT MAX(MINO) FROM MOVIEINSERT), ?, ?)";
@@ -167,6 +170,7 @@ public class MovieDAO {
 		
 	}
 	
+	/* 요금정보 등록 */
 	public int Charge(Charge dto){
 		conn = DbSet.getConnection();
 		sql = "INSERT INTO CHARGE(MINO, CTEEN, CADULT) VALUES((SELECT MAX(MINO) FROM MOVIEINSERT), ?, ?)";
@@ -189,6 +193,7 @@ public class MovieDAO {
 		
 	}
 	
+	/* 예매 영화 조회 */
 	public ArrayList<MovieInfo> MovieName(){
 		ArrayList<MovieInfo> list =  new ArrayList<MovieInfo>();
 		conn = DbSet.getConnection();
@@ -214,7 +219,7 @@ public class MovieDAO {
 		return list;
 	}
 	
-	
+	/* 예매 포스터 조회 */
 	public String PosterIMG(String mName){
 		conn = DbSet.getConnection();
 		sql = "SELECT DISTINCT MPOSTER FROM MOVIEINFO WHERE MNAME = ?";
@@ -237,5 +242,46 @@ public class MovieDAO {
 		}
 		return MovieName;
 	}
+	
+	public ArrayList<MovieInsert> SelTheater(){
+		ArrayList<MovieInsert> list = new ArrayList<MovieInsert>();
+		return list;
+	}
+	
+	public ArrayList<MovieInsert> SelTheater(String mName){
+		ArrayList<MovieInsert> list = new ArrayList<MovieInsert>();
+		conn = DbSet.getConnection();
+		sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND M.MNAME = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mName);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				MovieInsert dto = new MovieInsert();
+				
+				dto.setMiNo(rs.getInt(1));
+				dto.settName(rs.getString(2));
+				
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
+	
+	
+/*	public ArrayList<PlayInfo> PlayInfo(PlayInfo dto){
+		conn = DbSet.getConnection();
+		sql = "SELECT M.MINO, P.PAREA, P.PPLAYSTART	FROM THEATERINFO T, MOVIEINSERT M, PLAYINFO P WHERE T.TCODE = M.TCODE AND M.MINO = P.MINO;"
+		
+	}*/
 	
 }

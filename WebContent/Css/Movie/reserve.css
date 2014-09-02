@@ -10,6 +10,14 @@
 	background-color: #fff;
 	height: 264px;	
 }
+.week
+{
+		background:#dbdbdb;
+}
+.firstw{
+	color:#b7b3b3;	
+}
+ 
 
 /* 달력 테두리 */
 #divPlayDate {
@@ -42,9 +50,9 @@
 	border-right: 0px solid #dbdbdb;
 	border-top: 1px solid #dbdbdb;
 	border-bottom: 1px solid #dbdbdb;
-	color: #505050;
+	
 	font-family: verdana;
-	height: 25px;
+	height: 17px;
 	text-align: center;
 }
 #cal_wrap .another_month {
@@ -198,6 +206,7 @@
 .local{
 	padding:5px 0 5px 10px;
 	border-bottom:1px solid black;	
+	border-top:1px solid black;	
 }
 
 .local_seoul, .local_incheon, .local_busan, .local_daegu, .local_daejeon, .local_gwangju{
@@ -277,10 +286,12 @@
 .sel_age{
 	float:left;
 	margin-top:15px;
-	margin-left:10px; 
-	padding-top:8px; 
-	border-top:1px solid black; 
+	margin-left:10px;
+	padding-top:8px;
 	width:380px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #dbdbdb;
 }
 
 

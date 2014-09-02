@@ -70,12 +70,13 @@
 </style>
 
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
-<script src="jquery-2.1.1.js"></script>
+<script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script>
 
 	/* 상영관 추가 */
 	function addgwan(){
 		var number = $(".screen").val();
+		$(".screenno").val(number);
 		
 		var sel1 = "";
 		var sel2 = "";
@@ -90,7 +91,7 @@
  	  		 str += "열<select><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option><option>g</option><option>f</option></select>총좌석</td>";
  	  		$(".tbodys").empty();
 		for(var i=1;i<=number;i++){	
-			$(".tbodys").append("<tr><td>" + i + "관</td><td>행<select class='sel" + i + " selr' onchange='tsit(" + i + ");'>" + sel1 + "</select>열<select class='sels" + i + " selc' onchange='tsit(" + i + ");'>" +  sel2 + "</select>총좌석 : <span class='tsit" + i + "'></span></td></tr>");
+			$(".tbodys").append("<tr><td>" + i + "관</td><td>행<select name='tRow" + i + "' class='sel" + i + " selr' onchange='tsit(" + i + ");'>" + sel1 + "</select>열<select name='tColumn" + i + "' class='sels" + i + " selc' onchange='tsit(" + i + ");'>" +  sel2 + "</select>총좌석 : <span class='tsit" + i + "'></span><input type='hidden' class='tTotalSit" + i + "' name='tTotalSit" + i + "'></td></tr>");
 		}
 		
 	}
@@ -101,17 +102,18 @@
 		var gop = $(".sel" + no).val() + "*" + $(".sels" + no).val(); 
 		var plus = "";
 		$(".tsit" + no).text(eval(gop));
-		
+		$(".tTotalSit" + no).val($(".tsit" + no).text());
 		var number = $(".screen").val();
 		
 		for(var i=1;i<=number;i++){
 			if(i==number){
 				plus += $(".tsit" + i).text();
-				break; 	
-			}
+				
+			}else
 			plus += $(".tsit" + i).text() + " + ";
 		}
 		$(".total_sit").text(eval(plus));
+		
 		$(".total_hidden").val(eval(plus));
 	}
 	
@@ -147,6 +149,7 @@
 <body>
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <form action="InsertTheaterPro.jsp">
+<input type="hidden" class="screenno" name="screenno">
 <div id="wrapper">
 <jsp:include page="/Category/Movie/sidemenu.jsp"></jsp:include>
 

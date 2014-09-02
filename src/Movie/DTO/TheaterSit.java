@@ -4,16 +4,13 @@ public class TheaterSit {
 
 	private int tCode;
 	private int tScreenNo;
-	private String tRow;
+	private int tRow;
 	private int tColumn;
 	private int tTotalSit;
-	
-	TheaterSit(){}
-	
-	public TheaterSit(int tCode, int tScreenNo, String tRow, int tColumn,
-			int tTotalSit) {
+
+	public TheaterSit(int tScreenNo, int tRow, int tColumn,	int tTotalSit) {
 		super();
-		this.tCode = tCode;
+
 		this.tScreenNo = tScreenNo;
 		this.tRow = tRow;
 		this.tColumn = tColumn;
@@ -36,11 +33,11 @@ public class TheaterSit {
 		this.tScreenNo = tScreenNo;
 	}
 
-	public String gettRow() {
+	public int gettRow() {
 		return tRow;
 	}
 
-	public void settRow(String tRow) {
+	public void settRow(int tRow) {
 		this.tRow = tRow;
 	}
 
@@ -60,7 +57,7 @@ public class TheaterSit {
 		this.tTotalSit = tTotalSit;
 	}
 	
-	public String toString(){
+	public String toint(){
 		return tCode + " : " + tScreenNo + " : " + tRow + " : " + tColumn + " : " + tTotalSit;  
 	}
 
