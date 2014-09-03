@@ -18,7 +18,7 @@
 	}
 #main_content{
 	font-size:13px;
-	border:1px solid black;
+	
 	/* position:absolute; */
 	float:left;
 	margin-top: 25px;
@@ -29,38 +29,38 @@
  */
 }
 .list_title{
+	font-size: 20px;
+	font-weight: bold;
 	
-	margin-top:15px;
-	border:1px solid black;
 }
 .div_table{
 	margin:10px 0 0 0;	
-	border:1px solid black;
+
 }
 .list_bt{
 	width:911px;
 	height:27px;
 	margin:5px 0 0 0;
-	border:1px solid black;	
+	
 }
 .delete_bt
 {
 	float:left;
 }
 .sign_bt{
-	border:1px solid black;	
+
 	float:right;
 }
 .page
 {
 	margin:5px 0 0 0;
-	border:1px solid black;
+	
 	width:911px;
 }
 .search
 {
 	margin:5px 0 0 0;
-	border:1px solid black;
+
 	width:911px;
 	text-align:center;
 }
@@ -90,14 +90,14 @@
         <th width="200">관람일</th>
         <th width="110">시간</th>
         <th width="230">요금정보</th>
-        <th>관리</th>
+        <th width="92">관리</th>
         
     </tr>
     <% 
     
 	ArrayList<ListMovie> list = new ArrayList<ListMovie>();
 	list = (ArrayList<ListMovie>)dao.ListMvies();
-	out.print(list.size());
+	
    	for(int i=0;i<list.size();i++){
     	dto = list.get(i);
 	%>	
@@ -108,103 +108,9 @@
         <td><%=dto.getmStart() %> ~ <%=dto.getmEnd() %></td>
         <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
         <td>학생(<%=dto.getcTeen() %>원) &nbsp; 성인(<%=dto.getcAdult() %>원)</td>
-        <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
+        <td><input type="button" value="수정" /><a href="DeleteMovie.jsp?miNo=<%=dto.getMiNo() %>"><input type="button" value="삭제" /></a></td>
     </tr>
     <% } %>
-     <!--  <tr>
-    	<td><input type="checkbox" /></td>
-    	<td>명량</td>
-        <td>CGV</td>
-        <td>2014-08-08 ~ 2014-08-30</td>
-        <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(8,000원) &nbsp; 성인(9,000원)</td>
-        <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
-    </tr>
-      <tr>
-    	<td><input type="checkbox" /></td>
-    	<td>명량</td>
-        <td>CGV</td>
-        <td>2014-08-08 ~ 2014-08-30</td>
-        <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(8,000원) &nbsp; 성인(9,000원)</td>
-        <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
-    </tr>
-      <tr>
-    	<td><input type="checkbox" /></td>
-    	<td>명량</td>
-        <td>CGV</td>
-        <td>2014-08-08 ~ 2014-08-30</td>
-        <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(8,000원) &nbsp; 성인(9,000원)</td>
-        <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
-    </tr>
-      <tr>
-    	<td><input type="checkbox" /></td>
-    	<td>명량</td>
-        <td>CGV</td>
-        <td>2014-08-08 ~ 2014-08-30</td>
-        <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(8,000원) &nbsp; 성인(9,000원)</td>
-        <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
-    </tr>
-      <tr>
-    	<td><input type="checkbox" /></td>
-    	<td>명량</td>
-        <td>CGV</td>
-        <td>2014-08-08 ~ 2014-08-30</td>
-        <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(8,000원) &nbsp; 성인(9,000원)</td>
-        <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
-    </tr>
-      <tr>
-    	<td><input type="checkbox" /></td>
-    	<td>명량</td>
-        <td>CGV</td>
-        <td>2014-08-08 ~ 2014-08-30</td>
-        <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(8,000원) &nbsp; 성인(9,000원)</td>
-        <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
-    </tr>
-      <tr>
-    	<td><input type="checkbox" /></td>
-    	<td>명량</td>
-        <td>CGV</td>
-        <td>2014-08-08 ~ 2014-08-30</td>
-        <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(8,000원) &nbsp; 성인(9,000원)</td>
-        <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
-    </tr>
-      <tr>
-    	<td><input type="checkbox" /></td>
-    	<td>명량</td>
-        <td>CGV</td>
-        <td>2014-08-08 ~ 2014-08-30</td>
-        <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(8,000원) &nbsp; 성인(9,000원)</td>
-        <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
-    </tr>
-      <tr>
-    	<td><input type="checkbox" /></td>
-    	<td>명량</td>
-        <td>CGV</td>
-        <td>2014-08-08 ~ 2014-08-30</td>
-        <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(8,000원) &nbsp; 성인(9,000원)</td>
-        <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
-    </tr>
-      <tr>
-    	<td><input type="checkbox" /></td>
-    	<td>명량</td>
-        <td>CGV</td>
-        <td>2014-08-08 ~ 2014-08-30</td>
-        <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(8,000원) &nbsp; 성인(9,000원)</td>
-        <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
-    </tr>
-    
-    
-    
-     -->
     </table>
 	</div>
     <div class="list_bt">

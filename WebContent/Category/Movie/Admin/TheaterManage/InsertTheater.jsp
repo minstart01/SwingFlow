@@ -12,9 +12,9 @@
 		
 	}
 #main_content{
-	border:1px solid black;
-	/* position:absolute; */
+	font-size:13px;
 	float:left;
+
 	margin-top: 25px;
 	margin-left: 25px;
 	/* top:30px;
@@ -25,7 +25,8 @@
 
 .insert_title{
 	
-	margin-top:15px;
+	font-size:20px;
+	font-weight:bold;
 	margin-bottom:10px;
 }
 
@@ -41,7 +42,7 @@
 }
 .div_button
 {
-	border:1px solid black;
+
 	margin-top:7px;
 
 	text-align:center;
@@ -143,6 +144,9 @@
 
 	}
 
+	$("#back_bt").click(function (e){
+		history.go(-1);
+	});
 </script>
 </head>
 
@@ -158,7 +162,7 @@
 <div class="div_table">
 <input type="hidden" name="aCode" class="aCode">
 <input type="hidden" class="total_hidden" name="tTotalSit">
-<table border="1" cellspacing="0" width="670" cellpadding="6">
+<table border="1" cellspacing="0" width="670" cellpadding="4">
     	<tr>
         	<td>영화관명</td>
             <td><input type="text" size="50" name="tName" /></td>            
@@ -196,7 +200,7 @@
     </div>
         <div class="div_button">
 	<input type="submit" value="등록하기" />
-  	<input type="button" value="뒤로가기" />
+  	<a href="ListTheater.jsp"><input type="button" value="뒤로가기" id="back_bt" /></a>
 	</div>
     </div>
     </div>

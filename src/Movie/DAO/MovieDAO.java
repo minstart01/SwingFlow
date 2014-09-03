@@ -249,11 +249,11 @@ public class MovieDAO {
 		if(("one").equals(sido1) && ("one").equals(sido2) && ("one").equals(sido3)){
 			sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, ADDRESS A WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND A.ACODE = T.ACODE AND M.MNAME = ? AND A.SIDO LIKE ?";
 		}else if(("two").equals(sido2) && ("two").equals(sido3)){
-			sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, ADDRESS A WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND A.ACODE = T.ACODE AND M.MNAME = ? (A.SIDO LIKE ? OR A.SIDO LIKE ?)";
+			sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, ADDRESS A WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND A.ACODE = T.ACODE AND M.MNAME = ? AND (A.SIDO LIKE ? OR A.SIDO LIKE ?)";
 		}else if(("three").equals(sido3)){
-			sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, ADDRESS A WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND A.ACODE = T.ACODE AND M.MNAME = ?  (A.SIDO LIKE ? OR A.SIDO LIKE ? OR A.SIDO LIKE ?)";
+			sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, ADDRESS A WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND A.ACODE = T.ACODE AND M.MNAME = ? AND (A.SIDO LIKE ? OR A.SIDO LIKE ? OR A.SIDO LIKE ?)";
 		}else{
-			sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, ADDRESS A WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND A.ACODE = T.ACODE AND M.MNAME = ?  (A.SIDO LIKE ? OR A.SIDO LIKE ? OR A.SIDO LIKE ? OR A.SIDO LIKE ?)";
+			sql = "SELECT MI.MINO, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, ADDRESS A WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND A.ACODE = T.ACODE AND M.MNAME = ? AND (A.SIDO LIKE ? OR A.SIDO LIKE ? OR A.SIDO LIKE ? OR A.SIDO LIKE ?)";
 		}
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -296,6 +296,7 @@ public class MovieDAO {
 		
 	}
 
+	/* 영화리스트 */
 	public ArrayList<ListMovie> ListMvies(){
 		ArrayList<ListMovie> list =  new ArrayList<ListMovie>();
 		conn = DbSet.getConnection();
@@ -326,6 +327,7 @@ public class MovieDAO {
 		}
 		return list;
 	}
+	/* 상영시간 */
 	public ArrayList<PlayInfo> PlayTime(int miNo){
 		ArrayList<PlayInfo> list =  new ArrayList<PlayInfo>();
 		conn = DbSet.getConnection();
@@ -351,5 +353,24 @@ public class MovieDAO {
 			DbClose.close(rs, pstmt, conn);
 		}
 		return list;
+	}
+	
+	/* 영화 삭제 */
+	public int DeleteMovie(int miNO){
+		conn = DbSet.getConnection();
+		sql = "DELETE FROM MOVIEINSERT WHERE MINO=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, miNO);
+			su = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;
 	}
 }

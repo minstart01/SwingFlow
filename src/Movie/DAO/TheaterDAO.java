@@ -67,5 +67,57 @@ public class TheaterDAO {
 		return su;
 	}
 	
+	public ArrayList<TheaterInfo> ListTheater(){
+		ArrayList<TheaterInfo> list = new ArrayList<TheaterInfo>();
+		conn = DbSet.getConnection();
+		sql = " SELECT T.TCODE, T.TNAME, A.SIDO, A.GUGUN, A.DONG, A.RI, T.TDETAILADDR, T.TPHONE, T.TSCREEN, T.TTOTALSIT FROM THEATERINFO T, ADDRESS A WHERE A.ACODE = T.ACODE";
+				
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				TheaterInfo dto = new TheaterInfo();
+				
+				dto.settCode(rs.getInt(1));
+				dto.settName(rs.getString(2));
+				dto.setSido(rs.getString(3));
+				dto.setGugun(rs.getString(4));
+				dto.setDong(rs.getString(5));
+				dto.setRi(rs.getString(6));
+				dto.settDetailAddr(rs.getString(7));
+				dto.settPhone(rs.getString(8));
+				dto.settScreen(rs.getInt(9));
+				dto.settTotalSit(rs.getInt(10));
+				
+				list.add(dto);
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		return list;
+	}
+	public int DeleteTheater(int tCode){
+		conn = DbSet.getConnection();
+		sql = "DELETE FROM THEATERINFO WHERE TCODE=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, tCode);
+			su = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;
+	}
 	
 }

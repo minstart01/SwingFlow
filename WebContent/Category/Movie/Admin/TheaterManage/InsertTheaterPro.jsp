@@ -24,6 +24,6 @@
 		int sit = dao.TheaterSit(dto1);
 	
 	}
-	response.sendRedirect("../MovieManage/ListMovie.jsp");
+	response.sendRedirect("ListTheater.jsp");
 	
 %>

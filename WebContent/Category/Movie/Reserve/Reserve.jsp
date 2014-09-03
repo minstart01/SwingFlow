@@ -67,20 +67,20 @@ $(function(e) {
 });
 function SearchmName(data) {
 
-	
-	var items = $(data).find("uls").find("li");
+	$(".listseoul").empty();
+	/* var items = $(data).find("uls").find("li");
 	var itemk = $(data).find("ulk").find("li");
 	var itemp = $(data).find("ulp").find("li");
 	var itemd = $(data).find("uld").find("li");
 	var itemdj = $(data).find("uldj").find("li");
-	var itemg = $(data).find("ulg").find("li");
-		
-	alert("aa");
-	for(var i=0; i<items.length;i++){
-		alert($(items[i]).text());
+	var itemg = $(data).find("ulg").find("li"); */
+	var items = $(data).find("uls").find("li")
+	
+	for(var i=0;i<items.length;i++){
+		$(".listseoul").append("<li>" + $(items[i]).text() + "</li>");
 	}
 	
-
+	
 
 
 	
@@ -170,7 +170,7 @@ function SearchmName(data) {
 				class="local_seoul" onclick="selLocal('seoul');">서울</div>
 			<div id="sel_theater"
 				class="sel_theater sel_seoul incheon_except busan_except daegu_except daejeon_except gwangju_except">
-				<ul class="list">
+				<ul class="list listseoul">
 					<%
 						list = (ArrayList<Address>) dao.SelectAddr("서울", "one", "one",
 								"one");

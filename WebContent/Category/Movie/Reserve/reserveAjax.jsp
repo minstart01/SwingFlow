@@ -5,6 +5,7 @@
 	ArrayList<MovieInsert> list = new ArrayList<MovieInsert>();
 	list = dao.SelTheater(mName, "서울", "one", "one", "one"); 
  	%>
+<items>
 <uls>
 <% for(int i=0;i<list.size();i++){
 	MovieInsert dto = new MovieInsert();
@@ -27,7 +28,8 @@
 
 <%} %>
 </ulk>
-<ulp>
+</items>
+<%-- <ulp>
 <%
 	list = dao.SelTheater(mName, "부산", "울산", "경남", "three");
 	for(int i=0;i<list.size();i++){
@@ -75,4 +77,4 @@
 <li><%=dto.gettName() %></li>
 
 <%} %>
-</ulg>
+</ulg> --%>
