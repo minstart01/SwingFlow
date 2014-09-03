@@ -57,8 +57,24 @@
             <th><a href="/SwingFlow/Category/Movie/Index.jsp">영화</a></th>
             <th><a href="/SwingFlow/Category/Airline/Index.jsp">항공</a></th>
             <th><a href="/SwingFlow/Category/Inn/Index.jsp">여행</a></th>
-            <th><a href="/SwingFlow/Category/Common/Login.jsp">로그인</a></th>
-            <th><a href="/SwingFlow/Category/Common/Join.jsp">회원가입</a></th>
+            
+            <%
+            String Id = (String)session.getAttribute("MemberId");
+				if(Id == null){
+			%>
+			<th><a href="/SwingFlow/Category/Common/Login.jsp">로그인</a></th>
+			<th><a href="/SwingFlow/Category/Common/Join.jsp">회원가입</a></th>
+			<%	
+				}else{
+					
+			%>
+			<th><a href="#"><%= Id %>님</a></th>
+			<th><a href="/SwingFlow/Category/Common/LogoutSession.jsp">로그아웃</a></th>
+			<%
+				}
+			%>
+                   
+            
             <th><a href="javascript:fnLocaleHangul();">한글</a></th>
             <th><a href="javascript:fnLocaleEnglish();">English</a></th>
         </tr>

@@ -1,5 +1,10 @@
+<%@page import="java.util.List"%>
+<%@page import="Movie.DTO.ListMovie"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="dto" class="Movie.DTO.ListMovie"></jsp:useBean>
+<jsp:useBean id="dao" class="Movie.DAO.MovieDAO"></jsp:useBean>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,7 +17,7 @@
 		
 	}
 #main_content{
-	font-size:14px;
+	font-size:13px;
 	border:1px solid black;
 	/* position:absolute; */
 	float:left;
@@ -88,16 +93,25 @@
         <th>관리</th>
         
     </tr>
+    <% 
+    
+	ArrayList<ListMovie> list = new ArrayList<ListMovie>();
+	list = (ArrayList<ListMovie>)dao.ListMvies();
+	out.print(list.size());
+   	for(int i=0;i<list.size();i++){
+    	dto = list.get(i);
+	%>	
     <tr>
     	<td><input type="checkbox" /></td>
-    	<td>명량</td>
-        <td>CGV</td>
-        <td>2014-08-08 ~ 2014-08-30</td>
+    	<td><%=dto.getmName() %></td>
+        <td><%=dto.gettName() %></td>
+        <td><%=dto.getmStart() %> ~ <%=dto.getmEnd() %></td>
         <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(8,000원) &nbsp; 성인(9,000원)</td>
+        <td>학생(<%=dto.getcTeen() %>원) &nbsp; 성인(<%=dto.getcAdult() %>원)</td>
         <td><input type="button" value="수정" /><input type="button" value="삭제" /></td>
     </tr>
-      <tr>
+    <% } %>
+     <!--  <tr>
     	<td><input type="checkbox" /></td>
     	<td>명량</td>
         <td>CGV</td>
@@ -190,7 +204,7 @@
     
     
     
-    
+     -->
     </table>
 	</div>
     <div class="list_bt">

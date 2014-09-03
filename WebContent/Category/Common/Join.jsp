@@ -1,4 +1,4 @@
-<%@page import="Common.DAO.MemberDAO"%>
+c<%@page import="Common.DAO.MemberDAO"%>
 <%@page import="Common.DTO.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

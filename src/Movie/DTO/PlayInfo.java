@@ -6,7 +6,7 @@ public class PlayInfo {
 	private int pArea;
 	private String pPlayStart;
 	
-	PlayInfo(){}
+	public PlayInfo(){}
 
 	public PlayInfo(int miNo, int pArea, String pPlayStart) {
 		super();

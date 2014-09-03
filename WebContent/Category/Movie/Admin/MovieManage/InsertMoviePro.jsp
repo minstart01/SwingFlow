@@ -39,10 +39,6 @@
 	
 
 
-	out.print(info);  
-	out.print(insert);
-	out.print(play);
-	out.print(charge);
-
+	response.sendRedirect("ListMovie.jsp");
 	
 %>

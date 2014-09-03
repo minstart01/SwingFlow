@@ -22,7 +22,8 @@
 		tTotalSit = Integer.parseInt(request.getParameter("tTotalSit" + i));
 		TheaterSit dto1 = new TheaterSit(i, tRow, tColumn, tTotalSit);
 		int sit = dao.TheaterSit(dto1);
-		out.print(sit);
+	
 	}
+	response.sendRedirect("../MovieManage/ListMovie.jsp");
 	
 %>

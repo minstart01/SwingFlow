@@ -63,19 +63,26 @@ $(function(e) {
 			success : SearchmName
 		});
 	
-});
+	});
 });
 function SearchmName(data) {
 
 	
-	alert(data);
-	
-	var item = $(data).find("li");
+	var items = $(data).find("uls").find("li");
+	var itemk = $(data).find("ulk").find("li");
+	var itemp = $(data).find("ulp").find("li");
+	var itemd = $(data).find("uld").find("li");
+	var itemdj = $(data).find("uldj").find("li");
+	var itemg = $(data).find("ulg").find("li");
 		
-	alert($(data).find("li"));
+	alert("aa");
+	for(var i=0; i<items.length;i++){
+		alert($(items[i]).text());
+	}
 	
-	alert(item.length);
-	alert($(item[1]).text());
+
+
+
 	
 		}
 		
@@ -234,7 +241,7 @@ function SearchmName(data) {
 				class="sel_theater sel_daejeon incheon_except seoul_except busan_except daegu_except gwangju_except">
 				<ul class="list">
 					<%
-						list = (ArrayList<Address>) dao.SelectAddr("대전", "충청", "강원",
+						list = (ArrayList<Address>) dao.SelectAddr("대전", "충", "강원",
 								"three");
 						for (int i = 0; i < list.size(); i++) {
 							dto = (Address) list.get(i);

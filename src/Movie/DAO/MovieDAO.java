@@ -295,4 +295,61 @@ public class MovieDAO {
 		return list;
 		
 	}
+
+	public ArrayList<ListMovie> ListMvies(){
+		ArrayList<ListMovie> list =  new ArrayList<ListMovie>();
+		conn = DbSet.getConnection();
+		sql = "SELECT MI.MINO, M.MNAME, T.TNAME, TO_CHAR(MI.MSTART,'YYYY-MM-DD'), TO_CHAR(MI.MEND,'YYYY-MM-DD'), TO_CHAR(C.CTEEN,'999,999'), TO_CHAR(C.CADULT,'999,999') FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, CHARGE C WHERE M.MCODE = MI.MCODE  AND MI.MINO = C.MINO AND T.TCODE = MI.TCODE";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				ListMovie dto = new ListMovie();
+				dto.setMiNo(rs.getInt(1));
+				dto.setmName(rs.getString(2));
+				dto.settName(rs.getString(3));
+				dto.setmStart(rs.getString(4));
+				dto.setmEnd(rs.getString(5));
+				dto.setcTeen(rs.getString(6));
+				dto.setcAdult(rs.getString(7));
+							
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		return list;
+	}
+	public ArrayList<PlayInfo> PlayTime(int miNo){
+		ArrayList<PlayInfo> list =  new ArrayList<PlayInfo>();
+		conn = DbSet.getConnection();
+		sql = "SELECT P.MINO, P.PAREA, P.PPLAYSTART FROM MOVIEINSERT MI, PLAYINFO P WHERE MI.MINO = P.MINO AND P.MINO = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				PlayInfo dto = new PlayInfo();
+				dto.setMiNo(rs.getInt(1));
+				dto.setpArea(rs.getInt(2));
+				dto.setpPlayStart(rs.getString(3));
+											
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		return list;
+	}
 }

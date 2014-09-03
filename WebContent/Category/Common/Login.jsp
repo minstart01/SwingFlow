@@ -49,6 +49,13 @@
 	text-decoration:none;	
 }
 </style>
+<script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
+<script type="text/javascript">
+	$(function (){
+		$(".id").focus();
+	});
+
+</script>
 </head>
 
 <body>

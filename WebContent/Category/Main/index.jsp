@@ -1,3 +1,4 @@
+<%@page import="java.nio.channels.SeekableByteChannel"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -28,6 +29,7 @@
   <section id="shop"><img src="../../images/Main/shop.gif" width="700" height="300"></section>
  
 </div>
+
  <jsp:include page="../Common/footer.jsp"></jsp:include>
 </body>
 </html>

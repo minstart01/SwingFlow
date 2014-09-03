@@ -123,18 +123,24 @@ public class MemberDAO {
 		return list;
 	}
 	
-	
+	/* 로그인 체크 */
 	public String LoginChk(String mId, String mPwd){
 		conn = DbSet.getConnection();
-		sql = "SELECT MID FROM MEMBER where MID=? and MPWD=?";
+		sql = "SELECT MID, MPWD FROM MEMBER where MID=?";
 		String ID="";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mId);
-			pstmt.setString(2, mPwd);
 			rs = pstmt.executeQuery();
-			while(rs.next()){
-				ID = rs.getString("MID");
+			if(rs.next()){
+				if(mPwd.equals(rs.getString("MPWD"))){
+					ID = rs.getString("MID");
+				}else{
+					ID = "비밀번호가 틀립니다.";
+				}
+			}
+			else{
+				ID = "없는 아이디입니다.";
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -144,4 +150,7 @@ public class MemberDAO {
 		}
 		return ID;
 	}
+	
+	
+
 }
