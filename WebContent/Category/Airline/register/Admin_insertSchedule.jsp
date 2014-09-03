@@ -1,16 +1,22 @@
+<%@page import="Airline.AirlineNo"%>
+<%@page import="Airline.Airline"%>
 <%@page import="Airline.City"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Airline.Nation"%>
 <%@page import="Airline.DAO.AdminDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-	<jsp:useBean id="nation" class="Airline.Nation"/>
- <jsp:setProperty property="*" name="nation" />
+
 <%
 AdminDAO dao = AdminDAO.getInstance();
 Nation dto = new Nation();
 ArrayList<Nation> dtoL  = dao.nationSel();
 City city = new City();
 ArrayList<City> cDtoL = dao.citySel();
+
+Airline airline = new Airline();
+ArrayList<Airline> aDtoL = dao.airlineSel();
+AirlineNo airlineNo = new AirlineNo();
+ArrayList<AirlineNo> anDtoL = dao.airlineNoSel();
 
 //out.print(dtoL.size());
 %>
@@ -22,10 +28,78 @@ ArrayList<City> cDtoL = dao.citySel();
 <title>Insert title here</title>
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script type="text/javascript">
-	function nextEdit() {
+function nextEdit() {
 		document.next.submit();
 	};
-
+	$(function(e) { 
+		$('#country').change(function(e) { 
+		   var nCode = $('#country').val();
+		  
+	
+		   //   alert("aa");
+		   $.ajax({
+		    url : 'selectnCode.jsp',
+		    type : 'GET',
+		    data : {		    
+		     nCode : nCode,
+		     },
+		    success : SearchmName
+		   
+		  });
+		 });
+		});
+		  
+function SearchmName(data) {
+		
+		 $('#select8').empty();
+		$('#select8').append("<option>-도시-</option>"+data); 	
+		  /*  $("#nId").append("<option>" + data +"</option>"); */	   
+		  }
+			$(function(e) { 
+				$('#country01').change(function(e) { 
+				   var nCode = $('#country01').val();
+				  
+			
+				   //   alert("aa");
+				   $.ajax({
+				    url : 'selectnCode.jsp',
+				    type : 'GET',
+				    data : {		    
+				     nCode : nCode,
+				     },
+				    success : SearchmName01
+				  });
+				 });
+				});
+		 function SearchmName01(data){
+	 		 $('#select9').empty();
+	 			$('#select9').append("<option>-도시-</option>"+data); 
+		 }
+	////////////////////////항공편 등록******************************************	 
+		 $(function(e) { 
+				$('#fn_air').change(function(e) { 
+				   var aCode = $('#fn_air').val();
+				  
+			
+				   //   alert("aa");
+				   $.ajax({
+				    url : 'selectAirCode.jsp',
+				    type : 'GET',
+				    data : {		    
+				     aCode : aCode,
+				     },
+				    success : SearchAirName
+				   
+				  });
+				 });
+				});
+	
+		 function SearchAirName(data) {
+				
+			 $('#fn_no').empty();
+			$('#fn_no').append("<option></option>"+data); 	
+			  /*  $("#nId").append("<option>" + data +"</option>"); */	   
+			  }
 // 	$(function() {
 // 		var city = "";
 // 		var KR = [ '인천(ICN)', '김포(GMP)', '부산(PUS)', '제주(JCU)' ];
@@ -149,12 +223,15 @@ ArrayList<City> cDtoL = dao.citySel();
 				<table border="1" cellpadding="6" cellspacing="0">
 					<tr>
 						<td width="100">항공사</td>
-						<td width="300"><select name="fn_air">
-								<option>아시아나</option>
-								<option>진에어</option>
+						<td width="300"><select name="fn_air" id="fn_air">
+						<%for(int i=0;i<aDtoL.size();i++){
+							airline = aDtoL.get(i);%>
+<option value="<%=airline.getA_Code() %>" ><%=airline.getA_Name() %></option>
+<%}%>
+					
 						</select></td>
 						<td width="100">편명</td>
-						<td width="300"><select name="fn_no">
+						<td width="300"><select name="fn_no" id="fn_no">
 								<option>OZ202</option>
 								<option>adfb5678</option>
 						</select></td>
@@ -170,25 +247,23 @@ ArrayList<City> cDtoL = dao.citySel();
 					<option>-국가-</option>
 						<%for(int i=0;i<dtoL.size();i++){
 							dto = dtoL.get(i);%>
-<option value="<%=dto.getN_Code()%>"><%=dto.getN_Name() %></option>
+<option value="<%=dto.getN_Code()%>" ><%=dto.getN_Name() %></option>
 <%}%>
 						</select> 
 						<select name="c_DepCity" id="select8">
 						<option>-도시-</option>
-						<%for(int i=0;i<cDtoL.size();i++){
-							city = cDtoL.get(i);%>
-					<option value="<%=city.getC_Code()%>"><%=city.getC_Name()%></option>
-					<% }%>	
+						
+						
 						</select></td>
 						<td>도착도시</td>
 						<td><select name="select7" id="country01">
-								<option>-선택-</option>
-								<option>한국</option>
-								<option>일본</option>
-								<option>중국</option>
-								<option>동남아</option>
-								<option>미국</option>
-						</select> <select name="c_ArrCity" id="select9"></select></td>
+			<option>-국가-</option>
+						<%for(int i=0;i<dtoL.size();i++){
+							dto = dtoL.get(i);%>
+<option value="<%=dto.getN_Code()%>" ><%=dto.getN_Name() %></option>
+<%}%>
+						</select> <select name="c_ArrCity" id="select9">
+							<option>-도시-</option></select></td>
 					</tr>	
 					
 					<tr>

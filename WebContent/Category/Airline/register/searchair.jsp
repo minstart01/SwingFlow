@@ -11,7 +11,7 @@ int nCode= Integer.parseInt(request.getParameter("nCode"));
 int su=0;
 
 
-if(city == null || nCode == 0){
+if(city != null && nCode == 0){
 	 su = dao.nationIns(request.getParameter("nation"));
 }else{
 	 su = dao.cityIns(city, nCode);
@@ -21,4 +21,6 @@ if(city == null || nCode == 0){
 
 
 out.print(su);
+
+
 %>

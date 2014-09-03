@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Airline.AdultF;
+import Airline.Airline;
+import Airline.AirlineNo;
 import Airline.ChildF;
 import Airline.City;
 import Airline.FlightNo;
@@ -51,6 +53,72 @@ public class AdminDAO {
 	return su;
  }
  
+ public int airlineNoIns(String aName, int aCode){
+	 conn = DbSet.getConnection();
+
+	 sql="INSERT INTO AIRLINENO (AN_CODE, AN_NAME, AN_SEATTOTAL, A_CODE ) VALUES  (airlineseq.nextval ,? ,30 ,?  )";
+	 try {
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, aName);
+		pstmt.setInt(2, aCode);
+		su = pstmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		DbClose.close(pstmt, conn);
+	}
+	return su;	 
+ }
+ 
+public ArrayList<Airline> airlineSel() {
+		ArrayList<Airline> nDtoL = new ArrayList<>();
+		conn = DbSet.getConnection();
+		sql = "select * from airline";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Airline dto = new Airline();
+				dto.setA_Code(rs.getInt(1));
+				dto.setA_Name(rs.getString(2));
+				nDtoL.add(dto);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DbClose.close(pstmt, conn, rs);
+		}
+		return nDtoL;
+	}
+
+public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
+	ArrayList<AirlineNo> cDtoL = new ArrayList<>();
+	conn = DbSet.getConnection();
+	
+	sql = "select * from airlineno where a_Code=?";
+	try {
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, acode);
+		rs = pstmt.executeQuery();
+		while (rs.next()) {
+			AirlineNo dto = new AirlineNo();
+			dto.setAn_Code(rs.getInt(1));
+			dto.setAn_Name(rs.getString(2));
+			cDtoL.add(dto);
+		}
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally {
+		DbClose.close(pstmt, conn, rs);
+	}
+	return cDtoL;
+}
+ 
  public int nationIns(String nation){
 	 conn = DbSet.getConnection();
 	 sql="INSERT INTO NATION (N_CODE, N_NAME ) VALUES  ( nationseq.nextval, ? )";
@@ -88,6 +156,58 @@ public class AdminDAO {
 			DbClose.close(pstmt, conn, rs);
 		}
 		return nDtoL;
+	}
+	
+	public ArrayList<City> citynCodeSel(int ncode) {
+		ArrayList<City> cDtoL = new ArrayList<>();
+		conn = DbSet.getConnection();
+		
+		sql = "select * from city where n_Code=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ncode);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				City dto = new City();
+				dto.setC_Code(rs.getInt(1));
+				dto.setC_Name(rs.getString(2));
+				cDtoL.add(dto);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DbClose.close(pstmt, conn, rs);
+		}
+		return cDtoL;
+	}
+	
+	public ArrayList<AirlineNo> airlineNoSel() {
+		ArrayList<AirlineNo> cDtoL = new ArrayList<>();
+		conn = DbSet.getConnection();
+		sql = "select * from AirlineNo";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				AirlineNo airlineNo = new AirlineNo();
+				airlineNo.setA_Code(rs.getInt(1));
+				airlineNo.setAn_Code(rs.getInt(2));
+				airlineNo.setAn_Name(rs.getString(3));
+				airlineNo.setAn_SeatTotal(rs.getInt(4));
+
+		cDtoL.add(airlineNo);
+		
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DbClose.close(pstmt, conn, rs);
+		}
+		return cDtoL;
 	}
 	
 	public ArrayList<City> citySel() {
