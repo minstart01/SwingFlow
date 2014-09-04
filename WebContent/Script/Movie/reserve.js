@@ -291,7 +291,7 @@ $(function() {
 				nextday++;
 
 			} else {
-				cal += "<td>";
+				cal += "<td class='day" + date + "'>";
 				cal += date;
 				cal += "</td>";
 				date++;
@@ -429,3 +429,4 @@ function ViewNextMonth() {
 	$("#datepi").append(cal);
 
 }
+

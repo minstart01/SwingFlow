@@ -171,7 +171,7 @@
 }
 .sel_theater{
 	overflow:auto;
-	height:261px;
+	height:257px;
 }
 #sel_movie ul li, #sel_theater ul li, #sel_time ul li
 {	
@@ -225,7 +225,7 @@
 /* 상단 이미지 */
 #movie_img, #theater_img, #date_img, #time_img{
 	float:left;	
-	border: 1px solid black;
+
 }
 #movie_img{
 	width:230px;

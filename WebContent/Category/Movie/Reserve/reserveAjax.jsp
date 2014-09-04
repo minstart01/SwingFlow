@@ -16,7 +16,7 @@
 
 <%} %>
 </uls>
-<ulk>
+<ulg>
 <%
 	list = dao.SelTheater(mName, "경기", "인천", "two", "two");
 	for(int i=0;i<list.size();i++){
@@ -27,9 +27,8 @@
 <li><%=dto.gettName() %></li>
 
 <%} %>
-</ulk>
-</items>
-<%-- <ulp>
+</ulg>
+<ulp>
 <%
 	list = dao.SelTheater(mName, "부산", "울산", "경남", "three");
 	for(int i=0;i<list.size();i++){
@@ -66,7 +65,7 @@
 
 <%} %>
 </uldj>
-<ulg>
+<ulj>
 <%
 	list = dao.SelTheater(mName, "광주", "전남", "전북", "제주");
 	for(int i=0;i<list.size();i++){
@@ -77,4 +76,5 @@
 <li><%=dto.gettName() %></li>
 
 <%} %>
-</ulg> --%>
+</ulj>
+</items>

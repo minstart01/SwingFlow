@@ -57,6 +57,9 @@
 .first{
 border-bottom:solid 1px #FFF;	
 }
+.menus{
+	cursor: pointer;
+}
 </style>
 
 <script>
@@ -86,7 +89,7 @@ border-bottom:solid 1px #FFF;
 </head>
 <body>
 <nav id="sidebar" class="column-left">
-		<ul class="menu">
+		<ul class="menu menus">
         	<li class="first"><h2>메뉴</h2></li>
 			<li>
             	<ul class="submenu submenu1">
@@ -97,7 +100,7 @@ border-bottom:solid 1px #FFF;
                 </ul>
             </li>
         </ul>
-        <ul class="menu1">
+        <ul class="menu1 menus">
 		   	<li class="first"><h2>메뉴1</h2></li>
 			<li>
             	<ul class="submenu submenu2">
@@ -108,7 +111,7 @@ border-bottom:solid 1px #FFF;
                 </ul>
             </li>
         </ul>
-        <ul class="menu2">
+        <ul class="menu2 menus">
 		   	<li class="first"><h2>메뉴2</h2></li>
 			<li>
             	<ul class="submenu submenu3">

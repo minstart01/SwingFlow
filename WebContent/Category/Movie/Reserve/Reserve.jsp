@@ -20,7 +20,7 @@
 }
 
 #main_content {
-	border: 1px solid black;
+
 	/* position:absolute; */
 	float: left;
 	width: 900px;
@@ -44,14 +44,12 @@ $(function(e) {
 	
 	
 	
+	
 	$("#msearch").focus();
 	
 	$("#sel_movie").click(function(e) {
 		
 		var mName = $(".movie_on").text();
-		
-			alert(mName);
-		
 	
 		$.ajax({
 			url : 'reserveAjax.jsp',
@@ -64,28 +62,100 @@ $(function(e) {
 		});
 	
 	});
+	
+	$("#bt_movie").click(function(e) {
+		var MovieSearch = $("#search_movie").val();
+
+		$.ajax({
+			url : 'MovieSearch.jsp',
+			type : 'GET',
+			data : {
+				MovieSearch : MovieSearch,
+			},
+			success : SearchMovie
+		});
+	});
+	
+	
+	
 });
+	/* 극장 선택 */
+
 function SearchmName(data) {
 
-	$(".listseoul").empty();
-	/* var items = $(data).find("uls").find("li");
-	var itemk = $(data).find("ulk").find("li");
+	$(".list_local").empty();
+	var items = $(data).find("uls").find("li");
+	var itemg = $(data).find("ulg").find("li");
 	var itemp = $(data).find("ulp").find("li");
 	var itemd = $(data).find("uld").find("li");
 	var itemdj = $(data).find("uldj").find("li");
-	var itemg = $(data).find("ulg").find("li"); */
-	var items = $(data).find("uls").find("li")
+	var itemj = $(data).find("ulj").find("li");
+	
 	
 	for(var i=0;i<items.length;i++){
-		$(".listseoul").append("<li>" + $(items[i]).text() + "</li>");
+		$(".lists").append("<li class='sel_local local_off'>" + $(items[i]).text() + "</li>");
 	}
-	
-	
-
-
-	
+	for(var i=0;i<itemg.length;i++){
+		$(".listg").append("<li class='sel_local local_off' onclick=theaterinfo('g','" + i + "');>" + $(itemg[i]).text() + "</li>");
 		}
+	for(var i=0;i<itemp.length;i++){
+		$(".listp").append("<li class='sel_local local_off' onclick=theaterinfo('p','" + i + "');>" + $(itemp[i]).text() + "</li>");
+	}
+	for(var i=0;i<itemd.length;i++){
+		$(".listd").append("<li class='sel_local local_off' onclick=theaterinfo('d','" + i + "');>" + $(itemd[i]).text() + "</li>");
+	}
+	for(var i=0;i<itemdj.length;i++){
+		$(".listdj").append("<li class='sel_local local_off' onclick=theaterinfo('dj','" + i + "');>" + $(itemdj[i]).text() + "</li>");
+	}
+	for(var i=0;i<itemj.length;i++){
+		$(".listj").append("<li class='sel_local local_off' onclick=theaterinfo('j','" + i + "');>" + $(itemj[i]).text() + "</li>");
+	}
+
+	$(".sel_local").click(
+			function(e) {
+				$(".sel_local").addClass("local_off");
+				$(".local_on").removeClass("local_on");
+				$(this).addClass("local_on");
+				$(this).removeClass("local_off");
+				$(".theater_info").text("");
+				$(".theater_info").append($(this).text());
+				$(".theater_img")
+						.attr("src",
+								"/SwingFlow/images/Movie/Reserve/img_TheaterList_on.gif");
+
+			});
+	
+	$(".sel_local").click(function (e){
+		alert($(".local_on").text());
+		alert($(".movie_on").text());
 		
+	});	
+}
+
+	
+/* 영화 선택 */
+function SearchMovie(data){
+
+	$(".list_movie").empty();	
+	var names = $(data).find("li");
+	alert($(names[0]).text());
+	$(".list_movie").append("<li class='sel_movie movie_off'>" + $(names[0]).text() + "<input type='hidden' class='posterimg' value='" + $(names[1]).text() +"'></li>");
+	
+	$(".sel_movie").click(function(e) {
+		$(".sel_movie").addClass("movie_off");
+		$(".movie_on").removeClass("movie_on");
+		$(this).addClass("movie_on");
+		$(this).removeClass("movie_off");
+		$(".movie_info").text("");
+		$(".movie_info").append($(this).text());
+		$(".postername").attr("src", $(".movie_on input").val());
+		
+	});
+
+
+}
+
+
 
 
 </script>
@@ -124,7 +194,7 @@ function SearchmName(data) {
 			</div>
 			
 			<div id="sel_movie">
-				<ul class="list">
+				<ul class="list list_movie">
 					<%
 						movielist = dao.MovieName();
 
@@ -170,15 +240,14 @@ function SearchmName(data) {
 				class="local_seoul" onclick="selLocal('seoul');">서울</div>
 			<div id="sel_theater"
 				class="sel_theater sel_seoul incheon_except busan_except daegu_except daejeon_except gwangju_except">
-				<ul class="list listseoul">
+				<ul class="list list_local lists">
 					<%
 						list = (ArrayList<Address>) dao.SelectAddr("서울", "one", "one",
 								"one");
 						for (int i = 0; i < list.size(); i++) {
 							dto = (Address) list.get(i);
 					%>
-					<li class="sel_local local_off"
-						onclick="theaterinfo('s','<%=i%>');"><%=dto.gettName()%></li>
+					<li class="sel_local local_off"><%=dto.gettName()%></li>
 					<%
 						}
 					%>
@@ -188,7 +257,7 @@ function SearchmName(data) {
 				onclick="selLocal('incheon');">경기/인천</div>
 			<div id="sel_theater"
 				class="sel_theater sel_incheon seoul_except busan_except daegu_except daejeon_except gwangju_except">
-				<ul class="list">
+				<ul class="list list_local listg">
 					<%
 						list = (ArrayList<Address>) dao
 								.SelectAddr("경기", "인천", "two", "two");
@@ -205,7 +274,7 @@ function SearchmName(data) {
 			<div class="local local_busan" onclick="selLocal('busan');">부산/울산/경남</div>
 			<div id="sel_theater"
 				class="sel_theater sel_busan incheon_except seoul_except daegu_except daejeon_except gwangju_except">
-				<ul class="list">
+				<ul class="list list_local listp">
 					<%
 						list = (ArrayList<Address>) dao.SelectAddr("부산", "울산", "경남",
 								"three");
@@ -222,7 +291,7 @@ function SearchmName(data) {
 			<div class="local local_daegu" onclick="selLocal('daegu');">대구/경북</div>
 			<div id="sel_theater"
 				class="sel_theater sel_daegu incheon_except seoul_except busan_except daejeon_except gwangju_except">
-				<ul class="list">
+				<ul class="list list_local listd">
 					<%
 						list = (ArrayList<Address>) dao
 								.SelectAddr("대구", "경북", "two", "two");
@@ -239,7 +308,7 @@ function SearchmName(data) {
 			<div class="local local_daejeon" onclick="selLocal('daejeon');">대전/충청/강원</div>
 			<div id="sel_theater"
 				class="sel_theater sel_daejeon incheon_except seoul_except busan_except daegu_except gwangju_except">
-				<ul class="list">
+				<ul class="list list_local listdj">
 					<%
 						list = (ArrayList<Address>) dao.SelectAddr("대전", "충", "강원",
 								"three");
@@ -256,7 +325,7 @@ function SearchmName(data) {
 			<div class="local local_gwangju" onclick="selLocal('gwangju');">광주/전라/제주</div>
 			<div id="sel_theater"
 				class="sel_theater sel_gwangju incheon_except seoul_except busan_except daegu_except daejeon_except">
-				<ul class="list">
+				<ul class="list list_local listj">
 					<%
 						list = (ArrayList<Address>) dao.SelectAddr("광주", "전남", "전북", "제주");
 						for (int i = 0; i < list.size(); i++) {
@@ -363,7 +432,7 @@ function SearchmName(data) {
 			</div>
 			<div style="margin-top: 8px; float: left; height: 130px;">
 				<div class="movie_info">영화를 선택하세요</div>
-				<div style="width: 65px; border: 1px solid black; float: right;">
+				<div style="width: 65px; float: right;">
 					<img src="/SwingFlow/images/Movie/Reserve/b_MovieInfo.gif"
 						alt="영화정보" />
 				</div>

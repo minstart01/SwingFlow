@@ -335,6 +335,7 @@ public class MovieDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, miNo);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
@@ -373,4 +374,58 @@ public class MovieDAO {
 		}
 		return su;
 	}
+	public String SearchMovie(String mName){
+		conn = DbSet.getConnection();
+		sql = "SELECT mName FROM MOVIEINFO WHERE mName LIKE ?";
+		String MovieName = "";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + mName + "%");
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				MovieName = rs.getString(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(pstmt, conn);
+		}
+		return MovieName;
+	}
+	public MovieInsert SearchDay(String mName, String tName){
+		MovieInsert dto = new MovieInsert();
+		conn = DbSet.getConnection();
+		sql = "SELECT MI.MINO, M.MNAME, T.TNAME, TO_CHAR(MI.MSTART,'DD'), TO_CHAR(MI.MEND,'DD') FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND M.MNAME=? AND T.TNAME=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mName);
+			pstmt.setString(2, tName);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				dto.setMiNo(rs.getInt(1));
+				dto.setmStart(rs.getString(2));
+				dto.setmEnd(rs.getString(3));
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		return dto;
+		
+	}
+		
+		
+	
 }

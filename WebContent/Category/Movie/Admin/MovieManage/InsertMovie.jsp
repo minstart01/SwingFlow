@@ -64,11 +64,12 @@ function setChildValue(name, director, actor, time, grade, genre, date){
 
     function SearchmPoster(data) {
 		var items = $(data).find("item");
-		var poster = $(items).find("image").text();
+
+		var poster = $(items[0]).find("image").text();
 		
 		$(".mPoster").val(poster);
 		
-		$(".img_poster").attr("src",$(items).find("image").text());
+		$(".img_poster").attr("src",$(items[0]).find("image").text());
 		$(".img_poster").attr({width:"150",height:"200"});
     }
 }

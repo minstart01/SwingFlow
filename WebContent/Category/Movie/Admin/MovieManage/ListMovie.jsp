@@ -1,3 +1,4 @@
+<%@page import="Movie.DTO.PlayInfo"%>
 <%@page import="java.util.List"%>
 <%@page import="Movie.DTO.ListMovie"%>
 <%@page import="java.util.ArrayList"%>
@@ -5,6 +6,7 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="dto" class="Movie.DTO.ListMovie"></jsp:useBean>
 <jsp:useBean id="dao" class="Movie.DAO.MovieDAO"></jsp:useBean>
+<jsp:useBean id="dto1" class="Movie.DTO.PlayInfo"></jsp:useBean>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,7 +40,7 @@
 
 }
 .list_bt{
-	width:911px;
+	width:901px;
 	height:27px;
 	margin:5px 0 0 0;
 	
@@ -85,11 +87,11 @@
 	<table border="1" cellspacing="0" >
     <tr>
     	<td><input type="checkbox" /></td>
-    	<th width="150">영화</th>
-        <th width="80">영화관</th>
-        <th width="200">관람일</th>
-        <th width="110">시간</th>
-        <th width="230">요금정보</th>
+    	<th width="160">영화</th>
+        <th width="120">영화관</th>
+        <th width="180">관람일</th>
+        <th width="100">시간</th>
+        <th width="200">요금정보</th>
         <th width="92">관리</th>
         
     </tr>
@@ -97,18 +99,27 @@
     
 	ArrayList<ListMovie> list = new ArrayList<ListMovie>();
 	list = (ArrayList<ListMovie>)dao.ListMvies();
+	ArrayList<PlayInfo> plist = new ArrayList<PlayInfo>();
+
 	
    	for(int i=0;i<list.size();i++){
     	dto = list.get(i);
 	%>	
     <tr>
     	<td><input type="checkbox" /></td>
-    	<td><%=dto.getmName() %></td>
-        <td><%=dto.gettName() %></td>
-        <td><%=dto.getmStart() %> ~ <%=dto.getmEnd() %></td>
-        <td>10:00 &nbsp;&nbsp;&nbsp; 14:00</td>
-        <td>학생(<%=dto.getcTeen() %>원) &nbsp; 성인(<%=dto.getcAdult() %>원)</td>
-        <td><input type="button" value="수정" /><a href="DeleteMovie.jsp?miNo=<%=dto.getMiNo() %>"><input type="button" value="삭제" /></a></td>
+    	<td align="center"><%=dto.getmName() %></td>
+        <td align="center"><%=dto.gettName() %></td>
+        <td align="center"><%=dto.getmStart() %> ~ <%=dto.getmEnd() %></td>
+        <td align="center">
+        <%
+    	plist = dao.PlayTime(dto.getMiNo());
+        for(int j=0;j<1;j++){
+        	dto1 = plist.get(j);
+        	%><%=dto1.getpArea() + "관 " + dto1.getpPlayStart() %>
+        <%} %>
+      <!--   10:00 &nbsp;&nbsp;&nbsp; 14:00 --></td>
+        <td align="center">학생(<%=dto.getcTeen() %>원) &nbsp; 성인(<%=dto.getcAdult() %>원)</td>
+        <td align="center"><input type="button" value="수정" /><a href="DeleteMovie.jsp?miNo=<%=dto.getMiNo() %>"><input type="button" value="삭제" /></a></td>
     </tr>
     <% } %>
     </table>
