@@ -255,7 +255,7 @@ $(function() {
 var today = new Date();
 var curMonth = today.getMonth() + 1;
 var curYear = today.getFullYear();
-
+var isdate = new Date();
 $(function() {
 	$("#curYearMonth").append(curYear + "년 " + curMonth + "월 ");
 	var endDay = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
@@ -266,8 +266,11 @@ $(function() {
 	endDate = endDay[curMonth - 1];
 
 	var minus = (endDay[curMonth - 2]) - startDay.getDay() + 1;
-
-
+	
+	var isdate;
+	
+	
+	
 	var date = 1;
 	var start = 0;
 	var nextday = 1;
@@ -291,9 +294,10 @@ $(function() {
 				nextday++;
 
 			} else {
+				isdate = new Date(curYear, curMonth - 1, date);
 				cal += "<td class='day" + date + "'>";
 				cal += date;
-				cal += "</td>";
+				cal += "<input type='hidden' class='week" + date + "' value='" + isdate.getDay() + "'></td>";
 				date++;
 			}
 

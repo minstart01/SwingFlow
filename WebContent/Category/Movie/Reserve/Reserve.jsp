@@ -31,7 +31,18 @@
 	left: 275px;
 	width: 950px;
  */
+
 }
+/*  .dayon:hover{
+	 background:#f9b196;
+ } */
+ 
+ .none{
+ 	text-decoration: none;
+ 	color: black;
+ 	cursor: auto;
+ }
+ 
 </style>
 <link rel="stylesheet" type="text/css"
 	href="/SwingFlow/Css/Movie/reserve.css" />
@@ -126,9 +137,19 @@ function SearchmName(data) {
 			});
 	
 	$(".sel_local").click(function (e){
-		alert($(".local_on").text());
-		alert($(".movie_on").text());
 		
+		var mName = $(".movie_on").text();
+		var tName = $(".local_on").text();
+	
+		$.ajax({
+			url : 'ReserveDate.jsp',
+			type : 'GET',
+			data : {
+				mName : mName,
+				tName : tName,
+			},
+			success : SearchDate
+		});
 	});	
 }
 
@@ -138,7 +159,7 @@ function SearchMovie(data){
 
 	$(".list_movie").empty();	
 	var names = $(data).find("li");
-	alert($(names[0]).text());
+	
 	$(".list_movie").append("<li class='sel_movie movie_off'>" + $(names[0]).text() + "<input type='hidden' class='posterimg' value='" + $(names[1]).text() +"'></li>");
 	
 	$(".sel_movie").click(function(e) {
@@ -155,11 +176,105 @@ function SearchMovie(data){
 
 }
 
+function SearchDate(data){
 
+	
+	var item = $(data).find("li");
+	var Start = parseInt($(item[0]).text());
+	var End = parseInt($(item[1]).text());
+	
+	
+	for(var i=1;i<31;i++){
+		$(".day" + i).css("cursor","auto");
+		$(".day" + i).css("background","white");
+		$(".day" + i).css("color","black");
+		$(".day" + i).css("font-weight","normal")
+		$(".day" + i).removeAttr("onmouseover");
+		$(".day" + i).removeAttr("onmouseout");
+		$(".day" + i).removeAttr("onclick");
+		
+		$(".day" + i).removeClass("dayon");
+	}
+	
+	
+	for(var i = Start;i<=End;i++){
+		
+		$(".day" + i).css("cursor","pointer");
+		$(".day" + i).css("background","#edf1fb");
+		$(".day" + i).attr("onmouseover","TdMouseover(this);");
+		$(".day" + i).attr("onmouseout","TdMouseout(this);");
+		$(".day" + i).attr("onclick","TdOnclick(this);");
+		$(".day" + i).addClass("dayon");
+	}
+	
 
+	
+}
+
+function TdMouseover(a){
+	$(a).css("background","#f9b196");
+}
+
+function TdMouseout(a){
+	$(a).css("background","#edf1fb");
+}
+
+function TdOnclick(a){
+	$(".TdOn").css("background","#edf1fb");
+	$(".TdOn").css("color","black")
+	$(".TdOn").css("font-weight","normal")
+	$(".TdOn").css("cursor","pointer");
+	$(".TdOn").attr("onmouseover","TdMouseover(this);");
+	$(".TdOn").attr("onmouseout","TdMouseout(this);");
+	$(".TdOn").removeClass("TdOn")
+	
+	$(a).css("background","#8093ce");
+	$(a).css("color","#fff");
+	$(a).css("font-weight","bold");
+	$(a).css("cursor","text");
+	$(a).removeAttr("onmouseout");
+	$(a).removeAttr("onmouseover");
+	$(a).addClass("TdOn");
+	
+	var day = $(a).text();
+	var date = $("#curYearMonth").text();
+	var year = date.substring(0,4);
+	var month = date.substring(6,7);
+	var transweek = $(".TdOn input").val();
+	
+	var ints = parseInt(transweek);
+	var week;
+	
+	switch (ints) {
+	case 0:  week = "일";
+		break;
+	case 1:  week = "월";
+		break;
+	case 2:  week = "화";
+		break;
+	case 3:  week = "수";
+		break;
+	case 4:  week = "목";
+		break;
+	case 5:  week = "금";
+		break;
+	case 6:  week = "토";
+		break;
+	}
+	$(".Td_info").text(year + "-" + month + "-" + day + "(" + week + ")");
+	$(".Td_img").attr("src","/SwingFlow/images/Movie/Reserve/img_PlayDate_on.gif");
+	
+}
 
 </script>
 </head>
+<style>
+/* .TdOn{
+	background: #8093ce;
+	color : #fff;
+	font-weight: bold;
+} */
+</style>
 
 <body>
 	<%
@@ -447,8 +562,8 @@ function SearchMovie(data){
 					<tr>
 						<td><img
 							src="/SwingFlow/images/Movie/Reserve/img_PlayDate_off.gif"
-							alt="관람일" /></td>
-						<td>2014-08-08(금)</td>
+							alt="관람일" class="Td_img"/></td>
+						<td class="Td_info">2014-08-08(금)</td>
 					</tr>
 					<tr>
 						<td><img

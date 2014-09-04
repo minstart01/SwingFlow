@@ -411,8 +411,8 @@ public class MovieDAO {
 			while(rs.next()){
 				
 				dto.setMiNo(rs.getInt(1));
-				dto.setmStart(rs.getString(2));
-				dto.setmEnd(rs.getString(3));
+				dto.setmStart(rs.getString(4));
+				dto.setmEnd(rs.getString(5));
 				
 			}
 			
