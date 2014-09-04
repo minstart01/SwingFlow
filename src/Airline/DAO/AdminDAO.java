@@ -53,23 +53,7 @@ public class AdminDAO {
 	return su;
  }
  
- public int airlineNoIns(String aName, int aCode){
-	 conn = DbSet.getConnection();
 
-	 sql="INSERT INTO AIRLINENO (AN_CODE, AN_NAME, AN_SEATTOTAL, A_CODE ) VALUES  (airlineseq.nextval ,? ,30 ,?  )";
-	 try {
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, aName);
-		pstmt.setInt(2, aCode);
-		su = pstmt.executeUpdate();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}finally{
-		DbClose.close(pstmt, conn);
-	}
-	return su;	 
- }
  
 public ArrayList<Airline> airlineSel() {
 		ArrayList<Airline> nDtoL = new ArrayList<>();
@@ -105,6 +89,8 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 		rs = pstmt.executeQuery();
 		while (rs.next()) {
 			AirlineNo dto = new AirlineNo();
+		//	AN_CODE	AN_NO	AN_SEATTOTAL	A_CODE	
+
 			dto.setAn_Code(rs.getInt(1));
 			dto.setAn_Name(rs.getString(2));
 			cDtoL.add(dto);
@@ -192,10 +178,10 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				AirlineNo airlineNo = new AirlineNo();
-				airlineNo.setA_Code(rs.getInt(1));
-				airlineNo.setAn_Code(rs.getInt(2));
-				airlineNo.setAn_Name(rs.getString(3));
-				airlineNo.setAn_SeatTotal(rs.getInt(4));
+				airlineNo.setAn_Code(rs.getInt(1));
+				airlineNo.setAn_Name(rs.getString(2));
+				airlineNo.setA_Code(rs.getInt(3));
+
 
 		cDtoL.add(airlineNo);
 		
@@ -234,7 +220,7 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 		}
 		return cDtoL;
 	}
- 
+///////////////////////////////////////////////////////////////////////////////////////////////////// 
 	 public int cityIns(String city, int nCode){
 		 conn = DbSet.getConnection();
 
@@ -253,17 +239,38 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 		return su;	 
 	 }
 	 
+	 public int airlineNoIns(String aName, int aCode){
+		 conn = DbSet.getConnection();
+
+		 sql="INSERT INTO AIRLINENO (AN_CODE, AN_NAME, A_CODE ) VALUES  ( airlinenoseq.nextval,?,? )";
+		 try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, aName);
+			pstmt.setInt(2, aCode);
+			su = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;	 
+	 }
+//========================스케줄 입력========================	 
  public int ScheduleIns(Schedule sch){
 	 conn = DbSet.getConnection();
-	 qsch="INSERT INTO SCHEDULE (s_Code, S_DEPDAY, S_DEPTTIME, S_ARRTTIME, S_FLIGHTTIME ) VALUES (scheseq.nextval,?,?,?,?)";
-	// "INSERT INTO register VALUES (?,(select max(s_code) from schedule))";
-	
-	 try {
+	 qsch="INSERT INTO SCHEDULE (S_CODE, S_SEATTOTAL, S_DEPDAY, S_DEPTTIME, S_ARRTTIME, S_FLIGHTTIME, C_CODE, C_CODE2, AN_CODE ) VALUES  ( scheseq.nextval, ?,?, ?, ?, ?, ?,?, ? )";
+	// S_SEATTOTAL	S_DEPDAY	S_DEPTTIME	S_ARRTTIME	S_FLIGHTTIME	C_CODE	C_CODE2	AN_CODE	
+ try {
 		pstmt = conn.prepareStatement(qsch);
-		pstmt.setString(1, sch.getS_DepDay());
-		pstmt.setString(2, sch.getS_DeptTime());
-		pstmt.setString(3, sch.getS_ArrtTime());
-		pstmt.setString(4, sch.getS_FlightTime());
+		pstmt.setInt(1, sch.getS_SeatTotal());
+		pstmt.setString(2, sch.getS_DepDay());
+		pstmt.setString(3, sch.getS_DeptTime());
+		pstmt.setString(4, sch.getS_ArrtTime());
+		pstmt.setString(5, sch.getS_FlightTime());
+		pstmt.setInt(6, sch.getC_Code());
+		pstmt.setInt(7, sch.getC_Code2());
+		pstmt.setInt(8, sch.getAn_Code());		
 		su = pstmt.executeUpdate();	
 	} 
 	 catch (SQLException e) {
@@ -274,7 +281,7 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 	}
 	return su;	 
  }
- 
+//=======================================================================================
  public int ScheduleUpd(Schedule sch){
 	 conn = DbSet.getConnection();
 	 qsch="UPDATE SCHEDULE SET S_DEPDAY =?, S_DEPTTIME = ?, S_ARRTTIME = ?, S_FLIGHTTIME = ? WHERE S_CODE = ?";

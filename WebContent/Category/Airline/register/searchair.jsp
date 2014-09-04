@@ -17,9 +17,6 @@ if(city != null && nCode == 0){
 	 su = dao.cityIns(city, nCode);
 }
 
-
-
-
 out.print(su);
 
 

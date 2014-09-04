@@ -1,9 +1,9 @@
 <%@page import="Airline.AirlineNo"%>
+<%@page import="Airline.DAO.AdminDAO"%>
 <%@page import="Airline.Airline"%>
 <%@page import="Airline.City"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Airline.Nation"%>
-<%@page import="Airline.DAO.AdminDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
@@ -17,6 +17,7 @@ Airline airline = new Airline();
 ArrayList<Airline> aDtoL = dao.airlineSel();
 AirlineNo airlineNo = new AirlineNo();
 ArrayList<AirlineNo> anDtoL = dao.airlineNoSel();
+
 
 //out.print(dtoL.size());
 %>
@@ -55,6 +56,7 @@ function SearchmName(data) {
 		$('#select8').append("<option>-도시-</option>"+data); 	
 		  /*  $("#nId").append("<option>" + data +"</option>"); */	   
 		  }
+	//도착	  //////////////////////////////////////////////////////////////////////
 			$(function(e) { 
 				$('#country01').change(function(e) { 
 				   var nCode = $('#country01').val();
@@ -75,7 +77,7 @@ function SearchmName(data) {
 	 		 $('#select9').empty();
 	 			$('#select9').append("<option>-도시-</option>"+data); 
 		 }
-	////////////////////////항공편 등록******************************************	 
+//====================항공편 등록=================================================	 
 		 $(function(e) { 
 				$('#fn_air').change(function(e) { 
 				   var aCode = $('#fn_air').val();
@@ -95,10 +97,10 @@ function SearchmName(data) {
 				});
 	
 		 function SearchAirName(data) {
-				
+				//alert('d');
 			 $('#fn_no').empty();
-			$('#fn_no').append("<option></option>"+data); 	
-			  /*  $("#nId").append("<option>" + data +"</option>"); */	   
+			$('#fn_no').append("<option>-편명-</option>"+data); 	
+		//	  $("#nId").append("<option>" + data +"</option>");
 			  }
 // 	$(function() {
 // 		var city = "";
@@ -220,10 +222,13 @@ function SearchmName(data) {
 
 			<h2>운항스케줄 등록</h2>
 			<form action="Admin_insertSchedulePro.jsp" name="next">
+			
 				<table border="1" cellpadding="6" cellspacing="0">
 					<tr>
+					
 						<td width="100">항공사</td>
-						<td width="300"><select name="fn_air" id="fn_air">
+						<td width="300"><select name="a_Name" id="fn_air">
+						<option>-항공사-</option>
 						<%for(int i=0;i<aDtoL.size();i++){
 							airline = aDtoL.get(i);%>
 <option value="<%=airline.getA_Code() %>" ><%=airline.getA_Name() %></option>
@@ -231,15 +236,15 @@ function SearchmName(data) {
 					
 						</select></td>
 						<td width="100">편명</td>
-						<td width="300"><select name="fn_no" id="fn_no">
-								<option>OZ202</option>
-								<option>adfb5678</option>
+						<td width="300"><select name="an_Name" id="fn_no">
+						<option>-편명-</option>
+
 						</select></td>
 
 					</tr>
 					<tr>
 						<td>총좌석</td>
-						<td><input type="text" name="r_SeatTotal" /></td>
+						<td><input type="text" name="s_SeatTotal" /></td>
 					</tr>
 					<tr>
 						<td>출발도시</td>

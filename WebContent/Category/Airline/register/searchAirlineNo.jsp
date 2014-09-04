@@ -10,7 +10,7 @@ int aCode= Integer.parseInt(request.getParameter("aCode"));
 int su=0;
 
 if(aName != null && aCode == 0){
-	 su = dao.airlineIns(request.getParameter("ai4r"));
+	 su = dao.airlineIns(request.getParameter("air"));
 }else{
 	 su = dao.airlineNoIns(aName, aCode);
 }

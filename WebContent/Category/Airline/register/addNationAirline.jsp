@@ -40,7 +40,7 @@
   }
  
  $(function(e) { 
-	  $("#airAddBtn").click(function(e) {  
+	  $(".airAddBtn").click(function(e) {  
 	   var air = $("#air").val();
 	   var aName = $('#aName').val();
 	   var aCode = $('#aCode').val();
@@ -96,7 +96,7 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
   <option value="<%=nation.getN_Code()%>"><%=nation.getN_Name()%></option>
   <% }%>
  </select>
- 도시 <input type="text" value="" name="name" id="city" /> 
+ 도시 <input type="text" value="" name="city" id="city" /> 
  <input type="button" value="도시등록" class="bt" />
 
 
@@ -105,7 +105,7 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
 
 <form>
 항공사 <input type="text" value="" name="air" id="air" /> 
- <input type="button" value="항공사등록" id="airAddBtn"/>
+ <input type="button" value="항공사등록" class="airAddBtn"/>
 </form>
 <hr />
  항공사 <select name="aCode" id="aCode">
@@ -119,6 +119,6 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
   <% }%>
  </select>
  편명 <input type="text" value="" name="aName" id="aName" /> 
- <input type="button" value="편명등록" class="bt" />
+ <input type="button" value="편명등록" class="airAddBtn" />
 </body>
 </html>

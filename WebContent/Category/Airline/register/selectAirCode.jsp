@@ -13,7 +13,7 @@ aDtoL = dao.airlineNoaCodeSel(aCode);
 
 for(int i=0;i<aDtoL.size(); i++){
 	airlineNo = aDtoL.get(i);
-	out.print("<option value='"+airlineNo.getA_Code()+"'>"+airlineNo.getAn_Name()+"</option>");
+	out.print("<option value='"+airlineNo.getAn_Code()+"'>"+airlineNo.getAn_Name()+"</option>");
 
 }
 
