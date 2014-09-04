@@ -29,9 +29,7 @@ ArrayList<AirlineNo> anDtoL = dao.airlineNoSel();
 <title>Insert title here</title>
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script type="text/javascript">
-function nextEdit() {
-		document.next.submit();
-	};
+
 	$(function(e) { 
 		$('#country').change(function(e) { 
 		   var nCode = $('#country').val();
@@ -221,7 +219,7 @@ function SearchmName(data) {
 
 
 			<h2>운항스케줄 등록</h2>
-			<form action="Admin_insertSchedulePro.jsp" name="next">
+			<form action="Admin_insertSchedulePro.jsp" name="a_next">
 			
 				<table border="1" cellpadding="6" cellspacing="0">
 					<tr>
@@ -313,13 +311,13 @@ function SearchmName(data) {
 					</tr>
 
 				</table>
-			</form>
+			
 
 			<div class="div_button">
-				<input type="submit" value="등록하기" onclick="nextEdit()" /> <input
+				<input type="submit" value="등록하기" /> <input
 					type="button" value="뒤로가기" />
 			</div>
-
+</form>
 
 		</div>
 	</div>

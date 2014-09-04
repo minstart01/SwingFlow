@@ -1,18 +1,20 @@
 package Airline;
 
 public class Schedule {
-	int s_Code;
-	int s_SeatTotal;	
-	String s_DepDay;	
-	String s_DeptTime;	
-	String s_ArrtTime;	
-	String s_FlightTime;	
-	int c_Code;
-	int c_Code2;
-	int an_Code;
+int s_Code;
+int	s_SeatTotal;
+String	s_DepDay;
+String	s_DeptTime;
+String	s_ArrtTime;
+String	s_FlightTime;
+int	c_Code;
+int	c_Code2;
+int	an_Code;
 
-	public Schedule(){}
-	
+	public Schedule() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Schedule(int s_Code, int s_SeatTotal, String s_DepDay,
 			String s_DeptTime, String s_ArrtTime, String s_FlightTime,
 			int c_Code, int c_Code2, int an_Code) {
@@ -27,6 +29,7 @@ public class Schedule {
 		this.c_Code2 = c_Code2;
 		this.an_Code = an_Code;
 	}
+
 	public int getS_Code() {
 		return s_Code;
 	}
@@ -98,11 +101,6 @@ public class Schedule {
 	public void setAn_Code(int an_Code) {
 		this.an_Code = an_Code;
 	}
-
-
-
-
-
 	
-	
+
 }
