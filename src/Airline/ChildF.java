@@ -5,25 +5,25 @@ public class ChildF {
 		// TODO Auto-generated constructor stub
 	}
 
-	private int r_No;
+	private int s_Code;
 	private int c_Travel;
 	private int c_Business;
 	private int c_First;
 
-	public ChildF(int r_No, int c_Travel, int c_Business, int c_First) {
+	public ChildF(int s_Code, int c_Travel, int c_Business, int c_First) {
 		super();
-		this.r_No = r_No;
+		this.s_Code = s_Code;
 		this.c_Travel = c_Travel;
 		this.c_Business = c_Business;
 		this.c_First = c_First;
 	}
 
-	public int getR_No() {
-		return r_No;
+	public int getS_Code() {
+		return s_Code;
 	}
 
-	public void setR_No(int r_No) {
-		this.r_No = r_No;
+	public void setS_Code(int s_Code) {
+		this.s_Code = s_Code;
 	}
 
 	public int getC_Travel() {
@@ -49,5 +49,7 @@ public class ChildF {
 	public void setC_First(int c_First) {
 		this.c_First = c_First;
 	}
+
+
 
 }

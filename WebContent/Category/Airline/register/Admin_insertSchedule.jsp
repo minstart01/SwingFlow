@@ -227,7 +227,7 @@ function SearchmName(data) {
 					<tr>
 					
 						<td width="100">항공사</td>
-						<td width="300"><select name="a_Name" id="fn_air">
+						<td width="300"><select id="fn_air">
 						<option>-항공사-</option>
 						<%for(int i=0;i<aDtoL.size();i++){
 							airline = aDtoL.get(i);%>
@@ -236,7 +236,7 @@ function SearchmName(data) {
 					
 						</select></td>
 						<td width="100">편명</td>
-						<td width="300"><select name="an_Name" id="fn_no">
+						<td width="300"><select name="an_Code" id="fn_no">
 						<option>-편명-</option>
 
 						</select></td>
@@ -248,26 +248,26 @@ function SearchmName(data) {
 					</tr>
 					<tr>
 						<td>출발도시</td>
-					<td><select name="select7" id="country">
+					<td><select  id="country">
 					<option>-국가-</option>
 						<%for(int i=0;i<dtoL.size();i++){
 							dto = dtoL.get(i);%>
 <option value="<%=dto.getN_Code()%>" ><%=dto.getN_Name() %></option>
 <%}%>
 						</select> 
-						<select name="c_DepCity" id="select8">
+						<select name="c_Code" id="select8">
 						<option>-도시-</option>
 						
 						
 						</select></td>
 						<td>도착도시</td>
-						<td><select name="select7" id="country01">
+						<td><select  id="country01">
 			<option>-국가-</option>
 						<%for(int i=0;i<dtoL.size();i++){
 							dto = dtoL.get(i);%>
 <option value="<%=dto.getN_Code()%>" ><%=dto.getN_Name() %></option>
 <%}%>
-						</select> <select name="c_ArrCity" id="select9">
+						</select> <select name="c_Code2" id="select9">
 							<option>-도시-</option></select></td>
 					</tr>	
 					

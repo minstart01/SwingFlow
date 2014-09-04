@@ -13,6 +13,20 @@ public class Schedule {
 
 	public Schedule(){}
 	
+	public Schedule(int s_Code, int s_SeatTotal, String s_DepDay,
+			String s_DeptTime, String s_ArrtTime, String s_FlightTime,
+			int c_Code, int c_Code2, int an_Code) {
+		super();
+		this.s_Code = s_Code;
+		this.s_SeatTotal = s_SeatTotal;
+		this.s_DepDay = s_DepDay;
+		this.s_DeptTime = s_DeptTime;
+		this.s_ArrtTime = s_ArrtTime;
+		this.s_FlightTime = s_FlightTime;
+		this.c_Code = c_Code;
+		this.c_Code2 = c_Code2;
+		this.an_Code = an_Code;
+	}
 	public int getS_Code() {
 		return s_Code;
 	}
@@ -85,20 +99,7 @@ public class Schedule {
 		this.an_Code = an_Code;
 	}
 
-	public Schedule(int s_Code, int s_SeatTotal, String s_DepDay,
-			String s_DeptTime, String s_ArrtTime, String s_FlightTime,
-			int c_Code, int c_Code2, int an_Code) {
-		super();
-		this.s_Code = s_Code;
-		this.s_SeatTotal = s_SeatTotal;
-		this.s_DepDay = s_DepDay;
-		this.s_DeptTime = s_DeptTime;
-		this.s_ArrtTime = s_ArrtTime;
-		this.s_FlightTime = s_FlightTime;
-		this.c_Code = c_Code;
-		this.c_Code2 = c_Code2;
-		this.an_Code = an_Code;
-	}
+
 
 
 

@@ -282,63 +282,11 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 	return su;	 
  }
 //=======================================================================================
- public int ScheduleUpd(Schedule sch){
-	 conn = DbSet.getConnection();
-	 qsch="UPDATE SCHEDULE SET S_DEPDAY =?, S_DEPTTIME = ?, S_ARRTTIME = ?, S_FLIGHTTIME = ? WHERE S_CODE = ?";
-	// "INSERT INTO register VALUES (?,(select max(s_code) from schedule))";
-	
-	 try {
-		pstmt = conn.prepareStatement(qsch);
-		pstmt.setString(1, sch.getS_DepDay());
-		pstmt.setString(2, sch.getS_DeptTime());
-		pstmt.setString(3, sch.getS_ArrtTime());
-		pstmt.setString(4, sch.getS_FlightTime());
-		pstmt.setInt(5, sch.getS_Code());
-		su = pstmt.executeUpdate();	
-	} 
-	 catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}finally{
-		DbClose.close(pstmt, conn);
-	}
-	return su;	 
- }
- 
- public int RegisterIns(Register reg){
-	conn = DbSet.getConnection();
-	try {
-		pstmt = conn.prepareStatement("select max(s_code) from schedule");
-		rs = pstmt.executeQuery();
-		if (rs.next()) {
-			maxSel = rs.getInt(1);
-			pstmt = conn.prepareStatement("INSERT INTO register VALUES (registerseq.nextval,?)");
-			pstmt.setInt(1, maxSel);
-			su = pstmt.executeUpdate();
-		}
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	return su;	 
- }
 
- public int flightNoIns(FlightNo flno){
-	conn = DbSet.getConnection();
-	try {
-		pstmt = conn.prepareStatement("INSERT INTO FLIGHTNO (R_NO, FN_AIR, R_SEATTOTAL, FN_NO ) VALUES  ( FlightNoseq.nextval, ?,?,? )");
-		pstmt.setString(1, flno.getFn_air());
-		pstmt.setInt(2, flno.getR_SeatTotal());
-		pstmt.setString(3, flno.getFn_no());
-		su = pstmt.executeUpdate();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}finally{
-		DbClose.close(pstmt, conn);
-	}
-	return su;
-} 
+ 
+
+
+
  
  public int flightNoUpd(FlightNo flno){
 	conn = DbSet.getConnection();
@@ -358,17 +306,37 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 	return su;
 } 
 
+ public int RegisterIns(Register reg){
+	conn = DbSet.getConnection();
+	try {
+		pstmt = conn.prepareStatement("select max(s_code) from schedule");
+		rs = pstmt.executeQuery();
+		if (rs.next()) {
+			maxSel = rs.getInt(1);
+			pstmt = conn.prepareStatement("INSERT INTO register VALUES (registerseq.nextval,?)");
+			pstmt.setInt(1, maxSel);
+			su = pstmt.executeUpdate();
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return su;	 
+ }
 
 
-
+/*=======================성인 요금======================================*/
  public int adultIns(AdultF af){
 	 conn = DbSet.getConnection();
 	 try {
-		pstmt = conn.prepareStatement("INSERT INTO ADULTF (R_NO, A_TRAVEL, A_BUSINESS, A_FIRST ) VALUES  ( AdultFseq.nextval, ?, ?, ?)");
-		pstmt.setInt(1, af.getA_Travel());
+	
+		pstmt = conn.prepareStatement("INSERT INTO ADULTF (S_CODE, A_TRAVEL, A_BUSINESS, A_FIRST ) VALUES  ((select max(s_code) from schedule),? ,? ,?  )");
+		
+		pstmt.setInt(1,af.getA_Travel());
 		pstmt.setInt(2, af.getA_Business());
 		pstmt.setInt(3, af.getA_First());
 		su= pstmt.executeUpdate();
+		
 		
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
@@ -386,7 +354,7 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 		pstmt.setInt(1, af.getA_Travel());
 		pstmt.setInt(2, af.getA_Business());
 		pstmt.setInt(3, af.getA_First());
-		pstmt.setInt(4, af.getR_No());
+		pstmt.setInt(4, af.getS_Code());
 		su= pstmt.executeUpdate();
 		
 	} catch (SQLException e) {
@@ -397,15 +365,22 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 	}
 	 return su;
  }
- 
+ /*=======================소아 요금======================================*/
  public int childIns(ChildF cf){
 	 conn = DbSet.getConnection();
 	 try {
-		pstmt = conn.prepareStatement("INSERT INTO CHILDF (R_NO, C_TRAVEL, C_BUSINESS, C_FIRST ) VALUES  ( ChildFseq.nextval, ?, ?, ?)");
-		pstmt.setInt(1, cf.getC_Travel());
-		pstmt.setInt(2, cf.getC_Business());
-		pstmt.setInt(3, cf.getC_First());
-		su= pstmt.executeUpdate();
+		pstmt = conn.prepareStatement("select max(s_code) from schedule");
+		rs = pstmt.executeQuery();
+		while (rs.next()) {
+			maxSel = rs.getInt(1);
+			pstmt = conn.prepareStatement("INSERT INTO childF (S_CODE, c_TRAVEL, c_BUSINESS, c_FIRST ) VALUES  ( ?,? ,? ,?  )");
+			pstmt.setInt(1, maxSel);
+			pstmt.setInt(2,cf.getC_Travel() );
+			pstmt.setInt(3, cf.getC_Business());
+			pstmt.setInt(4, cf.getC_First());
+			su= pstmt.executeUpdate();
+		}
+		
 		
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
@@ -423,7 +398,7 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 		pstmt.setInt(1, cf.getC_Travel());
 		pstmt.setInt(2, cf.getC_Business());
 		pstmt.setInt(3, cf.getC_First());
-		pstmt.setInt(4, cf.getR_No());
+		pstmt.setInt(4, cf.getS_Code());
 		su= pstmt.executeUpdate();
 		
 	} catch (SQLException e) {

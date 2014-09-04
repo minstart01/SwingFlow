@@ -3,7 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:useBean id="schedule" class="Airline.Schedule" />
-<jsp:useBean id="register" class="Airline.Register" />
 <jsp:useBean id="adultF" class="Airline.AdultF" />
 <jsp:useBean id="childF" class="Airline.ChildF" />
 <jsp:useBean id="city" class="Airline.City" />
