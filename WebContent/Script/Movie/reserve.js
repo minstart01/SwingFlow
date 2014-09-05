@@ -27,6 +27,7 @@ $(function() {
 									"성인 " + $(this).text() + "명"); // 성인n명
 
 							$(".charge").text($(this).text() * 9 + ",000원"); // 관람요금
+							$(".totalcharge").text($(this).text() * 9 + ",000원"); // 관람요금
 																				// 계싼
 						} else if (c.length == 14) { // 성인, 청소년 선택후 성인 선택했을때
 							var d = c.substring(6, 14); // | 청소년 n명
@@ -68,6 +69,7 @@ $(function() {
 							}
 
 							$(".charge").text(eval(sumcharge) + ",000원");
+							$(".totalcharge").text(eval(sumcharge) + ",000원");
 
 						} else if (c.substring(0, 2) == "청소") { // 청소년 선택후 성인
 																// 선택했을때
@@ -88,6 +90,7 @@ $(function() {
 										+ charge.substring(0, 2);
 							}
 							$(".charge").text(eval(sumcharge) + ",000원");
+							$(".totalcharge").text(eval(sumcharge) + ",000원");
 
 						}
 						if ($(this).text() == 0 && c.substring(8, 11) == "청소년") { // 성인,
@@ -112,6 +115,7 @@ $(function() {
 									.attr("src",
 											"/SwingFlow/images/Movie/Reserve/img_PersonNum_off.gif");
 							$(".charge").text("0원");
+							$(".totalcharge").text("0원");
 						}
 
 					});
@@ -134,8 +138,10 @@ $(function() {
 									"청소년 " + $(this).text() + "명"); // 청소년 n명
 							if ($(this).text() == 0) { // 청소년 0명 선택시 0원
 								$(".charge").text("0원");
+								$(".totalcharge").text("0원");
 							} else { // 아닐시 n,000원
 								$(".charge").text($(this).text() * 8 + ",000원");
+								$(".totalcharge").text($(this).text() * 8 + ",000원");
 							}
 						} else if (a.substring(0, 2) == "성인" && a.length == 5) { // 성인
 																					// 선택후
@@ -154,6 +160,7 @@ $(function() {
 										+ charge.substring(0, 2);
 							}
 							$(".charge").text(eval(sumcharge) + ",000원");
+							$(".totalcharge").text(eval(sumcharge) + ",000원");
 
 						} else if (a.substring(0, 2) == "성인" && a.length > 5) { // 성인,
 																				// 청소년
@@ -200,6 +207,7 @@ $(function() {
 							}
 
 							$(".charge").text(eval(sumcharge) + ",000원");
+							$(".totalcharge").text(eval(sumcharge) + ",000원");
 						}
 						if ($(this).text() == 0 && a.substring(0, 2) == "성인") { // 성인
 																				// 선택후

@@ -89,21 +89,16 @@
 	
 	var plus=1;
 	$(function(e) {
-		
-		
-		
+				
 		$("#msearch").focus();
 		
 		$("#searchbt").click(function(e) {
 			
 			var cate = $("#select_cate").val();
-			
-			
-			
+					
 			$(".result_table").empty();
 			
 			if(cate==1){
-			
 			var mName = $("#msearch").val();
 			var gubun="name";
 			// 		alert("aa");
@@ -175,11 +170,12 @@
 		var time = $(items).find("showTm").text() + "분";
 		var grade = $(items).find("audits").find("audit").find("watchGradeNm").text();
 		var genre =  $(items).find("genres").find("genre").find("genreNm").text();
-		var mdate = $(items).find("openDt").text()
+		var mdate = $(items).find("openDt").text();
+		var sdate = "";
 		if(mdate==""){
-			var sdate ="";
+			sdate ="";
 		}else{
-			var sdate = mdate.substring(0,4) + "년 " + mdate.substring(4,6) + "월 " + mdate.substring(6,8) + "일";
+			sdate = mdate.substring(0,4) + "년 " + mdate.substring(4,6) + "월 " + mdate.substring(6,8) + "일";
 		}
 		for(var i=0;i<actor.length;i++){
 	
@@ -198,9 +194,7 @@
 		$(".mGrade" + plus).val(grade);
 		$(".mGenre" + plus).val(genre);
 		$(".mDate" + plus).val(sdate);
-		
-		
-		
+						
 		plus++;
 	}
 	
@@ -208,9 +202,7 @@
 		if(window.event.keyCode == 13){
 
 			var cate = $("#select_cate").val();
-			
-			
-			
+					
 			$(".result_table").empty();
 			
 			if(cate==1){
@@ -242,14 +234,10 @@
 				});
 				
 			}
-
-	
 		}		
 	}
 	
 	function selmovie(no){
-		
-		
 		opener.setChildValue($(".mName" + no).val(), $(".mDirector" + no).val(), $(".mActor" + no).val(), $(".mTime" + no).val(), $(".mGrade" + no).val(), $(".mGenre" + no).val(), $(".mDate" + no).val() );
 		window.close();
 	}

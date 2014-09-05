@@ -84,7 +84,11 @@ public class TheaterDAO {
 				dto.setSido(rs.getString(3));
 				dto.setGugun(rs.getString(4));
 				dto.setDong(rs.getString(5));
-				dto.setRi(rs.getString(6));
+				if(rs.getString(6) == null){
+					dto.setRi("");
+				}else{
+					dto.setRi(rs.getString(6));
+				}
 				dto.settDetailAddr(rs.getString(7));
 				dto.settPhone(rs.getString(8));
 				dto.settScreen(rs.getInt(9));

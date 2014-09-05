@@ -188,9 +188,9 @@
     </article>
 	<article id="main_login">
 	<br /><br />
-		<input type="text" id="id" placeholder="아이디" autofocus>	
-		<input type="password" id="password" placeholder="비밀번호">
-        <input type="submit" value="로그인" id="bt_login">
+		<input type="text" id="id" placeholder="아이디" autofocus name="id">	
+		<input type="password" id="password" placeholder="비밀번호" name="pwd">
+        <input type="button" value="로그인" id="bt_login">
 		<div id="join">
         <a href="#">회원가입</a>
 		<a href="#">아이디/비밀번호 찾기</a>

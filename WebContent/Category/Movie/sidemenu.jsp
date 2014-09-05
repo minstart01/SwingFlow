@@ -89,6 +89,11 @@
 		  	<li><a href="#">단체관람문의</a></li>
 			
 		</ul>
+		<% 
+		String Id = (String)session.getAttribute("MemberId");
+		
+		if(("master").equals(Id)){
+		%>
 		<ul>
 		<h2>관리자 메뉴</h2>
 			<li class="li"><a href="/SwingFlow/Category/Movie/Admin/MovieManage/ListMovie.jsp">영화관리</a></li>
@@ -97,6 +102,8 @@
 		  	<li><a href="/SwingFlow/Category/Movie/Admin/UserManage/ListUser.jsp">회원관리</a></li>
 			
 		</ul>
+		<%}else{} %>
+		
 		</nav>
 </body>
 </html>

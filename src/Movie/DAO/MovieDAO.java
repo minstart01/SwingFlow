@@ -425,7 +425,42 @@ public class MovieDAO {
 		return dto;
 		
 	}
+	
+	public ArrayList<PlayInfo> PlayTime(String mName, String tName){
+		ArrayList<PlayInfo> list = new ArrayList<PlayInfo>();
+		conn = DbSet.getConnection();
+		sql = "SELECT P.MINO, P.PAREA, P.PPLAYSTART FROM MOVIEINSERT MI, MOVIEINFO M, THEATERINFO T, PLAYINFO P WHERE M.MCODE = MI.MCODE AND T.TCODE = MI.TCODE AND MI.MINO = P.MINO AND M.MNAME = ? AND T.TNAME = ?";
 		
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, mName);
+			pstmt.setString(2, tName);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				PlayInfo dto = new PlayInfo();
+				
+				dto.setMiNo(rs.getInt(1));
+				dto.setpArea(rs.getInt(2));
+				dto.setpPlayStart(rs.getString(3));
+				
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+			
+		}
+		return list;
+		
+		
+		
+	}
 		
 	
 }
