@@ -264,6 +264,28 @@ function TdOnclick(a){
 	$(".Td_info").text(year + "-" + month + "-" + day + "(" + week + ")");
 	$(".Td_img").attr("src","/SwingFlow/images/Movie/Reserve/img_PlayDate_on.gif");
 	
+	var mName = $(".movie_on").text();
+	var tName = $(".local_on").text();
+	
+	
+	$.ajax({
+		url : 'ReserveTime.jsp',
+		type : 'GET',
+		data : {
+			mName : mName,
+			tName : tName,
+		},
+		success : SearchTime
+	});
+}
+
+function SearchTime(data){
+	
+	var Time = $(data).find("li");
+	$(".time_list").empty();
+	for(var i=0;i<Time.length;i++){
+		$(".time_list").append("<li>" +  $(Time[i]).text() + "</li>");
+	}
 }
 
 </script>
@@ -482,17 +504,7 @@ function TdOnclick(a){
 			<section id="timebox">
 
 			<div id="sel_time">
-				<ul class="list">
-					<li>명량</li>
-					<li>명량</li>
-					<li>명량</li>
-					<li>명량</li>
-					<li>명량</li>
-					<li>명량</li>
-					<li>명량</li>
-					<li>명량</li>
-					<li>명량</li>
-					<li>명량</li>
+				<ul class="list time_list">
 				</ul>
 			</div>
 			</section>
@@ -603,14 +615,14 @@ function TdOnclick(a){
 				<table cellpadding="10" style="border-top: 1px solid #dbdbdb;">
 					<tr>
 						<td width="100">총결제금액</td>
-						<td>9,000원</td>
+						<td class="totalcharge">0원</td>
 					</tr>
 				</table>
 			</div>
 			</section>
 			<section id="bt">
 			<div>
-				<input type="button" class="bt" value="처음부터" />
+				<a href="javascript:location.reload();"><input type="button" class="bt" value="처음부터" /></a>
 			</div>
 			<div style="padding-top: 10px;">
 				<input type="button" class="bt" value="예약하기" />
