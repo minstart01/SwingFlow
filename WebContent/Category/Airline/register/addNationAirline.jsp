@@ -100,7 +100,7 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
  <input type="button" value="도시등록" class="bt" />
 
 
-
+<div>
 <h2>항공사/편명 추가</h2>
 
 <form>
@@ -120,5 +120,6 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
  </select>
  편명 <input type="text" value="" name="aName" id="aName" /> 
  <input type="button" value="편명등록" class="airAddBtn" />
+ </div>
 </body>
 </html>

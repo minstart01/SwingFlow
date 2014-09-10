@@ -29,12 +29,13 @@ color:black;
 	width:1200px;
 	}
 .main_content{
-	border:1px solid black;
-	width:900px;
+	border:1px solid #9900FF;	
+	width:600px;
 	float:left;
 	margin-top: 25px;
 	margin-left: 25px;
 	font-size:13px;
+
 	
 }
 .remove li{
@@ -64,9 +65,10 @@ color:black;
 </style>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
- 	<link rel="stylesheet" href="/resources/demos/style.css">	
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+ <link rel="stylesheet" href="/resources/demos/style.css">	
+ 
+ <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+ <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
   <script>
 $(function() {
     $("#radio" ).buttonset();
@@ -269,14 +271,14 @@ function close01(){
 
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 
-<div class="main_content">
+<div class="main_content" >
 
-<div id="radio"><input type="radio" id="radio1" ><label for="radio1">왕 복</label>
+<div id="radio" style="height:20px;"><input type="radio" id="radio1" ><label for="radio1">왕 복</label>
 <input type="radio" id="radio2"  checked="checked"><label for="radio2">편 도</label></div>						
 <div>
-<table width="589" height="79" border="1" cellpadding="0" cellspacing="0">
+<table width="589" height="112" border="1" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="70">출발</td>
+    <td width="70"><div align="right">출발</div></td>
     <td width="218">
     <div style="float: left;"><img id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif" style="padding-top: 10px;" >
     <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
@@ -327,7 +329,7 @@ function close01(){
     <br>
     
     </td>
-    <td width="70">도착</td>
+    <td width="70"><div align="right">도착</div></td>
      <td width="218">
     <div style="float: left;"><img id="btn_search5" src="/SwingFlow/images/Airline/reserv/btn_search4.gif" style="padding-top: 10px;" >
     <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city01">
@@ -377,36 +379,53 @@ function close01(){
    	 <div style="float:left; "><input type="text" id="txt02" name="c_ArrCity" style="height: 24px; margin-top: 10px; margin-left: 0px; padding-left: 10px;"></div>
   </tr>
   <tr>
-    <td id="getOut">가는날</td>
+    <td height="30" id="getOut"><div align="right">가는날</div></td>
     <td><input type="text" id="datepicker" name="s_DepDay"></td>
-    <td class="getIn">오는날</td>
+    <td class="getIn"><div align="right">오는날</div></td>
     <td class="getIn"><input type="text" id="datepicker01" name="s_DepDay"></td>
   </tr>
 </table>
-<table width="600" height="74" cellpadding="0" cellspacing="0" border="1">
+<table width="600" height="74" cellpadding="0" cellspacing="0" border="1" >
   <col width="70" span="3" />
-  <tr>
-    <td width="70" height="39"><select name="p_nAdult">
-      <option>성인1</option><option>성인2</option><option>성인3</option><option>성인4</option><option>성인5</option><option>성인6</option><option>성인7</option><option>성인8</option><option>성인9</option>
-  </select></td>
-    <td width="70"><select id="select" name="p_nChild">
+  <tr >
+    <td width="70" height="39" align="center"><p style="margin-bottom:5px;">
+      <select name="p_nAdult" >
+        <option>성인1</option>
+        <option>성인2</option>
+        <option>성인3</option>
+        <option>성인4</option>
+        <option>성인5</option>
+        <option>성인6</option>
+        <option>성인7</option>
+        <option>성인8</option>
+        <option>성인9</option>
+      </select>
+    </p>
+      <p style="margin-top:1px;">(13세~) </p></td>
+    <td width="70" align="center"><p style="margin-bottom:5px;"><select id="select" name="p_nChild">
        <option>소아1</option><option>소아2</option><option>소아3</option><option>소아4</option><option>소아5</option><option>소아6</option><option>소아7</option><option>소아8</option><option>소아9</option>
-    </select></td>
-    <td width="70"><select id="select2" name="p_nInfant">
-       <option>유아1</option><option>유아2</option><option>유아3</option><option>유아4</option><option>유아5</option><option>유아6</option><option>유아7</option><option>유아8</option><option>유아9</option>
-    </select></td>
+    </select> </p> <p style="margin-top:1px;">(2~12세) </p></td>
+    <td width="70" align="center"><p style="margin-bottom:5px;">
+      <select id="select2" name="p_nInfant">
+        <option>유아1</option>
+        <option>유아2</option>
+        <option>유아3</option>
+        <option>유아4</option>
+        <option>유아5</option>
+        <option>유아6</option>
+        <option>유아7</option>
+        <option>유아8</option>
+        <option>유아9</option>
+      </select>
+    </p>
+      <p style="margin-top:1px;">(2세 미만) </p></td>
   </tr>
-    <tr>
-    <td width="70" height="39">(13세~)</td>
-    <td width="70">(2~12세)</td>
-    <td width="70">(2세 미만)</td>
-  </tr>
-  <tr>
-    <td height="33" colspan="3"><select name="seat_Class" id="select3">
+  <tr >
+    <td height="33" colspan="3" ><div style="margin-left:100px;"><select name="seat_Class" id="select3">
       <option>트래블</option>
       <option>비즈니스</option>
       <option>퍼스트</option>
-    </select></td>
+      </select></div></td>
   </tr>
 </table>
 </div>
