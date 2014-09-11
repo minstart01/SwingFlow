@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <style>
 #wrapper{
-		width:1250px;
+		width:1248px;
 		/* clear:both; */
 		
 	}
@@ -19,7 +19,7 @@
 	margin-left: 25px;
 	/* top:30px;
 	left: 275px;
-	width: 950px;
+	width: 948px;
  */
 }
 
@@ -165,7 +165,7 @@
 <table border="1" cellspacing="0" width="670" cellpadding="4">
     	<tr>
         	<td>영화관명</td>
-            <td><input type="text" size="50" name="tName" /></td>            
+            <td><input type="text" size="48" name="tName" /></td>            
         </tr>
 
         <tr>
@@ -174,16 +174,16 @@
         </tr>
         <tr>
         	<td class="first_td"><label for="address">주소</label></td>
-        	<td><input type="text" class="addrtext text" readonly="readonly" size="50"/>
+        	<td><input type="text" class="addrtext text" readonly="readonly" size="48"/>
         	</td>
         </tr>
         <tr>
         	<td class="first_td"><label for="detailaddress">상세주소</label></td>
-        	<td><input type="text" class="text addrdetail" name="tDetailAddr" size="50"/>
+        	<td><input type="text" class="text addrdetail" name="tDetailAddr" size="48"/>
          </tr>
          <tr>
         	<td>전화번호</td>
-            <td><input type="text" size="50" name="tPhone" /></td>
+            <td><input type="text" size="48" name="tPhone" /></td>
         </tr>
         <tr>
         	<td>스크린수</td>
