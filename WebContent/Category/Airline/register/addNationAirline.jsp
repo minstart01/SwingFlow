@@ -9,6 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <style type="text/css">
 .main_content {
 	width: 900px;
@@ -16,52 +17,55 @@
 	margin-top: 25px;
 	margin-left: 25px;
 	font-size: 12px;
-	font-family:Arial;
-	padding-left:20px;
-	padding-bottom:20px;
+	font-family: Arial;
+	padding-left: 20px;
+	padding-bottom: 20px;
 }
 
-.bt
-{
-	width:80px;
-	height:25px;
-	font-size:12px;
-	font-weight:bold;
-	background: #0043A8;
-  	background: -moz-linear-gradient(#43A9FF, #0043A8);
- 	 background: -o-linear-gradient(#43A9FF, #0043A8);
- 	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
-	color:white;
-	border:none;
-	
+.bt {
+	width: 80px;
+	height: 25px;
+	font-size: 12px;
+	font-weight: bold;
+	background: #999999;
+	background: -moz-linear-gradient(#BDBDBD, #999999);
+	background: -o-linear-gradient(#BDBDBD, #999999);
+	background: -webkit-linear-gradient(#BDBDBD, #999999);
+	color: white;
+	border: none;
 }
 
-.airAddBtn{
-		width:80px;
-	height:25px;
-	font-size:12px;
-	font-weight:bold;
-	background: #0043A8;
-  	background: -moz-linear-gradient(#43A9FF, #0043A8);
- 	 background: -o-linear-gradient(#43A9FF, #0043A8);
- 	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
-	color:white;
-	border:none;
-	}
-.border{
-width: 380px;
-float: left;
-height: 23px;
+.airAddBtn {
+	width: 80px;
+	height: 25px;
+	font-size: 12px;
+	font-weight: bold;
+	background: #999999;
+	background: -moz-linear-gradient(#BDBDBD, #999999);
+	background: -o-linear-gradient(#BDBDBD, #999999);
+	background: -webkit-linear-gradient(#BDBDBD, #999999);
+	color: white;
+	border: none;
 }
 
-.border01{
-width: 38px;
-float: left;
-height: 16px;
-padding-top: 7px;
-text-align: center;
+.border {
+	width: 380px;
+	float: left;
+	height: 23px;
+}
+
+.border01 {
+	width: 38px;
+	float: left;
+	height: 16px;
+	padding-top: 7px;
+	text-align: center;
+}
+#wrapper {
+	width: 1200px;
 }
 </style>
+
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script type="text/javascript">
  $(function(e) { 
@@ -122,6 +126,10 @@ text-align: center;
 
 </head>
 <body>
+	<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+	<div id="wrapper">
+
+		<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 <%
 AdminDAO dao = AdminDAO.getInstance();
 Nation nation = new Nation();
@@ -133,7 +141,7 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
 //out.print(nationL.size());
 %>
 <div class="main_content">
-<div style="width:418px;  height: 296px; padding-left:10px; float:left;">
+<div style="width:418px;  height: 296px; padding-left:10px; float:left;border: 1px solid #ADB4AC;">
 <h4>관리자 도시/편명 등록</h4>
 새로운 국가 또는 항공사 등록 후 
 도시 및 편명을 추가 할 수 있습니다. 
@@ -179,7 +187,8 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
  <div class="border01">편&nbsp;&nbsp;&nbsp;명</div> <div class="border"> <input type="text" value="" name="aName" id="aName" size="20"/> 
  <input type="button" value="편명등록" class="airAddBtn" /></div>
  </div>
-<div style="width:418px; height: 296px; margin-top:5px; float:left;">
+<div style="width: 282px; height: 296px;  float:left;border: 1px solid width:418px;  height: 296px; padding-left:10px; float:left;border: 1px solid #ADB4AC;border-left-style: none;">
+
  <img src="/SwingFlow/images/Airline/img01.jpg">
  <img src="/SwingFlow/images/Airline/img02.jpg">
  </div>

@@ -229,10 +229,9 @@ function SearchmName(data) {
 <style type="text/css">
 /* 버튼 */
 .div_button {
-	border: 1px solid black;
 	margin-top: 7px;
 	text-align: center;
-	width: 600px;
+	width: 517px;
 }
 
 #wrapper {
@@ -240,7 +239,6 @@ function SearchmName(data) {
 }
 
 #main_content {
-	border: 1px solid black;
 	width: 900px;
 	float: left;
 	margin-top: 25px;
@@ -281,8 +279,7 @@ color: #5c5f66;
 text-align:center;
 }
 </style>
-<link rel="stylesheet" type="text/css"
-	href="/SwingFlow/Css/Common/Main.css" />
+<link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 </head>
 <body>
 
@@ -298,9 +295,7 @@ text-align:center;
   운항스케줄 등록</ul></p>
 			<form action="Admin_insertSchedulePro.jsp" name="a_next">
 			  <table border="1" cellpadding="6" cellspacing="0" height="15px;">
-			  <tr>
-			    <td><table border="1px;" cellpadding="6" cellspacing="0" height="15px;">
-			      <tr>
+	 <tr>
 			        <td width="56" class="colum" >항 공 사</td>
 			        <td width="200"><select name="fn_air" id="fn_air">
 			          <option>-항공사-</option>
@@ -387,9 +382,8 @@ text-align:center;
 			        <td><input type="text" name="c_First" />
 			          원</td>
 		          </tr>
-		        </table></td>
-			    </tr>
-			  </table>
+		        </table>
+	
 			  <div class="div_button">
 				<input type="submit" value="등록하기" class="bt_login" /> <input
 					type="button" value="뒤로가기" class="bt_login" />
