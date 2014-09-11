@@ -171,7 +171,7 @@
 }
 .sel_theater{
 	overflow:auto;
-	height:257px;
+	height:258px;
 }
 #sel_movie ul li, #sel_theater ul li, #sel_time ul li
 {	
@@ -184,19 +184,19 @@
 		
 }
 .list li{
-	border-bottom:1px solid black;
+	
 	padding-top:5px;
 	padding-left:20px;
 	display:block;
 	cursor:pointer;
 }
 /* 영화 선택, 극장선택 */
-.movie_on, .local_on{
+.movie_on, .local_on, .time_on{
 	background-color: #8093ce;
 	color: #fff;
 	font-weight: bold;	
 }
-.movie_off:hover, .local_off:hover{
+.movie_off:hover, .local_off:hover, .time_off:hover{
 	background:#f9b196;
 }
 
@@ -208,6 +208,9 @@
 	border-bottom:1px solid black;	
 	border-top:1px solid black;	
 }
+
+
+
 
 .local_seoul, .local_incheon, .local_busan, .local_daegu, .local_daejeon, .local_gwangju{
 	display:block;

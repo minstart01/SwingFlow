@@ -106,7 +106,7 @@
         <th width="110">전화번호</th>
         <th width="80">스크린수</th>
         <th width="80">총좌석</th>
-        <th width="92">관리</th>
+        <th width="94">관리</th>
         
     </tr>
     <%

@@ -92,7 +92,7 @@
         <th width="180">관람일</th>
         <th width="100">시간</th>
         <th width="200">요금정보</th>
-        <th width="92">관리</th>
+        <th width="94">관리</th>
         
     </tr>
     <% 

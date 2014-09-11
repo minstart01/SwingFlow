@@ -257,6 +257,20 @@ $(function() {
 										"/SwingFlow/images/Movie/Reserve/img_TheaterList_on.gif");
 
 					});
+	
+	
+	/* 시간 선택 */
+	$(".sel_time").click(function(e) {
+		$(".sel_time").addClass("time_off");
+		$(".time_on").removeClass("time_on");
+		$(this).addClass("time_on");
+		$(this).removeClass("time_off");
+		$(".time_info").text("");
+		$(".time_info").append($(this).text());
+		$(".time_img").attr("src","/SwingFlow/images/Movie/Reserve/img_PlayTime_on.gif");
+		
+	});
+
 });
 
 /* 달력 */
@@ -441,4 +455,6 @@ function ViewNextMonth() {
 	$("#datepi").append(cal);
 
 }
+
+
 

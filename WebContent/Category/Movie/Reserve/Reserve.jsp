@@ -284,8 +284,20 @@ function SearchTime(data){
 	var Time = $(data).find("li");
 	$(".time_list").empty();
 	for(var i=0;i<Time.length;i++){
-		$(".time_list").append("<li>" +  $(Time[i]).text() + "</li>");
+		$(".time_list").append("<li class='sel_time time_off'>" +  $(Time[i]).text() + "</li>");
 	}
+	
+	/* 시간 선택 */
+	$(".sel_time").click(function(e) {
+		$(".sel_time").addClass("time_off");
+		$(".time_on").removeClass("time_on");
+		$(this).addClass("time_on");
+		$(this).removeClass("time_off");
+		$(".time_info").text("");
+		$(".time_info").append($(this).text());
+		$(".time_img").attr("src","/SwingFlow/images/Movie/Reserve/img_PlayTime_on.gif");
+		
+	});
 }
 
 </script>
@@ -327,7 +339,7 @@ function SearchTime(data){
 
 			<div style="border-bottom: 1px solid black; padding: 3px 0 3px 3px;">
 				<input type="text" id="search_movie" placeholder="영화명을 입력하세요"
-					size="23" /> <input type="button" value="검색" id="bt_movie" />
+					size="19" /> <input type="button" value="검색" id="bt_movie" />
 			</div>
 			
 			<div id="sel_movie">
@@ -371,7 +383,7 @@ function SearchTime(data){
 			<section id="theaterbox">
 			<div style="border-bottom: 1px solid black; padding: 3px 0 3px 3px;">
 				<input type="text" id="search_theater" placeholder="극장명을 입력하세요"
-					size="18" /> <input type="button" value="검색" id="bt_theater" />
+					size="15" /> <input type="button" value="검색" id="bt_theater" />
 			</div>
 			<div style="padding: 5px 0 5px 10px; border-bottom: solid 1px black;"
 				class="local_seoul" onclick="selLocal('seoul');">서울</div>
@@ -505,6 +517,7 @@ function SearchTime(data){
 
 			<div id="sel_time">
 				<ul class="list time_list">
+			
 				</ul>
 			</div>
 			</section>
@@ -575,13 +588,13 @@ function SearchTime(data){
 						<td><img
 							src="/SwingFlow/images/Movie/Reserve/img_PlayDate_off.gif"
 							alt="관람일" class="Td_img"/></td>
-						<td class="Td_info">2014-08-08(금)</td>
+						<td class="Td_info">관람일을 선택하세요</td>
 					</tr>
 					<tr>
 						<td><img
 							src="/SwingFlow/images/Movie/Reserve/img_PlayTime_off.gif"
-							alt="시간" /></td>
-						<td>15:40</td>
+							alt="시간" class="time_img"/></td>
+						<td class="time_info">시간을 선택하세요</td>
 					</tr>
 					<tr>
 						<td><img
