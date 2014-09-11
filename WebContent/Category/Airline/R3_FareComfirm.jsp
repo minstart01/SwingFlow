@@ -22,25 +22,14 @@
 	
 }
 
-#wrapper{
-	width:1200px;
-	}
-#main_content{
-	border:1px solid black;
-	width:900px;
-	float:left;
-	margin-top: 25px;
-	margin-left: 25px;
-	font-size:13px;
-	
-}
 
-#main_content ul, #main_content ol{
+
+#main_container ul, #main_container ol{
 	list-style-type: none;
 	list-style-position: outside;
 	list-style-image: none;
 }
-#main_content a{
+#main_container a{
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;
@@ -356,6 +345,7 @@ table
 	background-repeat: no-repeat;
 	background-position-x: 0px;
 	background-position-y: bottom;
+
 	background-size: auto;
 	background-origin: padding-box;
 	background-clip: border-box;
@@ -790,15 +780,11 @@ table
 </style></head>
 <body id="FDFF"><form name="frmUpsell" id="frmUpsell" method="post"><div id="wrap_container">
 <%-- <jsp:include page="/Category/Common/top.jsp"></jsp:include> --%>
-<div id="wrapper">
 
-<%-- <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include> --%>
-
-<div id="main_content">
 
 
 <section id="main_container"><div class="reservationBox" id="containerBox"><div id="container">
-  <div id="skipCt"><section id="containerBody"><div class="itineraryBoxPs fareBox" style="border:1px solid #9933FF;border-radius:20px" ;><div class="fareInner">
+  <div id="skipCt"><section id="containerBody"><div class="itineraryBoxPs fareBox" style="border:1px solid black;border-radius:20px; height:280px" ;><div class="fareInner">
 
 <div class="priceBox" id="totalPriceBox" style="display: block;">
  
@@ -1196,16 +1182,13 @@ table
 
 </div></div>
               <p>&nbsp;</p>
-              <div ><span style="margin-left:50px;">
-                <a class="bt_a" id="" href="R2_.jsp.jsp">이전단계</a></span>
-                <span style="margin-left:500px;"><a class="bt_a" id="" href="R4_PassengerInput.jsp">계속하기</a></span>
-              </div>
+<div ><span class="bt_a" style="margin-left:50px;">
+                <a  id="" href="R2_.jsp.jsp">이전단계</a></span>
+                <span style="margin-left:500px;"><a id="" href="R4_PassengerInput.jsp">계속하기</a></span>
+</div>
               
 
 </section></div></div></div></section></div>
 
-</div>
-</div>
-<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 
 </form></body></html>

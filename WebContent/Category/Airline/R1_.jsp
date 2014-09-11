@@ -34,7 +34,7 @@ color:black;
 	float:left;
 	margin-top: 25px;
 	margin-left: 25px;
-	font-size:13px;
+	font-size:12px;
 
 	
 }
@@ -61,7 +61,20 @@ color:black;
  	cursor: pointer;
  }
 
-
+.bt_login
+{
+	width:120px;
+	height:30px;
+	font-size:12px;
+	font-weight:bold;
+	background: #0043A8;
+  	background: -moz-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -o-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
+	color:white;
+	
+	
+}
 </style>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
@@ -273,12 +286,12 @@ function close01(){
 
 <div class="main_content" >
 
-<div id="radio" style="height:20px;"><input type="radio" id="radio1" ><label for="radio1">왕 복</label>
+<div id="radio" style="height:30px;"><input type="radio" id="radio1" ><label for="radio1">왕 복</label>
 <input type="radio" id="radio2"  checked="checked"><label for="radio2">편 도</label></div>						
 <div>
 <table width="589" height="112" border="1" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="70"><div align="right">출발</div></td>
+    <td width="35"><div align="right">출발</div></td>
     <td width="218">
     <div style="float: left;"><img id="btn_search4" src="/SwingFlow/images/Airline/reserv/btn_search4.gif" style="padding-top: 10px;" >
     <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
@@ -329,7 +342,7 @@ function close01(){
     <br>
     
     </td>
-    <td width="70"><div align="right">도착</div></td>
+    <td width="35"><div align="right">도착</div></td>
      <td width="218">
     <div style="float: left;"><img id="btn_search5" src="/SwingFlow/images/Airline/reserv/btn_search4.gif" style="padding-top: 10px;" >
     <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city01">
@@ -385,10 +398,10 @@ function close01(){
     <td class="getIn"><input type="text" id="datepicker01" name="s_DepDay"></td>
   </tr>
 </table>
-<table width="600" height="74" cellpadding="0" cellspacing="0" border="1" >
+<table width="308" height="74" cellpadding="0" cellspacing="0" border="1" >
   <col width="70" span="3" />
   <tr >
-    <td width="70" height="39" align="center"><p style="margin-bottom:5px;">
+    <td width="100" height="39" align="center"><p style="margin-bottom:5px;">
       <select name="p_nAdult" >
         <option>성인1</option>
         <option>성인2</option>
@@ -402,10 +415,10 @@ function close01(){
       </select>
     </p>
       <p style="margin-top:1px;">(13세~) </p></td>
-    <td width="70" align="center"><p style="margin-bottom:5px;"><select id="select" name="p_nChild">
+    <td width="100" align="center"><p style="margin-bottom:5px;"><select id="select" name="p_nChild">
        <option>소아1</option><option>소아2</option><option>소아3</option><option>소아4</option><option>소아5</option><option>소아6</option><option>소아7</option><option>소아8</option><option>소아9</option>
     </select> </p> <p style="margin-top:1px;">(2~12세) </p></td>
-    <td width="70" align="center"><p style="margin-bottom:5px;">
+    <td width="100" align="center"><p style="margin-bottom:5px;">
       <select id="select2" name="p_nInfant">
         <option>유아1</option>
         <option>유아2</option>
@@ -430,8 +443,8 @@ function close01(){
 </table>
 </div>
 
-<p>
-  <input type="submit"  value="항공편 조회하기" />
+<p ><div style="margin-left:450px">
+  <input type="submit"  value="항공편 조회하기" class="bt_login" /></div>
 </p>
 
 </div>

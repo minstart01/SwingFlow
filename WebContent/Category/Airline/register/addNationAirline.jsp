@@ -9,7 +9,59 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.main_content {
+	width: 900px;
+	float: left;
+	margin-top: 25px;
+	margin-left: 25px;
+	font-size: 12px;
+	font-family:Arial;
+	padding-left:20px;
+	padding-bottom:20px;
+}
 
+.bt
+{
+	width:80px;
+	height:25px;
+	font-size:12px;
+	font-weight:bold;
+	background: #0043A8;
+  	background: -moz-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -o-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
+	color:white;
+	border:none;
+	
+}
+
+.airAddBtn{
+		width:80px;
+	height:25px;
+	font-size:12px;
+	font-weight:bold;
+	background: #0043A8;
+  	background: -moz-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -o-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
+	color:white;
+	border:none;
+	}
+.border{
+width: 380px;
+float: left;
+height: 23px;
+}
+
+.border01{
+width: 38px;
+float: left;
+height: 16px;
+padding-top: 7px;
+text-align: center;
+}
+</style>
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
 <script type="text/javascript">
  $(function(e) { 
@@ -65,6 +117,7 @@
 	  location.reload();
 	  /*  $("#nId").append("<option>" + data +"</option>"); */   
 	  }
+
 </script>
 
 </head>
@@ -79,15 +132,22 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
 
 //out.print(nationL.size());
 %>
-<h2>취항노선 추가</h2>
-
+<div class="main_content">
+<div style="width:418px;  height: 296px; padding-left:10px; float:left;">
+<h4>관리자 도시/편명 등록</h4>
+새로운 국가 또는 항공사 등록 후 
+도시 및 편명을 추가 할 수 있습니다. 
+<div style="float: left; width: 414px;">
+<h4>
+  취항노선 추가</h4>
+</div>
 <form>
-국가 <input type="text" value="" name="nation" id="nation" /> 
- <input type="button" value="국가등록" class="bt"/>
+<div class="border01">국&nbsp;&nbsp;&nbsp;가</div><div class="border"> <input type="text" value="" name="nation" id="nation" size="20"/> 
+ <input type="button" value="국가등록" class="bt"/></div>
 </form>
-<hr />
-국가 <select name="nCode" id="nCode">
-  <option value="0">선택</option>
+
+<div class="border01">국&nbsp;&nbsp;&nbsp;가</div><div class="border"> <select name="nCode" id="nCode" style="width:90px;">
+  <option value="0" >선택</option>
   <% 
   for(int i=0; i<nDtoL.size();i++){
   nation = nDtoL.get(i);
@@ -95,20 +155,18 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
   %>
   <option value="<%=nation.getN_Code()%>"><%=nation.getN_Name()%></option>
   <% }%>
- </select>
- 도시 <input type="text" value="" name="city" id="city" /> 
- <input type="button" value="도시등록" class="bt" />
-
-
-<div>
-<h2>항공사/편명 추가</h2>
+ </select></div><br>
+<div class="border01"> 도&nbsp;&nbsp;&nbsp;시</div><div class="border">  <input type="text" value="" name="city" id="city" size="20"/> 
+ <input type="button" value="도시등록" class="bt" /></div>
+<div style="float: left; width: 414px;">
+<h4> 항공사/편명 추가</h4></div>
 
 <form>
-항공사 <input type="text" value="" name="air" id="air" /> 
- <input type="button" value="항공사등록" class="airAddBtn"/>
+<div class="border01">항공사</div> <div class="border"> <input type="text" value="" name="air" id="air" size="20" /> 
+ <input type="button" value="항공사등록" class="airAddBtn"/></div>
 </form>
-<hr />
- 항공사 <select name="aCode" id="aCode">
+
+ <div class="border01">항공사 </div><div class="border"><select name="aCode" id="aCode" style="width:90px;">
   <option value="0">선택</option>
   <% 
   for(int i=0; i<aDtoL.size();i++){
@@ -117,9 +175,15 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
   %>
   <option value="<%=airline.getA_Code()%>"><%=airline.getA_Name()%></option>
   <% }%>
- </select>
- 편명 <input type="text" value="" name="aName" id="aName" /> 
- <input type="button" value="편명등록" class="airAddBtn" />
+ </select></div><br>
+ <div class="border01">편&nbsp;&nbsp;&nbsp;명</div> <div class="border"> <input type="text" value="" name="aName" id="aName" size="20"/> 
+ <input type="button" value="편명등록" class="airAddBtn" /></div>
+ </div>
+<div style="width:418px; height: 296px; margin-top:5px; float:left;">
+ <img src="/SwingFlow/images/Airline/img01.jpg">
+ <img src="/SwingFlow/images/Airline/img02.jpg">
+ </div>
+ 
  </div>
 </body>
 </html>
