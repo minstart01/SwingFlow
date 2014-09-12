@@ -816,7 +816,7 @@ table
       <li>
         
        <div class="box-intro">
-         	<strong>2014/08/11/월 18:10 </strong> 	
+         	<strong>2014/09/12/금 09:00 </strong> 	
         <div class="abPosi">
           		<span class="btn_CpopupLayer"><strong>(<a href="#none">OZ108</a>)</strong></span> 		
          <div class="abroadBox2 BoxClose">
@@ -832,7 +832,8 @@ table
            </div>
             				
            <div class="abroadCt">
-             					<strong>출발</strong> : 2014/08/11/월 18:10, 인천<br /> 					<strong>도착</strong> : 2014/08/11/월 20:20, 도쿄/나리타<br /> 					<strong>운항</strong> : 아시아나항공<br /> 					<strong>기종</strong> : 321 <a id="searchFlightInfo" href="#none" fltno="108" fltcrrcd="OZ" fltdate="20140811181000" fltdepairport="ICN" opcode="">[좌석배치도 보기]</a><br /> 				
+             					<strong>출발</strong> : 2014/09/12/금 09:00, 인천<br /> 					
+             					<strong>도착</strong> : 2014/09/30/화 11:10, 도쿄/나리타<br /> 					<strong>운항</strong> : 아시아나항공<br /> 					<strong>기종</strong> : 321 <a id="searchFlightInfo" href="#none" fltno="108" fltcrrcd="OZ" fltdate="20140811181000" fltdepairport="ICN" opcode="">[좌석배치도 보기]</a><br /> 				
            </div>
             			
           </div>
@@ -847,7 +848,7 @@ table
       <li>
         
        <div class="box-intro">
-         	<strong>2014/08/16/토 19:00 </strong> 	
+         	<strong>2014/09/30/화 12:30 </strong> 	
         <div class="abPosi">
           		<span class="btn_CpopupLayer"><strong>(<a href="#none">OZ105</a>)</strong></span> 		
          <div class="abroadBox2 BoxClose">
@@ -863,7 +864,7 @@ table
            </div>
             				
            <div class="abroadCt">
-             					<strong>출발</strong> : 2014/08/16/토 19:00, 도쿄/나리타<br /> 					<strong>도착</strong> : 2014/08/16/토 21:30, 인천<br /> 					<strong>운항</strong> : 아시아나항공<br /> 					<strong>기종</strong> : 74E <a id="searchFlightInfo" href="#none" fltno="105" fltcrrcd="OZ" fltdate="20140816190000" fltdepairport="NRT" opcode="">[좌석배치도 보기]</a><br /> 				
+             					<strong>출발</strong> : 2014/09/12/금 09:00, 도쿄/나리타<br /> 					<strong>도착</strong> : 2014/09/30/화 11:10, 인천<br /> 					<strong>운항</strong> : 아시아나항공<br /> 					<strong>기종</strong> : 74E <a id="searchFlightInfo" href="#none" fltno="105" fltcrrcd="OZ" fltdate="20140816190000" fltdepairport="NRT" opcode="">[좌석배치도 보기]</a><br /> 				
            </div>
             			
           </div>

@@ -10,7 +10,7 @@
 	
 	padding-top:20px;
 	padding-bottom:20px;
-	width:250px;
+	width:215px;
 	float:left;
 	
 	background: #0043A8;
@@ -60,25 +60,25 @@
 <body>
 <nav id="sidebar" class="column-left">
 		<ul>
-        <h2>항공권 예매</h2>
+        <h4 style="color: white;">항공권 예매</h4>
 			<li class="li"><a href="/SwingFlow/Category/Airline/R1_.jsp">국제선</a></li>
 			<li><a href="#">예약조회</a></li>
 		</ul>
 		<ul>
-		<h2>마이페이지</h2>
+		<h4 style="color: white;">마이페이지</h4>
 		  	<li><a href="#">마일리지 조회</a></li>
 			 <li><a href="#">회원정보</a></li>
 </ul>
 		<ul>
-		<h2>운임조회</h2>
+		<h4 style="color: white;">운임조회</h4>
 			<li class="li"><a href="#">국제선 운임조회</a></li>
 		</ul>
 				<ul>
-		<h2>스케줄 조회</h2>
+		<h4 style="color: white;">스케줄 조회</h4>
 			<li class="li"><a href="info.jsp">스케줄 조회</a></li>
 		</ul>
 				<ul>
-		<h2>관리자페이지</h2>
+		<h4 style="color: white;">관리자페이지</h4>
 		  	<li><a href="/SwingFlow/Category/Airline/register/Admin_insertSchedule.jsp">스케줄관리</a></li>
 			 <li><a href="Admin_list.jsp">예약관리</a></li>
 			 <li><a href="Admin_memberlist.jsp">회원관리</a></li>

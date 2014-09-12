@@ -13,7 +13,7 @@
 <jsp:include page="../Common/top.jsp"></jsp:include>
 <div id="wrap">
 	<section id="film"><img src="../../images/Main/film.jpg" width="360" height="300"></section>
-    <section id="air"><img src="../../images/Main/air.jpg" width="560" height="300"></section>
+    <section id="airs"><img src="../../images/Main/air.jpg" width="560" height="300"></section>
     <section id="travel"><img src="../../images/Main/travel.jpg" width="325" height="300"></section>
     <!--<section id="login">
    	  <div id="main_login">

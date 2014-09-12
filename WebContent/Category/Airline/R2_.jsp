@@ -14,6 +14,11 @@
 	  });
   });
   
+  function sel(gubun){
+	  $('.sel' + gubun).css('background','yellow');
+	  
+  }
+  
   </script>
 <style>
 /* 가는날/오는날 */
@@ -27,7 +32,7 @@ padding: 0 0 0 43px;
 
 /*  번호 */
 .cnt {
-background: url("/SwingFlow/images/Airline/bg_cnt.gif") ;no-repeat 0 0;
+background: url("/SwingFlow/images/Airline/bl_hType01.gif") ;no-repeat 0 0;
 width: 17px;
 height: 17px;
 text-align: center;
@@ -39,9 +44,6 @@ font-family: '돋움';
 line-height: 20px;
 
 -webkit-margin-before: 1.33em;
--webkit-margin-after: 1.33em;
--webkit-margin-start: 0px;
--webkit-margin-end: 0px;
 font-weight: bold;
 }
 
@@ -49,7 +51,6 @@ font-weight: bold;
 	width:1200px;
 	}
 #main_content{
-	border:1px solid black;
 	width:900px;
 	float:left;
 	margin-top: 25px;
@@ -66,7 +67,6 @@ color: #5c5f66;
 
 .div_button
 {
-	border:1px solid black;
 	margin-top:7px;
 	width:700px;;
 	text-align:center;
@@ -105,24 +105,24 @@ request.getParameter("seat_Class");
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-<p><input type="image" name="imageField" id="imageField" src="/SwingFlow/images/Airline/bl_hType01.gif"><strong style="color:#5e14cc";>운임/항공편 선택</strong></p><div style="border-radius:15px; width:523px; height:83px; border:solid 1px black;">
+<p><input type="image" name="imageField" id="imageField" src="/SwingFlow/images/Airline/bl_hType01.gif"><strong style="color:#5e14cc; margin-left: 7px";>운임/항공편 선택</strong></p><div style="border-radius:15px; width:523px; height:83px; border:solid 1px black;">
 <table cellspacing="0" cellpadding="6">
   <col width="136" />
   <col width="72" />
   <col width="271" />
   <tr>
-    <td width="111">2014/08/20 <br />
+    <td width="111">2014/09/12 <br />
       <strong>인천(ICN)</strong></td>
     <td width="190" align="center"><input type="image" name="imageField" id="imageField" src="/SwingFlow/images/Airline/bg_join.jpg"></td>
-    <td width="178">2014/08/30 <br />
+    <td width="178">2014/09/30 <br />
       <strong>도쿄/나리타(NRT)</strong></td>
   </tr>
   <tr>
-    <td colspan="3" style="color:#5e14cc;">( 탑승객 1명 : 성인&nbsp;2명, 소아: 2명, 유아: 1명)</td>
+    <td colspan="3" style="color:#5e14cc;">( 탑승객 5명 : 성인&nbsp;2명, 소아: 2명, 유아: 1명)</td>
   </tr>
 </table>
 </div>
-<p><span class="cnt">1</span><strong style="color:#5e14cc"> 항공편을 선택하세요.</strong></p>
+<p><span class="cnt"></span><strong style="color:#5e14cc"> 항공편을 선택하세요.</strong></p>
 <p>
   <ul class="step02_on">
   가는 항공편</ul></p>
@@ -138,19 +138,19 @@ request.getParameter("seat_Class");
     <td width="50">좌석</td>
     <td width="60">선택</td>
   </tr>
-  <tr>
+  <tr class="sel1">
     <td>OZ108 </td>
     <td>인천 (ICN)</td>
-    <td>9:00</td>
+    <td>09:00</td>
     <td>도쿄/나리타    (NRT)</td>
     <td>11:10</td>
     <td>KA321</td>
     <td>02시간10분</td>
     <td>9석</td>
     <td>
-    <input type="submit" name="button" id="button" value="선택" /></td>
+    <input type="button" name="button" id="button" value="선택" onclick="sel(1)"/></td>
   </tr>
-  <tr>
+  <tr class="sel2">
     <td>OZ102 </td>
     <td>인천 (ICN)</td>
     <td>10:20</td>
@@ -160,7 +160,7 @@ request.getParameter("seat_Class");
     <td>02시간10분</td>
     <td>5석</td>
     <td>
-    <input type="submit" name="button" id="button" value="선택" /></td>
+    <input type="button" name="button" id="button" value="선택" onclick="sel(2)" /></td>
   </tr>
   <tr>
     <td>OZ107 </td>

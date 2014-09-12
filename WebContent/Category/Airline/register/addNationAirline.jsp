@@ -150,7 +150,7 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
   취항노선 추가</h4>
 </div>
 <form>
-<div class="border01">국&nbsp;&nbsp;&nbsp;가</div><div class="border"> <input type="text" value="" name="nation" id="nation" size="20"/> 
+<div class="border01">등&nbsp;&nbsp;&nbsp;록</div><div class="border"> <input type="text" value="" name="nation" id="nation" size="20"/> 
  <input type="button" value="국가등록" class="bt"/></div>
 </form>
 
@@ -170,7 +170,7 @@ ArrayList<Airline> aDtoL = dao.airlineSel();
 <h4> 항공사/편명 추가</h4></div>
 
 <form>
-<div class="border01">항공사</div> <div class="border"> <input type="text" value="" name="air" id="air" size="20" /> 
+<div class="border01">등&nbsp;&nbsp;&nbsp;록</div> <div class="border"> <input type="text" value="" name="air" id="air" size="20" /> 
  <input type="button" value="항공사등록" class="airAddBtn"/></div>
 </form>
 
