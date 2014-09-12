@@ -26,7 +26,7 @@
 	width: 900px;
 	margin-top: 25px;
 	margin-left: 25px;
-	font-size: 13px;
+	font-size: 12px;
 	/* top:30px;
 	left: 275px;
 	width: 950px;
@@ -188,7 +188,7 @@ function SearchDate(data){
 		$(".day" + i).css("cursor","auto");
 		$(".day" + i).css("background","white");
 		$(".day" + i).css("color","black");
-		$(".day" + i).css("font-weight","normal")
+		$(".day" + i).css("font-weight","normal");
 		$(".day" + i).removeAttr("onmouseover");
 		$(".day" + i).removeAttr("onmouseout");
 		$(".day" + i).removeAttr("onclick");
@@ -221,12 +221,12 @@ function TdMouseout(a){
 
 function TdOnclick(a){
 	$(".TdOn").css("background","#edf1fb");
-	$(".TdOn").css("color","black")
-	$(".TdOn").css("font-weight","normal")
+	$(".TdOn").css("color","black");
+	$(".TdOn").css("font-weight","normal");
 	$(".TdOn").css("cursor","pointer");
 	$(".TdOn").attr("onmouseover","TdMouseover(this);");
 	$(".TdOn").attr("onmouseout","TdMouseout(this);");
-	$(".TdOn").removeClass("TdOn")
+	$(".TdOn").removeClass("TdOn");
 	
 	$(a).css("background","#8093ce");
 	$(a).css("color","#fff");
@@ -243,7 +243,7 @@ function TdOnclick(a){
 	var transweek = $(".TdOn input").val();
 	
 	var ints = parseInt(transweek);
-	var week;
+	var week="";
 	
 	switch (ints) {
 	case 0:  week = "일";
@@ -261,6 +261,15 @@ function TdOnclick(a){
 	case 6:  week = "토";
 		break;
 	}
+	
+	if(month<10){
+		month = "0" + month;
+	}
+	
+	if(day<10){
+		day = "0" + day;
+	}
+	
 	$(".Td_info").text(year + "-" + month + "-" + day + "(" + week + ")");
 	$(".Td_img").attr("src","/SwingFlow/images/Movie/Reserve/img_PlayDate_on.gif");
 	
@@ -282,7 +291,10 @@ function TdOnclick(a){
 function SearchTime(data){
 	
 	var Time = $(data).find("li");
-	$(".time_list").empty();
+	$("#sel_time").empty();
+	
+	$("#sel_time").append("<ul class='list time_list'></ul>");
+	
 	for(var i=0;i<Time.length;i++){
 		$(".time_list").append("<li class='sel_time time_off'>" +  $(Time[i]).text() + "</li>");
 	}
@@ -297,7 +309,279 @@ function SearchTime(data){
 		$(".time_info").append($(this).text());
 		$(".time_img").attr("src","/SwingFlow/images/Movie/Reserve/img_PlayTime_on.gif");
 		
+		var mName = $(".movie_on").text();
+		var tName = $(".local_on").text();
+		
+		/* 관람인원 선택 */
+		
+		$.ajax({
+			url : 'ReserveCharge.jsp',
+			type : 'GET',
+			data : {
+				mName : mName,
+				tName : tName,
+			},
+			success : SearchCharge
+		});
+		
+			
 	});
+	
+	
+	function SearchCharge(data){
+		
+		$(".sel_agebox").empty();
+		
+		item = $(data).find("ul").find("li");
+		
+		var teen = $(item[0]).text();
+		var adult = $(item[1]).text(); 
+		var grade = $(item[2]).text();
+		
+		teen = teen.substring(0,1) + ",000";
+		adult = adult.substring(0,1) + ",000";
+		
+			
+		
+		
+		$(".sel_agebox").append("<ul class='sel_sit adult_sel_sit'></ul>");
+		$(".adult_sel_sit").append("<li class='t1 adult_charge'>성인(" + adult + "원)</li>");
+		$(".adult_sel_sit").append("<li class='adult_sit_no adult_on'>0</li>");
+		for(var i=1;i<9;i++){
+			$(".adult_sel_sit").append("<li class='adult_sit_no adult_off'>" + i + "</li>");
+		}
+		
+		$(".sel_agebox").append("<ul class='sel_sit teen_sel_sit'></ul>");
+		$(".teen_sel_sit").append("<li class='t1 teen_charge'>청소년(" + teen + "원)</li>");
+		$(".teen_sel_sit").append("<li class='teen_sit_no teen_on'>0</li>");
+		for(var i=1;i<9;i++){
+			$(".teen_sel_sit").append("<li class='teen_sit_no teen_off'>" + i + "</li>");
+		}
+		$(".sel_age").text("선택하신 영화는 '" + grade + "' 영화입니다.");
+		
+	
+		$(".adult_sit_no")
+		.click(
+				function(e) {
+					$(".adult_sit_no").addClass("adult_off");
+					$(".adult_on").removeClass("adult_on");
+					$(this).addClass("adult_on");
+					$(this).removeClass("adult_off");
+					$(".number_img")
+							.attr("src",
+									"/SwingFlow/images/Movie/Reserve/img_PersonNum_on.gif");
+					var c = $(".number_info").text();
+
+					if (c.substring(0, 2) == "관람" || c.length == 5) { // 성인
+																		// 선택했을때
+						$(".number_info").text("");
+						$(".number_info").append(
+								"성인 " + $(this).text() + "명"); // 성인n명
+
+						$(".charge").text($(this).text() * 9 + ",000원"); // 관람요금
+						$(".totalcharge").text($(this).text() * 9 + ",000원"); // 관람요금
+																			// 계싼
+					} else if (c.length == 14) { // 성인, 청소년 선택후 성인 선택했을때
+						var d = c.substring(6, 14); // | 청소년 n명
+						$(".number_info").text("");
+						$(".number_info").append(
+								"성인 " + $(this).text() + "명 " + d); // 성인 n
+																	// 명 |
+																	// 청소년
+																	// n명
+
+						var charge = $(".charge").text();
+						if (c.substring(3, 4) > $(this).text()
+								&& charge.length == 7) { // 10만원 미만 - 계산
+
+							var minus = c.substring(3, 4) - $(this).text();
+							var sumcharge = charge.substring(0, 2) + " - "
+									+ minus * 9;
+
+						} else if (c.substring(3, 4) > $(this).text()
+								&& charge.length == 8) { // 10만원 이상 - 계산
+							var minus = c.substring(3, 4) - $(this).text();
+							var sumcharge = charge.substring(0, 3) + " - "
+									+ minus * 9;
+						} else if (c.substring(3, 4) < $(this).text()
+								&& charge.length == 7) { // 10만원 미만 + 계산
+							var plus = $(this).text() - c.substring(3, 4);
+							var sumcharge = plus * 9 + " + "
+									+ charge.substring(0, 2);
+
+						} else if (c.substring(3, 4) < $(this).text()
+								&& charge.length == 8) { // 10만원 이상 + 계산
+							var plus = $(this).text() - c.substring(3, 4);
+							var sumcharge = plus * 9 + " + "
+									+ charge.substring(0, 3);
+						} else if (c.substring(3, 4) == (this).text()) { // 다시
+																			// 선택했을
+																			// 경우
+
+						}
+
+						$(".charge").text(eval(sumcharge) + ",000원");
+						$(".totalcharge").text(eval(sumcharge) + ",000원");
+
+					} else if (c.substring(0, 2) == "청소") { // 청소년 선택후 성인
+															// 선택했을때
+						var d = c.substring(0, 6); // 청소년 n명
+						$(".number_info").text("");
+						$(".number_info").append(
+								"성인 " + $(this).text() + "명 | " + d); // 성인 n
+																		// 명 |
+																		// 청소년
+																		// n명
+
+						var charge = $(".charge").text();
+						if (charge.substr(0, 1) == 8) { // 청소년1명 선택시
+							var sumcharge = $(this).text() * 9 + " + "
+									+ charge.substring(0, 1);
+						} else {
+							var sumcharge = $(this).text() * 9 + " + "
+									+ charge.substring(0, 2);
+						}
+						$(".charge").text(eval(sumcharge) + ",000원");
+						$(".totalcharge").text(eval(sumcharge) + ",000원");
+
+					}
+					if ($(this).text() == 0 && c.substring(8, 11) == "청소년") { // 성인,
+																				// 청소년
+																				// 선택후
+																				// 성인0명
+																				// 선택했을때
+						$(".number_info").text("");
+						$(".number_info").append(c.substring(8, 14)); // 청소년
+																		// n명
+					} else if ($(this).text() == 0
+							&& c.substring(0, 3) == "청소년") { // 청소년 선택후
+																// 성인 0명
+																// 선택했을때
+						$(".number_info").text("");
+						$(".number_info").append(c.substring(0, 6)); // 청소년
+																		// n명
+					} else if ($(this).text() == 0) { // 성인 선택후 성인0명 선택했을때
+						$(".number_info").text("");
+						$(".number_info").append("관람인원을 선택하세요");
+						$(".number_img")
+								.attr("src",
+										"/SwingFlow/images/Movie/Reserve/img_PersonNum_off.gif");
+						$(".charge").text("0원");
+						$(".totalcharge").text("0원");
+					}
+
+				});
+$(".teen_sit_no")
+		.click(
+				function(e) {
+					$(".teen_sit_no").addClass("teen_off");
+					$(".teen_on").removeClass("teen_on");
+					$(this).addClass("teen_on");
+					$(this).removeClass("teen_off");
+					$(".number_img")
+							.attr("src",
+									"/SwingFlow/images/Movie/Reserve/img_PersonNum_on.gif");
+					var a = $(".number_info").text();
+
+					if (a.substring(0, 2) == "관람"
+							|| a.substring(0, 2) == "청소") { // 청소년 선택했을때
+						$(".number_info").text("");
+						$(".number_info").append(
+								"청소년 " + $(this).text() + "명"); // 청소년 n명
+						if ($(this).text() == 0) { // 청소년 0명 선택시 0원
+							$(".charge").text("0원");
+							$(".totalcharge").text("0원");
+						} else { // 아닐시 n,000원
+							$(".charge").text($(this).text() * 8 + ",000원");
+							$(".totalcharge").text($(this).text() * 8 + ",000원");
+						}
+					} else if (a.substring(0, 2) == "성인" && a.length == 5) { // 성인
+																				// 선택후
+																				// 청소년
+																				// 선택했을때
+						$(".number_info").append(
+								" | 청소년 " + $(this).text() + "명"); // 성인 n명
+																	// | 청소년
+																	// n명
+						var charge = $(".charge").text();
+						if (charge.substr(0, 1) == 9) { // 성인1명 선택시
+							var sumcharge = $(this).text() * 8 + " + "
+									+ charge.substring(0, 1);
+						} else {
+							var sumcharge = $(this).text() * 8 + " + "
+									+ charge.substring(0, 2);
+						}
+						$(".charge").text(eval(sumcharge) + ",000원");
+						$(".totalcharge").text(eval(sumcharge) + ",000원");
+
+					} else if (a.substring(0, 2) == "성인" && a.length > 5) { // 성인,
+																			// 청소년
+																			// 선택후
+																			// 청소년
+																			// 선택했을때
+						var b = a.substring(0, 5); // 성인 n명
+						$(".number_info").text("");
+						$(".number_info").append(
+								b + " | 청소년 " + $(this).text() + "명"); // 성인
+																		// n명 |
+																		// 청소년
+																		// n명
+						var charge = $(".charge").text();
+						if (a.substring(12, 13) > $(this).text()
+								&& charge.length == 7) { // 10만원 미만 - 계산
+
+							var minus = a.substring(12, 13)
+									- $(this).text();
+							var sumcharge = charge.substring(0, 2) + " - "
+									+ minus * 8;
+
+						} else if (a.substring(12, 13) > $(this).text()
+								&& charge.length == 8) { // 10만원 이상 - 계산
+							var minus = a.substring(12, 13)
+									- $(this).text();
+							var sumcharge = charge.substring(0, 3) + " - "
+									+ minus * 8;
+						} else if (a.substring(12, 13) < $(this).text()
+								&& charge.length == 7) { // 10만원 미만 + 계산
+							var plus = $(this).text() - a.substring(12, 13);
+							var sumcharge = plus * 8 + " + "
+									+ charge.substring(0, 2);
+
+						} else if (a.substring(12, 13) < $(this).text()
+								&& charge.length == 8) { // 10만원 이상 + 계산
+							var plus = $(this).text() - a.substring(12, 13);
+							var sumcharge = plus * 8 + " + "
+									+ charge.substring(0, 3);
+						} else if (a.substring(12, 13) == (this).text()) { // 다시
+																			// 선택했을
+																			// 경우
+
+						}
+
+						$(".charge").text(eval(sumcharge) + ",000원");
+						$(".totalcharge").text(eval(sumcharge) + ",000원");
+					}
+					if ($(this).text() == 0 && a.substring(0, 2) == "성인") { // 성인
+																			// 선택후
+																			// 청소년
+																			// 0명
+																			// 선택했을때
+						$(".number_info").text("");
+						$(".number_info").append(a.substring(0, 5));
+					} else if ($(this).text() == 0 && a.length == 6) { // 청소년
+																		// 선택후
+																		// 청소년
+																		// 0 명
+																		// 선택했을때
+						$(".number_info").text("");
+						$(".number_info").append("관람인원을 선택하세요");
+						$(".number_img")
+								.attr("src",
+										"/SwingFlow/images/Movie/Reserve/img_PersonNum_off.gif");
+					}
+				});
+
+	}
 }
 
 </script>
@@ -516,9 +800,9 @@ function SearchTime(data){
 			<section id="timebox">
 
 			<div id="sel_time">
-				<ul class="list time_list">
-			
-				</ul>
+				<div style="height:265px; text-align: center; display: table-cell; width: 200px; vertical-align: middle;">
+					<img src="http://movie-img.yes24.com/reserve/Nstep_PlayTime.gif">
+				</div>
 			</div>
 			</section>
 			<div style="float: left; margin-top: 10px;">
@@ -527,34 +811,13 @@ function SearchTime(data){
 			</div>
 			<section id="sitbox">
 
-			<div style="float: left; margin-top: 2px; margin-right: 30px;">
-				<ul class="sel_sit" style="list-style: none;">
-					<li class="t1">성인(9,000원)</li>
-					<li class="adult_sit_no adult_on">0</li>
-					<li class="adult_sit_no adult_off">1</li>
-					<li class="adult_sit_no adult_off">2</li>
-					<li class="adult_sit_no adult_off">3</li>
-					<li class="adult_sit_no adult_off">4</li>
-					<li class="adult_sit_no adult_off">5</li>
-					<li class="adult_sit_no adult_off">6</li>
-					<li class="adult_sit_no adult_off">7</li>
-					<li class="adult_sit_no adult_off">8</li>
-				</ul>
-				<ul class="sel_sit" style="list-style: none;">
-					<li class="t1">청소년(8,000원)</li>
-					<li class="teen_sit_no teen_on">0</li>
-					<li class="teen_sit_no teen_off">1</li>
-					<li class="teen_sit_no teen_off">2</li>
-					<li class="teen_sit_no teen_off">3</li>
-					<li class="teen_sit_no teen_off">4</li>
-					<li class="teen_sit_no teen_off">5</li>
-					<li class="teen_sit_no teen_off">6</li>
-					<li class="teen_sit_no teen_off">7</li>
-					<li class="teen_sit_no teen_off">8</li>
-				</ul>
-
+			<div class="sel_agebox" style="float: left; margin-top: 2px; margin-right: 30px;">
+				
+			 <div style="width: 419px; height: 83px; display: table-cell; text-align: center; vertical-align: middle;">
+					<img src="http://movie-img.yes24.com/reserve/Nstep_PersonNum.gif">
+				</div>
 			</div>
-			<div class="sel_age">선택하신 영화는 '전체 관람가' 영화입니다.</div>
+			<div class="sel_age"><!-- 선택하신 영화는 '전체 관람가' 영화입니다. --></div>
 			</section>
 			<div class="sel_reserve_info">
 				<img src="/SwingFlow/images/Movie/Reserve/tit_SelectMovieInfo.gif"

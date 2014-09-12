@@ -16,7 +16,7 @@
 		
 	}
 #main_content{
-	font-size:13px;
+	font-size:12px;
 
 	/* position:absolute; */
 	float:left;

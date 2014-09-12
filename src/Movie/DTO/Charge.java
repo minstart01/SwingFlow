@@ -5,6 +5,7 @@ public class Charge {
 	private int miNo;
 	private int cTeen;
 	private int cAdult;
+	private String sGrade;
 	
 	public Charge(){}
 
@@ -39,6 +40,14 @@ public class Charge {
 		this.cAdult = cAdult;
 	}
 	
+	public String getsGrade() {
+		return sGrade;
+	}
+
+	public void setsGrade(String sGrade) {
+		this.sGrade = sGrade;
+	}
+
 	public String toString(){
 	return miNo + " : " + cTeen + " : " + cAdult;
 	}

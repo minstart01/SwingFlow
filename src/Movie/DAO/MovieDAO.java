@@ -461,6 +461,39 @@ public class MovieDAO {
 		
 		
 	}
+	
+	/* 요금 조회 */
+	public Charge ChargeInfo(String mName, String tName){
 		
+		Charge dto = new Charge();
+		
+		conn = DbSet.getConnection();
+		sql = "SELECT M.MNAME, T.TNAME, C.CTEEN, C.CADULT, S.SGRADE FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, CHARGE C, SCREENGRADE S WHERE C.MINO = MI.MINO AND MI.MCODE = M.MCODE AND MI.TCODE = T.TCODE AND M.SCODE = S.SCODE AND M.MNAME = ? AND T.TNAME = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, mName);
+			pstmt.setString(2, tName);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				dto.setcTeen(rs.getInt(3));
+				dto.setcAdult(rs.getInt(4));
+				dto.setsGrade(rs.getString(5));
+			}		
+					
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		
+		return dto;
+		
+	
+	}
 	
 }

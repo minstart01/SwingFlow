@@ -101,7 +101,7 @@ function seladdr(no){
 <div class="zipcodesearch">
 <div class="search_box">
 <div style="width:120px; float:left; margin-top:5px; margin-right:3px; font-weight:bold">검색어(읍/면/동)</div>
-<div style="width:310px; float:left;"><input type="text" size="31" name="dong" class="txt_zipcode"/><input type="submit" value="검색" class="search" /></div>
+<div style="width:310px; float:left;"><input type="text" size="26" name="dong" class="txt_zipcode"/><input type="submit" value="검색" class="search" /></div>
 
 </div>
 <div style="margin:20px 0 0 7px; font-weight:bold;">검색결과</div>

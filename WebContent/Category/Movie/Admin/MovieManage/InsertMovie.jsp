@@ -36,7 +36,7 @@ function setChildValue(name, director, actor, time, grade, genre, date){
     
     if(grade=="전체관람가"){
     	$(".sCode").val(1);
-    }else if(grade=="12세관람가"){
+    }else if(grade=="12세이상관람가"){
     	$(".sCode").val(2);
     }else if(grade=="15세이상관람가"){
     	$(".sCode").val(3);

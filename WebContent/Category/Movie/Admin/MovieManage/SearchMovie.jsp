@@ -267,7 +267,7 @@
             </select>
 			</div>
 			<div class="search_txt">
-				<input type="text" id="msearch" size="35" name="a" onkeyup="searchenter();" />
+				<input type="text" id="msearch" size="32" name="a" onkeyup="searchenter();" />
 			</div>
 			<div class="search_bt">
 				<input type="button" value="검색" id="searchbt" />

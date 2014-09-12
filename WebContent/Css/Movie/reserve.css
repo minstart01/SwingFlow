@@ -254,7 +254,7 @@
 /*관람인원 선택 */
 .sel_sit{
 	padding-left:20px;	
-
+	list-style: none;
 }
 
 .t1{
