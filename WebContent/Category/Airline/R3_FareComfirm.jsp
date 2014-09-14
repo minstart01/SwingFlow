@@ -893,19 +893,19 @@ table
     											
     <ul id="paxPriceArea">
      <li>
-      	<span class="leftCnt"><strong>성인 2</strong></span>	<span class="RightPrice">1,259,600 원</span>
+      	<span class="leftCnt"><strong>성인 2</strong></span>	<span class="RightPrice">687,200 원</span>
      </li>
      <li>
-      	<span class="leftCnt"><strong>소아 2</strong></span>	<span class="RightPrice">975,800 원</span>
+      	<span class="leftCnt"><strong>소아 2</strong></span>	<span class="RightPrice">547,200 원</span>
      </li>
      <li>
-      	<span class="leftCnt"><strong>유아 1</strong></span>	<span class="RightPrice">52,500 원</span>
+      	<span class="leftCnt"><strong>유아 1</strong></span>	<span class="RightPrice">0 원</span>
      </li>
     </ul>
     
     											
     <p class="totalPrice" id="totalPrice">
-     <strong>2,287,900 원</strong>
+     <strong>1,234,400 원</strong>
     </p>
     
     
@@ -980,7 +980,7 @@ table
             
             																			
             <td colspan="2">
-             <strong class="ttText">총액 운임</strong> <strong class="pcTotel" id="totalAmountId">2,287,900</strong> <span class="sm" id="currencySymbol">원</span>
+             <strong class="ttText">총액 운임</strong> <strong class="pcTotel" id="totalAmountId">1,234,000</strong> <span class="sm" id="currencySymbol">원</span>
             </td>
             
             																		
@@ -998,7 +998,7 @@ table
             </th>
             	
             <td headers="go fare01">
-             <strong>525,000</strong> <span class="sm">원</span>
+             <strong>343,600</strong> <span class="sm">원</span>
             </td>
            </tr>
            <tr>
@@ -1039,7 +1039,7 @@ table
             </th>
             	
             <td headers="go eachTotal01">
-             <strong>1,259,600</strong> <span class="sm">원</span>
+             <strong>547,200</strong> <span class="sm">원</span>
             </td>
 
            </tr>
@@ -1050,7 +1050,7 @@ table
             </th>
             	
             <td headers="go fare01">
-             <strong>393,700</strong> <span class="sm">원</span>
+             <strong>00</strong> <span class="sm">원</span>
             </td>
            </tr>
            <tr>
@@ -1101,7 +1101,7 @@ table
             </th>
             	
             <td headers="go fare01">
-             <strong>52,500</strong> <span class="sm">원</span>
+             <strong>0</strong> <span class="sm">원</span>
             </td>
            </tr>
            <tr>
@@ -1142,7 +1142,7 @@ table
             </th>
             	
             <td headers="go eachTotal01">
-             <strong>52,500</strong> <span class="sm">원</span>
+             <strong>0</strong> <span class="sm">원</span>
             </td>
            </tr>
           </tbody>

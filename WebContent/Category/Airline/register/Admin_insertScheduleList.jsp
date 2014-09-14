@@ -1,13 +1,13 @@
-<%@page import="Airline.DTO.ScheduleListDTO"%>
+<%@page import="Airline.DTO.ScheduleList"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Airline.DAO.AdminDAO"%>
 <%@page import="Airline.DTO.Admin_list"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    ScheduleListDTO dto = new ScheduleListDTO();
+   ScheduleList dto = new ScheduleList();
    AdminDAO dao = new AdminDAO();
-   ArrayList<ScheduleListDTO> dtoL = dao.schedule_list();
+   ArrayList<ScheduleList> dtoL = dao.scheduleList();
     
     %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -36,7 +36,7 @@
 	width:1200px;
 	}
 #main_content{
-	border:1px solid black;
+
 	width:900px;
 	float:left;
 	margin-top: 25px;
@@ -44,7 +44,25 @@
 	font-size:13px;
 	
 }
+.step02_on {
+color: #5d6067;
+font-weight: bold;
+font-size:14px;
+font-family:Arial;
+background: url("/SwingFlow/images/Airline/bg_startAr.gif"); no-repeat 0 0;
+width: 154px;
+padding: 0 0 0 43px;
+}
 
+.colum {
+background-color: #dfdfdf;
+color: #5c5f66;
+text-align:center;
+}
+.colum01 {
+color: #5c5f66;
+text-align:center;
+}
 
 </style>
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
@@ -60,53 +78,42 @@
 <div id="main_content">
 <form action="Admin_updateSchedule.jsp" name="upd">
 
-<h2>운항스케줄 등록 확인</h2>
+<h2 class="step02_on">운항스케줄 등록 확인</h2>
 
 <table border="1" cellpadding="0" cellspacing="0">
   <col width="70" span="3" />
   <col width="26" span="6" />
   <col width="26" />
   <col width="70" span="6" />
-  <tr>
+  <tr class="colum">
     <td width="70">no.</td>
-    <td width="70">항공사</td>
+    <td width="95">항공사</td>
     <td width="70">편명</td>
-    <td width="26">월</td>
-    <td width="26">화 </td>
-    <td width="26">수 </td>
-    <td width="26">목</td>
-    <td width="26">금 </td>
-    <td width="26">토</td>
-    <td width="26">일</td>
+
     <td width="70">출발지</td>
     <td width="140">도착지</td>
     <td width="70">출발시간</td>
-    <td width="70">출발일</td>
-    <td width="70">수정</td>
-    <td width="70">삭제</td>
-  </tr>
-  <% for(int i=0;i<dtoL.size();i++){
-	  dto = (ScheduleListDTO)dtoL.get(i);
-	  int rno = dto.getR_No();
-	//  out.print(dto.getR_No()+dto.getC_ArrCity());
-   %>
-  <tr  >
-    <td><%=i+1 %></td>
-    <td><%=dto.getFn_air() %></td>
-    <td><%=dto.getFn_no() %></td>
-    <td>Y</td>
-    <td></td>
-    <td>Y</td>
-    <td>Y</td>
-    <td></td>
-    <td></td>
-    <td>Y</td>
-    <td><%=dto.getC_DepCity() %></td>
-    <td><%=dto.getC_ArrCity() %></td>
-    <td align="right"><%=dto.getS_DeptTime() %></td>
+    <td width="95">출발일</td>
+    <td width="70">좌석</td>
+    <td width="95">관리</td>
+   
+  </tr >
+   <% for(int i=0;i<dtoL.size();i++){
+	dto = dtoL.get(i);
+   %> 
+  <tr class="colum01" >
+    <td> <%=i+1 %></td>
+    <td><%=dto.getA_Name() %></td>
+    <td><%=dto.getAn_Name() %></td>
+
+    <td><%=dto.getC_DeptName() %></td>
+    <td><%=dto.getC_ArrtName()%></td>
+    <td ><%=dto.getS_DeptTime() %></td>
     <td><%= dto.getS_DepDay()%> </td>
-    <td><input type="button" value="수정" onclick="location.href='Admin_updateSchedule.jsp?r_No=<%=rno%>'"></td>
-    <td><input type="button" value="삭제" onclick="location.href='Admin_insertScheduleListDelete.jsp?r_No=<%=rno%>'"></td>
+    <td><%= dto.getS_Seattotal()%> </td>
+    
+    <td><input type="button" value="수정" onclick="location.href='Admin_updateSchedule.jsp?r_No=<%-- <%=rno%> --%>'">
+    <input type="button" value="삭제" onclick="location.href='Admin_insertScheduleListDelete.jsp?r_No=<%-- <%=rno%> --%>'"></td>
   </tr>
   <%} %>
 

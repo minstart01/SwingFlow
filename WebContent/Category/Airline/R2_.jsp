@@ -15,7 +15,7 @@
   });
   
   function sel(gubun){
-	  $('.sel' + gubun).css('background','yellow');
+	  $('.sel' + gubun).css('background','#ffe546');
 	  
   }
   
@@ -115,7 +115,7 @@ request.getParameter("seat_Class");
       <strong>인천(ICN)</strong></td>
     <td width="190" align="center"><input type="image" name="imageField" id="imageField" src="/SwingFlow/images/Airline/bg_join.jpg"></td>
     <td width="178">2014/09/30 <br />
-      <strong>도쿄/나리타(NRT)</strong></td>
+      <strong>나리타(NRT)</strong></td>
   </tr>
   <tr>
     <td colspan="3" style="color:#5e14cc;">( 탑승객 5명 : 성인&nbsp;2명, 소아: 2명, 유아: 1명)</td>
@@ -142,7 +142,7 @@ request.getParameter("seat_Class");
     <td>OZ108 </td>
     <td>인천 (ICN)</td>
     <td>09:00</td>
-    <td>도쿄/나리타    (NRT)</td>
+    <td>나리타    (NRT)</td>
     <td>11:10</td>
     <td>KA321</td>
     <td>02시간10분</td>
@@ -154,7 +154,7 @@ request.getParameter("seat_Class");
     <td>OZ102 </td>
     <td>인천 (ICN)</td>
     <td>10:20</td>
-    <td>도쿄/나리타    (NRT)</td>
+    <td>나리타    (NRT)</td>
     <td>12:30</td>
     <td>KA325</td>
     <td>02시간10분</td>
@@ -166,7 +166,7 @@ request.getParameter("seat_Class");
     <td>OZ107 </td>
     <td>인천 (ICN)</td>
     <td>13:30</td>
-    <td>도쿄/나리타    (NRT)</td>
+    <td>나리타    (NRT)</td>
     <td>16:00</td>
     <td>KA325</td>
     <td>02시간10분</td>
@@ -191,9 +191,9 @@ request.getParameter("seat_Class");
     <td width="50">좌석</td>
     <td width="60">선택</td>
   </tr>
-  <tr>
+  <tr class="sel3">
     <td>OZ105 </td>
-    <td>도쿄/나리타    (NRT)</td>
+    <td>나리타    (NRT)</td>
     <td>12:30</td>
     <td>인천 (ICN)</td>
     <td>15:00</td>
@@ -201,11 +201,11 @@ request.getParameter("seat_Class");
     <td>02시간30분</td>
     <td>9석</td>
     <td>
-    <input type="submit" name="button" id="button" value="선택" /></td>
+    <input type="submit" name="button" id="button" value="선택" onclick="sel(3)"/></td>
   </tr>
   <tr>
     <td>OZ103 </td>
-    <td>도쿄/나리타    (NRT)</td>
+    <td>나리타    (NRT)</td>
     <td>15:20</td>
     <td>인천 (ICN)</td>
     <td>17:30</td>
@@ -217,7 +217,7 @@ request.getParameter("seat_Class");
   </tr>
   <tr>
     <td>OZ108</td>
-    <td>도쿄/나리타    (NRT)</td>
+    <td>나리타    (NRT)</td>
     <td>19:00</td>
     <td>인천 (ICN)</td>
     <td>21:30</td>

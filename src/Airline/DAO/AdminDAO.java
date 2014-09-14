@@ -15,6 +15,7 @@ import Airline.Nation;
 import Airline.Schedule;
 import Airline.DTO.DbClose;
 import Airline.DTO.DbSet;
+import Airline.DTO.ScheduleList;
 
 
 
@@ -381,6 +382,38 @@ public int rDelete(int v_no){
 
 	return su;
 	
+}
+
+public ArrayList<ScheduleList> scheduleList(){
+	conn= Movie.DAO.DbSet.getConnection();
+	sql="select a.A_NAME, an.an_name, c.c_name, c1.c_name, s.S_DEPTTIME, to_char(s.S_DEPDAY,'yyyy-mm-dd'), s.S_SEATTOTAL from airline a, airlineno an, city c, schedule s, city c1 where a.a_code = an.a_code and an.an_code = s.an_code and c.c_code = s.c_code and c1.c_code = s.c_code2";
+	ArrayList<ScheduleList> dtoL = new ArrayList<>();
+	try {
+		pstmt = conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+		
+		while (rs.next()) {
+			
+			ScheduleList dto = new ScheduleList();
+			dto.setA_Name(rs.getString(1));
+			dto.setAn_Name(rs.getString(2));
+			dto.setC_DeptName(rs.getString(3));
+			dto.setC_ArrtName(rs.getString(4));
+			dto.setS_DeptTime(rs.getString(5));
+			dto.setS_DepDay(rs.getString(6));
+			dto.setS_Seattotal(rs.getInt(7));
+			
+			dtoL.add(dto);
+			
+		}
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally{DbClose.close(pstmt, conn, rs);
+	}
+	
+	return dtoL;
 }
 
 }

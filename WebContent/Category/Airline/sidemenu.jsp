@@ -79,6 +79,7 @@
 		</ul>
 				<ul>
 		<h4 style="color: white;">관리자페이지</h4>
+		<li><a href="/SwingFlow/Category/Airline/register/addNationAirline.jsp">신규노선등록</a></li>
 		  	<li><a href="/SwingFlow/Category/Airline/register/Admin_insertSchedule.jsp">스케줄관리</a></li>
 			 <li><a href="Admin_list.jsp">예약관리</a></li>
 			 <li><a href="Admin_memberlist.jsp">회원관리</a></li>
