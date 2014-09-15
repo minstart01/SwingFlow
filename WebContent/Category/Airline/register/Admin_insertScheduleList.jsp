@@ -85,7 +85,7 @@ text-align:center;
   <col width="26" span="6" />
   <col width="26" />
   <col width="70" span="6" />
-  <tr class="colum">
+  <tr class="colum" height="30">
     <td width="70">no.</td>
     <td width="95">항공사</td>
     <td width="70">편명</td>
@@ -101,7 +101,7 @@ text-align:center;
    <% for(int i=0;i<dtoL.size();i++){
 	dto = dtoL.get(i);
    %> 
-  <tr class="colum01" >
+  <tr class="colum01"  height="30" >
     <td> <%=i+1 %></td>
     <td><%=dto.getA_Name() %></td>
     <td><%=dto.getAn_Name() %></td>

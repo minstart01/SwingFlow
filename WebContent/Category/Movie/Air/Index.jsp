@@ -138,7 +138,7 @@
 					nextday++;
 
 				} else {
-					cal += "<td>";
+					cal += "<td class='day" + date + " cal_day'>";
 					cal += date;
 					cal += "</td>";
 					date++;
@@ -154,6 +154,11 @@
 		$("#curYearMonth").append(curYear + "년 " + curMonth + "월 ");
 		$("#datepi").append(cal);
 
+		$(".cal_day").click(function (e){
+			$('.cal_day').css("background","white");
+			$(this).css("background","yellow");
+			
+		});
 	}
 
 	function ViewNextMonth() {
@@ -201,7 +206,7 @@
 					nextday++;
 
 				} else {
-					cal += "<td>";
+					cal += "<td class='day" + date + " cal_day'>";
 					cal += date;
 					cal += "</td>";
 					date++;
@@ -217,6 +222,11 @@
 		$("#curYearMonth").append(curYear + "년 " + curMonth + "월 ");
 		$("#datepi").append(cal);
 
+		$(".cal_day").click(function (e){
+			$('.cal_day').css("background","white");
+			$(this).css("background","yellow");
+			
+		});
 	}
 		
 
@@ -231,9 +241,26 @@
 	
 	$(function() {
 		$(".cal_day").click(function (e){
+			$('.cal_day').css("background","white");
 			$(this).css("background","yellow");
+
+			var month = $('.currunt_month').text();
+			var year = month.substring(0,4);
+			var month01= month.substring(6,7);
+			
+			if(month01<10){
+				month01 = "0"+month01;
+			}
+			
+			$('.cal_text01').val(year+"-"+month01+"-"+$(this).text());
+			$("#divPlayDate").hide();
+			$('#divPlayDate01').show();
+			
+			
 		});
 	});
+	
+	
 	
 	
 </script>
@@ -445,7 +472,7 @@
  
 
 /* 달력 테두리 */
-#divPlayDate {
+.divPlayDate {
 	width: 210px;
 /* 	height: 275px;
 	 */
@@ -586,7 +613,7 @@
     <div style="width:295px; height:38px;">
     <div class="cal_btn01">
     <img src="/SwingFlow/images/Airline/btn_calendar3.gif" id="cal_btn1" onclick="calon();" />
-   <div id="divPlayDate" style="position:absolute; z-index: 9999; background: white; display: none;">
+   <div id="divPlayDate" class="divPlayDate" style="position:absolute; z-index: 9999; background: white; display: none;">
 						<div id="cal_wrap" style="display: block;">
 							<div class="cal">
 								<div class="nowcal">
@@ -611,6 +638,24 @@
     
     <div class="cal_btn02">
     <img src="/SwingFlow/images/Airline/btn_calendar3.gif" />
+    <div id="divPlayDate01" class="divPlayDate" style="position:absolute; z-index: 9999; background: white; display: none;">
+						<div id="cal_wrap" style="display: block;">
+							<div class="cal">
+								<div class="nowcal">
+									<div class="prev_month">
+										<a href="javascript:ViewPrevMonth();"><span>이전달</span></a>
+									</div>
+									<div class="currunt_month" id="curYearMonth"></div>
+									<div class="next_month">
+										<a href="javascript:ViewNextMonth();"><span>다음달</span></a>
+									</div>
+								</div>
+								<div id="datepi"></div>
+
+							</div>
+						</div>
+					</div>
+    
     <span>
     	<input type="text" class="cal_text02" />
     </span>
