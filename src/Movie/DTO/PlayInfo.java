@@ -8,14 +8,7 @@ public class PlayInfo {
 	
 	public PlayInfo(){}
 
-	public PlayInfo(int miNo, int pArea, String pPlayStart) {
-		super();
-		this.miNo = miNo;
-		this.pArea = pArea;
-		this.pPlayStart = pPlayStart;
-	}
 	
-
 	public PlayInfo(int pArea, String pPlayStart) {
 		super();
 		this.pArea = pArea;
