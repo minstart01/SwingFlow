@@ -36,7 +36,7 @@
 	var curYear = today.getFullYear();
 	var isdate = new Date();
 	$(function() {
-		$("#curYearMonth").append(curYear + "년 " + curMonth + "월 ");
+		$(".curYearMonth").append(curYear + "년 " + curMonth + "월 ");
 		var endDay = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
 		var startDay = new Date(curYear, curMonth - 1, 1);
 
@@ -90,12 +90,12 @@
 		}
 		cal += "</table>";
 
-		$("#datepi").append(cal);
+		$(".datepi").append(cal);
 	});
 
 	function ViewPrevMonth() {
-		$("#datepi").empty();
-		$("#curYearMonth").empty();
+		$(".datepi").empty();
+		$(".curYearMonth").empty();
 
 		curMonth--;
 		if (curMonth == 0) {
@@ -151,19 +151,32 @@
 		}
 		cal += "</table>";
 
-		$("#curYearMonth").append(curYear + "년 " + curMonth + "월 ");
-		$("#datepi").append(cal);
+		$(".curYearMonth").append(curYear + "년 " + curMonth + "월 ");
+		$(".datepi").append(cal);
 
 		$(".cal_day").click(function (e){
 			$('.cal_day').css("background","white");
 			$(this).css("background","yellow");
+
+			var month = $('.currunt_month').text();
+			var year = month.substring(0,4);
+			var month01= month.substring(6,7);
+			
+			if(month01<10){
+				month01 = "0"+month01;
+			}
+			
+			$('.cal_text01').val(year+"-"+month01+"-"+$(this).text());
+			$("#divPlayDate").hide();
+			$('#divPlayDate01').show();
+			
 			
 		});
 	}
 
 	function ViewNextMonth() {
-		$("#datepi").empty();
-		$("#curYearMonth").empty();
+		$(".datepi").empty();
+		$(".curYearMonth").empty();
 		curMonth++;
 
 		if (curMonth == 13) {
@@ -219,27 +232,9 @@
 		}
 		cal += "</table>";
 
-		$("#curYearMonth").append(curYear + "년 " + curMonth + "월 ");
-		$("#datepi").append(cal);
+		$(".curYearMonth").append(curYear + "년 " + curMonth + "월 ");
+		$(".datepi").append(cal);
 
-		$(".cal_day").click(function (e){
-			$('.cal_day').css("background","white");
-			$(this).css("background","yellow");
-			
-		});
-	}
-		
-
-	function calon() {
-	 	$("#divPlayDate").show();
-		$("#cal_btn1").attr("onclick","caloff()");
-	}
-	function caloff() {
-		$("#divPlayDate").hide();
-		$("#cal_btn1").attr("onclick","calon()");
-	}
-	
-	$(function() {
 		$(".cal_day").click(function (e){
 			$('.cal_day').css("background","white");
 			$(this).css("background","yellow");
@@ -258,13 +253,234 @@
 			
 			
 		});
+	}
+		
+
+	function calon() {
+	 	$("#divPlayDate").show();
+		$("#cal_btn1").attr("onclick","caloff()");
+	}
+	function caloff() {
+		$("#divPlayDate").hide();
+		$("#cal_btn1").attr("onclick","calon()");
+	}
+	
+	function calon1() {
+	 	$("#divPlayDate01").show();
+		$("#cal_btn2").attr("onclick","caloff1()");
+	}
+	function caloff1() {
+		$("#divPlayDate01").hide();
+		$("#cal_btn2").attr("onclick","calon1()");
+	}
+	
+	$(function() {
+		$("#divPlayDate .cal_day").click(function (e){
+			$('#divPlayDate .cal_day').removeClass('cal_dayyelow');
+			$(this).addClass('cal_dayyelow');
+
+			var month = $('.currunt_month').text();
+			var year = month.substring(0,4);
+			var month01= month.substring(6,7);
+			var day = $(this).text();
+			if(day<10){
+				day = "0"+day;
+			}
+			
+			if(month01<10){
+				month01 = "0"+month01;
+			}
+			
+			
+			
+			$('.cal_text01').val(year+"-"+month01+"-"+ day);
+			$("#divPlayDate").hide();
+			$('#divPlayDate01').show();
+			
+			
+		});
+		
+		$("#divPlayDate01 .cal_day").click(function (e){
+			$('#divPlayDate01 .cal_day').removeClass('cal_dayyelow');
+			$(this).addClass('cal_dayyelow');
+
+			var month = $('.currunt_month').text();
+			var year = month.substring(0,4);
+			var month01= month.substring(6,7);
+			var day = $(this).text();
+			if(day<10){
+				day = "0"+day;
+			}
+			
+			if(month01<10){
+				month01 = "0"+month01;
+			}
+			
+			$('.cal_text02').val(year+"-"+month01+"-"+ day);
+			$("#divPlayDate01").hide();			
+			
+		});
+
+		
+		
+	});
+
+	/* 도시리스트 =====================================================================================================*/
+	$(function(){
+		$('#btn_city').click(function(e){
+			$('#city').show();
+		});
+	});
+	$(function(){
+		$('#btn_city01').click(function(e){
+			$('#city01').show();
+		});
 	});
 	
+	  $(function(){
+
+	    $('#kr01').click(function(e){
+	    	$('#EA').hide();
+	    	$('#US').hide();
+	    	$('#JP').hide();
+	    	$('#CH').hide();
+	    	$('#KR').show();
+		});	
+	});
+	$(function(){
+		$('#CH').hide();	
+		$('#ch01').click(function(e){
+	    	$('#EA').hide();
+	    	$('#US').hide();
+			$('#KR').hide();
+			$('#JP').hide();
+			$('#CH').show();
+		});	
+	});	
+	$(function(){
+		$('#JP').hide();	
+		$('#jp01').click(function(e){
+	    	$('#EA').hide();
+	    	$('#US').hide();
+			$('#KR').hide();
+			$('#CH').hide();
+			$('#JP').show();
+		});	
+	});	
+	$(function(){
+		$('#EA').hide();	
+		$('#ea01').click(function(e){
+	    	$('#JP').hide();
+	    	$('#US').hide();
+			$('#KR').hide();
+			$('#CH').hide();
+			$('#EA').show();
+		});	
+	});	
+	$(function(){
+		$('#US').hide();	
+		$('#us01').click(function(e){
+	    	$('#JP').hide();
+	    	$('#EA').hide();
+			$('#KR').hide();
+			$('#CH').hide();
+			$('#US').show();
+		});	
+	});	
+	$(function(){
+		$('#btn_search4').click(function(){
+			$('#city').show();
+		});
+	});
+	$(function(){
+		$('.citylist').click(function(){
+			$('.search_text01').val($(this).text());
+			$('#city').hide();
+		});
+	});
+
+	function close(){
+
+		$('#city').hide();
+	}	
+/* 도착도시 ====================================================*/
+  $(function(){
+
+    $('#kr02').click(function(e){
+    	$('#EA01').hide();
+    	$('#US01').hide();
+    	$('#JP01').hide();
+    	$('#CH01').hide();
+    	$('#KR01').show();
+	});	
+});
+$(function(){
+	$('#CH01').hide();	
+	$('#ch02').click(function(e){
+    	$('#EA01').hide();
+    	$('#US01').hide();
+		$('#KR01').hide();
+		$('#JP01').hide();
+		$('#CH01').show();
+	});	
+});	
+$(function(){
+	$('#JP01').hide();	
+	$('#jp02').click(function(e){
+    	$('#EA01').hide();
+    	$('#US01').hide();
+		$('#KR01').hide();
+		$('#CH01').hide();
+		$('#JP01').show();
+	});	
+});	
+$(function(){
+	$('#EA01').hide();	
+	$('#ea02').click(function(e){
+    	$('#JP01').hide();
+    	$('#US01').hide();
+		$('#KR01').hide();
+		$('#CH01').hide();
+		$('#EA01').show();
+	});	
+});	
+$(function(){
+	$('#US01').hide();	
+	$('#us02').click(function(e){
+    	$('#JP01').hide();
+    	$('#EA01').hide();
+		$('#KR01').hide();
+		$('#CH01').hide();
+		$('#US01').show();
+	});	
+});	
+$(function(){
+	$('#btn_search5').click(function(){
+		$('#city01').show();
+	});
+});
+$(function(){
+	$('.citylist01').click(function(){
+		$('.search_text02').val($(this).text());
+		$('#city01').hide();
+	});
+});
+
+function close01(){
+
+	$('#city01').hide();
+}
 	
+function next_menu(){
 	
+}	
 	
 </script>
 <style>
+.cal_dayyelow{
+	background: yellow;
+}
+
 .cal_day:hover{
 	background: #dfddda;
 	cursor:pointer;
@@ -453,11 +669,11 @@
 </style>
 
 <style type="text/css">
-#cal_wrap .cal {
+.cal_wrap .cal {
 	padding: 15px 10px 15px 10px;
 }
 /* 달력 */
-#cal_wrap {
+.cal_wrap {
 	border: 1px solid #4f4f4f;
 	background-color: #fff;
 	
@@ -483,12 +699,12 @@
 }
 
 
-#cal_wrap .nowcal {
+.cal_wrap .nowcal {
 	font-size: 12px;
 	font-weight: bold;
 	height: 20px;
 }
-#cal_wrap table {
+.cal_wrap table {
 	clear: both;
 	font: normal 12px/30px verdana;
 	text-align: center;
@@ -498,7 +714,7 @@
 	border-collapse: collapse;
 	width: 100%;
 }
-#cal_wrap td {
+.cal_wrap td {
 	border-right: 0px solid #dbdbdb;
 	border-top: 1px solid #dbdbdb;
 	border-bottom: 1px solid #dbdbdb;
@@ -507,22 +723,22 @@
 	height: 17px;
 	text-align: center;
 }
-#cal_wrap .another_month {
+.cal_wrap .another_month {
 	color: #b7b3b3;
 	background-color: #fff;
 }
-#cal_wrap .ableDay {
+.cal_wrap .ableDay {
 	font-weight: normal;
 	color: #505050;
 	background-color: #edf1fb;
 	cursor: pointer;
 }
-#cal_wrap .selected {
+.cal_wrap .selected {
 	background-color: #8093ce;
 	color: #fff;
 	font-weight: bold;
 }
-#cal_wrap .week td {
+.cal_wrap .week td {
 	background-color: #dbdbdb;
 	border: 0px solid red;
 	cursor: default;
@@ -530,27 +746,27 @@
 }
 
 
-#cal_wrap .prev_month {
+.cal_wrap .prev_month {
 	float: left;
 	width: 17px;
 }
-#cal_wrap .currunt_month {
+.cal_wrap .currunt_month {
 	float: left;
 	font-weight: bold;
 	font-family: verdana;
 	text-align: center;
 	width: 150px;
 }
-#cal_wrap .currunt_month {
+.cal_wrap .currunt_month {
 	font: bold 11px/13px dotum, Verdana;
 	text-align: center;
 	width: 140px;
 }
-#cal_wrap .next_month {
+.cal_wrap .next_month {
 	float: right;
 	width: 17px;
 }
-#cal_wrap .next_month a {
+.cal_wrap .next_month a {
 	background: url(http://movie-img.yes24.com/reserve/b_date_ar_right.gif) 0 0 no-repeat;
 	width: 14px;
 	height: 13px;
@@ -564,15 +780,54 @@
 }
 
 
-#cal_wrap span {
+.cal_wrap span {
 	display: none;
 }
-#cal_wrap .prev_month a {
+.cal_wrap .prev_month a {
 	background: url(http://movie-img.yes24.com/reserve/b_date_ar_left.gif) 0 0 no-repeat;
 	width: 14px;
 	height: 13px;
 	display: block;
 }
+
+/*도시 리스트 ===================================== */
+.remove {
+list-style: none;
+padding-left: 0px;
+margin-top: 0px;
+
+}
+.remove li a {
+text-decoration: none;
+color:black;
+}
+.remove01 ul li a{
+text-decoration: none;
+color:black;
+}	
+
+.remove li{
+	padding:5px 0px 5px 10px;
+	border-bottom: 1px solid #d2d2f0;
+	margin-left: 0px;
+}
+ #KR li, #CH li, #JP li, #EA li, #US li, #KR01 li, #CH01 li, #JP01 li, #EA01 li, #US01 li {
+ 	padding: 5px 0px 5px 0px;
+ 
+ 	
+ }
+
+ #kr01, #ch01, #jp01, #ea01, #us01, #kr02, #ch02, #jp02, #ea02, #us02{
+ 	background: #f2f2f2;
+ }
+
+
+ #kr01:hover, #ch01:hover, #jp01:hover, #ea01:hover, #us01:hover, #kr02:hover, #ch02:hover, #jp02:hover, #ea02:hover, #us02:hover{
+ 	font-weight: bold;
+ 	background:white;
+ 	color:#201cb4;
+ 	cursor: pointer;
+ }
 </style>
 </head>
 
@@ -583,6 +838,7 @@
 
 		<div id="main_content">
 		<div class="main_content">
+		<form action="R2_.jsp" name="next">
 	<div class="top_btn">
 	<div class="btn01 btn" onclick="select(1,2);">
     왕복
@@ -593,7 +849,52 @@
     </div>
     
     <div class="search_btn01">
-    <img src="/SwingFlow/images/Airline/btn.gif" />
+    <img src="/SwingFlow/images/Airline/btn.gif" id="btn_city" />
+    <!-- 	도시 리스트------------------------------------------------------- -->
+	<div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
+<div style="padding: 8px 0px 13px 8px; border-bottom: 1px solid #d2d2f0">출발 예정도시를 선택하세요.<a href="javascript:close();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
+<div style="width:130px; height:240px; float:left;">
+<ul class="remove">
+<li id="kr01">한 국</li>
+<li id="jp01">일 본</li>
+<li id="ch01">중 국</li>
+<li id="ea01">동남아시아</li>
+<li id="us01">미 국</li>
+</ul>
+
+</div>
+<div style="width:180px; height:480px; float:left;" class="remove01">
+<ul id="KR">
+	<li><a href="#none" class="citylist">인천 (ICN)</a></li>
+	<li><a href="#none" class="citylist">김포 (GMP)</a></li>
+	<li><a href="#none" class="citylist">부산 (PUS)</a></li>
+	</ul>
+	<ul id="CH">
+	<li><a href="#none" class="citylist">베이징(BJS)</a></li>
+	<li><a href="#none" class="citylist">홍콩(HKG)</a></li>
+	</ul>
+	<ul id="JP">
+	<li><a href="#none" class="citylist">도쿄/나리타 (NRT)</a></li>
+	<li><a href="#none" class="citylist">하네다(HND)</a></li>
+	<li><a href="#none" class="citylist">오사카(간사이)(OSA)</a></li>
+	</ul>
+	<ul id="EA">
+	<li><a href="#none" class="citylist">방콕</a></li>
+	<li><a href="#none" class="citylist">세부(HND)</a></li>
+	<li><a href="#none" class="citylist">싱가폴(OSA)</a></li>
+	<li><a href="#none" class="citylist">푸켓</a></li>
+	</ul>
+	<ul id="US">
+	<li><a href="#none" class="citylist">로스앤젤레스 (LAX)</a></li>
+	<li><a href="#none" class="citylist">샌프란시스코 (SFO)</a></li>
+	<li><a href="#none" class="citylist">뉴욕(JFK)</a></li>
+	<li><a href="#none" class="citylist">시애틀 (SEA)</a></li>
+    <li><a href="#none" class="citylist">시카고(ORD)</a></li>
+	</ul>
+</div>
+
+</div>
+<!-- 	도시 리스트------------------------------------------------------- -->
     <span style="width:256px; margin-left:-6px;">
     	<input type="text" class="search_text01" />
     </span>
@@ -601,7 +902,52 @@
     </div>
     
     <div class="search_btn02">
-    <img src="/SwingFlow/images/Airline/btn.gif" />
+    <img src="/SwingFlow/images/Airline/btn.gif" id="btn_city01"/>
+    <!-- 	도시 리스트------------------------------------------------------- -->
+     <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city01">
+<div style="padding: 8px 0px 13px 8px; border-bottom: 1px solid #d2d2f0">도착 예정도시를 선택하세요.<a href="javascript:close01();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
+<div style="width:130px; height:240px; float:left;">
+<ul class="remove">
+<li id="kr02">한 국</li>
+<li id="jp02">일 본</li>
+<li id="ch02">중 국</li>
+<li id="ea02">동남아시아</li>
+<li id="us02">미 국</li>
+</ul>
+
+</div>
+<div style="border:1px solid red; width:180px; height:200px; float:left;" class="remove01">
+<ul id="KR01">
+	<li><a href="#none" class="citylist01">인천 (ICN)</a></li>
+	<li><a href="#none" class="citylist01">김포 (GMP)</a></li>
+	<li><a href="#none" class="citylist01">부산 (PUS)</a></li>
+	</ul>
+	<ul id="CH01">
+	<li><a href="#none" class="citylist01">베이징(BJS)</a></li>
+	<li><a href="#none" class="citylist01">홍콩(HKG)</a></li>
+	</ul>
+	<ul id="JP01">
+	<li><a href="#none" class="citylist01">도쿄/나리타 (NRT)</a></li>
+	<li><a href="#none" class="citylist01">하네다(HND)</a></li>
+	<li><a href="#none" class="citylist01">오사카(간사이)(OSA)</a></li>
+	</ul>
+	<ul id="EA01">
+	<li><a href="#none" class="citylist01">방콕</a></li>
+	<li><a href="#none" class="citylist01">세부(HND)</a></li>
+	<li><a href="#none" class="citylist01">싱가폴(OSA)</a></li>
+	<li><a href="#none" class="citylist01">푸켓</a></li>
+	</ul>
+	<ul id="US01">
+	<li><a href="#none" class="citylist01">로스앤젤레스 (LAX)</a></li>
+	<li><a href="#none" class="citylist01">샌프란시스코 (SFO)</a></li>
+	<li><a href="#none" class="citylist01">뉴욕(JFK)</a></li>
+	<li><a href="#none" class="citylist01">시애틀 (SEA)</a></li>
+    <li><a href="#none" class="citylist01">시카고(ORD)</a></li>
+	</ul>
+</div>
+
+</div>
+<!-- 	도시 리스트------------------------------------------------------- -->
     <span style="width:256px; margin-left:-6px;">
     	<input type="text" class="search_text02" />
     </span>
@@ -614,18 +960,18 @@
     <div class="cal_btn01">
     <img src="/SwingFlow/images/Airline/btn_calendar3.gif" id="cal_btn1" onclick="calon();" />
    <div id="divPlayDate" class="divPlayDate" style="position:absolute; z-index: 9999; background: white; display: none;">
-						<div id="cal_wrap" style="display: block;">
+						<div class="cal_wrap" style="display: block;">
 							<div class="cal">
 								<div class="nowcal">
 									<div class="prev_month">
 										<a href="javascript:ViewPrevMonth();"><span>이전달</span></a>
 									</div>
-									<div class="currunt_month" id="curYearMonth"></div>
+									<div class="currunt_month curYearMonth"></div>
 									<div class="next_month">
 										<a href="javascript:ViewNextMonth();"><span>다음달</span></a>
 									</div>
 								</div>
-								<div id="datepi"></div>
+								<div class="datepi"></div>
 
 							</div>
 						</div>
@@ -637,20 +983,20 @@
     </div>
     
     <div class="cal_btn02">
-    <img src="/SwingFlow/images/Airline/btn_calendar3.gif" />
+    <img src="/SwingFlow/images/Airline/btn_calendar3.gif" id="cal_btn2" onclick="calon1();"  />
     <div id="divPlayDate01" class="divPlayDate" style="position:absolute; z-index: 9999; background: white; display: none;">
-						<div id="cal_wrap" style="display: block;">
+						<div  class="cal_wrap" style="display: block;">
 							<div class="cal">
 								<div class="nowcal">
 									<div class="prev_month">
 										<a href="javascript:ViewPrevMonth();"><span>이전달</span></a>
 									</div>
-									<div class="currunt_month" id="curYearMonth"></div>
+									<div class="currunt_month curYearMonth"></div>
 									<div class="next_month">
 										<a href="javascript:ViewNextMonth();"><span>다음달</span></a>
 									</div>
 								</div>
-								<div id="datepi"></div>
+								<div class="datepi"></div>
 
 							</div>
 						</div>
@@ -727,10 +1073,10 @@
         </div>
     	
         <div class="btn_box">
-        	<input type="button" value="항공편 조회하기" id="sel_btn"/>
+        	<input type="submit" value="항공편 조회하기" id="sel_btn" />
         </div>
     </div>
-    
+    </form>
 </div>	
 		
 			<div id="main">
@@ -798,7 +1144,7 @@
 							<div class="content_image">
 								<a href="R1_Regist.jsp"><img
 									style="border: 10px solid #FFF;" alt="image"
-									src="../../images/Airline/m1.png"></a>
+									src="/SwingFlow/images/Airline/m1.png"></a>
 								<div class="content_text">
 									<h2>항공권 예매</h2>
 									<p>
