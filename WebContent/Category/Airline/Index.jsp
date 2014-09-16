@@ -361,57 +361,6 @@
 				$("." + n_hidden).show();
 		  		});	
 		  	});
-// 	$(function(){
-// 		$('#CH').hide();	
-// 		$('#ch01').click(function(e){
-// 	    	$('#EA').hide();
-// 	    	$('#US').hide();
-// 			$('#KR').hide();
-// 			$('#JP').hide();
-// 			$('#CH').show();
-// 		});	
-// 	});	
-// 	$(function(){
-// 		$('#JP').hide();	
-// 		$('#jp01').click(function(e){
-// 	    	$('#EA').hide();
-// 	    	$('#US').hide();
-// 			$('#KR').hide();
-// 			$('#CH').hide();
-// 			$('#JP').show();
-// 		});	
-// 	});	
-// 	$(function(){
-// 		$('#EA').hide();	
-// 		$('#ea01').click(function(e){
-// 	    	$('#JP').hide();
-// 	    	$('#US').hide();
-// 			$('#KR').hide();
-// 			$('#CH').hide();
-// 			$('#EA').show();
-// 		});	
-// 	});	
-// 	$(function(){
-// 		$('#US').hide();	
-// 		$('#us01').click(function(e){
-// 	    	$('#JP').hide();
-// 	    	$('#EA').hide();
-// 			$('#KR').hide();
-// 			$('#CH').hide();
-// 			$('#US').show();
-// 		});	
-// 	});	
-// 	$(function(){
-// 		$('#btn_search4').click(function(){
-// 			$('#city').show();
-// 		});
-// 	});
-// 	$(function(){
-// 		$('.citylist').click(function(){
-// 			$('.search_text01').val($(this).text());
-// 			$('#city').hide();
-// 		});
-// 	});
 
 	function close(){
 
@@ -420,74 +369,29 @@
 /* 도착도시 ====================================================*/
   $(function(){
 
-    $('#kr02').click(function(e){
-    	$('#EA01').hide();
-    	$('#US01').hide();
-    	$('#JP01').hide();
-    	$('#CH01').hide();
-    	$('.kr01').show();
+    $('.kr02').click(function(e){
+    	$('.c_nation').show();
+
 	});	
 });
-$(function(){
-	$('#CH01').hide();	
-	$('#ch02').click(function(e){
-    	$('#EA01').hide();
-    	$('#US01').hide();
-		$('.kr01').hide();
-		$('#JP01').hide();
-		$('#CH01').show();
-	});	
-});	
-$(function(){
-	$('#JP01').hide();	
-	$('#jp02').click(function(e){
-    	$('#EA01').hide();
-    	$('#US01').hide();
-		$('.kr01').hide();
-		$('#CH01').hide();
-		$('#JP01').show();
-	});	
-});	
-$(function(){
-	$('#EA01').hide();	
-	$('#ea02').click(function(e){
-    	$('#JP01').hide();
-    	$('#US01').hide();
-		$('.kr01').hide();
-		$('#CH01').hide();
-		$('#EA01').show();
-	});	
-});	
-$(function(){
-	$('#US01').hide();	
-	$('#us02').click(function(e){
-    	$('#JP01').hide();
-    	$('#EA01').hide();
-		$('.kr01').hide();
-		$('#CH01').hide();
-		$('#US01').show();
-	});	
-});	
-$(function(){
-	$('#btn_search5').click(function(){
-		$('#city01').show();
-	});
-});
-$(function(){
-	$('.citylist01').click(function(){
-		$('.search_text02').val($(this).text());
-		$('#city01').hide();
-	});
-});
+
+// $(function(){
+// 	$('#btn_search5').click(function(){
+// 		$('#city01').show();
+// 	});
+// });
+// $(function(){
+// 	$('.citylist01').click(function(){
+// 		$('.search_text02').val($(this).text());
+// 		$('#city01').hide();
+// 	});
+// });
 
 function close01(){
 
 	$('#city01').hide();
 }
-	
-function next_menu(){
-	
-}	
+		
 	
 </script>
 <style>
@@ -837,12 +741,12 @@ color:black;
  	
  }
 
- .kr01, #ch01, #jp01, #ea01, #us01, #kr02, #ch02, #jp02, #ea02, #us02{
+ .kr01, #ch01, #jp01, #ea01, #us01, .kr02, #ch02, #jp02, #ea02, #us02{
  	background: #f2f2f2;
  }
 
 
- .kr01:hover, #ch01:hover, #jp01:hover, #ea01:hover, #us01:hover, #kr02:hover, #ch02:hover, #jp02:hover, #ea02:hover, #us02:hover{
+ .kr01:hover, #ch01:hover, #jp01:hover, #ea01:hover, #us01:hover, .kr02:hover, #ch02:hover, #jp02:hover, #ea02:hover, #us02:hover{
  	font-weight: bold;
  	background:white;
  	color:#201cb4;
@@ -910,49 +814,28 @@ for(int j=0; j<cityL.size(); j++ ){
     
     </div>
     
-    <div class="search_btn02">
+ <div class="search_btn02">
     <img src="/SwingFlow/images/Airline/btn.gif" id="btn_city01"/>
     <!-- 	도시 리스트------------------------------------------------------- -->
      <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city01">
 <div style="padding: 8px 0px 13px 8px; border-bottom: 1px solid #d2d2f0">도착 예정도시를 선택하세요.<a href="javascript:close01();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
 <div style="width:130px; height:240px; float:left;">
 <ul class="remove">
-<li id="kr02">한 국</li>
-<li id="jp02">일 본</li>
-<li id="ch02">중 국</li>
-<li id="ea02">동남아시아</li>
-<li id="us02">미 국</li>
+<li class="kr02"><%=nation.getN_Name() %></li>
+
 </ul>
 
 </div>
 <div style="border:1px solid red; width:180px; height:200px; float:left;" class="remove01">
-<ul id="KR01">
-	<li value="dd"><a href="#none" class="citylist01">인천 (ICN)</a></li>
-	<li><a href="#none" class="citylist01">김포 (GMP)</a></li>
-	<li><a href="#none" class="citylist01">부산 (PUS)</a></li>
+<ul class="c_nation">
+<% 
+for(int i=0; i<nationL.size(); i++){
+	nation = nationL.get(i); %>
+
+	<li value="<%=nation.getN_Code() %>"><a href="#none" class="citylist"><%=city.getC_Name() %></a></li> 
+	<%} %>
 	</ul>
-	<ul id="CH01">
-	<li><a href="#none" class="citylist01">베이징(BJS)</a></li>
-	<li><a href="#none" class="citylist01">홍콩(HKG)</a></li>
-	</ul>
-	<ul id="JP01">
-	<li><a href="#none" class="citylist01">도쿄/나리타 (NRT)</a></li>
-	<li><a href="#none" class="citylist01">하네다(HND)</a></li>
-	<li><a href="#none" class="citylist01">오사카(간사이)(OSA)</a></li>
-	</ul>
-	<ul id="EA01">
-	<li><a href="#none" class="citylist01">방콕</a></li>
-	<li><a href="#none" class="citylist01">세부(HND)</a></li>
-	<li><a href="#none" class="citylist01">싱가폴(OSA)</a></li>
-	<li><a href="#none" class="citylist01">푸켓</a></li>
-	</ul>
-	<ul id="US01">
-	<li><a href="#none" class="citylist01">로스앤젤레스 (LAX)</a></li>
-	<li><a href="#none" class="citylist01">샌프란시스코 (SFO)</a></li>
-	<li><a href="#none" class="citylist01">뉴욕(JFK)</a></li>
-	<li><a href="#none" class="citylist01">시애틀 (SEA)</a></li>
-    <li><a href="#none" class="citylist01">시카고(ORD)</a></li>
-	</ul>
+	
 </div>
 
 </div>
