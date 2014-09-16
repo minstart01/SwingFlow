@@ -3,9 +3,6 @@
 <%@page import="Movie.DTO.MovieInfo"%>
 <%@page import="Movie.DTO.Charge"%>
 <%@page import="Movie.DAO.MovieDAO"%>
-
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean id="dto" class="Movie.DTO.MovieInfo"></jsp:useBean>
@@ -19,26 +16,28 @@
 	
 	int info = dao.MovieInfo(dto); 
 	int insert = dao.MovieInsert(dto1);
+	int charge = dao.Charge(dto3);
 	int play=0;
 	
 	int length = Integer.parseInt(request.getParameter("playinfo"));
 
-	for(int i=1;i<=length;i++){
+	out.print(length);
+	 for(int i=1;i<=length;i++){
 		int pArea = Integer.parseInt(request.getParameter("pArea" + i));
 		String pPlayStart = request.getParameter("pPlayStart" + i);
 	
-		PlayInfo dto2 = new PlayInfo(pArea, pPlayStart);
+		PlayInfo info2 = new PlayInfo(pArea, pPlayStart);
 	
-		play = dao.PlayInfo(dto2);
+		play = dao.PlayInfos(info2);
 
-		}
+		} 
 	
-
-	int charge = dao.Charge(dto3);
-
+ 	response.sendRedirect("ListMovie.jsp");
 	
 
-
-	response.sendRedirect("ListMovie.jsp");
-	
+	/* if(charge == 1 && play == 1 && insert == 1 && info ==1){
+		response.sendRedirect("TestList.jsp");
+	}else{
+		out.print("실패!!");
+	} */
 %>
