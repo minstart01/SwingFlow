@@ -61,7 +61,7 @@
 <nav id="sidebar" class="column-left">
 		<ul>
         <h4 style="color: white;">항공권 예매</h4>
-			<li class="li"><a href="/SwingFlow/Category/Airline/R1_.jsp">국제선</a></li>
+			<li class="li"><a href="/SwingFlow/Category/Airline/Index.jsp">국제선</a></li>
 			<li><a href="#">예약조회</a></li>
 		</ul>
 		<ul>

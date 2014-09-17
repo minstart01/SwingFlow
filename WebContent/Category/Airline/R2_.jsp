@@ -102,10 +102,12 @@ String dcity = request.getParameter("dep_city");
 String acity = request.getParameter("arr_city");
 String dday= request.getParameter("dep_day");
 String aday = request.getParameter("arr_day");
-// int adult = Integer.parseInt(request.getParameter("p_nAdult"));
-// int child = Integer.parseInt(request.getParameter("p_nChild"));
-// int infant = Integer.parseInt(request.getParameter("p_nInfant"));
-// String seat = request.getParameter("seat_Class");
+int adult = Integer.parseInt(request.getParameter("p_nAdult"));
+
+int child = Integer.parseInt(request.getParameter("p_nChild"));
+int infant = Integer.parseInt(request.getParameter("p_nInfant"));
+int ps_Total = adult+child+infant;
+String seat = request.getParameter("seat_Class");
 
 
 
@@ -129,7 +131,7 @@ String aday = request.getParameter("arr_day");
       <strong><%=acity %></strong></td>
   </tr>
   <tr>
-    <td colspan="3" style="color:#5e14cc;">( 탑승객 5명 : 성인&nbsp;2명, 소아: 2명, 유아: 1명)</td>
+    <td colspan="3" style="color:#5e14cc;">( 탑승객 <%=ps_Total %>명 : 성인&nbsp;<%=adult %>명, 소아: <%=child %>명, 유아: <%= infant %>명)</td>
   </tr>
 </table>
 </div>

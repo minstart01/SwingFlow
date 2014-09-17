@@ -1,3 +1,4 @@
+<%@page import="Airline.Seat"%>
 <%@page import="Airline.City"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Airline.Nation"%>
@@ -366,6 +367,7 @@
 		$(function(){
 			$('.citylist').click(function(e){
 				$('.search_text01').val($(this).text());
+				$('.search_text01').css('padding-left','7px');
 				$('#city').hide();
 			})			
 		});
@@ -393,9 +395,10 @@
 		$(function(){
 			$('.citylist01').click(function(e){
 				$('.search_text02').val($(this).text());
+				$('.search_text02').css('padding-left','7px');
 				$('#city01').hide();
 				$('.c_nation').hide();
-			})			
+			});			
 		});
 
 function close01(){
@@ -811,7 +814,7 @@ for(int j=0; j<cityL.size(); j++ ){
 	
 	%>
 
-	<li><a href="#none" class="citylist" ><%=city.getC_Name() %></a></li>
+	<li style="margin-bottom: 7px;"><a href="#none" class="citylist" ><%=city.getC_Name() %></a></li>
 <%} %>
 	</ul>
 <%} %>
@@ -926,43 +929,43 @@ for(int j=0; j<cityL.size(); j++){
     <div>
     	<div class="selectbox" >
         	<select class="select01" name="p_nAdult">
-            	<option>성인1</option>
-                <option>성인2</option>
-                <option>성인3</option>
-                <option>성인4</option>
-                <option>성인5</option>
-                <option>성인6</option>
-                <option>성인7</option>
-                <option>성인8</option>
-                <option>성인9</option>
+            	<option value="1">성인1</option>
+                <option value="2">성인2</option>
+                <option value="3">성인3</option>
+                <option value="4">성인4</option>
+                <option value="5">성인5</option>
+                <option value="6">성인6</option>
+                <option value="7">성인7</option>
+                <option value="8">성인8</option>
+                <option value="9">성인9</option>
             </select>
         </div>
         <div class="selectbox" >
         	<select class="select02" name="p_nChild">
-            	<option>소아0</option>
-            	<option>소아1</option>
-                <option>소아2</option>
-                <option>소아3</option>
-                <option>소아4</option>
-                <option>소아5</option>
-                <option>소아6</option>
-                <option>소아7</option>
-                <option>소아8</option>
-                <option>소아9</option>
+            	<option value="0">소아0</option>
+            	<option value="1">소아1</option>
+                <option value="2">소아2</option>
+                <option value="3">소아3</option>
+                <option value="4">소아4</option>
+                <option value="5">소아5</option>
+                <option value="6">소아6</option>
+                <option value="7">소아7</option>
+                <option value="8">소아8</option>
+                <option value="9">소아9</option>
             </select>
         </div>
         <div class="selectbox">
         	<select class="select03" name="p_nInfant">
-	            <option>유아0</option>
-            	<option>유아1</option>
-                <option>유아2</option>
-                <option>유아3</option>
-                <option>유아4</option>
-                <option>유아5</option>
-                <option>유아6</option>
-                <option>유아7</option>
-                <option>유아8</option>
-                <option>유아9</option>
+	            <option value="0">유아0</option>
+            	<option value="1">유아1</option>
+                <option value="2">유아2</option>
+                <option value="3">유아3</option>
+                <option value="4">유아4</option>
+                <option value="5">유아5</option>
+                <option value="6">유아6</option>
+                <option value="7">유아7</option>
+                <option value="8">유아8</option>
+                <option value="9">유아9</option>
             </select>
         </div>
 
@@ -977,12 +980,12 @@ for(int j=0; j<cityL.size(); j++){
         (0~2세)
         </div>
         </div>
-        
+  
     	<div>
 			<select class="sit_class" name="seat_Class">
-            	<option>트래블(일반석) 클래스</option>
-                <option>비지니스 클래스</option>
-                <option>퍼스트 클래스</option>
+            	<option>Travel</option>
+                <option>Business</option>
+                <option>First</option>
             </select>
         </div>
     	
