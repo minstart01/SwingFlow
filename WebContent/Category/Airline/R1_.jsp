@@ -312,10 +312,10 @@ function close01(){
 	<li><a href="#none" class="citylist">김포 (GMP)</a></li>
 	<li><a href="#none" class="citylist">부산 (PUS)</a></li>
 	</ul>
-	<ul id="CH">
+<ul id="CH">
 	<li><a href="#none" class="citylist">베이징(BJS)</a></li>
 	<li><a href="#none" class="citylist">홍콩(HKG)</a></li>
-	</ul>
+</ul>
 	<ul id="JP">
 	<li><a href="#none" class="citylist">도쿄/나리타 (NRT)</a></li>
 	<li><a href="#none" class="citylist">하네다(HND)</a></li>

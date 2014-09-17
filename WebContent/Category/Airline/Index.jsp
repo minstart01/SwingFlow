@@ -347,6 +347,7 @@
 	$(function(){
 		$('#btn_city01').click(function(e){
 			$('#city01').show();
+			$('#city_li ul:first').show();
 		});
 	});
 	
@@ -361,31 +362,41 @@
 				$("." + n_hidden).show();
 		  		});	
 		  	});
+	  
+		$(function(){
+			$('.citylist').click(function(e){
+				$('.search_text01').val($(this).text());
+				$('#city').hide();
+			})			
+		});
 
 	function close(){
 
 		$('#city').hide();
 	}	
+	
+
 /* 도착도시 ====================================================*/
   $(function(){
 
     $('.kr02').click(function(e){
-    	$('.c_nation').show();
+    	$('.remove01 ul').hide();
+    	var ncode=	$(this).val();
+    	
+    	$('.'+ncode).show();
+    
+    	//$('.c_nation').show();
 
 	});	
 });
-
-// $(function(){
-// 	$('#btn_search5').click(function(){
-// 		$('#city01').show();
-// 	});
-// });
-// $(function(){
-// 	$('.citylist01').click(function(){
-// 		$('.search_text02').val($(this).text());
-// 		$('#city01').hide();
-// 	});
-// });
+/* input 필드에 도시 추가  */
+		$(function(){
+			$('.citylist01').click(function(e){
+				$('.search_text02').val($(this).text());
+				$('#city01').hide();
+				$('.c_nation').hide();
+			})			
+		});
 
 function close01(){
 
@@ -809,7 +820,7 @@ for(int j=0; j<cityL.size(); j++ ){
 </div>
 <!-- 	도시 리스트------------------------------------------------------- -->
     <span style="width:256px; margin-left:-6px;">
-    	<input type="text" class="search_text01" />
+    	<input type="text" class="search_text01" name="dep_city"/>
     </span>
     
     </div>
@@ -821,35 +832,39 @@ for(int j=0; j<cityL.size(); j++ ){
 <div style="padding: 8px 0px 13px 8px; border-bottom: 1px solid #d2d2f0">도착 예정도시를 선택하세요.<a href="javascript:close01();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
 <div style="width:130px; height:240px; float:left;">
 <ul class="remove">
+
 <%
 for(int i=0; i<nationL.size(); i++){
 	nation = nationL.get(i); %>
-<li class="kr02"><%=nation.getN_Name() %></li>
+<li class="kr02" value="<%=nation.getN_Code()%>"><%=nation.getN_Name() %></li>
 <%} %>
 </ul>
 
 </div>
-<div style="border:1px solid red; width:180px; height:200px; float:left;" class="remove01">
-<ul class="c_nation">
-<% 
-ArrayList<City> cityL = dao.citynCodeSel(ncode);
+<div style="border:1px solid red; width:180px; height:200px; float:left;" class="remove01" id="city_li">
+<%
 for(int i=0; i<nationL.size(); i++){
-	nation = nationL.get(i);
+	nation = nationL.get(i); %>
 
-		
 
+<ul class="c_nation <%=nation.getN_Code()%>">
+
+<% 
+ArrayList<City> cityL = dao.citynCodeSel(nation.getN_Code());
+for(int j=0; j<cityL.size(); j++){
+	city = cityL.get(j);
 	%>
 
-	<li value="<%=nation.getN_Code() %>"><a href="#none" class="citylist"><%=city.getC_Name() %></a></li> 
+	<li value="<%=nation.getN_Code() %>"><a href="#none" class="citylist01"><%=city.getC_Name() %></a></li> 
 	<%} %>
 	</ul>
-	
+	<%} %>
 </div>
 
 </div>
 <!-- 	도시 리스트------------------------------------------------------- -->
     <span style="width:256px; margin-left:-6px;">
-    	<input type="text" class="search_text02" />
+    	<input type="text" class="search_text02" name="arr_city"/>
     </span>
     
     </div>
@@ -877,7 +892,7 @@ for(int i=0; i<nationL.size(); i++){
 						</div>
 					</div>
     <span>
-    	<input type="text" class="cal_text01" />
+    	<input type="text" class="cal_text01" name="dep_day"/>
     </span>
     
     </div>
@@ -903,15 +918,15 @@ for(int i=0; i<nationL.size(); i++){
 					</div>
     
     <span>
-    	<input type="text" class="cal_text02" />
+    	<input type="text" class="cal_text02" name="arr_day"/>
     </span>
     
     </div>
     </div>
     
     <div>
-    	<div class="selectbox">
-        	<select class="select01">
+    	<div class="selectbox" >
+        	<select class="select01" name="p_nAdult">
             	<option>성인1</option>
                 <option>성인2</option>
                 <option>성인3</option>
@@ -923,8 +938,8 @@ for(int i=0; i<nationL.size(); i++){
                 <option>성인9</option>
             </select>
         </div>
-        <div class="selectbox">
-        	<select class="select02">
+        <div class="selectbox" >
+        	<select class="select02" name="p_nChild">
             	<option>소아0</option>
             	<option>소아1</option>
                 <option>소아2</option>
@@ -938,7 +953,7 @@ for(int i=0; i<nationL.size(); i++){
             </select>
         </div>
         <div class="selectbox">
-        	<select class="select03">
+        	<select class="select03" name="p_nInfant">
 	            <option>유아0</option>
             	<option>유아1</option>
                 <option>유아2</option>
@@ -965,7 +980,7 @@ for(int i=0; i<nationL.size(); i++){
         </div>
         
     	<div>
-			<select class="sit_class">
+			<select class="sit_class" name="seat_Class">
             	<option>트래블(일반석) 클래스</option>
                 <option>비지니스 클래스</option>
                 <option>퍼스트 클래스</option>
