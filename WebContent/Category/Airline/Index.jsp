@@ -816,21 +816,29 @@ for(int j=0; j<cityL.size(); j++ ){
     
  <div class="search_btn02">
     <img src="/SwingFlow/images/Airline/btn.gif" id="btn_city01"/>
-    <!-- 	도시 리스트------------------------------------------------------- -->
+    <!-- 도착	도시 리스트------------------------------------------------------- -->
      <div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city01">
 <div style="padding: 8px 0px 13px 8px; border-bottom: 1px solid #d2d2f0">도착 예정도시를 선택하세요.<a href="javascript:close01();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>
 <div style="width:130px; height:240px; float:left;">
 <ul class="remove">
+<%
+for(int i=0; i<nationL.size(); i++){
+	nation = nationL.get(i); %>
 <li class="kr02"><%=nation.getN_Name() %></li>
-
+<%} %>
 </ul>
 
 </div>
 <div style="border:1px solid red; width:180px; height:200px; float:left;" class="remove01">
 <ul class="c_nation">
 <% 
+ArrayList<City> cityL = dao.citynCodeSel(ncode);
 for(int i=0; i<nationL.size(); i++){
-	nation = nationL.get(i); %>
+	nation = nationL.get(i);
+
+		
+
+	%>
 
 	<li value="<%=nation.getN_Code() %>"><a href="#none" class="citylist"><%=city.getC_Name() %></a></li> 
 	<%} %>
