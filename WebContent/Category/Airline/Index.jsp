@@ -895,8 +895,7 @@ for(int j=0; j<cityL.size(); j++){
     	<input type="text" class="cal_text01" name="dep_day"/>
     </span>
     
-    </div>
-    
+    </div>    
     <div class="cal_btn02">
     <img src="/SwingFlow/images/Airline/btn_calendar3.gif" id="cal_btn2" onclick="calon1();"  />
     <div id="divPlayDate01" class="divPlayDate" style="position:absolute; z-index: 9999; background: white; display: none;">
