@@ -8,6 +8,7 @@ public class ListMovies {
 	private String mEnd;
 	private String cTeen;
 	private String cAdult;
+	private int mCode;
 	
 	public ListMovies(){}
 
@@ -65,6 +66,14 @@ public class ListMovies {
 
 	public void setcAdult(String cAdult) {
 		this.cAdult = cAdult;
+	}
+
+	public int getmCode() {
+		return mCode;
+	}
+
+	public void setmCode(int mCode) {
+		this.mCode = mCode;
 	}
 		
 	

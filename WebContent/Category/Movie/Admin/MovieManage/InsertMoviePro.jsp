@@ -14,25 +14,36 @@
 <%
 	MovieDAO dao = new MovieDAO();
 	
-	int info = dao.MovieInfo(dto); 
+	 int info = dao.MovieInfo(dto); 
 	int insert = dao.MovieInsert(dto1);
 	int charge = dao.Charge(dto3);
-	int play=0;
-	
+	 int play=0;
+ 	
 	int length = Integer.parseInt(request.getParameter("playinfo"));
 
+	%>
+	<input type="hidden" name="length" value="<%=length %>">
+	<%
 	out.print(length);
 	 for(int i=1;i<=length;i++){
 		int pArea = Integer.parseInt(request.getParameter("pArea" + i));
 		String pPlayStart = request.getParameter("pPlayStart" + i);
 	
-		PlayInfo info2 = new PlayInfo(pArea, pPlayStart);
-	
-		play = dao.PlayInfos(info2);
+		%>
+				<input type="hidden" name="pArea<%=i %>" value="<%=pArea %>">
+		<input type="hidden" name="pPlayStart<%=i %>" value="<%=pPlayStart %>">
+		<%
+		
+		PlayInfo info2 = new PlayInfo();
+		
+		info2.setpArea(pArea);
+		info2.setpPlayStart(pPlayStart);
+		
+		play = dao.PlayInfos(info2); 
 
-		} 
+		}   
 	
- 	response.sendRedirect("ListMovie.jsp");
+	response.sendRedirect("ListMovie.jsp");
 	
 
 	/* if(charge == 1 && play == 1 && insert == 1 && info ==1){

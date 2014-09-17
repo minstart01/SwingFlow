@@ -93,14 +93,19 @@
         
     </tr>
 	<%
-		MovieDAO dao = new MovieDAO();
-		ArrayList<ListMovies> list = new ArrayList<ListMovies>();
-		ListMovies dto = new ListMovies();
 		
+		MovieDAO dao = new MovieDAO();
+		
+		ArrayList<ListMovies> list = new ArrayList<ListMovies>();
+		ArrayList<PlayInfo> plist = new ArrayList<PlayInfo>(); 
+			
 		list = dao.MovieList();
 		
+		ListMovies dto = new ListMovies();
+		PlayInfo dto1 = new PlayInfo();
+		
 		for(int i=0;i<list.size();i++){
-			dto = list.get(i);			
+			dto  = list.get(i);			
 	%>
     <tr>
     	<td><input type="checkbox" /></td>
@@ -108,18 +113,21 @@
         <td align="center"><%=dto.gettName() %></td>
         <td align="center"><%=dto.getmStart() %> ~ <%=dto.getmEnd() %></td>
         <td align="center">
-<%--          <%
+     <%
     	plist = dao.PlayTime(dto.getMiNo());
        
         	dto1 = plist.get(0);
         	%><%=dto1.getpArea() + "관 " + dto1.getpPlayStart() %>
-         --%>
-      <!--   10:00 &nbsp;&nbsp;&nbsp; 14:00 --></td>
+  
+      </td>
         <td align="center">학생(<%=dto.getcTeen() %>원) &nbsp; 성인(<%=dto.getcAdult() %>원)</td>
-        <td align="center"><input type="button" value="수정" /><a href="DeleteMovie.jsp?miNo=<%=dto.getMiNo() %>"><input type="button" value="삭제" /></a></td>
+        <td align="center"><input type="button" value="수정" /><a href="DeleteMovie.jsp?miNo=<%=dto.getMiNo() %>&mCode=<%=dto.getmCode()%>"><input type="button" value="삭제" /></a></td>
     </tr>
-	<%} %>
-   
+	<%}
+		
+			
+	%>
+	   
     </table>
 	</div>
     <div class="list_bt">

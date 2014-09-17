@@ -300,7 +300,7 @@ public class MovieDAO {
 	public ArrayList<ListMovies> MovieList(){
 		ArrayList<ListMovies> list = new ArrayList<ListMovies>();
 		conn = DbSet.getConnection();
-		sql = "SELECT MI.MINO, M.MNAME, T.TNAME, TO_CHAR(MI.MSTART,'YYYY-MM-DD'), TO_CHAR(MI.MEND,'YYYY-MM-DD'), TO_CHAR(C.CTEEN,'999,999'), TO_CHAR(C.CADULT,'999,999') FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, CHARGE C WHERE M.MCODE = MI.MCODE  AND MI.MINO = C.MINO AND T.TCODE = MI.TCODE";
+		sql = "SELECT MI.MINO, M.MNAME, T.TNAME, TO_CHAR(MI.MSTART,'YYYY-MM-DD'), TO_CHAR(MI.MEND,'YYYY-MM-DD'), TO_CHAR(C.CTEEN,'999,999'), TO_CHAR(C.CADULT,'999,999'), MI.MCODE FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, CHARGE C WHERE M.MCODE = MI.MCODE  AND MI.MINO = C.MINO AND T.TCODE = MI.TCODE";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -315,6 +315,7 @@ public class MovieDAO {
 				dto.setmEnd(rs.getString(5));
 				dto.setcTeen(rs.getString(6));
 				dto.setcAdult(rs.getString(7));				
+				dto.setmCode(rs.getInt(8));
 				
 				list.add(dto);
 			}
@@ -376,6 +377,27 @@ public class MovieDAO {
 		}
 		return su;
 	}
+	
+	public int DeleteMovieInfo(int mCode){
+		conn = DbSet.getConnection();
+		sql = "DELETE FROM MOVIEINFO WHERE MCODE=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mCode);
+			su = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;
+	}
+	
+	
+	
 	public String SearchMovie(String mName){
 		conn = DbSet.getConnection();
 		sql = "SELECT mName FROM MOVIEINFO WHERE mName LIKE ?";
