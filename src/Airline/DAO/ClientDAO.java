@@ -6,17 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Airline.AdultF;
-import Airline.Airline;
-import Airline.AirlineNo;
-import Airline.ChildF;
-import Airline.City;
-import Airline.Nation;
-import Airline.Schedule;
+
 import Airline.DTO.DbClose;
 import Airline.DTO.DbSet;
 import Airline.DTO.FlightSearch;
-import Airline.DTO.ScheduleList;
+
 
 
 
@@ -55,7 +49,7 @@ public class ClientDAO {
  public ArrayList<FlightSearch> flightSel(String dCity,String aCity, String dDay){
 	 conn = DbSet.getConnection();
 	 ArrayList<FlightSearch> dtoL = new ArrayList<>();
-	 sql="select a.a_name, an.an_name, c.c_Name, s.s_DeptTime, c1.c_name, s.s_ArrtTime, s.s_FlightTime, s.s_SeatTotal from airline a, airlineno an, city c, city c1, schedule s where a.a_code=an.a_code and an.an_Code=s.an_Code and s.c_Code=c.c_Code and c1.c_code=s.c_Code2 and s.s_depday=? and c.c_name=? and c1.c_name=?";
+	 sql="select a.a_name, an.an_name, c.c_Name, s.s_DeptTime, c1.c_name, s.s_ArrtTime, s.s_FlightTime, s.s_SeatTotal, s.s_code from airline a, airlineno an, city c, city c1, schedule s where a.a_code=an.a_code and an.an_Code=s.an_Code and s.c_Code=c.c_Code and c1.c_code=s.c_Code2 and s.s_depday=? and c.c_name=? and c1.c_name=?";
 	 try {
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1,dDay );
@@ -75,6 +69,7 @@ public class ClientDAO {
 			dto.setS_ArrtTime(rs.getString(6));
 			dto.setS_FlightTime(rs.getString(7));
 			dto.setS_SeatTotal(rs.getInt(8));
+			dto.setS_Code(rs.getInt(9));
 			
 			dtoL.add(dto);
 			
@@ -93,12 +88,12 @@ public class ClientDAO {
  public ArrayList<FlightSearch> flightSelarr(String dCity,String aCity, String aDay){
 	 conn = DbSet.getConnection();
 	 ArrayList<FlightSearch> dtoL = new ArrayList<>();
-	 sql="select a.a_name, an.an_name, c.c_Name, s.s_DeptTime, c1.c_name, s.s_ArrtTime, s.s_FlightTime, s.s_SeatTotal from airline a, airlineno an, city c, city c1, schedule s where a.a_code=an.a_code and an.an_Code=s.an_Code and s.c_Code=c.c_Code and c1.c_code=s.c_Code2 and s.s_depday=? and c.c_name=? and c1.c_name=?";
+	 sql="select a.a_name, an.an_name, c.c_Name, s.s_DeptTime, c1.c_name, s.s_ArrtTime, s.s_FlightTime, s.s_SeatTotal,s.s_code from airline a, airlineno an, city c, city c1, schedule s where a.a_code=an.a_code and an.an_Code=s.an_Code and s.c_Code=c.c_Code and c1.c_code=s.c_Code2 and s.s_depday=? and c.c_name=? and c1.c_name=?";
 	 try {
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1,aDay );
-		pstmt.setString(2, dCity);
-		pstmt.setString(3, aCity);
+		pstmt.setString(2, aCity);
+		pstmt.setString(3, dCity);
 	
 		rs = pstmt.executeQuery();
 		while(rs.next()){
@@ -113,7 +108,7 @@ public class ClientDAO {
 			dto.setS_ArrtTime(rs.getString(6));
 			dto.setS_FlightTime(rs.getString(7));
 			dto.setS_SeatTotal(rs.getInt(8));
-			
+			dto.setS_Code(rs.getInt(9));
 			dtoL.add(dto);
 			
 		}

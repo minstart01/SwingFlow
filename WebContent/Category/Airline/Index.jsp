@@ -778,6 +778,7 @@ color:black;
 		<div id="main_content">
 		<div class="main_content">
 		<form action="R2_.jsp" name="next">
+<input type="hidden" value="<%=%>">
 	<div class="top_btn">
 	<div class="btn01 btn" onclick="select(1,2);">
     왕복

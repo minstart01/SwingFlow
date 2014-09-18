@@ -811,7 +811,11 @@ table
     											
     <div class="listInner">
      
-     												
+<!--   여기부터 ----------------------------------------------------------------------------------------------------------------------	 -->
+<%
+String s_code = request.getParameter("s_Code");
+out.print(s_code);
+%>
      <ul id="itineraryList">
       <li>
         
