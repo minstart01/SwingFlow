@@ -2,30 +2,9 @@
 <%@page import="Airline.DAO.AdminDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:useBean id="schedule" class="Airline.Schedule" />
-
-<jsp:useBean id="adultF" class="Airline.AdultF" />
-<jsp:useBean id="childF" class="Airline.ChildF" />
-<jsp:useBean id="city" class="Airline.City" />
-
-
-<jsp:setProperty property="*" name="schedule" />
-<jsp:setProperty property="*" name="register" />
-<jsp:setProperty property="*" name="adultF" />
-<jsp:setProperty property="*" name="childF" />
-<jsp:setProperty property="*" name="city" />
-<jsp:setProperty property="*" name="flightNo" />
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Updert title here</title>
-</head>
-<body>
-	<%	
+<%	
  int s_code = Integer.parseInt(request.getParameter("s_Code"));
-// 	out.print(a);
+out.print(s_code);
 
  AdminDAO dao = AdminDAO.getInstance();
 int su = dao.sDelete(s_code);
@@ -39,10 +18,7 @@ if(su!=0){
 	url="Admin_insertScheduleList.jsp";
 }
 %>
- <script type="text/javascript">
+  <script type="text/javascript">
 alert("<%=msg%>");
 location.href="<%=url%>";
-</script>
- 
-</body>
-</html>
+</script> 

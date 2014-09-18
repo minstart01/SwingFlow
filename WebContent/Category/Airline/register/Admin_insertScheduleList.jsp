@@ -113,7 +113,7 @@ text-align:center;
     <td><%= dto.getS_Seattotal()%> </td>
     
     <td><input type="button" value="수정" onclick="location.href='Admin_updateSchedule.jsp?r_No=<%-- <%=rno%> --%>'">
-    <input type="button" value="삭제" onclick="location.href='Admin_insertScheduleListDelete.jsp?r_No=<%=dto.getS_Code()%>'"></td>
+    <input type="button" value="삭제" onclick="location.href='Admin_insertScheduleListDelete.jsp?s_Code=<%=dto.getS_Code()%>'"></td>
   </tr>
   <%} %>
 

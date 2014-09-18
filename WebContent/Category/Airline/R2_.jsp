@@ -180,30 +180,6 @@ String seat = request.getParameter("seat_Class");
     <input type="button" name="button" id="button" value="선택" onclick="sel(1)"/></td>
   </tr>
   <%} %> 
-  <tr class="sel2">
-    <td>OZ102 </td>
-    <td>인천 (ICN)</td>
-    <td>10:20</td>
-    <td>나리타    (NRT)</td>
-    <td>12:30</td>
-    <td>KA325</td>
-    <td>02시간10분</td>
-    <td>5석</td>
-    <td>
-    <input type="button" name="button" id="button" value="선택" onclick="sel(2)" /></td>
-  </tr>
-  <tr>
-    <td>OZ107 </td>
-    <td>인천 (ICN)</td>
-    <td>13:30</td>
-    <td>나리타    (NRT)</td>
-    <td>16:00</td>
-    <td>KA325</td>
-    <td>02시간10분</td>
-    <td>10석</td>
-    <td>
-    <input type="submit" name="button" id="button" value="선택" /></td>
-  </tr>
 </table>
 <p>&nbsp;</p>
 <p>
