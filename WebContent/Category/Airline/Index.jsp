@@ -43,6 +43,7 @@
 			$(".cal_btn02").show();	
 		}
 	}
+
 	
 	var today = new Date();
 	var curMonth = today.getMonth() + 1;
@@ -781,13 +782,13 @@ color:black;
 	<div class="btn01 btn" onclick="select(1,2);">
     왕복
     </div>
-    <div class="btn02 btn" onclick="select(2,1);">
+    <div class="btn02 btn" onclick="select(2,1);" >
     편도
     </div>
     </div>
     
     <div class="search_btn01">
-    <img src="/SwingFlow/images/Airline/btn.gif" id="btn_city" />
+    <img src="/SwingFlow/images/Airline/btn.gif" id="btn_city"/>
     <!-- 	도시 리스트------------------------------------------------------- -->
 	<div style="border:1px solid black; width:330px; height:400px; position:absolute; z-index: 9999; background: white; display:none;" id="city">
 <div style="padding: 8px 0px 13px 8px; border-bottom: 1px solid #d2d2f0">출발 예정도시를 선택하세요.<a href="javascript:close();" style="margin-left: 100px;"><img src="/SwingFlow/images/Airline/btn_close.gif" alt="출발 예정 도시 선택 팝업 닫기"> </a>   </div>

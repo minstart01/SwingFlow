@@ -1,3 +1,6 @@
+<%@page import="Airline.DTO.FlightSearch"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Airline.DAO.ClientDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,6 +21,11 @@
 	  $('.sel' + gubun).css('background','#ffe546');
 	  
   }
+  
+
+	var arr=  $('td #arrday').text();
+	  alert(arr);
+
   
   </script>
 <style>
@@ -110,7 +118,6 @@ int ps_Total = adult+child+infant;
 String seat = request.getParameter("seat_Class");
 
 
-
 %>
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <div id="wrapper">
@@ -127,7 +134,7 @@ String seat = request.getParameter("seat_Class");
     <td width="111"><%=dday %> <br />
       <strong><%=dcity %></strong></td>
     <td width="190" align="center"><input type="image" name="imageField" id="imageField" src="/SwingFlow/images/Airline/bg_join.jpg"></td>
-    <td width="178"><%=aday %><br />
+    <td width="178" id="arrday"><%=aday %><br />
       <strong><%=acity %></strong></td>
   </tr>
   <tr>
@@ -137,32 +144,40 @@ String seat = request.getParameter("seat_Class");
 </div>
 <p><span class="cnt"></span><strong style="color:#5e14cc"> 항공편을 선택하세요.</strong></p>
 <p>
-  <ul class="step02_on">
-  가는 항공편</ul></p>
+  <ul class="step02_on"> 가는 항공편</ul></p>
+
 <table cellspacing="0" cellpadding="6" border="1" style="text-align:center;">
   <tr class="colum">
+    <td width="75">항공사</td>
     <td width="45">편명</td>
     <td width="100">출발도시</td>
     <td width="35">출발시각</td>
     <td width="124">도착도시</td>
     <td width="35">도착시각</td>
-    <td width="75">기종</td>
     <td width="71">비행시간</td>
     <td width="50">좌석</td>
     <td width="60">선택</td>
   </tr>
+    <%
+  ClientDAO dao = ClientDAO.getInstance();
+  FlightSearch dto = new FlightSearch();
+  ArrayList<FlightSearch> dtoL = dao.flightSel(dcity, dday);
+  
+  for(int i=0; i<dtoL.size(); i++){
+	  dto = dtoL.get(i); %>
   <tr class="sel1">
-    <td>OZ108 </td>
-    <td>인천 (ICN)</td>
-    <td>09:00</td>
-    <td>나리타    (NRT)</td>
-    <td>11:10</td>
-    <td>KA321</td>
-    <td>02시간10분</td>
-    <td>9석</td>
+    <td><%=dto.getA_Name() %></td>
+    <td><%=dto.getAn_Name() %></td>
+    <td><%=dto.getC_Name() %></td>
+    <td><%=dto.getS_Deptime() %></td>
+    <td><%=dto.getC_Name() %></td>
+    <td><%=dto.getS_ArrtTime() %></td>
+    <td><%=dto.getS_FlightTime() %></td>
+    <td><%=dto.getS_SeatTotal() %>석</td>
     <td>
     <input type="button" name="button" id="button" value="선택" onclick="sel(1)"/></td>
   </tr>
+  <%} %>
   <tr class="sel2">
     <td>OZ102 </td>
     <td>인천 (ICN)</td>
