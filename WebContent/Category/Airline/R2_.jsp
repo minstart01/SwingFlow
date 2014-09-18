@@ -118,6 +118,8 @@ int ps_Total = adult+child+infant;
 String seat = request.getParameter("seat_Class");
 
 
+
+
 %>
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <div id="wrapper">
@@ -161,23 +163,23 @@ String seat = request.getParameter("seat_Class");
     <%
   ClientDAO dao = ClientDAO.getInstance();
   FlightSearch dto = new FlightSearch();
-  ArrayList<FlightSearch> dtoL = dao.flightSel(dcity, dday);
+  ArrayList<FlightSearch> dtoL = dao.flightSel(dcity, acity, dday);
   
   for(int i=0; i<dtoL.size(); i++){
 	  dto = dtoL.get(i); %>
   <tr class="sel1">
     <td><%=dto.getA_Name() %></td>
-    <td><%=dto.getAn_Name() %></td>
+    <td><%=dto.getAn_Name()%></td>
     <td><%=dto.getC_Name() %></td>
-    <td><%=dto.getS_Deptime() %></td>
-    <td><%=dto.getC_Name() %></td>
+    <td><%=dto.getS_DeptTime() %></td>
+    <td><%=dto.getC_Name1() %></td>
     <td><%=dto.getS_ArrtTime() %></td>
     <td><%=dto.getS_FlightTime() %></td>
     <td><%=dto.getS_SeatTotal() %>석</td>
     <td>
     <input type="button" name="button" id="button" value="선택" onclick="sel(1)"/></td>
   </tr>
-  <%} %>
+  <%} %> 
   <tr class="sel2">
     <td>OZ102 </td>
     <td>인천 (ICN)</td>
