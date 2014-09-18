@@ -366,12 +366,12 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
  }
  
 
-public int rDelete(int v_no){
+ public int sDelete(int s_code){
 	conn = DbSet.getConnection();
-	sql="DELETE FROM REGISTER WHERE R_NO = ?";
+	sql="DELETE FROM SCHEDULE WHERE S_CODE = ?";
 	try {
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, v_no);
+		pstmt.setInt(1, s_code);
 		su = pstmt.executeUpdate();
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block

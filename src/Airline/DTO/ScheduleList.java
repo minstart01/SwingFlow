@@ -8,6 +8,9 @@ public class ScheduleList {
 	String s_DeptTime;
 	String s_DepDay;
 	int s_Seattotal;
+	int s_Code;
+	
+	
 	public String getA_Name() {
 		return a_Name;
 	}
@@ -49,6 +52,12 @@ public class ScheduleList {
 	}
 	public void setS_Seattotal(int s_Seattotal) {
 		this.s_Seattotal = s_Seattotal;
+	}
+	public int getS_Code() {
+		return s_Code;
+	}
+	public void setS_Code(int s_Code) {
+		this.s_Code = s_Code;
 	}
 	
 	
