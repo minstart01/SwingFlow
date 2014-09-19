@@ -3,6 +3,20 @@
 <%@page import="Airline.DAO.ClientDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+
+String dcity = request.getParameter("dep_city");
+String acity = request.getParameter("arr_city");
+String dday= request.getParameter("dep_day");
+String aday = request.getParameter("arr_day");
+
+int adult = Integer.parseInt(request.getParameter("p_nAdult"));
+int child = Integer.parseInt(request.getParameter("p_nChild"));
+int infant = Integer.parseInt(request.getParameter("p_nInfant"));
+int ps_Total = adult+child+infant;
+String seat = request.getParameter("seat_Class");
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,19 +26,37 @@
   <script>
   $(function(){
 	  $('#FareComfirm').click(function(e){
-		  $('#dvResult').empty();
-		  $('#dvResult').load("R3_FareComfirm.jsp");
+		 var code= $('#code').val();
+		 var code1 = $('#code1').val();
+		 var adult = "<%=adult%>";
+		 var child = "<%=child%>";
+		 var infant = "<%=infant%>";
+		  $('#dvResult').empty();		  
+		  $('#dvResult').load("R3_FareComfirm.jsp?s_code="+code+"&s_code1="+code1+"&adult="+adult+"&child="+child+"&infant="+infant );
 	  });
   });
   
-  function sel(gubun){
-	  $('.sel' + gubun).css('background','#ffe546');
-	  var a = $('#sel_scode' + gubun).text();
-	  alert(a);
+//   function css_white(){
+// 	  $('css_white').css('background','white');
 	  
+//   }
+  
+  function sel(gubun){
+	  $('.css_white').css('background','white');
+	  $('.sel' + gubun).css('background','#ffe546');
+
+	//  alert(gubun);	  
+		$('#code').val(gubun);	 	  
   }
   
-
+  function sel1(gubun){
+	  $('.css_white1').css('background','white');
+	  $('.sel' + gubun).css('background','#ffe546');
+	//  alert(gubun);	  
+		$('#code1').val(gubun);	 	  
+  }
+  
+ // alert( $('#s_code1').val());
 
   
   </script>
@@ -102,26 +134,18 @@ color: #5c5f66;
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 </head>
 <body>
-<%
+<input type="hidden" id ="code" >
+<input type="hidden" id ="code1" >
 
-String dcity = request.getParameter("dep_city");
-String acity = request.getParameter("arr_city");
-String dday= request.getParameter("dep_day");
-String aday = request.getParameter("arr_day");
-int adult = Integer.parseInt(request.getParameter("p_nAdult"));
 
-int child = Integer.parseInt(request.getParameter("p_nChild"));
-int infant = Integer.parseInt(request.getParameter("p_nInfant"));
-int ps_Total = adult+child+infant;
-String seat = request.getParameter("seat_Class");
 
-%>
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <div id="wrapper">
 
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
+
 <p><input type="image" name="imageField" id="imageField" src="/SwingFlow/images/Airline/bl_hType01.gif"><strong style="color:#5e14cc; margin-left: 7px";>운임/항공편 선택</strong></p><div style="border-radius:15px; width:523px; height:83px; border:solid 1px black;">
 <form action="R3_FareComfirm.jsp" name="next_a">
 <table cellspacing="0" cellpadding="6">
@@ -160,7 +184,7 @@ String seat = request.getParameter("seat_Class");
   
   for(int i=0; i<dtoL.size(); i++){
 	  dto = dtoL.get(i); %>
-  <tr class="sel<%=dto.getS_Code()%>">
+  <tr class="css_white sel<%=dto.getS_Code()%>">
     <td><%=dto.getA_Name() %></td>
     <td><%=dto.getAn_Name()%></td>
     <td><%=dto.getC_Name() %></td>
@@ -169,7 +193,9 @@ String seat = request.getParameter("seat_Class");
     <td><%=dto.getS_ArrtTime() %></td>
     <td><%=dto.getS_FlightTime() %></td>
     <td><%=dto.getS_SeatTotal() %>석</td>
-    <td ><input type="button" name="sel_scode"  value="선택" onclick="sel(<%=dto.getS_Code()%>)"/></td>
+    
+    <td > <input type="hidden" value="<%=dto.getS_Code()%>" name="s_code">
+    <input type="submit" name="sel_scode"  value="선택" onclick="sel(<%=dto.getS_Code()%>)"/></td>
   </tr>
   <%} %> 
 </table>
@@ -194,7 +220,7 @@ String seat = request.getParameter("seat_Class");
   for(int i=0; i<dtoL1.size(); i++){
 	  dto = dtoL1.get(i);
   %>
-  <tr class="sel3">
+  <tr class="css_white1 sel<%=dto.getS_Code()%>">
     <td><%=dto.getA_Name() %></td>
     <td><%=dto.getAn_Name()%></td>
     <td><%=dto.getC_Name1() %></td>
@@ -204,37 +230,15 @@ String seat = request.getParameter("seat_Class");
     <td><%=dto.getS_FlightTime() %></td>
     <td><%=dto.getS_SeatTotal() %>석</td>
     <td>
-    <input type="hidden" value="<%=dto.getS_Code()%>" name="s_code1">
-    <input type="submit" name="button" id="button" value="선택" onclick="sel(3)"/></td>
+    
+    <input type="button" name="button"  value="선택" onclick="sel1(<%=dto.getS_Code()%>)"/></td>
   </tr>
   <%}%>
-  <tr>
-    <td>OZ103 </td>
-    <td>나리타    (NRT)</td>
-    <td>15:20</td>
-    <td>인천 (ICN)</td>
-    <td>17:30</td>
-    <td>KA325</td>
-    <td>02시간10분</td>
-    <td>9석</td>
-    <td>
-    <input type="submit" name="button" id="button" value="선택" /></td>
-  </tr>
-  <tr>
-    <td>OZ108</td>
-    <td>나리타    (NRT)</td>
-    <td>19:00</td>
-    <td>인천 (ICN)</td>
-    <td>21:30</td>
-    <td>KA325</td>
-    <td>02시간10분</td>
-    <td>3석</td>
-    <td>
-    <input type="submit" name="button" id="button" value="선택" /></td>
-  </tr>
+ 
 </table>
     <div class="div_button">
 	<input type="submit" value="이전단계" class="bt_login"/>
+	
   	<input type="button" value="운임확인" id="FareComfirm" class="bt_login"/>
 </div>
 

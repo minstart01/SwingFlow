@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -813,8 +814,12 @@ table
      
 <!--   여기부터 ----------------------------------------------------------------------------------------------------------------------	 -->
 <%
-String s_code = request.getParameter("s_Code");
-out.print(s_code);
+String s_code = request.getParameter("s_code");
+String s_code1 = request.getParameter("s_code1");
+int adult = Integer.parseInt(request.getParameter("adult"));
+int child = Integer.parseInt(request.getParameter("child"));
+int infant = Integer.parseInt(request.getParameter("infant"));
+out.print(s_code+s_code1+adult+child+infant );
 %>
      <ul id="itineraryList">
       <li>
@@ -895,18 +900,21 @@ out.print(s_code);
     											<input id="hidTotalPrice" type="hidden" value="2287900" />
     											<input id="hidCurrency" type="hidden" value="KRW" />
     											
+<!--  ===================   인원수, 운임	START  ========================================== -->
+    											
     <ul id="paxPriceArea">
      <li>
-      	<span class="leftCnt"><strong>성인 2</strong></span>	<span class="RightPrice">687,200 원</span>
+      	<span class="leftCnt"><strong>성인 <%=adult %></strong></span>	<span class="RightPrice">687,200 원</span>
      </li>
      <li>
-      	<span class="leftCnt"><strong>소아 2</strong></span>	<span class="RightPrice">547,200 원</span>
+      	<span class="leftCnt"><strong>소아 <%=child %></strong></span>	<span class="RightPrice">547,200 원</span>
      </li>
      <li>
-      	<span class="leftCnt"><strong>유아 1</strong></span>	<span class="RightPrice">0 원</span>
+      	<span class="leftCnt"><strong>유아 <%=infant %></strong></span>	<span class="RightPrice">0 원</span>
      </li>
     </ul>
-    
+     											
+<!--  ===================   인원수, 운임	END  ========================================== -->   
     											
     <p class="totalPrice" id="totalPrice">
      <strong>1,234,400 원</strong>
