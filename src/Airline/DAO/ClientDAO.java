@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
+
 import Airline.DTO.DbClose;
 import Airline.DTO.DbSet;
+import Airline.DTO.Fare;
 import Airline.DTO.FlightSearch;
 
 
@@ -122,5 +124,61 @@ public class ClientDAO {
 	 
  }
 
+ /*  운임 계산   */
+	public ArrayList<Fare> fareCount(int scode, String grade) {
+		conn = DbSet.getConnection();
+		ArrayList<Fare> dtoL = new ArrayList<>();
+		sql = "select af.a_" + grade + ", cf.c_"+grade+" from schedule s, adultf af, childf cf where s.s_code=af.s_code and s.s_code=cf.s_code and s.s_code=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, scode);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Fare dto = new Fare();
+				// A_TRAVEL A_BUSINESS A_FIRST C_TRAVEL C_BUSINESS C_FIRST
+
+				dto.setA_grade(rs.getInt(1));
+				dto.setC_grade(rs.getInt(2));
+
+				dtoL.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DbClose.close(pstmt, conn, rs);
+		}
+
+		return dtoL;
+
+	}
+	
+	public ArrayList<Fare> fareCountRe(int scode1, String grade) {
+		conn = DbSet.getConnection();
+		ArrayList<Fare> dtoL = new ArrayList<>();
+		sql = "select af.a_" + grade + ", cf.c_"+grade+" from schedule s, adultf af, childf cf where s.s_code=af.s_code and s.s_code=cf.s_code and s.s_code=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, scode1);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Fare dto = new Fare();
+				// A_TRAVEL A_BUSINESS A_FIRST C_TRAVEL C_BUSINESS C_FIRST
+
+				dto.setA_grade(rs.getInt(1));
+				dto.setC_grade(rs.getInt(2));
+
+				dtoL.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DbClose.close(pstmt, conn, rs);
+		}
+
+		return dtoL;
+
+	}	
 }
 

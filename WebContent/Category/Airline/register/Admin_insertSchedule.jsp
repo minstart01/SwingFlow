@@ -357,8 +357,8 @@ text-align:center;
 			        <td><input type="text" name="a_Travel" />
 			          원</td>
 			        <td class="colum">소 아</td>
-			        <td><input type="text" name="c_Travel" />
-			          원</td>
+			        <td id="t01"><input type="text" name="c_Travel" />
+			         원 </td>
 		          </tr>
 			      <tr>
 			        <td colspan="4" align="center">비지니스 운임</td>

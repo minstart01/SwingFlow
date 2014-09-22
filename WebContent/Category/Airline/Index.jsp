@@ -623,12 +623,12 @@ for(int j=0; j<cityL.size(); j++){
         (0~2세)
         </div>
         </div>
-  
+  <input type="hidden" >
     	<div>
 			<select class="sit_class" name="seat_Class">
-            	<option>Travel</option>
-                <option>Business</option>
-                <option>First</option>
+            	<option value="Travel">트래블(일반석) 클래스</option>
+                <option value="Business">비지니스 클래스</option>
+                <option value="First">퍼스트 클래스</option>
             </select>
         </div>
     	

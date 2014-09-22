@@ -13,8 +13,9 @@ String aday = request.getParameter("arr_day");
 int adult = Integer.parseInt(request.getParameter("p_nAdult"));
 int child = Integer.parseInt(request.getParameter("p_nChild"));
 int infant = Integer.parseInt(request.getParameter("p_nInfant"));
+String seat_Class = request.getParameter("seat_Class");
 int ps_Total = adult+child+infant;
-String seat = request.getParameter("seat_Class");
+//String seat = request.getParameter("seat_Class");
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,13 +27,29 @@ String seat = request.getParameter("seat_Class");
   <script>
   $(function(){
 	  $('#FareComfirm').click(function(e){
-		 var code= $('#code').val();
-		 var code1 = $('#code1').val();
-		 var adult = "<%=adult%>";
-		 var child = "<%=child%>";
-		 var infant = "<%=infant%>";
+		var code= $('#code').val();
+		var code1 = $('#code1').val();
+		var a_name = $('#a_name').text();
+		var an_name = $('#an_name').text();
+		var a_name1 = $('#a_name1').text();
+		var an_name1 = $('#an_name1').text();
+		var c_name = $('#c_name').text();
+		var c_name1 = $('#c_name1').text();
+		var c1_name = $('#c1_name').text();
+		var c1_name1 = $('#c1_name1').text();
+		var de_time = $('#de_time').text();
+		var de_time1 = $('#de_time1').text();
+		//alert(a_name);
+		var adult = "<%=adult%>";
+		var child = "<%=child%>";
+		var infant = "<%=infant%>";
+		var dep_day = "<%=dday%>";
+		var arr_day = "<%=aday%>";
+		var seat_Class = "<%=seat_Class%>";
 		  $('#dvResult').empty();		  
-		  $('#dvResult').load("R3_FareComfirm.jsp?s_code="+code+"&s_code1="+code1+"&adult="+adult+"&child="+child+"&infant="+infant );
+		  $('#dvResult').load("R3_FareComfirm.jsp?s_code="+code+"&s_code1="+code1+"&adult="+adult+"&child="+child+"&infant="+infant+
+		"&a_name="+a_name+"&an_name="+an_name+"&a_name1="+a_name1+"&an_name1="+an_name1+"&c_name="+c_name+"&c_name1="+c_name1+"&c1_name="+c1_name+"&c1_name1="+c1_name1
+		+"&dep_day="+dep_day+"&arr_day="+arr_day+"&de_time="+de_time+"&de_time1="+de_time1+"&seat_Class="+seat_Class);
 	  });
   });
   
@@ -46,14 +63,26 @@ String seat = request.getParameter("seat_Class");
 	  $('.sel' + gubun).css('background','#ffe546');
 
 	//  alert(gubun);	  
-		$('#code').val(gubun);	 	  
+		$('#code').val(gubun);	 
+		$('#a_name').text($('.sel'+gubun +" "+'.a_name').text());
+		$('#an_name').text($('.sel'+gubun +" "+'.an_name').text());
+		$('#c_name').text($('.sel'+gubun +" "+'.c_name').text());
+		$('#c1_name').text($('.sel'+gubun +" "+'.c1_name').text());
+		$('#de_time').text($('.sel'+gubun +" "+'.dep_time').text());
+
   }
   
   function sel1(gubun){
 	  $('.css_white1').css('background','white');
 	  $('.sel' + gubun).css('background','#ffe546');
 	//  alert(gubun);	  
-		$('#code1').val(gubun);	 	  
+		$('#code1').val(gubun);	 	
+		$('#a_name1').text($('.sel'+gubun +" "+'.a_name').text());
+		$('#an_name1').text($('.sel'+gubun +" "+'.an_name').text());
+		$('#c_name1').text($('.sel'+gubun +" "+'.c_name').text());
+		$('#c1_name1').text($('.sel'+gubun +" "+'.c1_name').text());
+		$('#de_time1').text($('.sel'+gubun +" "+'.dep_time').text());
+
   }
   
  // alert( $('#s_code1').val());
@@ -134,10 +163,20 @@ color: #5c5f66;
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 </head>
 <body>
+<!---- 운임확인 넘겨주는 히든값 --------------------------------- ----------------------------------------->
+
 <input type="hidden" id ="code" >
 <input type="hidden" id ="code1" >
-
-
+<input type="hidden" id="a_name"> 
+<input type="hidden" id="a_name1"> 
+<input type="hidden" id="an_name"> 
+<input type="hidden" id="an_name1"> 
+<input type="hidden" id="c_name"> 
+<input type="hidden" id="c_name1"> 
+<input type="hidden" id="c1_name"> 
+<input type="hidden" id="c1_name1"> 
+<input type="hidden" id="de_time"> 
+<input type="hidden" id="de_time1"> 
 
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <div id="wrapper">
@@ -185,11 +224,11 @@ color: #5c5f66;
   for(int i=0; i<dtoL.size(); i++){
 	  dto = dtoL.get(i); %>
   <tr class="css_white sel<%=dto.getS_Code()%>">
-    <td><%=dto.getA_Name() %></td>
-    <td><%=dto.getAn_Name()%></td>
-    <td><%=dto.getC_Name() %></td>
-    <td><%=dto.getS_DeptTime() %></td>
-    <td><%=dto.getC_Name1() %></td>
+    <td class="a_name"><%=dto.getA_Name() %></td>
+    <td class="an_name"><%=dto.getAn_Name()%></td>
+    <td class="c_name"><%=dto.getC_Name() %></td>
+    <td class="dep_time"><%=dto.getS_DeptTime() %></td>
+    <td class="c1_name"><%=dto.getC_Name1() %></td>
     <td><%=dto.getS_ArrtTime() %></td>
     <td><%=dto.getS_FlightTime() %></td>
     <td><%=dto.getS_SeatTotal() %>석</td>
@@ -221,11 +260,11 @@ color: #5c5f66;
 	  dto = dtoL1.get(i);
   %>
   <tr class="css_white1 sel<%=dto.getS_Code()%>">
-    <td><%=dto.getA_Name() %></td>
-    <td><%=dto.getAn_Name()%></td>
-    <td><%=dto.getC_Name1() %></td>
-    <td><%=dto.getS_DeptTime() %></td>
-    <td><%=dto.getC_Name() %></td>
+    <td class="a_name"><%=dto.getA_Name() %></td>
+    <td class="an_name"><%=dto.getAn_Name()%></td>
+    <td class="c1_name"><%=dto.getC_Name1() %></td>
+    <td class="dep_time"><%=dto.getS_DeptTime() %></td>
+    <td class="c_name"><%=dto.getC_Name() %></td>
     <td><%=dto.getS_ArrtTime() %></td>
     <td><%=dto.getS_FlightTime() %></td>
     <td><%=dto.getS_SeatTotal() %>석</td>

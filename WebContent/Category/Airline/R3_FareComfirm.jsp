@@ -1,3 +1,6 @@
+<%@page import="Airline.DTO.Fare"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Airline.DAO.ClientDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -814,36 +817,47 @@ table
      
 <!--   여기부터 ----------------------------------------------------------------------------------------------------------------------	 -->
 <%
-String s_code = request.getParameter("s_code");
-String s_code1 = request.getParameter("s_code1");
+int s_code = Integer.parseInt(request.getParameter("s_code"));
+int s_code1 = Integer.parseInt(request.getParameter("s_code1"));
 int adult = Integer.parseInt(request.getParameter("adult"));
 int child = Integer.parseInt(request.getParameter("child"));
 int infant = Integer.parseInt(request.getParameter("infant"));
-out.print(s_code+s_code1+adult+child+infant );
+String a_name = request.getParameter("a_name");
+String an_name = request.getParameter("an_name");
+String a_name1 = request.getParameter("a_name1");
+String an_name1 = request.getParameter("an_name1");
+
+String dep_city = request.getParameter("c_name");
+String arr_city = request.getParameter("c_name1");
+
+String arr_city1 = request.getParameter("c1_name1");
+String dep_city1 = request.getParameter("c1_name");
+
+String dep_day = request.getParameter("dep_day");
+String arr_day = request.getParameter("arr_day");
+String dep_time = request.getParameter("de_time");
+String dep_time1 = request.getParameter("de_time1");
+String seat_Class = request.getParameter("seat_Class");
+//out.print(s_code+s_code1+adult+child+infant+a_name+an_name+a_name1+an_name1+arr_city+arr_city1+dep_city1+dep_city+dep_day+arr_day+dep_time+dep_time1+seat_Class);
 %>
      <ul id="itineraryList">
       <li>
         
        <div class="box-intro">
-         	<strong>2014/09/12/금 09:00 </strong> 	
+         	<strong><%=dep_day %>&nbsp<%=dep_time %> </strong> 	
         <div class="abPosi">
-          		<span class="btn_CpopupLayer"><strong>(<a href="#none">OZ108</a>)</strong></span> 		
+          		<span class="btn_CpopupLayer"><strong>(<a href="#none"><%=a_name %></a>&nbsp <a href="#none"><%=an_name %></a>)</strong></span> 		
          <div class="abroadBox2 BoxClose">
            			
           <div class="abroadInner">
             				
            <div class="aTitle">
-             					
-            <p>
-              						<strong>OZ108 안내</strong> 					
-            </p>
+
              				
            </div>
             				
            <div class="abroadCt">
-             					<strong>출발</strong> : 2014/09/12/금 09:00, 인천<br /> 					
-             					<strong>도착</strong> : 2014/09/30/화 11:10, 도쿄/나리타<br /> 					<strong>운항</strong> : 아시아나항공<br /> 					<strong>기종</strong> : 321 <a id="searchFlightInfo" href="#none" fltno="108" fltcrrcd="OZ" fltdate="20140811181000" fltdepairport="ICN" opcode="">[좌석배치도 보기]</a><br /> 				
-           </div>
+ 	       </div>
             			
           </div>
            			<a class="btn_close2" href="#none"><img alt="OZ108 안내 팝업 닫기" src="/images/btn/btn_close.gif" /></a> 		
@@ -852,14 +866,14 @@ out.print(s_code+s_code1+adult+child+infant );
         </div>
          
        </div>
-        인천 -  도쿄/나리타
+        <%=dep_city %> - <%=dep_city1%>
       </li>
       <li>
         
        <div class="box-intro">
-         	<strong>2014/09/30/화 12:30 </strong> 	
+         	<strong><%=arr_day %>&nbsp<%=dep_time1 %> </strong> 	
         <div class="abPosi">
-          		<span class="btn_CpopupLayer"><strong>(<a href="#none">OZ105</a>)</strong></span> 		
+          		<span class="btn_CpopupLayer"><strong>(<a href="#none"><%=a_name1 %></a>&nbsp <a href="#none"><%=an_name1 %></a>)</strong></span> 		
          <div class="abroadBox2 BoxClose">
            			
           <div class="abroadInner">
@@ -883,7 +897,7 @@ out.print(s_code+s_code1+adult+child+infant );
         </div>
          
        </div>
-        도쿄/나리타 -  인천
+      <%=arr_city1 %> - <%=arr_city %>
       </li>
      </ul>
      
@@ -901,13 +915,30 @@ out.print(s_code+s_code1+adult+child+infant );
     											<input id="hidCurrency" type="hidden" value="KRW" />
     											
 <!--  ===================   인원수, 운임	START  ========================================== -->
-    											
+  <%
+  ClientDAO dao = ClientDAO.getInstance();
+  Fare dto = new Fare();
+  Fare dto1 = new Fare();
+  ArrayList<Fare> dtoL = dao.fareCount(s_code, seat_Class);
+  dto = dtoL.get(0);
+
+  ArrayList<Fare> dtoL1 = dao.fareCountRe(s_code1, seat_Class);
+  dto1 = dtoL1.get(0);
+  
+  int agrade = dto.getA_grade();
+  int agrade1 = dto1.getA_grade(); 
+  int agradeSum = (agrade+agrade1)*adult;
+  int cgradeSum = (dto.getC_grade()+dto1.getC_grade())*child;
+  int total = agradeSum+cgradeSum;
+  
+
+  %> 	
     <ul id="paxPriceArea">
      <li>
-      	<span class="leftCnt"><strong>성인 <%=adult %></strong></span>	<span class="RightPrice">687,200 원</span>
+      	<span class="leftCnt"><strong>성인 <%=adult %></strong></span>	<span class="RightPrice" id="adult"><%=agradeSum%> 원</span>
      </li>
      <li>
-      	<span class="leftCnt"><strong>소아 <%=child %></strong></span>	<span class="RightPrice">547,200 원</span>
+      	<span class="leftCnt"><strong>소아 <%=child %></strong></span>	<span class="RightPrice" id="child"><%=cgradeSum%> 원</span>
      </li>
      <li>
       	<span class="leftCnt"><strong>유아 <%=infant %></strong></span>	<span class="RightPrice">0 원</span>
@@ -917,7 +948,7 @@ out.print(s_code+s_code1+adult+child+infant );
 <!--  ===================   인원수, 운임	END  ========================================== -->   
     											
     <p class="totalPrice" id="totalPrice">
-     <strong>1,234,400 원</strong>
+     <strong><%=total %> 원</strong>
     </p>
     
     
@@ -1197,7 +1228,7 @@ out.print(s_code+s_code1+adult+child+infant );
               <p>&nbsp;</p>
 <div ><span class="bt_a" style="margin-left:50px;">
                 <a  id="" href="R2_.jsp.jsp">이전단계</a></span>
-                <span style="margin-left:500px;"><a id="" href="R4_PassengerInput.jsp">계속하기</a></span>
+                <span style="margin-left:500px;"><a id="" href="R4_PassengerInput.jsp?adult=<%=adult %>&child=<%=child%>&infant=<%=infant%>&s_code=<%=s_code%>&s_code1=<%=s_code1%>&agradeSum=<%=agradeSum%>&cgradeSum=<%=cgradeSum %>">계속하기</a></span>
 </div>
               
 
