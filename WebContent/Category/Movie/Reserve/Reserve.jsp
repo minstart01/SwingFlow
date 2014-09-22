@@ -312,6 +312,8 @@ function SearchTime(data){
 		var mName = $(".movie_on").text();
 		var tName = $(".local_on").text();
 		
+	
+		
 		/* 관람인원 선택 */
 		
 		$.ajax({
@@ -601,6 +603,79 @@ function next(){
 	$("#sel_sit_box").show();
 	
 	$("#movie_img img").attr("src","/SwingFlow/images/Movie/Reserve/tit_Seat.gif");
+	
+	var timeon = $(".time_on").text();
+	var tName = $(".local_on").text();
+	timeon = timeon.substring(0,1);
+	
+	alert(timeon);
+	
+	$.ajax({
+		url : 'SeatCheck.jsp',
+		type : 'GET',
+		data : {
+			timeon : timeon,
+			tName : tName,
+		},
+		success : SeatList
+	});
+	
+	
+	
+}
+/* 좌석정보 뿌려주는 함수 */
+function SeatList(data){
+	item = $(data).find("ul").find("li");
+	var row = $(item[0]).text();
+	var column = $(item[1]).text();
+	
+	for(var i=1;i<=row;i++){
+		var rowname;
+		switch(i){
+		case 1 : Row = "A"; break;
+		case 2 : Row = "B"; break;
+		case 3 : Row = "C"; break;
+		case 4 : Row = "D"; break;
+		case 5 : Row = "E"; break;
+		case 6 : Row = "F"; break;
+		case 7 : Row = "G"; break;
+		case 8 : Row = "H"; break;
+		case 9 : Row = "I"; break;
+		case 10 : Row = "J"; break;
+	}
+	
+		$(".seat").append("<tr>");
+		
+		for(var j=1;j<=column;i++){
+			if(j==1){
+				$(".seat").append("<td width='20' alig"
+			}
+		}
+	}
+	
+	
+		
+		
+	%>
+	<tr>
+		<%for(int j=1;j<=13;j++){ 
+			if(j==1){
+		%>
+			<td width="20" align="center"><%=Row %></td>
+		<%
+		}else if(j==2 || j==3){
+		%>
+			<td width="20" align="center"></td>
+		<%	
+		}else if(j>3){
+			%>
+			<td class="sel_seat" width="20" align="center"><%=Row + (j-3) %></td>
+		<%		
+		}
+		}
+		%>
+	</tr>
+	<%} %>
 }
 
 $(function(){

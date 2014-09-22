@@ -124,14 +124,15 @@ public class TheaterDAO {
 		return su;
 	}
 	
-	public TheaterSit seatinfo(int ScreenNo){
+	public TheaterSit seatinfo(int ScreenNo, String tName){
 		conn = DbSet.getConnection();
-		sql = "SELECT TS.TROW, TS.TCOLUMN FROM THEATERSIT TS, THEATERINFO T WHERE T.TCODE = TS.TCODE AND TS.TSCREENNO=?";
+		sql = "SELECT TS.TROW, TS.TCOLUMN FROM THEATERSIT TS, THEATERINFO T WHERE T.TCODE = TS.TCODE AND TS.TSCREENNO=? AND T.TNAME=?";
 		TheaterSit dto = new TheaterSit();
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, ScreenNo);
+			pstmt.setString(2, tName);
 			
 			rs = pstmt.executeQuery();
 			

@@ -378,8 +378,10 @@
 }
 .seat .sel_seat  
 {
-	border: 1px solid black;
+	
 	cursor: pointer;
+	background: #7f85cb;
+	color: white;
 	
 }
 
