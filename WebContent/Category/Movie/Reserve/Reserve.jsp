@@ -608,7 +608,7 @@ function next(){
 	var tName = $(".local_on").text();
 	timeon = timeon.substring(0,1);
 	
-	alert(timeon);
+
 	
 	$.ajax({
 		url : 'SeatCheck.jsp',
@@ -632,50 +632,31 @@ function SeatList(data){
 	for(var i=1;i<=row;i++){
 		var rowname;
 		switch(i){
-		case 1 : Row = "A"; break;
-		case 2 : Row = "B"; break;
-		case 3 : Row = "C"; break;
-		case 4 : Row = "D"; break;
-		case 5 : Row = "E"; break;
-		case 6 : Row = "F"; break;
-		case 7 : Row = "G"; break;
-		case 8 : Row = "H"; break;
-		case 9 : Row = "I"; break;
-		case 10 : Row = "J"; break;
+		case 1 : rowname = "A"; break;
+		case 2 : rowname = "B"; break;
+		case 3 : rowname = "C"; break;
+		case 4 : rowname = "D"; break;
+		case 5 : rowname = "E"; break;
+		case 6 : rowname = "F"; break;
+		case 7 : rowname = "G"; break;
+		case 8 : rowname = "H"; break;
+		case 9 : rowname = "I"; break;
+		case 10 : rowname = "J"; break;
 	}
 	
 		$(".seat").append("<tr>");
 		
-		for(var j=1;j<=column;i++){
+		for(var j=1;j<=column;j++){
 			if(j==1){
-				$(".seat").append("<td width='20' alig"
+				$(".seat").append("<td width='20' align='center'>" + rowname + "</td>");
+			}else if(j==2 || j==3){
+				$(".seat").append("<td width='20' align='center'></td>");
+			}else if(j>3){
+				$(".seat").append("<td width='20' align='center'>" + rowname + (j-3) + "</td>");
 			}
 		}
-	}
-	
-	
-		
-		
-	%>
-	<tr>
-		<%for(int j=1;j<=13;j++){ 
-			if(j==1){
-		%>
-			<td width="20" align="center"><%=Row %></td>
-		<%
-		}else if(j==2 || j==3){
-		%>
-			<td width="20" align="center"></td>
-		<%	
-		}else if(j>3){
-			%>
-			<td class="sel_seat" width="20" align="center"><%=Row + (j-3) %></td>
-		<%		
-		}
-		}
-		%>
-	</tr>
-	<%} %>
+		$(".seat").append("</tr>");
+	}  
 }
 
 $(function(){
@@ -927,7 +908,7 @@ $(function(){
 </div></center>
 <center>
 <table cellspacing="5" class="seat" >
-	<%for(int i=1;i<=10;i++){
+	<%-- <%for(int i=1;i<=10;i++){
 		String Row="A";
 	switch(i){
 		case 1 : Row = "A"; break;
@@ -962,7 +943,7 @@ $(function(){
 		}
 		%>
 	</tr>
-	<%} %>
+	<%} %> --%>
 </table>
 
 <div class="sel_sit_button">
