@@ -8,9 +8,14 @@ import java.util.ArrayList;
 
 
 
+
+
+
+import Airline.DTO.ConfirmSch;
 import Airline.DTO.DbClose;
 import Airline.DTO.DbSet;
 import Airline.DTO.Fare;
+import Airline.DTO.Flight;
 import Airline.DTO.FlightSearch;
 
 
@@ -180,5 +185,92 @@ public class ClientDAO {
 		return dtoL;
 
 	}	
+	/* 가는날/ 오는날 확인 */
+	public ConfirmSch confirmSch(String s_depday, String c_name, String c_name1, String s_code){
+		conn = DbSet.getConnection();
+		ConfirmSch dto = new ConfirmSch();
+		sql="select a.a_name, an.an_name, c.c_Name, s.s_DeptTime, c1.c_name, s.s_ArrtTime, s.s_FlightTime, s.s_SeatTotal, s.s_code, s.s_DepDay from airline a, airlineno an, city c, city c1, schedule s where a.a_code=an.a_code and an.an_Code=s.an_Code and s.c_Code=c.c_Code and c1.c_code=s.c_Code2 and s.s_depday=? and c.c_name=? and c1.c_name=? and s.s_code=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, s_depday);
+			pstmt.setString(2, c_name);
+			pstmt.setString(3, c_name1);
+			pstmt.setString(4, s_code);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				dto.setA_Name(rs.getString(1));
+				dto.setAn_Name(rs.getString(2));
+				dto.setC_Name(rs.getString(3));
+				dto.setS_DeptTime(rs.getString(4));
+				dto.setC_Name1(rs.getString(5));
+				dto.setS_ArrtTime(rs.getString(6));
+				dto.setS_FlightTime(rs.getString(7));
+				dto.setS_Code(rs.getShort(9));
+				dto.setS_DepDay(rs.getString(10));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(pstmt, conn, rs);
+		}
+				
+		return dto;
+	}
+	
+	public ConfirmSch dto1(String s_depday, String c_name, String c_name1, String s_code1){
+		conn = DbSet.getConnection();
+		ConfirmSch dto1 = new ConfirmSch();
+		sql="select a.a_name, an.an_name, c.c_Name, s.s_DeptTime, c1.c_name, s.s_ArrtTime, s.s_FlightTime, s.s_SeatTotal, s.s_code, s.s_DepDay from airline a, airlineno an, city c, city c1, schedule s where a.a_code=an.a_code and an.an_Code=s.an_Code and s.c_Code=c.c_Code and c1.c_code=s.c_Code2 and s.s_depday=? and c.c_name=? and c1.c_name=? and s.s_code=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, s_depday);
+			pstmt.setString(2, c_name);
+			pstmt.setString(3, c_name1);
+			pstmt.setString(4, s_code1);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				dto1.setA_Name(rs.getString(1));
+				dto1.setAn_Name(rs.getString(2));
+				dto1.setC_Name1(rs.getString(3));
+				dto1.setS_DeptTime(rs.getString(4));
+				dto1.setC_Name(rs.getString(5));
+				dto1.setS_ArrtTime(rs.getString(6));
+				dto1.setS_FlightTime(rs.getString(7));
+				dto1.setS_Code(rs.getShort(9));
+				dto1.setS_DepDay(rs.getString(10));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(pstmt, conn, rs);
+		}
+		
+		return dto1;
+	}
+	/*  항공편 예약  */
+	public int flightIns(Flight dto){
+		conn = DbSet.getConnection();
+		sql="INSERT INTO FLIGHT (FL_NO, MNO, FL_FARE, FL_SYS, S_CODE, S_CODE2, SEAT_NO ) VALUES  ( flightseq.nextval, ?, ?,? ,? ,? ,?  )";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dto.getmNo());
+			pstmt.setString(2, dto.getFl_Fare());
+			pstmt.setString(3, dto.getFl_sys());
+			pstmt.setInt(4, dto.getS_Code());
+			pstmt.setInt(5, dto.getS_Code2());
+			pstmt.setInt(6, dto.getSeat_No());
+			su = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return su;
+	}
+	 
 }
 

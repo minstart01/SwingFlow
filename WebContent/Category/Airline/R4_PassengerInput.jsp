@@ -1648,6 +1648,26 @@ int s_code = Integer.parseInt(request.getParameter("s_code"));
 int s_code1 = Integer.parseInt(request.getParameter("s_code1"));
 int agradeSum = Integer.parseInt(request.getParameter("agradeSum"));
 int cgradeSum = Integer.parseInt(request.getParameter("cgradeSum"));
+String seat_Class = request.getParameter("seat_Class");
+
+String a_name = request.getParameter("a_name");
+String an_name = request.getParameter("an_name");
+String a_name1 = request.getParameter("a_name1");
+String an_name1 = request.getParameter("an_name1");
+
+String dep_city = request.getParameter("c_name");
+String arr_city = request.getParameter("c_name1");
+
+String arr_city1 = request.getParameter("c1_name1");
+String dep_city1 = request.getParameter("c1_name");
+
+String dep_day = request.getParameter("dep_day");
+String arr_day = request.getParameter("arr_day");
+String dep_time = request.getParameter("de_time");
+String dep_time1 = request.getParameter("de_time1");
+
+String f_time = request.getParameter("f_time");
+String f_time1 = request.getParameter("f_time1");
 
 out.print(s_code+cgradeSum);
 
@@ -1656,6 +1676,29 @@ out.print(s_code+cgradeSum);
 <input type="hidden" value="<%=s_code1%>" name="s_code1">
 <input type="hidden" value="<%=agradeSum%>" name="agradeSum">
 <input type="hidden" value="<%=cgradeSum%>" name="cgradeSum">
+<input type="hidden" value="<%=seat_Class%>" name="seat_Class">
+
+<input type="hidden" value="<%=adult%>" name="adult">
+<input type="hidden" value="<%=child%>" name="child">
+<input type="hidden" value="<%=infant%>" name="infant">
+<input type="hidden" value="<%=a_name%>" name="a_name">
+<input type="hidden" value="<%=an_name%>" name="an_name">
+
+<input type="hidden" value="<%=a_name1%>" name="a_name1">
+<input type="hidden" value="<%=an_name1%>" name="an_name1">
+<input type="hidden" value="<%=dep_city%>" name="dep_city">
+<input type="hidden" value="<%=arr_city%>" name="arr_city">
+<input type="hidden" value="<%=dep_city1%>" name="arr_city1">
+
+<input type="hidden" value="<%=dep_day%>" name="dep_day">
+<input type="hidden" value="<%=arr_day%>" name="arr_day">
+<input type="hidden" value="<%=dep_time%>" name="dep_time">
+<input type="hidden" value="<%=arr_city%>" name="arr_city">
+<input type="hidden" value="<%=dep_time1%>" name="dep_time1">
+
+<input type="hidden" value="<%=f_time%>" name="f_time">
+<input type="hidden" value="<%=f_time1%>" name="f_time1">
+
 
 										<!-- selectITbox3 -->
 										<table border="1" cellpadding="6" cellspacing="0">

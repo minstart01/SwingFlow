@@ -1,3 +1,6 @@
+<%@page import="Airline.DTO.ConfirmSch"%>
+<%@page import="Airline.DTO.Flight"%>
+<%@page import="Airline.DAO.ClientDAO"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -86,13 +89,16 @@ font-family:Arial, Helvetica, sans-serif
 </style>
 </head>
 <%
-// int adult = Integer.parseInt(request.getParameter("adult"));
-// int child = Integer.parseInt(request.getParameter("child"));
-// int infant = Integer.parseInt(request.getParameter("infant"));
+int adult = Integer.parseInt(request.getParameter("adult"));
+int child = Integer.parseInt(request.getParameter("child"));
+int infant = Integer.parseInt(request.getParameter("infant"));
 int s_code = Integer.parseInt(request.getParameter("s_code"));
 int s_code1 = Integer.parseInt(request.getParameter("s_code1"));
 int agradeSum = Integer.parseInt(request.getParameter("agradeSum"));
 int cgradeSum = Integer.parseInt(request.getParameter("cgradeSum"));
+
+String f_time = request.getParameter("f_time");
+String f_time1 = request.getParameter("f_time1");
 
 	String[] lName = request.getParameterValues("lName");
     String[] fName = request.getParameterValues("fName");
@@ -123,6 +129,10 @@ int cgradeSum = Integer.parseInt(request.getParameter("cgradeSum"));
      3. 여정/탑승자 확인
 
 <hr>
+<%
+
+
+%>
 <h3>선택하신 여정</h3>
 <table border="1" cellspacing="0" cellpadding="2" class="trip" width="700">
 	<tr>

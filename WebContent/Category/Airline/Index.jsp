@@ -407,11 +407,11 @@ function close01(){
 	$('#city01').hide();
 }
 		
-	
 </script>
 </head>
 
 <body>
+
 	<%@include file="/Category/Common/top.jsp"%>
 	<div id="wrapper">
 		<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
@@ -419,7 +419,6 @@ function close01(){
 		<div id="main_content">
 		<div class="main_content">
 		<form action="R2_.jsp" name="next">
-
 	<div class="top_btn">
 	<div class="btn01 btn" onclick="select(1,2);">
     왕복
@@ -623,12 +622,12 @@ for(int j=0; j<cityL.size(); j++){
         (0~2세)
         </div>
         </div>
-  <input type="hidden" >
+
     	<div>
-			<select class="sit_class" name="seat_Class">
-            	<option value="Travel">트래블(일반석) 클래스</option>
-                <option value="Business">비지니스 클래스</option>
-                <option value="First">퍼스트 클래스</option>
+			<select class="sit_class" name="seat_Class" >
+            	<option value="Travel" >트래블(일반석) 클래스</option>
+                <option value="Business" >비지니스 클래스</option>
+                <option value="First" >퍼스트 클래스</option>
             </select>
         </div>
     	

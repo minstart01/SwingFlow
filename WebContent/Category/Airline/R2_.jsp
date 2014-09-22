@@ -15,6 +15,7 @@ int child = Integer.parseInt(request.getParameter("p_nChild"));
 int infant = Integer.parseInt(request.getParameter("p_nInfant"));
 String seat_Class = request.getParameter("seat_Class");
 int ps_Total = adult+child+infant;
+
 //String seat = request.getParameter("seat_Class");
 
 %>
@@ -39,6 +40,8 @@ int ps_Total = adult+child+infant;
 		var c1_name1 = $('#c1_name1').text();
 		var de_time = $('#de_time').text();
 		var de_time1 = $('#de_time1').text();
+		var f_time = $('#f_time').text();
+		var f_time1 = $('#f_time1').text();
 		//alert(a_name);
 		var adult = "<%=adult%>";
 		var child = "<%=child%>";
@@ -49,7 +52,7 @@ int ps_Total = adult+child+infant;
 		  $('#dvResult').empty();		  
 		  $('#dvResult').load("R3_FareComfirm.jsp?s_code="+code+"&s_code1="+code1+"&adult="+adult+"&child="+child+"&infant="+infant+
 		"&a_name="+a_name+"&an_name="+an_name+"&a_name1="+a_name1+"&an_name1="+an_name1+"&c_name="+c_name+"&c_name1="+c_name1+"&c1_name="+c1_name+"&c1_name1="+c1_name1
-		+"&dep_day="+dep_day+"&arr_day="+arr_day+"&de_time="+de_time+"&de_time1="+de_time1+"&seat_Class="+seat_Class);
+		+"&dep_day="+dep_day+"&arr_day="+arr_day+"&de_time="+de_time+"&de_time1="+de_time1+"&seat_Class="+seat_Class+"&f_time="+f_time+"&f_time1="+f_time1);
 	  });
   });
   
@@ -69,6 +72,7 @@ int ps_Total = adult+child+infant;
 		$('#c_name').text($('.sel'+gubun +" "+'.c_name').text());
 		$('#c1_name').text($('.sel'+gubun +" "+'.c1_name').text());
 		$('#de_time').text($('.sel'+gubun +" "+'.dep_time').text());
+		$('#f_time').text($('.sel'+gubun +" "+'.f_time').text());
 
   }
   
@@ -82,6 +86,7 @@ int ps_Total = adult+child+infant;
 		$('#c_name1').text($('.sel'+gubun +" "+'.c_name').text());
 		$('#c1_name1').text($('.sel'+gubun +" "+'.c1_name').text());
 		$('#de_time1').text($('.sel'+gubun +" "+'.dep_time').text());
+		$('#f_time1').text($('.sel'+gubun +" "+'.f_time').text());
 
   }
   
@@ -177,6 +182,9 @@ color: #5c5f66;
 <input type="hidden" id="c1_name1"> 
 <input type="hidden" id="de_time"> 
 <input type="hidden" id="de_time1"> 
+<input type="hidden" id="f_time">
+<input type="hidden" id="f_time1"> 
+
 
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <div id="wrapper">
@@ -230,7 +238,7 @@ color: #5c5f66;
     <td class="dep_time"><%=dto.getS_DeptTime() %></td>
     <td class="c1_name"><%=dto.getC_Name1() %></td>
     <td><%=dto.getS_ArrtTime() %></td>
-    <td><%=dto.getS_FlightTime() %></td>
+    <td class="f_time"><%=dto.getS_FlightTime() %></td>
     <td><%=dto.getS_SeatTotal() %>석</td>
     
     <td > <input type="hidden" value="<%=dto.getS_Code()%>" name="s_code">
@@ -266,7 +274,7 @@ color: #5c5f66;
     <td class="dep_time"><%=dto.getS_DeptTime() %></td>
     <td class="c_name"><%=dto.getC_Name() %></td>
     <td><%=dto.getS_ArrtTime() %></td>
-    <td><%=dto.getS_FlightTime() %></td>
+    <td class="f_time"><%=dto.getS_FlightTime() %></td>
     <td><%=dto.getS_SeatTotal() %>석</td>
     <td>
     

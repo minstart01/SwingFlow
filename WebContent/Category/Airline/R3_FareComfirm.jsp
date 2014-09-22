@@ -838,6 +838,10 @@ String arr_day = request.getParameter("arr_day");
 String dep_time = request.getParameter("de_time");
 String dep_time1 = request.getParameter("de_time1");
 String seat_Class = request.getParameter("seat_Class");
+
+String f_time = request.getParameter("f_time");
+String f_time1 = request.getParameter("f_time1");
+
 //out.print(s_code+s_code1+adult+child+infant+a_name+an_name+a_name1+an_name1+arr_city+arr_city1+dep_city1+dep_city+dep_day+arr_day+dep_time+dep_time1+seat_Class);
 %>
      <ul id="itineraryList">
@@ -1228,7 +1232,7 @@ String seat_Class = request.getParameter("seat_Class");
               <p>&nbsp;</p>
 <div ><span class="bt_a" style="margin-left:50px;">
                 <a  id="" href="R2_.jsp.jsp">이전단계</a></span>
-                <span style="margin-left:500px;"><a id="" href="R4_PassengerInput.jsp?adult=<%=adult %>&child=<%=child%>&infant=<%=infant%>&s_code=<%=s_code%>&s_code1=<%=s_code1%>&agradeSum=<%=agradeSum%>&cgradeSum=<%=cgradeSum %>">계속하기</a></span>
+                <span style="margin-left:500px;"><a id="" href="R4_PassengerInput.jsp?f_time1=<%=f_time1 %>&f_time=<%=f_time %>&seat_Class=<%=seat_Class %>&adult=<%=adult %>&child=<%=child%>&infant=<%=infant%>&s_code=<%=s_code%>&s_code1=<%=s_code1%>&agradeSum=<%=agradeSum%>&cgradeSum=<%=cgradeSum %>">계속하기</a></span>
 </div>
               
 
