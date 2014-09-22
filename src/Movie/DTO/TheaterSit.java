@@ -17,6 +17,10 @@ public class TheaterSit {
 		this.tTotalSit = tTotalSit;
 	}
 
+	public TheaterSit() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int gettCode() {
 		return tCode;
 	}

@@ -584,6 +584,33 @@ $(".teen_sit_no")
 	}
 }
 
+function next(){
+	
+	$("#moviebox").hide();
+	$("#theaterbox").hide();
+	$("#datebox").hide();
+	$("#timebox").hide();
+	$("#sitbox").hide();
+		
+	// 이미지 숨김
+	$("#theater_img").hide();
+	$("#date_img").hide();
+	$("#time_img").hide();
+	$("#number_img").hide();
+	
+	$("#sel_sit_box").show();
+	
+	$("#movie_img img").attr("src","/SwingFlow/images/Movie/Reserve/tit_Seat.gif");
+}
+
+$(function(){
+	
+	$(".sel_seat").click(function (){
+		alert("ㅎㅇ");
+	});
+
+});
+
 </script>
 </head>
 <style>
@@ -805,7 +832,7 @@ $(".teen_sit_no")
 				</div>
 			</div>
 			</section>
-			<div style="float: left; margin-top: 10px;">
+			<div style="float: left; margin-top: 10px;" id="number_img">
 				<img src="/SwingFlow/images/Movie/Reserve/tit_PersonNum_off.gif"
 					alt="관람인원선택" />
 			</div>
@@ -819,6 +846,58 @@ $(".teen_sit_no")
 			</div>
 			<div class="sel_age"><!-- 선택하신 영화는 '전체 관람가' 영화입니다. --></div>
 			</section>
+			<div id="sel_sit_box">
+<center><div class="screenbox">
+	<span style="font-size: 18px; font-weight: bold;">SCREEN</span>
+</div></center>
+<center>
+<table cellspacing="5" class="seat" >
+	<%for(int i=1;i<=10;i++){
+		String Row="A";
+	switch(i){
+		case 1 : Row = "A"; break;
+		case 2 : Row = "B"; break;
+		case 3 : Row = "C"; break;
+		case 4 : Row = "D"; break;
+		case 5 : Row = "E"; break;
+		case 6 : Row = "F"; break;
+		case 7 : Row = "G"; break;
+		case 8 : Row = "H"; break;
+		case 9 : Row = "I"; break;
+		case 10 : Row = "J"; break;
+	}
+		
+		
+	%>
+	<tr>
+		<%for(int j=1;j<=13;j++){ 
+			if(j==1){
+		%>
+			<td width="20" align="center"><%=Row %></td>
+		<%
+		}else if(j==2 || j==3){
+		%>
+			<td width="20" align="center"></td>
+		<%	
+		}else if(j>3){
+			%>
+			<td class="sel_seat" width="20" align="center"><%=Row + (j-3) %></td>
+		<%		
+		}
+		}
+		%>
+	</tr>
+	<%} %>
+</table>
+
+<div class="sel_sit_button">
+	<input type="button" value="다시선택">
+	<input type="button" value="선택완료">
+</div>
+</center>
+</div>
+			
+			
 			<div class="sel_reserve_info">
 				<img src="/SwingFlow/images/Movie/Reserve/tit_SelectMovieInfo.gif"
 					alt="선택하신 예매정보" />
@@ -901,7 +980,7 @@ $(".teen_sit_no")
 				<a href="javascript:location.reload();"><input type="button" class="bt" value="처음부터" /></a>
 			</div>
 			<div style="padding-top: 10px;">
-				<input type="button" class="bt" value="예약하기" />
+				<input type="button" class="bt" id="next_bt" value="예약하기" onclick="next();" />
 			</div>
 			</section>
 		</div>

@@ -355,3 +355,34 @@
 	width:138px; 
 	height:150px;	
 }
+
+
+
+/* 좌석선택 */
+#sel_sit_box{
+	margin-top:5px;
+	width: 871px; 
+	height: 450px; 
+	border: 1px solid black;
+	float: left;
+	display: none;
+}
+.screenbox{
+	border: 1px solid black;
+	
+	text-align: center;
+	width: 450px;
+	margin-top: 55px;
+	margin-bottom:20px;
+	padding: 3px 0 3px 0;
+}
+.seat .sel_seat  
+{
+	border: 1px solid black;
+	cursor: pointer;
+	
+}
+
+.sel_sit_button{
+	margin-top: 20px;
+}

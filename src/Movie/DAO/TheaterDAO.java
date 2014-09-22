@@ -124,4 +124,30 @@ public class TheaterDAO {
 		return su;
 	}
 	
+	public TheaterSit seatinfo(int ScreenNo){
+		conn = DbSet.getConnection();
+		sql = "SELECT TS.TROW, TS.TCOLUMN FROM THEATERSIT TS, THEATERINFO T WHERE T.TCODE = TS.TCODE AND TS.TSCREENNO=?";
+		TheaterSit dto = new TheaterSit();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ScreenNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				dto.settRow(rs.getInt(1));
+				dto.settColumn(rs.getInt(2));
+							
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		return dto;
+		
+	}
+	
 }
