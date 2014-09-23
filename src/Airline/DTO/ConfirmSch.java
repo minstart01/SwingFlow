@@ -1,16 +1,16 @@
 package Airline.DTO;
 
 public class ConfirmSch {
-	//A_NAME	AN_NAME	C_NAME	S_DEPTTIME	C_NAME	S_ARRTTIME	S_FLIGHTTIME	S_SEATTOTAL	S_CODE	S_DEPDAY	
-	String a_Name;
-	String an_Name;
+	//C_NAME	S_DEPDAY	S_DEPTTIME	C_NAME	S_ARRTTIME	A_NAME	AN_NAME	S_FLIGHTTIME	S_CODE	
 	String c_Name;
+	String s_DepDay;
 	String s_DeptTime;
 	String c_Name1;
 	String s_ArrtTime;
+	String a_Name;
+	String an_Name;
 	String s_FlightTime;
-	int s_Code;
-	String s_DepDay;
+	int s_Code;	
 	
 	public ConfirmSch() {
 		// TODO Auto-generated constructor stub

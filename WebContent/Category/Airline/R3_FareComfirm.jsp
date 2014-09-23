@@ -1232,7 +1232,7 @@ String f_time1 = request.getParameter("f_time1");
               <p>&nbsp;</p>
 <div ><span class="bt_a" style="margin-left:50px;">
                 <a  id="" href="R2_.jsp.jsp">이전단계</a></span>
-                <span style="margin-left:500px;"><a id="" href="R4_PassengerInput.jsp?f_time1=<%=f_time1 %>&f_time=<%=f_time %>&seat_Class=<%=seat_Class %>&adult=<%=adult %>&child=<%=child%>&infant=<%=infant%>&s_code=<%=s_code%>&s_code1=<%=s_code1%>&agradeSum=<%=agradeSum%>&cgradeSum=<%=cgradeSum %>">계속하기</a></span>
+                <span style="margin-left:500px;"><a id="" href="R4_PassengerInput.jsp?f_time1=<%=f_time1 %>&f_time=<%=f_time %>&seat_Class=<%=seat_Class %>&adult=<%=adult %>&child=<%=child%>&infant=<%=infant%>&s_code=<%=s_code%>&s_code1=<%=s_code1%>&agradeSum=<%=agradeSum%>&cgradeSum=<%=cgradeSum %>&a_name=<%=a_name%>&an_name=<%=an_name%>&a_name1=<%=a_name1%>&an_name1=<%=an_name1%>&dep_city=<%=dep_city%>&arr_city=<%=arr_city%>&arr_city1=<%=arr_city1%>&dep_city1=<%=dep_city1%>&dep_day=<%=dep_day%>&arr_day=<%=arr_day%>&dep_time=<%=dep_time%>&dep_time1=<%=dep_time1%> ">계속하기</a></span>
 </div>
               
 

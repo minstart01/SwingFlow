@@ -186,71 +186,65 @@ public class ClientDAO {
 
 	}	
 	/* 가는날/ 오는날 확인 */
-	public ConfirmSch confirmSch(String s_depday, String c_name, String c_name1, String s_code){
+	public ConfirmSch confirmSch(int s_code){
 		conn = DbSet.getConnection();
 		ConfirmSch dto = new ConfirmSch();
-		sql="select a.a_name, an.an_name, c.c_Name, s.s_DeptTime, c1.c_name, s.s_ArrtTime, s.s_FlightTime, s.s_SeatTotal, s.s_code, s.s_DepDay from airline a, airlineno an, city c, city c1, schedule s where a.a_code=an.a_code and an.an_Code=s.an_Code and s.c_Code=c.c_Code and c1.c_code=s.c_Code2 and s.s_depday=? and c.c_name=? and c1.c_name=? and s.s_code=?";
+		sql="select c.c_Name, to_char(s.S_DEPDAY,'yyyy-mm-dd'), s.S_DEPTTIME, c1.c_name, s.s_arrttime, a.a_name, an.an_Name, s.s_flightTime, s.s_code from city c, city c1, schedule s, airline a, airlineno an where c.c_code=s.c_code and c1.c_code=s.c_Code2 and a.a_Code=an.a_Code and an.an_Code=s.an_Code and s.s_code=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, s_depday);
-			pstmt.setString(2, c_name);
-			pstmt.setString(3, c_name1);
-			pstmt.setString(4, s_code);
+
+			pstmt.setInt(1, s_code);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
-				dto.setA_Name(rs.getString(1));
-				dto.setAn_Name(rs.getString(2));
-				dto.setC_Name(rs.getString(3));
-				dto.setS_DeptTime(rs.getString(4));
-				dto.setC_Name1(rs.getString(5));
-				dto.setS_ArrtTime(rs.getString(6));
-				dto.setS_FlightTime(rs.getString(7));
-				dto.setS_Code(rs.getShort(9));
-				dto.setS_DepDay(rs.getString(10));
-			}
-			
+				dto.setC_Name(rs.getString(1));
+				dto.setS_DepDay(rs.getString(2));
+				dto.setS_DeptTime(rs.getString(3));
+				dto.setC_Name1(rs.getString(4));
+				dto.setS_ArrtTime(rs.getString(5));
+				dto.setA_Name(rs.getString(6));
+				dto.setAn_Name(rs.getString(7));
+				dto.setS_FlightTime(rs.getString(8));
+				dto.setS_Code(rs.getInt(9));				
+			}			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			DbClose.close(pstmt, conn, rs);
-		}
-				
+		}				
 		return dto;
 	}
 	
-	public ConfirmSch dto1(String s_depday, String c_name, String c_name1, String s_code1){
+	public ConfirmSch confirmSch1(int s_code1){
 		conn = DbSet.getConnection();
-		ConfirmSch dto1 = new ConfirmSch();
-		sql="select a.a_name, an.an_name, c.c_Name, s.s_DeptTime, c1.c_name, s.s_ArrtTime, s.s_FlightTime, s.s_SeatTotal, s.s_code, s.s_DepDay from airline a, airlineno an, city c, city c1, schedule s where a.a_code=an.a_code and an.an_Code=s.an_Code and s.c_Code=c.c_Code and c1.c_code=s.c_Code2 and s.s_depday=? and c.c_name=? and c1.c_name=? and s.s_code=?";
+		ConfirmSch dto = new ConfirmSch();
+		sql="select c.c_Name, to_char(s.S_DEPDAY,'yyyy-mm-dd'), s.S_DEPTTIME, c1.c_name, s.s_arrttime, a.a_name, an.an_Name, s.s_flightTime, s.s_code from city c, city c1, schedule s, airline a, airlineno an where c.c_code=s.c_code and c1.c_code=s.c_Code2 and a.a_Code=an.a_Code and an.an_Code=s.an_Code and s.s_code=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, s_depday);
-			pstmt.setString(2, c_name);
-			pstmt.setString(3, c_name1);
-			pstmt.setString(4, s_code1);
+
+			pstmt.setInt(1, s_code1);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
-				dto1.setA_Name(rs.getString(1));
-				dto1.setAn_Name(rs.getString(2));
-				dto1.setC_Name1(rs.getString(3));
-				dto1.setS_DeptTime(rs.getString(4));
-				dto1.setC_Name(rs.getString(5));
-				dto1.setS_ArrtTime(rs.getString(6));
-				dto1.setS_FlightTime(rs.getString(7));
-				dto1.setS_Code(rs.getShort(9));
-				dto1.setS_DepDay(rs.getString(10));
-			}
-			
+				dto.setC_Name(rs.getString(1));
+				dto.setS_DepDay(rs.getString(2));
+				dto.setS_DeptTime(rs.getString(3));
+				dto.setC_Name1(rs.getString(4));
+				dto.setS_ArrtTime(rs.getString(5));
+				dto.setA_Name(rs.getString(6));
+				dto.setAn_Name(rs.getString(7));
+				dto.setS_FlightTime(rs.getString(8));
+				dto.setS_Code(rs.getInt(9));				
+			}			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			DbClose.close(pstmt, conn, rs);
-		}
-		
-		return dto1;
+		}				
+		return dto;
 	}
+	
+	
 	/*  항공편 예약  */
 	public int flightIns(Flight dto){
 		conn = DbSet.getConnection();

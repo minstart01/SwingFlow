@@ -1641,6 +1641,7 @@
 									<div class="fareInner">
 <%
 
+
 int adult = Integer.parseInt(request.getParameter("adult"));
 int child = Integer.parseInt(request.getParameter("child"));
 int infant = Integer.parseInt(request.getParameter("infant"));

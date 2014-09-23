@@ -1,9 +1,40 @@
 <%@page import="Airline.DTO.ConfirmSch"%>
-<%@page import="Airline.DTO.Flight"%>
-<%@page import="Airline.DAO.ClientDAO"%>
 <%@page import="java.text.DecimalFormat"%>
+<%@page import="Airline.DAO.ClientDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+int adult = Integer.parseInt(request.getParameter("adult"));
+int child = Integer.parseInt(request.getParameter("child"));
+int infant = Integer.parseInt(request.getParameter("infant"));
+int s_code = Integer.parseInt(request.getParameter("s_code"));
+int s_code1 = Integer.parseInt(request.getParameter("s_code1"));
+int agradeSum = Integer.parseInt(request.getParameter("agradeSum"));
+int cgradeSum = Integer.parseInt(request.getParameter("cgradeSum"));
+String seat_Class = request.getParameter("seat_Class");
+
+
+	String[] lName = request.getParameterValues("lName");
+    String[] fName = request.getParameterValues("fName");
+    String[] passport = request.getParameterValues("passport");
+    
+	String[] child_lName = request.getParameterValues("child_lName");
+    String[] child_fName = request.getParameterValues("child_fName");
+    String[] child_passport = request.getParameterValues("child_passport");
+  
+	String[] infant_lName = request.getParameterValues("infant_lName");
+    String[] infant_fName = request.getParameterValues("infant_fName");
+    String[] infant_passport = request.getParameterValues("infant_passport");
+    String a="";
+    if(seat_Class.equals("Business")){
+    	a = "비즈니스 클래스";
+    }else if(seat_Class.equals("Travel")){
+    	a="트래블(일반석) 클래스";
+    }else if(seat_Class.equals("First")){
+    	a="퍼스트 클래스";
+    }
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -88,32 +119,26 @@ font-family:Arial, Helvetica, sans-serif
 
 </style>
 </head>
-<%
-int adult = Integer.parseInt(request.getParameter("adult"));
-int child = Integer.parseInt(request.getParameter("child"));
-int infant = Integer.parseInt(request.getParameter("infant"));
-int s_code = Integer.parseInt(request.getParameter("s_code"));
-int s_code1 = Integer.parseInt(request.getParameter("s_code1"));
-int agradeSum = Integer.parseInt(request.getParameter("agradeSum"));
-int cgradeSum = Integer.parseInt(request.getParameter("cgradeSum"));
 
-String f_time = request.getParameter("f_time");
-String f_time1 = request.getParameter("f_time1");
-
-	String[] lName = request.getParameterValues("lName");
-    String[] fName = request.getParameterValues("fName");
-    String[] passport = request.getParameterValues("passport");
-    
-	String[] child_lName = request.getParameterValues("child_lName");
-    String[] child_fName = request.getParameterValues("child_fName");
-    String[] child_passport = request.getParameterValues("child_passport");
-  
-	String[] infant_lName = request.getParameterValues("infant_lName");
-    String[] infant_fName = request.getParameterValues("infant_fName");
-    String[] infant_passport = request.getParameterValues("infant_passport");
-    
-%>
 <body>
+
+<script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
+  <script>
+ 
+<%--    if("<%=seat_Class%>"=='Business'){ --%>
+	   
+// 	   var a = $('#s_class').text(); 
+// 	   var a = "비즈니스";
+	   
+// 	   a=b;
+// alert(a);
+
+		 
+	
+	
+	  
+   }
+  </script>
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <div id="wrapper">
 
@@ -129,17 +154,18 @@ String f_time1 = request.getParameter("f_time1");
      3. 여정/탑승자 확인
 
 <hr>
-<%
 
-
-%>
 <h3>선택하신 여정</h3>
+<% ClientDAO dao = ClientDAO.getInstance();
+ConfirmSch dto = new ConfirmSch();
+dto = dao.confirmSch(s_code);
+%>
 <table border="1" cellspacing="0" cellpadding="2" class="trip" width="700">
 	<tr>
 		<td width="110" height="30">구분</td>
 		<td width="140">출발</td>
 		<td width="140">도착</td>
-		<td width="100">항공사/기종</td>
+		<td width="100">항공사/편명</td>
 		<td width="100">비행시간</td>
 		<td width="70">클래스</td>
 	
@@ -147,36 +173,38 @@ String f_time1 = request.getParameter("f_time1");
 	<tr>
 		<td height="60">
 			가는 편<br>
-			OZ108
+			
 			</td>
 		<td>
-			인천(ICN)	 2014/09/24, 18:50
+ 			<%=dto.getC_Name() %>	 <%=dto.getS_DepDay() %>, <%=dto.getS_DeptTime() %> 
 		</td>
 		<td>
-			도쿄/나리타(NTR) 2014/09/24, 21:00
+			<%=dto.getC_Name1() %> <%=dto.getS_DepDay() %>, <%=dto.getS_ArrtTime() %>
 		</td>
 		<td>
-			아시아나항공/ A321
+			<%=dto.getA_Name() %>/ <%=dto.getAn_Name() %> 
 		</td>
-		<td>02시간 10분</td>
-		<td>트래블</td>
+		<td><%=dto.getS_FlightTime() %></td>
+		<td id="s_class"><%=a %></td>
 		
 	</tr>
+	<%ConfirmSch dto1 = new ConfirmSch();
+	dto1 = dao.confirmSch1(s_code1);%>
 	<tr>
 		<td height="60">
 			오는편<br>
-			OZ108
+		
 			</td>
 		<td>
-			인천(ICN)	2014/09/24, 18:50
+			<%=dto1.getC_Name1() %>	<%=dto1.getS_DepDay() %>, <%=dto1.getS_DeptTime() %>
 		</td>
 		<td>
-			도쿄/나리타(NTR) 2014/09/24, 21:00
+			<%=dto1.getC_Name() %> 2014/09/24, <%=dto1.getS_ArrtTime() %>
 		</td>
 		<td>
-			아시아나항공/ A321
+			<%=dto1.getA_Name() %>/ <%=dto1.getAn_Name() %>
 		</td>
-		<td>02시간 10분</td>
+		<td><%=dto1.getS_FlightTime() %></td>
 		<td>트래블</td>
 	
 	</tr>
@@ -193,26 +221,26 @@ String f_time1 = request.getParameter("f_time1");
 	</tr>
 	<tr>
 		<td>성인</td>
-		<td>410,000원</td>
-		<td>3명</td>
-		<td>123,000원</td>
+		<td><%=agradeSum/adult %>원</td>
+		<td><%=adult %>명</td>
+		<td><%=agradeSum %>원</td>
 	</tr>
 	<tr>
 		<td>소아</td>
-		<td>129,199원</td>
-		<td>3명</td>
-		<td>203,000원</td>
+		<td><%=cgradeSum/child %>원</td>
+		<td><%=child %>명</td>
+		<td><%=cgradeSum %>원</td>
 	</tr>
 	<tr>
 		<td>유아</td>
-		<td>100,000원</td>
-		<td>2명</td>
-		<td>100,000원</td>
+		<td>0원</td>
+		<td><%=infant %>명</td>
+		<td>0원</td>
 	</tr>
 </table>
 
 <div style="width: 700px; text-align: right; margin-top: 20px; margin-bottom: 20px;">
-	<strong>총 지불금액</strong><strong class="totalP">2,035,000원</strong>
+	<strong>총 지불금액</strong><strong class="totalP"><%=agradeSum+cgradeSum %>원</strong>
 </div>
 
  	<div style="width: 700px; text-align: center" >
