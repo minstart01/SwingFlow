@@ -9,7 +9,8 @@
 	MemberDAO dao = new MemberDAO();
 	
 	String Login = dao.LoginChk(mId, mPwd);
-
+	
+	String gubun = request.getParameter("gubun");
 	
 
 	String url = "";
@@ -18,7 +19,13 @@
 		session.setAttribute("MemberId", mId);
 		session.setMaxInactiveInterval(60*60);
  		Member = (String)session.getAttribute("MemberId");
-		url = "/SwingFlow/Category/Main/index.jsp";
+ 		
+ 		if(("index").equals(gubun)){
+ 			url = "/SwingFlow/Category/Movie/Index.jsp";
+ 		}else{
+			url = "/SwingFlow/Category/Main/index.jsp";
+ 		}
+		
 %>
 <script>
 	

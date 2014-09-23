@@ -62,7 +62,7 @@
             String Id = (String)session.getAttribute("MemberId");
 				if(Id == null){
 			%>
-			<th><a href="/SwingFlow/Category/Common/Login.jsp">로그인</a></th>
+			<th><a href="/SwingFlow/Category/Common/Login.jsp?gubun=<%=request.getParameter("gubun")%>">로그인</a></th>
 			<th><a href="/SwingFlow/Category/Common/Join.jsp">회원가입</a></th>
 			<%	
 				}else{

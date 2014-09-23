@@ -61,6 +61,9 @@
 <body>
 <form action="LoginSession.jsp">
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
+
+<input type="hidden" name="gubun" value="<%=request.getParameter("gubun") %>">
+
 	<div class="login_form">
 	<div class="id_box">
     	<input type="text" placeholder="아이디" class="id" name="id"/>

@@ -117,8 +117,14 @@
 </style>
 </head>
 <body>
-<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+<jsp:include page="/Category/Common/top.jsp">
+	<jsp:param value="index" name="gubun"/>
+</jsp:include>
+<%
+	String index = "index";
 
+	request.setAttribute("index", index);
+%>
 <div id="wrapper">
 <jsp:include page="sidemenu.jsp"></jsp:include>
 
