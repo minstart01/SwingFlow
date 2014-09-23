@@ -49,7 +49,10 @@ color: #5c5f66;
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-
+<%
+String c_name = request.getParameter("c_name");
+String c_name1 = request.getParameter("c_name1");
+%>
 
  <h3 class="h3_type01">
   항공권 예약</h3>
@@ -66,7 +69,7 @@ color: #5c5f66;
   </tr>
   <tr>
     <td>1234567</td>
-    <td>인천&lt;=&gt; 일본</td>
+    <td><%=c_name %>&lt;=&gt; <%=c_name1 %></td>
     <td>&nbsp;</td>
   </tr>
   <tr>

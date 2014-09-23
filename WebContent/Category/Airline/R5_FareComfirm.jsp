@@ -4,6 +4,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
+    DecimalFormat fm = new DecimalFormat("#,###");
+    
 int adult = Integer.parseInt(request.getParameter("adult"));
 int child = Integer.parseInt(request.getParameter("child"));
 int infant = Integer.parseInt(request.getParameter("infant"));
@@ -12,6 +14,18 @@ int s_code1 = Integer.parseInt(request.getParameter("s_code1"));
 int agradeSum = Integer.parseInt(request.getParameter("agradeSum"));
 int cgradeSum = Integer.parseInt(request.getParameter("cgradeSum"));
 String seat_Class = request.getParameter("seat_Class");
+
+int gcode=0;
+if(seat_Class.equals("Travel")){
+	gcode = 1;
+}else if(seat_Class.equals("Business")){
+	gcode=2;
+}else if(seat_Class.equals("First")){
+	gcode=3;
+}
+
+
+int mNo = Integer.parseInt(request.getParameter("mNo"));
 
 
 	String[] lName = request.getParameterValues("lName");
@@ -25,6 +39,10 @@ String seat_Class = request.getParameter("seat_Class");
 	String[] infant_lName = request.getParameterValues("infant_lName");
     String[] infant_fName = request.getParameterValues("infant_fName");
     String[] infant_passport = request.getParameterValues("infant_passport");
+
+    
+    
+    
     String a="";
     if(seat_Class.equals("Business")){
     	a = "비즈니스 클래스";
@@ -33,6 +51,8 @@ String seat_Class = request.getParameter("seat_Class");
     }else if(seat_Class.equals("First")){
     	a="퍼스트 클래스";
     }
+    
+   
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -123,7 +143,7 @@ font-family:Arial, Helvetica, sans-serif
 <body>
 
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
-  <script>
+<script>
  
 <%--    if("<%=seat_Class%>"=='Business'){ --%>
 	   
@@ -133,19 +153,16 @@ font-family:Arial, Helvetica, sans-serif
 // 	   a=b;
 // alert(a);
 
-		 
-	
-	
-	  
-   }
-  </script>
+
+
+</script>
 <jsp:include page="/Category/Common/top.jsp"></jsp:include>
 <div id="wrapper">
 
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-
+  <input type="hidden" value="">
 
  <h3 class="h3_type01">
   국제선 예매
@@ -188,8 +205,13 @@ dto = dao.confirmSch(s_code);
 		<td id="s_class"><%=a %></td>
 		
 	</tr>
-	<%ConfirmSch dto1 = new ConfirmSch();
+	<%
+	String c_name = dto.getC_Name();
+	String c_name1 = dto.getC_Name1();
+	
+	ConfirmSch dto1 = new ConfirmSch();
 	dto1 = dao.confirmSch1(s_code1);%>
+	
 	<tr>
 		<td height="60">
 			오는편<br>
@@ -205,7 +227,7 @@ dto = dao.confirmSch(s_code);
 			<%=dto1.getA_Name() %>/ <%=dto1.getAn_Name() %>
 		</td>
 		<td><%=dto1.getS_FlightTime() %></td>
-		<td>트래블</td>
+		<td><%=a %></td>
 	
 	</tr>
 </table>
@@ -221,45 +243,49 @@ dto = dao.confirmSch(s_code);
 	</tr>
 	<tr>
 		<td>성인</td>
-		<td><%=agradeSum/adult %>원</td>
+		<td><%=fm.format(agradeSum/adult) %>원</td>
 		<td><%=adult %>명</td>
-		<td><%=agradeSum %>원</td>
+		<td><%=fm.format(agradeSum) %>원</td>
 	</tr>
+	<%
+	if(child!=0){%>
 	<tr>
 		<td>소아</td>
-		<td><%=cgradeSum/child %>원</td>
+		<td><%=fm.format(cgradeSum/child) %>원</td>
 		<td><%=child %>명</td>
-		<td><%=cgradeSum %>원</td>
+		<td><%=fm.format(cgradeSum) %>원</td>
 	</tr>
+	<%}	%>
+	<%
+	if(infant!=0){%>
 	<tr>
 		<td>유아</td>
 		<td>0원</td>
 		<td><%=infant %>명</td>
 		<td>0원</td>
 	</tr>
+		<%}	%>
 </table>
 
 <div style="width: 700px; text-align: right; margin-top: 20px; margin-bottom: 20px;">
-	<strong>총 지불금액</strong><strong class="totalP"><%=agradeSum+cgradeSum %>원</strong>
+	<strong>총 지불금액</strong><strong class="totalP"><%=fm.format(agradeSum+cgradeSum) %>원</strong>
 </div>
 
  	<div style="width: 700px; text-align: center" >
 	
 	<input class="prev_bt" type="button" value="이전단계" onclick="location.href='R5_FareComfirm.jsp'">
-	<input class="next_bt" type="button" value="계속하기" onclick="location.href='R6_Complete.jsp'">
+	<input class="next_bt" type="button" value="계속하기" onclick="location.href='FlightInsPro.jsp?mNo=<%=mNo %>&fl_Fare=<%=agradeSum+cgradeSum %>&s_Code=<%=s_code%>&s_Code2=<%=s_code1%>&seat_No=<%=gcode%>&c_name=<%=c_name%>&c_name1=<%=c_name1%>'">
 	
 	</div>
 	
 	
-<%-- <%
-	int i=1000000000;
-	DecimalFormat fm = new DecimalFormat("#,###");
-	out.print(fm.format(i));
-%> --%>
+
              
               
 </div>
 </div>
 <jsp:include page="/Category/Common/footer.jsp"></jsp:include>
 </body>
+
+
 </html>

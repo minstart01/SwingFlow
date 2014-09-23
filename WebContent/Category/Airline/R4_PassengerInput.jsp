@@ -1,10 +1,49 @@
+<%@page import="Airline.DTO.Member"%>
+<%@page import="Airline.DAO.ClientDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<%
+
+
+int adult = Integer.parseInt(request.getParameter("adult"));
+int child = Integer.parseInt(request.getParameter("child"));
+int infant = Integer.parseInt(request.getParameter("infant"));
+int s_code = Integer.parseInt(request.getParameter("s_code"));
+int s_code1 = Integer.parseInt(request.getParameter("s_code1"));
+int agradeSum = Integer.parseInt(request.getParameter("agradeSum"));
+int cgradeSum = Integer.parseInt(request.getParameter("cgradeSum"));
+String seat_Class = request.getParameter("seat_Class");
+
+String a_name = request.getParameter("a_name");
+String an_name = request.getParameter("an_name");
+String a_name1 = request.getParameter("a_name1");
+String an_name1 = request.getParameter("an_name1");
+
+String dep_city = request.getParameter("c_name");
+String arr_city = request.getParameter("c_name1");
+
+String arr_city1 = request.getParameter("c1_name1");
+String dep_city1 = request.getParameter("c1_name");
+
+String dep_day = request.getParameter("dep_day");
+String arr_day = request.getParameter("arr_day");
+String dep_time = request.getParameter("de_time");
+String dep_time1 = request.getParameter("de_time1");
+
+String f_time = request.getParameter("f_time");
+String f_time1 = request.getParameter("f_time1");
+
+
+
+%>
+
+
 <script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
   <script>
   function nextEdit() {
@@ -14,6 +53,28 @@
 <link rel="stylesheet" type="text/css"
 	href="/SwingFlow/Css/Common/Main.css" />
 <style>
+.div_button
+{
+	margin-top:7px;
+	width:700px;;
+	text-align:center;
+}
+
+.bt_login
+{
+	width:80px;
+	height:30px;
+	font-size:12px;
+	font-weight:bold;
+	background: #0043A8;
+  	background: -moz-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -o-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
+	color:white;
+		border:none;
+	
+}
+
 #wrapper {
 	width: 1200px;
 }
@@ -1605,6 +1666,9 @@
 <body id="ALPI">
 	<form name="frm" action="R5_FareComfirm.jsp">
 		<jsp:include page="/Category/Common/top.jsp"></jsp:include>
+	
+		
+		
 		<div id="wrapper">
 
 			<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
@@ -1639,40 +1703,7 @@
 
 
 									<div class="fareInner">
-<%
 
-
-int adult = Integer.parseInt(request.getParameter("adult"));
-int child = Integer.parseInt(request.getParameter("child"));
-int infant = Integer.parseInt(request.getParameter("infant"));
-int s_code = Integer.parseInt(request.getParameter("s_code"));
-int s_code1 = Integer.parseInt(request.getParameter("s_code1"));
-int agradeSum = Integer.parseInt(request.getParameter("agradeSum"));
-int cgradeSum = Integer.parseInt(request.getParameter("cgradeSum"));
-String seat_Class = request.getParameter("seat_Class");
-
-String a_name = request.getParameter("a_name");
-String an_name = request.getParameter("an_name");
-String a_name1 = request.getParameter("a_name1");
-String an_name1 = request.getParameter("an_name1");
-
-String dep_city = request.getParameter("c_name");
-String arr_city = request.getParameter("c_name1");
-
-String arr_city1 = request.getParameter("c1_name1");
-String dep_city1 = request.getParameter("c1_name");
-
-String dep_day = request.getParameter("dep_day");
-String arr_day = request.getParameter("arr_day");
-String dep_time = request.getParameter("de_time");
-String dep_time1 = request.getParameter("de_time1");
-
-String f_time = request.getParameter("f_time");
-String f_time1 = request.getParameter("f_time1");
-
-out.print(s_code+cgradeSum);
-
-%>
 <input type="hidden" value="<%=s_code%>" name="s_code">
 <input type="hidden" value="<%=s_code1%>" name="s_code1">
 <input type="hidden" value="<%=agradeSum%>" name="agradeSum">
@@ -1702,34 +1733,7 @@ out.print(s_code+cgradeSum);
 
 
 										<!-- selectITbox3 -->
-										<table border="1" cellpadding="6" cellspacing="0">
-											<tr>
-												<td width="66">인천</td>
-												<td width="35">&lt;=&gt;</td>
-												<td width="207">도쿄/나리타</td>
-												<td width="95">가는 날</td>
-												<td width="95">오는 날</td>
-												<td width="44">좌석</td>
-											</tr>
-											<tr>
-												<td>(인천,ICN)</td>
-												<td>&nbsp;</td>
-												<td>(도쿄/나리타,NRT)</td>
-												<td>2014/08/10/일 <br /> 09:00 출발
-												</td>
-												<td>2014/08/10/일 <br /> 09:00 출발
-												</td>
-												<td>트래블</td>
-											</tr>
-											<tr>
-												<td height="37">&nbsp;</td>
-												<td>&nbsp;</td>
-												<td>&nbsp;</td>
-												<td>OZ102</td>
-												<td>OZ102</td>
-												<td>&nbsp;</td>
-											</tr>
-										</table>
+										
 
 										<!-- //selectITbox3 -->
 
@@ -1739,50 +1743,174 @@ out.print(s_code+cgradeSum);
 										<!-- notice_container -->
 
 
-										<div class="notice_container">
-
-
-											<div class="notice_Inner innerType01">
-
-
-												<ul class="notice">
-
-
-													<li>항공권 탑승자 성명과 여권의 영문 성명이 상이한 경우 탑승이 거절될 수 있으니 유의하시기
-														바랍니다. (아시아나클럽 회원 정보와 여권정보가 다른 경우 반드시 예약일 전에 문의하시기 바랍니다.
-														문의처: 아시아나클럽 1588-8180)</li>
-
-
-													<li>아시아나항공 마일리지 적립 시, 아시아나클럽 회원 이름, 회원번호를 정확하게 기재하시기
-														바랍니다.</li>
-
-
-													<li>전자항공권의 클래스에 따라 마일리지 적립이 불가하거나 적립율이 상이할 수 있으며, 실제
-														운항하는 항공사의 적립율에 의해 적립이 이루어집니다.</li>
-
-
-
-												</ul>
-
-
-											</div>
-
-
-										</div>
+										
 
 
 										<!-- //notice_container -->
 
+	
+<%
+		String mid = (String)session.getAttribute("MemberId");
+		ClientDAO dao = ClientDAO.getInstance();
+Member dto = new Member();
+dto = dao.memberSel(mid);
+// int gcode = dto.getScode();
+// if(gcode==1){
+	
+	
+// }
 
+%>
 
 										<div class="passengerBox z1" style="z-index: 200;">
 
 
 											<h4 class="h4_type01">탑승자 정보</h4>
+											<div class="passengerInner" style="z-index: 90;">
+
+												<p class="sTitle">
+													<strong>성인</strong>
+												</p>
+
+
+												<div class="passengerBody">
+
+													<span class="hidden">탑승자</span><strong class="pCnt"><%=1 %></strong><span
+														class="hidden">성인</span> <input name="paxType1"
+														type="hidden" value="ADT" />
+
+													<div class="entryBox">
+
+
+
+														<div class="paragraph double">
+
+
+															<div class="text gap-1">
+																<label for="tt_name1_1"><strong>성</strong>(family
+																	name)</label>
+															</div>
+
+
+															<div class="entry z2">
+<!-- 패밀리 라스트네임 ==========================================================================================-->
+																<input name="lName" class="text01"
+																	id="familyName1"
+																	style="width: 153px; text-transform: uppercase; ime-mode: disabled;"
+																	 type="text"
+																	value="<%=dto.getMname()%>" />
+
+															</div>
+
+
+
+
+
+														</div>
+
+
+
+
+														<div class="paragraph">
+
+
+															<div class="text">
+																<strong>성별</strong>
+															</div>
+
+
+															<div class="entry z3">
+
+																<input name="gender" id="paxGender1" type="radio"
+																	checked="" value="M" /> <label for="paxGender1">남</label>
+																<input name="gender" id="paxGender2" type="radio"
+																	value="F" /> <label for="paxGender2">여</label>
+
+															</div>
+
+
+														</div>
+
+
+
+														<div class="paragraph bB0">
+
+
+															<div class="text">
+
+																<strong>회원번호</strong>
+																<!-- hover -->
+
+
+																<div class="hoverBox IDhoverOpen">
+
+
+																	<div class="hoverInner">
+
+
+																		<div class="hoverCt">
+
+
+																			<p class="tripTitle">
+																				<strong>마일리지 적립항공사</strong>
+																			</p>
+
+
+																			<p class="tripSubT">
+
+																				* 아시아나항공, 스타얼라이언스 회원사에 대한 마일리지 적립이 가능합니다. <br /> *
+																				마일리지는 탑승 완료 후 적립되며, 항공사마다 적립 시기에 차이가 있을 수 있습니다. <br />
+																				* 아시아나클럽 회원이 아니신 경우, 탑승 전 회원 가입을 해주셔야 적립이 가능합니다.
+
+																			</p>
+
+
+																		</div>
+
+
+																	</div>
+
+
+																</div>
+
+
+																<!-- //hover -->
+
+
+															</div>
+
+
+															<div class="entry">
+
+<!--  여권 번호 ====================================================================================-->
+																<input name="mNo" title="회원번호"
+																	class="text01 inputFocusin01" id="ffpNo1"
+																	 type="text"
+																	maxlength="9" value="<%=dto.getMno() %>" /> <span class="ffp">FFP</span>
+																<!-- hover -->
+																<span class="system_warning" id="warningffpNo1"
+																	style="display: none;">회원번호 오류</span>
+
+																<!-- //hover -->
+
+
+															</div>
+
+
+														</div>
+
+
+													</div>
+
+
+												</div>
+
+
+											</div>
 
 <%
 
-for(int i=0; i < adult;i++){
+for(int i=1; i < adult;i++){
 	
 %>
 <!-- 성인 START===============================================================-->
@@ -1873,7 +2001,7 @@ for(int i=0; i < adult;i++){
 
 															<div class="text">
 
-																<strong>여권번호</strong>
+																<strong>회원번호</strong>
 																<!-- hover -->
 
 
@@ -2018,7 +2146,7 @@ for(int i=0; i < child;i++){
 															<div class="entry z3">
 
 																<input name="child_gender" id="paxGender1" type="radio"
-																	checked="" value="M" /> <label for="paxGender1">남</label>
+																	checked="checked" value="M" /> <label for="paxGender1">남</label>
 																<input name="child_gender" id="paxGender2" type="radio"
 																	value="F" /> <label for="paxGender2">여</label>
 
@@ -2034,7 +2162,7 @@ for(int i=0; i < child;i++){
 
 															<div class="text">
 
-																<strong>여권번호</strong>
+																<strong>회원번호</strong>
 																<!-- hover -->
 
 
@@ -2194,7 +2322,7 @@ for(int i=0; i<infant; i++){
 
 															<div class="text">
 
-																<strong>여권번호</strong>
+																<strong>회원번호</strong>
 																<!-- hover -->
 
 
@@ -2266,12 +2394,13 @@ for(int i=0; i<infant; i++){
 <!-- 유아 END ===============================================================-->
 
 							<p>&nbsp;</p>
-							<div>
-								<span style="margin-left: 50px;"> <a id=""
-									href="R3_FareComfirm.jsp">이전단계</a></span> <span
-									style="margin-left: 700px;"><a id=""
-									href="javascript:nextEdit()">계속하기</a></span>
-							</div>
+<div>
+    <div class="div_button">
+	<input type="submit" value="이전단계" class="bt_login"/>
+	
+  	<input type="button" value="계속하기" id="FareComfirm" class="bt_login" onClick="nextEdit();"/>
+</div>
+</div>							
 
 
 						</div>

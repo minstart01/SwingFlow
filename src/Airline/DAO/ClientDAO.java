@@ -11,12 +11,16 @@ import java.util.ArrayList;
 
 
 
+
+
 import Airline.DTO.ConfirmSch;
 import Airline.DTO.DbClose;
 import Airline.DTO.DbSet;
 import Airline.DTO.Fare;
 import Airline.DTO.Flight;
 import Airline.DTO.FlightSearch;
+import Airline.DTO.Member;
+
 
 
 
@@ -243,25 +247,49 @@ public class ClientDAO {
 		}				
 		return dto;
 	}
+	/* 회원정보 불러오기  */
 	
-	
+	public Member memberSel(String mid){
+		conn = DbSet.getConnection();
+		Member dto = new Member();
+		sql="select mno, mname, scode from member where mid=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				dto.setMno(rs.getInt(1));
+				dto.setMname(rs.getString(2));
+				dto.setScode(rs.getInt(3));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(pstmt, conn, rs);
+		}
+
+		return dto;
+		}
+
 	/*  항공편 예약  */
 	public int flightIns(Flight dto){
 		conn = DbSet.getConnection();
-		sql="INSERT INTO FLIGHT (FL_NO, MNO, FL_FARE, FL_SYS, S_CODE, S_CODE2, SEAT_NO ) VALUES  ( flightseq.nextval, ?, ?,? ,? ,? ,?  )";
+		sql="INSERT INTO FLIGHT (FL_NO, MNO, FL_FARE, FL_SYS, S_CODE, S_CODE2, SEAT_NO ) VALUES  ( flightseq.nextval, ?, ?,sysdate ,? ,? ,?  )";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, dto.getmNo());
 			pstmt.setString(2, dto.getFl_Fare());
-			pstmt.setString(3, dto.getFl_sys());
-			pstmt.setInt(4, dto.getS_Code());
-			pstmt.setInt(5, dto.getS_Code2());
-			pstmt.setInt(6, dto.getSeat_No());
+			pstmt.setInt(3, dto.getS_Code());
+			pstmt.setInt(4, dto.getS_Code2());
+			pstmt.setInt(5, dto.getSeat_No());
 			su = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally{
+			DbClose.close(pstmt, conn);
 		}
 		return su;
 	}

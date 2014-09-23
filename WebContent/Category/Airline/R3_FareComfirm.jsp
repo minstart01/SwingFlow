@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="Airline.DTO.Fare"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Airline.DAO.ClientDAO"%>
@@ -11,6 +12,19 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/SwingFlow/Css/Common/Main.css" />
 <style>
+
+.prev_bt, .next_bt{
+	width:80px;
+	height:30px;
+	font-size:12px;
+	font-weight:bold;
+	background: #0043A8;
+  	background: -moz-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -o-linear-gradient(#43A9FF, #0043A8);
+ 	 background: -webkit-linear-gradient(#43A9FF, #0043A8);
+	color:white;
+	border: none;
+}
 
 .bt_login
 {
@@ -817,6 +831,8 @@ table
      
 <!--   여기부터 ----------------------------------------------------------------------------------------------------------------------	 -->
 <%
+DecimalFormat fm = new DecimalFormat("#,###");
+
 int s_code = Integer.parseInt(request.getParameter("s_code"));
 int s_code1 = Integer.parseInt(request.getParameter("s_code1"));
 int adult = Integer.parseInt(request.getParameter("adult"));
@@ -841,6 +857,8 @@ String seat_Class = request.getParameter("seat_Class");
 
 String f_time = request.getParameter("f_time");
 String f_time1 = request.getParameter("f_time1");
+
+
 
 //out.print(s_code+s_code1+adult+child+infant+a_name+an_name+a_name1+an_name1+arr_city+arr_city1+dep_city1+dep_city+dep_day+arr_day+dep_time+dep_time1+seat_Class);
 %>
@@ -939,20 +957,24 @@ String f_time1 = request.getParameter("f_time1");
   %> 	
     <ul id="paxPriceArea">
      <li>
-      	<span class="leftCnt"><strong>성인 <%=adult %></strong></span>	<span class="RightPrice" id="adult"><%=agradeSum%> 원</span>
+      	<span class="leftCnt"><strong>성인 <%=adult %></strong></span>	<span class="RightPrice" id="adult"><%=fm.format(agradeSum)%> 원</span>
      </li>
+     <%if(child!=0){%> 
      <li>
-      	<span class="leftCnt"><strong>소아 <%=child %></strong></span>	<span class="RightPrice" id="child"><%=cgradeSum%> 원</span>
+      	<span class="leftCnt"><strong>소아 <%=child %></strong></span>	<span class="RightPrice" id="child"><%=fm.format(cgradeSum)%> 원</span>
      </li>
+     <%} %>
+          <%if(infant!=0){%> 
      <li>
       	<span class="leftCnt"><strong>유아 <%=infant %></strong></span>	<span class="RightPrice">0 원</span>
      </li>
+     <%} %>
     </ul>
      											
 <!--  ===================   인원수, 운임	END  ========================================== -->   
     											
     <p class="totalPrice" id="totalPrice">
-     <strong><%=total %> 원</strong>
+     <strong><%=fm.format(total) %> 원</strong>
     </p>
     
     
@@ -1230,10 +1252,12 @@ String f_time1 = request.getParameter("f_time1");
 
 </div></div>
               <p>&nbsp;</p>
-<div ><span class="bt_a" style="margin-left:50px;">
-                <a  id="" href="R2_.jsp.jsp">이전단계</a></span>
-                <span style="margin-left:500px;"><a id="" href="R4_PassengerInput.jsp?f_time1=<%=f_time1 %>&f_time=<%=f_time %>&seat_Class=<%=seat_Class %>&adult=<%=adult %>&child=<%=child%>&infant=<%=infant%>&s_code=<%=s_code%>&s_code1=<%=s_code1%>&agradeSum=<%=agradeSum%>&cgradeSum=<%=cgradeSum %>&a_name=<%=a_name%>&an_name=<%=an_name%>&a_name1=<%=a_name1%>&an_name1=<%=an_name1%>&dep_city=<%=dep_city%>&arr_city=<%=arr_city%>&arr_city1=<%=arr_city1%>&dep_city1=<%=dep_city1%>&dep_day=<%=dep_day%>&arr_day=<%=arr_day%>&dep_time=<%=dep_time%>&dep_time1=<%=dep_time1%> ">계속하기</a></span>
-</div>
+ 	<div style="width: 700px; text-align: center" >
+	
+	<input class="prev_bt" type="button" value="이전단계" onclick="location.href='R2_.jsp.jsp'">
+	<input class="next_bt" type="button" value="계속하기" onclick="location.href='R4_PassengerInput.jsp?f_time1=<%=f_time1 %>&f_time=<%=f_time %>&seat_Class=<%=seat_Class %>&adult=<%=adult %>&child=<%=child%>&infant=<%=infant%>&s_code=<%=s_code%>&s_code1=<%=s_code1%>&agradeSum=<%=agradeSum%>&cgradeSum=<%=cgradeSum %>&a_name=<%=a_name%>&an_name=<%=an_name%>&a_name1=<%=a_name1%>&an_name1=<%=an_name1%>&dep_city=<%=dep_city%>&arr_city=<%=arr_city%>&arr_city1=<%=arr_city1%>&dep_city1=<%=dep_city1%>&dep_day=<%=dep_day%>&arr_day=<%=arr_day%>&dep_time=<%=dep_time%>&dep_time1=<%=dep_time1%>'">
+	
+	</div>
               
 
 </section></div></div></div></section></div>

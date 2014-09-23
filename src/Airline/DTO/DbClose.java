@@ -19,9 +19,9 @@ public class DbClose {
 
 	}
 
-	public static void close(Statement stmt, Connection conn, ResultSet rs) {
+	public static void close(PreparedStatement pstmt, Connection conn, ResultSet rs) {
 		try {
-			stmt.close();
+			pstmt.close();
 			conn.close();
 			rs.close();
 		} catch (SQLException e) {
