@@ -1,4 +1,4 @@
-<%@page import="Airline.DTO.ConfirmSch"%>
+﻿<%@page import="Airline.DTO.ConfirmSch"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Airline.DAO.ClientDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
