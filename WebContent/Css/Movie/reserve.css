@@ -373,18 +373,25 @@
 	text-align: center;
 	width: 450px;
 	margin-top: 55px;
-	margin-bottom:20px;
+	margin-bottom:60px;
 	padding: 3px 0 3px 0;
 }
 .seat .sel_seat  
 {
-	
 	cursor: pointer;
 	background: #7f85cb;
 	color: white;
 	
 }
+.sel_seat:hover{
+	background: #050099;		
+}
 
 .sel_sit_button{
 	margin-top: 20px;
 }
+.seat_on{
+	background-color: orange;
+	color:white;
+}
+

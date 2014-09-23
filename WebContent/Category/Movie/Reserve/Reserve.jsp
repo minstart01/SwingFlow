@@ -471,6 +471,8 @@ function SearchTime(data){
 						$(".charge").text("0원");
 						$(".totalcharge").text("0원");
 					}
+					
+					$("#next_bt").attr("onclick","next()");
 
 				});
 $(".teen_sit_no")
@@ -581,11 +583,16 @@ $(".teen_sit_no")
 								.attr("src",
 										"/SwingFlow/images/Movie/Reserve/img_PersonNum_off.gif");
 					}
+					
+					
+					$("#next_bt").attr("onclick","next()");
 				});
 
 	}
 }
 
+
+/* 좌석 선택 */
 function next(){
 	
 	$("#moviebox").hide();
@@ -608,6 +615,7 @@ function next(){
 	var tName = $(".local_on").text();
 	timeon = timeon.substring(0,1);
 	
+	$("#next_bt").removeAttr("onclick");
 
 	
 	$.ajax({
@@ -628,9 +636,14 @@ function SeatList(data){
 	item = $(data).find("ul").find("li");
 	var row = $(item[0]).text();
 	var column = $(item[1]).text();
+	var rowname="";
+	var table = "";
+	
+	column = eval(column+" + 2");
+	
 	
 	for(var i=1;i<=row;i++){
-		var rowname;
+		
 		switch(i){
 		case 1 : rowname = "A"; break;
 		case 2 : rowname = "B"; break;
@@ -644,19 +657,53 @@ function SeatList(data){
 		case 10 : rowname = "J"; break;
 	}
 	
-		$(".seat").append("<tr>");
+		table += "<tr>";
 		
 		for(var j=1;j<=column;j++){
 			if(j==1){
-				$(".seat").append("<td width='20' align='center'>" + rowname + "</td>");
-			}else if(j==2 || j==3){
-				$(".seat").append("<td width='20' align='center'></td>");
-			}else if(j>3){
-				$(".seat").append("<td width='20' align='center'>" + rowname + (j-3) + "</td>");
+				table += "<td width='20' align='center'>" + rowname + "</td>";
+			}else if(j==2){
+				table += "<td width='20' align='center'></td>";
+			}else if(j>2){
+				table += "<td class='sel_seat' width='20' align='center'>" + rowname + (j-2) + "</td>";
 			}
 		}
-		$(".seat").append("</tr>");
-	}  
+		table += "</tr>";
+		
+	}
+	
+	
+	$(".seat").append(table);
+
+	
+	
+	$(".sel_seat").click(function e(){
+		var adult = $(".adult_on").text();
+		var teen = $(".teen_on").text();
+		var peoplenum = eval(adult + " + " + teen);
+		
+
+		
+		if(count<peoplenum){
+			$(this).addClass("seat_on");
+			$(this).removeClass("sel_seat");
+			
+			if(count<(peoplenum-1)){
+				seatinfo += $(this).text() + ", ";
+			}else{
+				seatinfo += $(this).text();
+			}
+		}
+		if(peoplenum != count){
+			count++;
+		}
+		
+		
+		
+		$(".seat_info").text(seatinfo);
+		$(".seat_img").attr("src","/SwingFlow/images/Movie/Reserve/img_SeatArea_on.gif");
+	});
+	
 }
 
 $(function(){
@@ -666,6 +713,40 @@ $(function(){
 	});
 
 });
+
+var count=0;
+var seatinfo = "";
+
+
+/* 좌석 다시 선택 */
+function resel(){
+	$(".seat_on").addClass("sel_seat");
+	$(".seat_on").removeClass("seat_on");
+	count=0;
+	seatinfo = "";
+}
+
+/* 예매하기 */
+function reserve(){
+	var check =  confirm("예약하시겠습니까?");
+	
+	var mName = $(".movie_on").text();
+	var tName = $(".local_on").text();
+	var charges = ($(".totalcharge").text()).split(",");
+	var charge = charges[0] + "000";
+	var seatinfo = $(".seat_info").text();
+	var adult = $(".adult_on").text();
+	var teen = $(".teen_on").text();
+	var time = $(".Td_info").text() + " " + $(".time_info").text();
+	
+	
+	if(check == true){
+		location.href = "ReserveInsert.jsp?charge=" + charge + "&seatinfo=" + seatinfo + "&adult=" + adult + "&teen=" + teen + "&mName=" + mName + "&tName=" + tName + "&time=" + time;
+	}
+}
+	
+	
+
 
 </script>
 </head>
@@ -947,8 +1028,8 @@ $(function(){
 </table>
 
 <div class="sel_sit_button">
-	<input type="button" value="다시선택">
-	<input type="button" value="선택완료">
+	<input type="button" value="다시선택" onclick="resel();">
+	<input type="button" value="선택완료" onclick="reserve();">
 </div>
 </center>
 </div>
@@ -1003,8 +1084,8 @@ $(function(){
 					<tr>
 						<td><img
 							src="/SwingFlow/images/Movie/Reserve/img_SeatArea_off.gif"
-							alt="좌석정보" /></td>
-						<td>??</td>
+							alt="좌석정보" class="seat_img" /></td>
+						<td class="seat_info">좌석을 선택하세요</td>
 					</tr>
 				</table>
 
@@ -1036,7 +1117,7 @@ $(function(){
 				<a href="javascript:location.reload();"><input type="button" class="bt" value="처음부터" /></a>
 			</div>
 			<div style="padding-top: 10px;">
-				<input type="button" class="bt" id="next_bt" value="예약하기" onclick="next();" />
+				<input type="button" class="bt" id="next_bt" value="좌석선택"  />
 			</div>
 			</section>
 		</div>

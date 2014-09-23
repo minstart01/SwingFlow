@@ -71,7 +71,7 @@
 		<ul>
 		<h2>예매</h2>
 			<li class="li"><a href="/SwingFlow/Category/Movie/Reserve/Reserve.jsp">예매하기</a></li>
-		  	<li><a href="/SwingFlow/Category/Movie/Reserve/ReserveCheck.jsp">예매확인/취소</a></li>
+		  	<li><a href="/SwingFlow/Category/Movie/Reserve/ReserveList.jsp">예매확인/취소</a></li>
 			 <li><a href="#">상영시간표</a></li>
 			 
 		</ul>

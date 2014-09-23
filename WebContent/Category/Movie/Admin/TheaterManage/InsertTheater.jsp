@@ -158,7 +158,7 @@
 <jsp:include page="/Category/Movie/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-<div class="insert_title">영화 등록하기</div>
+<div class="insert_title">영화관 등록하기</div>
 <div class="div_table">
 <input type="hidden" name="aCode" class="aCode">
 <input type="hidden" class="total_hidden" name="tTotalSit">

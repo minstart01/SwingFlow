@@ -520,4 +520,181 @@ public class MovieDAO {
 	
 	}
 	
+	/* 예매하기 */
+	
+	public int MovieReserve(String mId, MovieReserve dto){
+		
+		
+		
+		conn = DbSet.getConnection();
+		sql = "INSERT INTO MOVIERESERVE(RNO, MINO, MNO, TPRICE, MRPLAYTIME, MRDATE) VALUES (RESERVESEQ.NEXTVAL, ?, (SELECT MNO FROM MEMBER WHERE MID = ?), ?, ?, SYSDATE)"; 
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dto.getMiNo());
+			pstmt.setString(2, mId);
+			pstmt.setInt(3, dto.gettPrice());
+			pstmt.setString(4, dto.getMrPlayTime());
+			
+			su = pstmt.executeUpdate();
+						
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;
+		
+	}
+	
+	/* 좌석 삽입 */
+	public int SeatInsert(String number){
+		
+		conn = DbSet.getConnection();
+		sql = "INSERT INTO SITINFO(RNO, SNUMBER) VALUES ((SELECT MAX(RNO) FROM MOVIERESERVE), ?)";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, number);
+			
+			su = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;
+	}
+		
+	/* 인원수 삽입 */
+	public int ReserveNoInster(int rAdult, int rTeen){
+		
+		conn = DbSet.getConnection();
+		sql = "insert into ReserveNo(rNo, radult, rteen) values ((SELECT MAX(RNO) FROM MOVIERESERVE), ?, ?)";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rAdult);
+			pstmt.setInt(2, rTeen);
+			
+			su = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(pstmt, conn);
+		}
+		return su;
+	}
+	
+	/* 영화번호 조회 */
+	public int miNoSel(String mName, String tName){
+		
+		conn = DbSet.getConnection();
+		sql = "SELECT MI.MINO, M.MNAME, T.TNAME FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T WHERE MI.MCODE = M.MCODE AND T.TCODE = MI.TCODE AND M.MNAME=? AND T.TNAME=?";
+		int miNo=0;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mName);
+			pstmt.setString(2, tName);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				miNo = rs.getInt(1);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		return miNo;
+	}
+	
+	
+	public ArrayList<ReserveList> ListReserve(String mId){
+		
+		ArrayList<ReserveList> list = new ArrayList<ReserveList>();
+		
+		conn = DbSet.getConnection();
+		sql = "SELECT M.MNAME, T.TNAME, MR.MRPLAYTIME, TO_CHAR(MR.MRDATE,'YYYY-MM-DD'), R.RADULT, R.RTEEN, MB.MID, MR.RNO FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, MOVIERESERVE MR, RESERVENO R, MEMBER MB WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND MR.MINO = MI.MINO AND MR.RNO = R.RNO AND MB.MNO = MR.MNO AND MB.MID = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mId);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				ReserveList dto = new ReserveList();
+				
+				dto.setmName(rs.getString(1));
+				dto.settName(rs.getString(2));
+				dto.setPlayTime(rs.getString(3));
+				dto.setMrDate(rs.getString(4));
+				dto.setrAdult(rs.getInt(5));
+				dto.setrTeen(rs.getInt(6));
+				dto.setrNo(rs.getInt(8));
+				list.add(dto);
+			}
+						
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		
+		return list;
+	}
+	
+public ReserveList ListReserveDetail(String mId, int rNo){
+		ReserveList dto = new ReserveList();
+		
+		conn = DbSet.getConnection();
+		sql = "SELECT M.MNAME, T.TNAME, MR.MRPLAYTIME, TO_CHAR(MR.MRDATE,'YYYY-MM-DD'), R.RADULT, R.RTEEN, MB.MID, MR.RNO, S.SNUMBER, MR.TPRICE FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T, MOVIERESERVE MR, RESERVENO R, MEMBER MB, SITINFO S WHERE M.MCODE = MI.MCODE AND MI.TCODE = T.TCODE AND MR.MINO = MI.MINO AND MR.RNO = R.RNO AND MB.MNO = MR.MNO AND MB.MID  = ? AND MR.RNO = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mId);
+			pstmt.setInt(2, rNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				
+				
+				dto.setmName(rs.getString(1));
+				dto.settName(rs.getString(2));
+				dto.setPlayTime(rs.getString(3));
+				dto.setMrDate(rs.getString(4));
+				dto.setrAdult(rs.getInt(5));
+				dto.setrTeen(rs.getInt(6));
+				dto.setrNo(rs.getInt(8));
+				dto.setsNumber(rs.getString(9));
+				dto.settPrice(rs.getInt(10));
+			
+			}
+						
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			DbClose.close(rs, pstmt, conn);
+		}
+		
+		return dto;
+	}
+	
+	
 }

@@ -55,7 +55,7 @@ font-family:Arial, Helvetica, sans-serif
 // int adult = Integer.parseInt(request.getParameter("adult"));
 // int child = Integer.parseInt(request.getParameter("child"));
 // int infant = Integer.parseInt(request.getParameter("infant"));
-int s_code = Integer.parseInt(request.getParameter("s_code"));
+/* int s_code = Integer.parseInt(request.getParameter("s_code"));
 int s_code1 = Integer.parseInt(request.getParameter("s_code1"));
 int agradeSum = Integer.parseInt(request.getParameter("agradeSum"));
 int cgradeSum = Integer.parseInt(request.getParameter("cgradeSum"));
@@ -70,7 +70,7 @@ int cgradeSum = Integer.parseInt(request.getParameter("cgradeSum"));
   
 	String[] infant_lName = request.getParameterValues("infant_lName");
     String[] infant_fName = request.getParameterValues("infant_fName");
-    String[] infant_passport = request.getParameterValues("infant_passport");
+    String[] infant_passport = request.getParameterValues("infant_passport"); */
     
 %>
 <body>
@@ -121,7 +121,7 @@ int cgradeSum = Integer.parseInt(request.getParameter("cgradeSum"));
 <p><br />
   탑승자별 운임확인</p>
 <p>&nbsp;</p>
-<table border="1" cellpadding="6" cellspacing="0" width="705" >
+<%-- <table border="1" cellpadding="6" cellspacing="0" width="705" >
 <% for(int i=0; i<lName.length;i++){ %>
   <tr>
     <td width="40" rowspan="5" align="center" style="vertical-align:top;" class="colum"><%=i+1 %></td>
@@ -232,7 +232,7 @@ for(int i=0; i<infant_lName.length;i++){ %>
 </table>
 <%}catch(Exception e){} %>
 
-
+ --%>
 <!-- <table  width="705" border="1" cellpadding="6" cellspacing="0"> -->
 <!--   <tr> -->
 <!--     <td width="90" rowspan="4" class="pay" style="vertical-align:top"><p>결제금액</p> -->

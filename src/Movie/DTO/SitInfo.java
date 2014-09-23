@@ -4,7 +4,7 @@ public class SitInfo {
 	private int rNo;
 	private String sNumber;
 	
-	SitInfo(){}
+	public SitInfo(){}
 
 	public SitInfo(int rNo, String sNumber) {
 		super();
