@@ -1,3 +1,5 @@
+<%@page import="Airline.DTO.FlightConfirm"%>
+<%@page import="Airline.DAO.ClientDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,7 +13,6 @@
 	width:1200px;
 	}
 #main_content{
-	border:1px solid black;
 	width:900px;
 	float:left;
 	margin-top: 25px;
@@ -40,6 +41,18 @@ color: #5c5f66;
 }
 
 </style>
+<%
+int s_code = Integer.parseInt(request.getParameter("s_code"));
+out.print(s_code);
+
+String id = (String)session.getAttribute("MemberId");
+
+ClientDAO dao = ClientDAO.getInstance();
+FlightConfirm dto = new FlightConfirm();
+dto = dao.flightConfirm(s_code, id);
+out.print(dto.getC_name());
+
+%>
 </head>
 
 <body>
@@ -49,10 +62,7 @@ color: #5c5f66;
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-<%
-String c_name = request.getParameter("c_name");
-String c_name1 = request.getParameter("c_name1");
-%>
+
 
  <h3 class="h3_type01">
   항공권 예약</h3>
@@ -64,29 +74,29 @@ String c_name1 = request.getParameter("c_name1");
 <table border="1" cellpadding="6" cellspacing="0" style="text-align:center;">
   <tr class="colum">
     <td width="150">예약번호</td>
-    <td width="150">여정</td>
+    <td width="200">여정</td>
     <td width="150">예약일자</td>
   </tr>
   <tr>
-    <td>1234567</td>
-    <td><%=c_name %>&lt;=&gt; <%=c_name1 %></td>
-    <td>&nbsp;</td>
+    <td><%=dto.getFl_no() %></td>
+    <td><%=dto.getC_name() %>&lt;=&gt;<%=dto.getC_name1() %> </td>
+    <td><%=dto.getFl_sys() %></td>
   </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
+<!--   <tr> -->
+<!--     <td>&nbsp;</td> -->
+<!--     <td>&nbsp;</td> -->
+<!--     <td>&nbsp;</td> -->
+<!--   </tr> -->
+<!--   <tr> -->
+<!--     <td>&nbsp;</td> -->
+<!--     <td>&nbsp;</td> -->
+<!--     <td>&nbsp;</td> -->
+<!--   </tr> -->
+<!--   <tr> -->
+<!--     <td>&nbsp;</td> -->
+<!--     <td>&nbsp;</td> -->
+<!--     <td>&nbsp;</td> -->
+<!--   </tr> -->
 </table>
 <p>&nbsp; </p>
 <ul>

@@ -91,7 +91,7 @@
   
  function SearchmName(data) {
  
-  location.reload();
+ location.reload();
   /*  $("#nId").append("<option>" + data +"</option>"); */   
   }
  
@@ -118,8 +118,9 @@
 	  
 	 function SearchmName01(data) {
 	 
-	  location.reload();
+	 location.reload();
 	  /*  $("#nId").append("<option>" + data +"</option>"); */   
+
 	  }
 
 </script>

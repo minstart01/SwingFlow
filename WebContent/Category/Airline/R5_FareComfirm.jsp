@@ -79,7 +79,7 @@ font-family:Arial, Helvetica, sans-serif
 	width:1200px;
 	}
 #main_content{
-	border:1px solid black;
+
 	width:900px;
 	float:left;
 	margin-top: 25px;
@@ -170,7 +170,7 @@ font-family:Arial, Helvetica, sans-serif
 
      3. 여정/탑승자 확인
 
-<hr>
+
 
 <h3>선택하신 여정</h3>
 <% ClientDAO dao = ClientDAO.getInstance();
@@ -178,31 +178,31 @@ ConfirmSch dto = new ConfirmSch();
 dto = dao.confirmSch(s_code);
 %>
 <table border="1" cellspacing="0" cellpadding="2" class="trip" width="700">
-	<tr>
-		<td width="110" height="30">구분</td>
-		<td width="140">출발</td>
-		<td width="140">도착</td>
-		<td width="100">항공사/편명</td>
-		<td width="100">비행시간</td>
-		<td width="70">클래스</td>
+	<tr class="colum" align="center">
+		<td width="84" height="30">구분</td>
+		<td width="135">출발</td>
+		<td width="136">도착</td>
+		<td width="115">항공사/편명</td>
+		<td width="80">비행시간</td>
+		<td width="112">클래스</td>
 	
 	</tr>
 	<tr>
 		<td height="60">
-			가는 편<br>
+			<div align="center">가는 편<br>
 			
-			</td>
+			</div></td>
 		<td>
- 			<%=dto.getC_Name() %>	 <%=dto.getS_DepDay() %>, <%=dto.getS_DeptTime() %> 
-		</td>
+ 			<div align="center"><%=dto.getC_Name() %>	 <%=dto.getS_DepDay() %>, <%=dto.getS_DeptTime() %> 
+	    </div></td>
 		<td>
-			<%=dto.getC_Name1() %> <%=dto.getS_DepDay() %>, <%=dto.getS_ArrtTime() %>
-		</td>
+			<div align="center"><%=dto.getC_Name1() %> <%=dto.getS_DepDay() %>, <%=dto.getS_ArrtTime() %>
+	    </div></td>
 		<td>
-			<%=dto.getA_Name() %>/ <%=dto.getAn_Name() %> 
-		</td>
-		<td><%=dto.getS_FlightTime() %></td>
-		<td id="s_class"><%=a %></td>
+			<div align="center"><%=dto.getA_Name() %>/ <%=dto.getAn_Name() %> 
+	    </div></td>
+		<td><div align="center"><%=dto.getS_FlightTime() %></div></td>
+		<td id="s_class"><div align="center"><%=a %></div></td>
 		
 	</tr>
 	<%
@@ -214,20 +214,20 @@ dto = dao.confirmSch(s_code);
 	
 	<tr>
 		<td height="60">
-			오는편<br>
+			<div align="center">오는편<br>
 		
-			</td>
+			</div></td>
 		<td>
-			<%=dto1.getC_Name1() %>	<%=dto1.getS_DepDay() %>, <%=dto1.getS_DeptTime() %>
-		</td>
+			<div align="center"><%=dto1.getC_Name1() %>	<%=dto1.getS_DepDay() %>, <%=dto1.getS_DeptTime() %>
+	    </div></td>
 		<td>
-			<%=dto1.getC_Name() %> 2014/09/24, <%=dto1.getS_ArrtTime() %>
-		</td>
+			<div align="center"><%=dto1.getC_Name() %> 2014/09/24, <%=dto1.getS_ArrtTime() %>
+	    </div></td>
 		<td>
-			<%=dto1.getA_Name() %>/ <%=dto1.getAn_Name() %>
-		</td>
-		<td><%=dto1.getS_FlightTime() %></td>
-		<td><%=a %></td>
+			<div align="center"><%=dto1.getA_Name() %>/ <%=dto1.getAn_Name() %>
+	    </div></td>
+		<td><div align="center"><%=dto1.getS_FlightTime() %></div></td>
+		<td><div align="center"><%=a %></div></td>
 	
 	</tr>
 </table>
@@ -235,7 +235,7 @@ dto = dao.confirmSch(s_code);
 <h3>운임</h3>
 
 <table border="1" cellspacing="0" cellpadding="2" class="fare" width="700">
-	<tr>
+	<tr class="colum" align="center">
 		<td width="110">승객</td>
 		<td width="150">항공운임</td>
 		<td width="50">인원</td>

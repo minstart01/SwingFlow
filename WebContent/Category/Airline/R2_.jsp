@@ -262,7 +262,7 @@ color: #5c5f66;
     <td width="60">선택</td>
   </tr>
   <% 
-  ArrayList<FlightSearch> dtoL1 = dao.flightSel(dcity, acity, aday);
+  ArrayList<FlightSearch> dtoL1 = dao.flightSel(acity, dcity, aday);
   
   for(int i=0; i<dtoL1.size(); i++){
 	  dto = dtoL1.get(i);
@@ -270,9 +270,9 @@ color: #5c5f66;
   <tr class="css_white1 sel<%=dto.getS_Code()%>">
     <td class="a_name"><%=dto.getA_Name() %></td>
     <td class="an_name"><%=dto.getAn_Name()%></td>
-    <td class="c1_name"><%=dto.getC_Name1() %></td>
+    <td class="c1_name"><%=dto.getC_Name() %></td>
     <td class="dep_time"><%=dto.getS_DeptTime() %></td>
-    <td class="c_name"><%=dto.getC_Name() %></td>
+    <td class="c_name"><%=dto.getC_Name1() %></td>
     <td><%=dto.getS_ArrtTime() %></td>
     <td class="f_time"><%=dto.getS_FlightTime() %></td>
     <td><%=dto.getS_SeatTotal() %>석</td>

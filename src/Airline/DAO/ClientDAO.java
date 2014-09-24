@@ -13,11 +13,13 @@ import java.util.ArrayList;
 
 
 
+
 import Airline.DTO.ConfirmSch;
 import Airline.DTO.DbClose;
 import Airline.DTO.DbSet;
 import Airline.DTO.Fare;
 import Airline.DTO.Flight;
+import Airline.DTO.FlightConfirm;
 import Airline.DTO.FlightSearch;
 import Airline.DTO.Member;
 
@@ -293,6 +295,31 @@ public class ClientDAO {
 		}
 		return su;
 	}
-	 
-}
+	
+	public FlightConfirm flightConfirm(int scode, String id){
+		conn = DbSet.getConnection();    
+		FlightConfirm dto = new FlightConfirm();
+		sql="select f.fl_no, c.c_name, c1.c_name, to_char(f.fl_sys,'yyyy-mm-dd') from city c, city c1, flight f, schedule s, member m where c.c_code=s.c_code and c1.c_code=s.c_Code2 and f.s_Code=s.s_Code and m.mno = f.mno and s.s_code=? and m.mid=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, scode);
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				dto.setFl_no(rs.getInt(1)); 
+				dto.setC_name(rs.getString(2));
+				dto.setC_name1(rs.getString(3));
+				dto.setFl_sys(rs.getString(4));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DbClose.close(pstmt, conn, rs);
+		}
+		
+		return dto;
+		
+	}
+	}
 

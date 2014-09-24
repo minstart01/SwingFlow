@@ -5,12 +5,13 @@
     <jsp:setProperty property="*" name="dto"/>
     
     <%
-    String c_name = request.getParameter("c_name");
-    String c_name1 = request.getParameter("c_name1");
+//     String c_name = request.getParameter("c_name");
+//     String c_name1 = request.getParameter("c_name1");
+    int s_code = Integer.parseInt(request.getParameter("s_Code"));
     
     ClientDAO dao = ClientDAO.getInstance();
     int su = dao.flightIns(dto);
     out.print(su);
-    response.sendRedirect("R6_Complete.jsp");
+    response.sendRedirect("R6_Complete.jsp?s_code="+s_code);
     
     %>

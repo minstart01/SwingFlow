@@ -80,12 +80,13 @@ String f_time1 = request.getParameter("f_time1");
 }
 
 #main_content {
-	border: 1px solid black;
+	font-size:12px;
+	font-family:Arial;
 	width: 900px;
 	float: left;
 	margin-top: 25px;
 	margin-left: 25px;
-	font-size: 13px;
+	
 }
 
 #main_content ul, #main_content ol {
@@ -1787,8 +1788,8 @@ dto = dao.memberSel(mid);
 
 
 															<div class="text gap-1">
-																<label for="tt_name1_1"><strong>성</strong>(family
-																	name)</label>
+																<label for="tt_name1_1"><strong>이름</strong>
+																	</label>
 															</div>
 
 
@@ -1820,12 +1821,17 @@ dto = dao.memberSel(mid);
 
 
 															<div class="entry z3">
-
+                                                               <% if(dto.getScode()==1){ %>
 																<input name="gender" id="paxGender1" type="radio"
-																	checked="" value="M" /> <label for="paxGender1">남</label>
+																	checked="checked" value="M" /> <label for="paxGender1">남</label>
 																<input name="gender" id="paxGender2" type="radio"
 																	value="F" /> <label for="paxGender2">여</label>
-
+																<%}else{%>
+																<input name="gender" id="paxGender1" type="radio"
+																	 value="M" /> <label for="paxGender1">남</label>
+																<input name="gender" id="paxGender2" type="radio"
+																	value="F" checked="checked" /> <label for="paxGender2">여</label>
+																<% } %>
 															</div>
 
 
@@ -1936,8 +1942,8 @@ for(int i=1; i < adult;i++){
 
 
 															<div class="text gap-1">
-																<label for="tt_name1_1"><strong>성</strong>(family
-																	name)</label>
+																<label for="tt_name1_1"><strong>이름</strong>
+																</label>
 															</div>
 
 
@@ -1947,26 +1953,12 @@ for(int i=1; i < adult;i++){
 																	id="familyName1"
 																	style="width: 153px; text-transform: uppercase; ime-mode: disabled;"
 																	 type="text"
-																	value="영문으로 입력" />
+																	value="" placeholder="이름"/>
 
 															</div>
 
 
-															<div class="text gap-2">
-																<label for="tt_name1_2"><strong>이름</strong>(first
-																	name)</label>
-															</div>
 
-
-															<div class="entry z2">
-<!-- 패밀리 given네임 ==========================================================================================-->
-																<input name="fName" class="text01" id="givenName1"
-																	style="width: 153px; text-transform: uppercase; ime-mode: disabled;"
-																	onclick="javascript:clear_name_comment(this);"
-																	onblur="javascript:set_name_comment(this);" type="text"
-																	value="영문으로 입력" />
-
-															</div>
 
 
 														</div>
@@ -1983,7 +1975,7 @@ for(int i=1; i < adult;i++){
 
 
 															<div class="entry z3">
-
+                                                                    
 																<input name="gender" id="paxGender1" type="radio"
 																	checked="" value="M" /> <label for="paxGender1">남</label>
 																<input name="gender" id="paxGender2" type="radio"
@@ -2049,7 +2041,7 @@ for(int i=1; i < adult;i++){
 																<input name="passport" title="회원번호"
 																	class="text01 inputFocusin01" id="ffpNo1"
 																	 type="text"
-																	maxlength="9" value="회원인 경우 입력" /> <span class="ffp">FFP</span>
+																	maxlength="9" value="" placeholder="회원인 경우 입력" /> <span class="ffp">FFP</span>
 																<!-- hover -->
 																<span class="system_warning" id="warningffpNo1"
 																	style="display: none;">회원번호 오류</span>
@@ -2097,8 +2089,8 @@ for(int i=0; i < child;i++){
 
 
 															<div class="text gap-1">
-																<label for="tt_name1_1"><strong>성</strong>(family
-																	name)</label>
+																<label for="tt_name1_1"><strong>이름</strong>
+																	</label>
 															</div>
 
 
@@ -2108,26 +2100,11 @@ for(int i=0; i < child;i++){
 																	id="familyName1"
 																	style="width: 153px; text-transform: uppercase; ime-mode: disabled;"
 																	 type="text"
-																	value="영문으로 입력" />
+																	value="" placeholder="이름"/>
 
 															</div>
 
 
-															<div class="text gap-2">
-																<label for="tt_name1_2"><strong>이름</strong>(first
-																	name)</label>
-															</div>
-
-
-															<div class="entry z2">
-<!-- 패밀리 given네임 ==========================================================================================-->
-																<input name="child_fName" class="text01" id="givenName1"
-																	style="width: 153px; text-transform: uppercase; ime-mode: disabled;"
-																	onclick="javascript:clear_name_comment(this);"
-																	onblur="javascript:set_name_comment(this);" type="text"
-																	value="영문으로 입력" />
-
-															</div>
 
 
 														</div>
@@ -2210,7 +2187,7 @@ for(int i=0; i < child;i++){
 																<input name="child_passport" title="회원번호"
 																	class="text01 inputFocusin01" id="ffpNo1"
 																	 type="text"
-																	maxlength="9" value="회원인 경우 입력" /> <span class="ffp">FFP</span>
+																	maxlength="9" value="" placeholder="회원인 경우 입력"/> <span class="ffp">FFP</span>
 																<!-- hover -->
 																<span class="system_warning" id="warningffpNo1"
 																	style="display: none;">회원번호 오류</span>
@@ -2268,26 +2245,10 @@ for(int i=0; i<infant; i++){
 																	id="familyName1"
 																	style="width: 153px; text-transform: uppercase; ime-mode: disabled;"
 																	 type="text"
-																	value="영문으로 입력" />
+																	value="" placeholder="이름" />
 
 															</div>
 
-
-															<div class="text gap-2">
-																<label for="tt_name1_2"><strong>이름</strong>(first
-																	name)</label>
-															</div>
-
-
-															<div class="entry z2">
-<!-- 패밀리 given네임 ==========================================================================================-->
-																<input name="infant_fName" class="text01" id="givenName1"
-																	style="width: 153px; text-transform: uppercase; ime-mode: disabled;"
-																	onclick="javascript:clear_name_comment(this);"
-																	onblur="javascript:set_name_comment(this);" type="text"
-																	value="영문으로 입력" />
-
-															</div>
 
 
 														</div>
@@ -2370,7 +2331,7 @@ for(int i=0; i<infant; i++){
 																<input name="infant_passport" title="회원번호"
 																	class="text01 inputFocusin01" id="ffpNo1"
 																	 type="text"
-																	maxlength="9" value="회원인 경우 입력" /> <span class="ffp">FFP</span>
+																	maxlength="9" value="" placeholder="회원인 경우 입력"/> <span class="ffp">FFP</span>
 																<!-- hover -->
 																<span class="system_warning" id="warningffpNo1"
 																	style="display: none;">회원번호 오류</span>

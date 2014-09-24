@@ -13,6 +13,7 @@ int su=0;
 
 if(city != null && nCode == 0){
 	 su = dao.nationIns(request.getParameter("nation"));
+	String alert= "ddd";
 }else{
 	 su = dao.cityIns(city, nCode);
 }

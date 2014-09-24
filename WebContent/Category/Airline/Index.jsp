@@ -340,6 +340,8 @@
 	});
 
 	/* 도시리스트 =====================================================================================================*/
+	
+	
 	$(function(){
 		$('#btn_city').click(function(e){
 			$('#city').show();
@@ -359,7 +361,6 @@
 			 $(this).addClass("natoinon");
 				var n_hidden = $(".natoinon input[type='hidden']").val();
 		    	 
-				//
 				$('.remove01 ul').css("display","none");
 				$("." + n_hidden).show();
 		  		});	
@@ -370,7 +371,7 @@
 				$('.search_text01').val($(this).text());
 				$('.search_text01').css('padding-left','7px');
 				$('#city').hide();
-			})			
+			});
 		});
 
 	function close(){
@@ -486,7 +487,7 @@ for(int i=0; i<nationL.size(); i++){
 </ul>
 
 </div>
-<div style="border:1px solid red; width:180px; height:200px; float:left;" class="remove01" id="city_li">
+<div style="width:180px; height:200px; float:left;" class="remove01" id="city_li">
 <%
 for(int i=0; i<nationL.size(); i++){
 	nation = nationL.get(i); %>
