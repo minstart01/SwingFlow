@@ -723,10 +723,10 @@ for(int j=0; j<cityL.size(); j++){
 									style="border: 10px solid #FFF;" alt="image"
 									src="/SwingFlow/images/Airline/m3.png"></a>
 								<div class="content_text">
-									<h2>마일리지 조회</h2>
+									<h2>스케줄 조회</h2>
 									<p>
 										선택일 기준 스케줄 조회가 가능합니다. <br> 예약 시 주간스케줄은 <br> 항공편 결항 및
-										지연이 반영되지 않을 수 있으므로, <br> 정확한 스케줄은 항공편 예약 시 <br>
+										지연이<br> 반영되지 않을 수 있으므로, <br> 정확한 스케줄은 항공편 예약 시 <br>
 										재확인하시기 바랍니다.
 									</p>
 								</div>
