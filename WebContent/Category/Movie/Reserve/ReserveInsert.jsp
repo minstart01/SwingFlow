@@ -33,5 +33,8 @@
 	out.print(seat);
 	out.print(no); 
 
+	if(su==1 && seat==1 && no==1){
+		response.sendRedirect("ReserveList.jsp");
+	}
 
 %>

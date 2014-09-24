@@ -613,6 +613,9 @@ function next(){
 	
 	var timeon = $(".time_on").text();
 	var tName = $(".local_on").text();
+	var mName = $(".movie_on").text();
+	var time = $(".Td_info").text() + " " + $(".time_info").text();
+	
 	timeon = timeon.substring(0,1);
 	
 	$("#next_bt").removeAttr("onclick");
@@ -624,6 +627,8 @@ function next(){
 		data : {
 			timeon : timeon,
 			tName : tName,
+			mName : mName,
+			time : time,
 		},
 		success : SeatList
 	});
@@ -636,6 +641,19 @@ function SeatList(data){
 	item = $(data).find("ul").find("li");
 	var row = $(item[0]).text();
 	var column = $(item[1]).text();
+	
+	var over = "";
+	
+	for(var i=2;i<item.length;i++){
+		over += $(item[i]).text() + ",";
+	}
+	
+	var overseat = over.split(",");
+	alert(overseat.length);
+	
+	
+
+	
 	var rowname="";
 	var table = "";
 	
@@ -645,16 +663,16 @@ function SeatList(data){
 	for(var i=1;i<=row;i++){
 		
 		switch(i){
-		case 1 : rowname = "A"; break;
-		case 2 : rowname = "B"; break;
-		case 3 : rowname = "C"; break;
-		case 4 : rowname = "D"; break;
-		case 5 : rowname = "E"; break;
-		case 6 : rowname = "F"; break;
-		case 7 : rowname = "G"; break;
-		case 8 : rowname = "H"; break;
-		case 9 : rowname = "I"; break;
-		case 10 : rowname = "J"; break;
+			case 1 : rowname = "A"; break;
+			case 2 : rowname = "B"; break;
+			case 3 : rowname = "C"; break;
+			case 4 : rowname = "D"; break;
+			case 5 : rowname = "E"; break;
+			case 6 : rowname = "F"; break;
+			case 7 : rowname = "G"; break;
+			case 8 : rowname = "H"; break;
+			case 9 : rowname = "I"; break;
+			case 10 : rowname = "J"; break;
 	}
 	
 		table += "<tr>";
@@ -665,7 +683,8 @@ function SeatList(data){
 			}else if(j==2){
 				table += "<td width='20' align='center'></td>";
 			}else if(j>2){
-				table += "<td class='sel_seat' width='20' align='center'>" + rowname + (j-2) + "</td>";
+				
+				table += "<td class='sel_seat " + rowname + (j-2) + "' width='20' align='center'>" + rowname + (j-2) + "</td>";
 			}
 		}
 		table += "</tr>";
@@ -674,8 +693,15 @@ function SeatList(data){
 	
 	
 	$(".seat").append(table);
-
 	
+	
+	
+	for(var i=0;i<overseat.length-1;i++){
+		$("." + overseat[i].trim()).addClass("over");
+		$("." + overseat[i].trim()).removeClass("sel_seat");
+		
+	 	
+	} 
 	
 	$(".sel_seat").click(function e(){
 		var adult = $(".adult_on").text();

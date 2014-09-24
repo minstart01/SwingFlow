@@ -18,7 +18,7 @@
 		
 	}
 #main_content{
-	border:1px solid black;
+	
 	/* position:absolute; */
 	float:left;
 	margin-top: 25px;
@@ -40,7 +40,32 @@
 .reservelist{
 	cursor: pointer;
 }
+
+.list_title{
+	
+	font-size:20px;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+
 </style>
+<script src="/SwingFlow/Script/Common/jquery-2.1.1.js"></script>
+<script type="text/javascript">
+	function detail(id, rno){
+		
+	popup("ReserveCheck.jsp?id=" + id + "&rno=" + rno, "300", "220");
+		
+	}
+	
+	function popup(url,width,height){
+		
+		var iwidth = ($("body").innerWidth()/2) - (width/2);
+		var iheight = ($("body").innerHeight()/2) - height;
+		
+		window.open(url,"popup","width=" + width + ", height=" + height + ",left=" + iwidth + ",top=" + iheight);
+	}
+
+</script>
 </head>
 
 <body>
@@ -50,7 +75,8 @@
 <jsp:include page="/Category/Movie/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-	<div>예매확인/취소</div>
+
+	<div class="list_title">예매확인/취소</div>
 	<table cellspacing="0" class="check_table" border="1">
     	<tr>
         	<th width="30">번호</th>
@@ -74,7 +100,7 @@
         for(int i=0;i<list.size();i++){
         	dto = list.get(i);
         %>
-        <tr style="border-bottom:1px solid black;" class="reservelist">
+        <tr style="border-bottom:1px solid black;" class="reservelist" onclick="detail('<%=mId%>','<%=dto.getrNo()%>')">
         	<td><%=i+1 %></td>
             <td><%= dto.getmName() %></td>
             <td><%= dto.gettName() %></td>
@@ -144,4 +170,6 @@
 
 </div>
 </div>
+<jsp:include page="/Category/Common/footer.jsp"></jsp:include>
+
 </body>

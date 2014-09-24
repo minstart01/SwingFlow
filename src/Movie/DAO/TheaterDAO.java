@@ -70,7 +70,7 @@ public class TheaterDAO {
 	public ArrayList<TheaterInfo> ListTheater(){
 		ArrayList<TheaterInfo> list = new ArrayList<TheaterInfo>();
 		conn = DbSet.getConnection();
-		sql = " SELECT T.TCODE, T.TNAME, A.SIDO, A.GUGUN, A.DONG, A.RI, T.TDETAILADDR, T.TPHONE, T.TSCREEN, T.TTOTALSIT FROM THEATERINFO T, ADDRESS A WHERE A.ACODE = T.ACODE";
+		sql = " SELECT T.TCODE, T.TNAME, A.SIDO, A.GUGUN, A.DONG, A.RI, T.TDETAILADDR, T.TPHONE, T.TSCREEN, T.TTOTALSIT FROM THEATERINFO T, ADDRESS A WHERE A.ACODE = T.ACODE ORDER BY TCODE DESC";
 				
 		try {
 			pstmt = conn.prepareStatement(sql);
