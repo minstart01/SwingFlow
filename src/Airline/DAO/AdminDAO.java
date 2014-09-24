@@ -386,7 +386,7 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 
 public ArrayList<ScheduleList> scheduleList(){
 	conn= Movie.DAO.DbSet.getConnection();
-	sql= "select a.A_NAME, an.an_name, c.c_name, c1.c_name, s.S_DEPTTIME, to_char(s.S_DEPDAY,'yyyy-mm-dd'), s.S_SEATTOTAL, s.s_code from airline a, airlineno an, city c, schedule s, city c1 where a.a_code = an.a_code and an.an_code = s.an_code and c.c_code = s.c_code and c1.c_code = s.c_code2 order by s.S_DEPDAY desc";
+	sql= "select a.A_NAME, an.an_name, c.c_name, c1.c_name, s.S_DEPTTIME, to_char(s.S_DEPDAY,'yyyy-mm-dd'), s.S_SEATTOTAL, s.s_code from airline a, airlineno an, city c, schedule s, city c1 where a.a_code = an.a_code and an.an_code = s.an_code and c.c_code = s.c_code and c1.c_code = s.c_code2 order by s.S_code desc";
 	ArrayList<ScheduleList> dtoL = new ArrayList<>();
 	try {
 		pstmt = conn.prepareStatement(sql);

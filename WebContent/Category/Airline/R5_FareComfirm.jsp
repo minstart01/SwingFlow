@@ -79,12 +79,13 @@ font-family:Arial, Helvetica, sans-serif
 	width:1200px;
 	}
 #main_content{
-
+	font-size:12px;
+	font-family:Arial;
 	width:900px;
 	float:left;
 	margin-top: 25px;
 	margin-left: 25px;
-	font-size:13px;
+
 	
 }
 
@@ -162,29 +163,21 @@ font-family:Arial, Helvetica, sans-serif
 <jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 
 <div id="main_content">
-  <input type="hidden" value="">
-
- <h3 class="h3_type01">
-  국제선 예매
- </h3>
-
-     3. 여정/탑승자 확인
-
-
-
-<h3>선택하신 여정</h3>
+  <p>&nbsp;</p>
+  <p>여정/운임 확인 </p>
+  <h3>선택하신 여정</h3>
 <% ClientDAO dao = ClientDAO.getInstance();
 ConfirmSch dto = new ConfirmSch();
 dto = dao.confirmSch(s_code);
 %>
 <table border="1" cellspacing="0" cellpadding="2" class="trip" width="700">
 	<tr class="colum" align="center">
-		<td width="84" height="30">구분</td>
-		<td width="135">출발</td>
-		<td width="136">도착</td>
-		<td width="115">항공사/편명</td>
-		<td width="80">비행시간</td>
-		<td width="112">클래스</td>
+		<td width="81" height="30">구분</td>
+		<td width="142">출발</td>
+		<td width="117">도착</td>
+		<td width="135">항공사/편명</td>
+		<td width="78">비행시간</td>
+		<td width="109">클래스</td>
 	
 	</tr>
 	<tr>
@@ -196,12 +189,14 @@ dto = dao.confirmSch(s_code);
  			<div align="center"><%=dto.getC_Name() %>	 <%=dto.getS_DepDay() %>, <%=dto.getS_DeptTime() %> 
 	    </div></td>
 		<td>
-			<div align="center"><%=dto.getC_Name1() %> <%=dto.getS_DepDay() %>, <%=dto.getS_ArrtTime() %>
+			<div align="center"><%=dto.getC_Name1() %>
+		
+			  <%=dto.getS_ArrtTime() %>
 	    </div></td>
 		<td>
 			<div align="center"><%=dto.getA_Name() %>/ <%=dto.getAn_Name() %> 
 	    </div></td>
-		<td><div align="center"><%=dto.getS_FlightTime() %></div></td>
+		<td><div align="center"><%=dto.getS_FlightTime() %>시간</div></td>
 		<td id="s_class"><div align="center"><%=a %></div></td>
 		
 	</tr>
@@ -214,19 +209,21 @@ dto = dao.confirmSch(s_code);
 	
 	<tr>
 		<td height="60">
-			<div align="center">오는편<br>
+			<div align="center">오는 편<br>
 		
 			</div></td>
 		<td>
-			<div align="center"><%=dto1.getC_Name1() %>	<%=dto1.getS_DepDay() %>, <%=dto1.getS_DeptTime() %>
+			<div align="center"><%=dto1.getC_Name() %>	<%=dto1.getS_DepDay() %>, <%=dto1.getS_DeptTime() %>
 	    </div></td>
 		<td>
-			<div align="center"><%=dto1.getC_Name() %> 2014/09/24, <%=dto1.getS_ArrtTime() %>
+			<div align="center"><%=dto1.getC_Name1() %>  
+		
+			  <%=dto1.getS_ArrtTime() %>
 	    </div></td>
 		<td>
 			<div align="center"><%=dto1.getA_Name() %>/ <%=dto1.getAn_Name() %>
 	    </div></td>
-		<td><div align="center"><%=dto1.getS_FlightTime() %></div></td>
+		<td><div align="center"><%=dto1.getS_FlightTime() %>시간</div></td>
 		<td><div align="center"><%=a %></div></td>
 	
 	</tr>
@@ -236,13 +233,13 @@ dto = dao.confirmSch(s_code);
 
 <table border="1" cellspacing="0" cellpadding="2" class="fare" width="700">
 	<tr class="colum" align="center">
-		<td width="110">승객</td>
-		<td width="150">항공운임</td>
-		<td width="50">인원</td>
-		<td width="150">항공운임 총액</td>
+		<td width="110"><div align="center">승객</div></td>
+		<td width="150"><div align="center">항공운임</div></td>
+		<td width="50"><div align="center">인원</div></td>
+		<td width="150"><div align="center">항공운임 총액</div></td>
 	</tr>
 	<tr>
-		<td>성인</td>
+		<td><div align="center">성인</div></td>
 		<td><%=fm.format(agradeSum/adult) %>원</td>
 		<td><%=adult %>명</td>
 		<td><%=fm.format(agradeSum) %>원</td>
@@ -250,7 +247,7 @@ dto = dao.confirmSch(s_code);
 	<%
 	if(child!=0){%>
 	<tr>
-		<td>소아</td>
+		<td><div align="center">소아</div></td>
 		<td><%=fm.format(cgradeSum/child) %>원</td>
 		<td><%=child %>명</td>
 		<td><%=fm.format(cgradeSum) %>원</td>
@@ -259,7 +256,7 @@ dto = dao.confirmSch(s_code);
 	<%
 	if(infant!=0){%>
 	<tr>
-		<td>유아</td>
+		<td><div align="center">유아</div></td>
 		<td>0원</td>
 		<td><%=infant %>명</td>
 		<td>0원</td>

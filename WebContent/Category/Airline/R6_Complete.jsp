@@ -17,7 +17,8 @@
 	float:left;
 	margin-top: 25px;
 	margin-left: 25px;
-	font-size:13px;
+		font-size:12px;
+	font-family:Arial;
 	
 }
 .colum {
@@ -65,10 +66,7 @@ out.print(dto.getC_name());
 
 
  <h3 class="h3_type01">
-  항공권 예약</h3>
-<ul class="rv_stepBox">
-   <li class="step03_on">5.항공권 예약완료</li>
-</ul>
+  항공권 예약완료</h3>
 <p><br />
 </p>
 <table border="1" cellpadding="6" cellspacing="0" style="text-align:center;">
@@ -78,8 +76,8 @@ out.print(dto.getC_name());
     <td width="150">예약일자</td>
   </tr>
   <tr>
-    <td><%=dto.getFl_no() %></td>
-    <td><%=dto.getC_name() %>&lt;=&gt;<%=dto.getC_name1() %> </td>
+    <td><a href="#"><%=dto.getFl_no() %></a></td>
+    <td><%=dto.getC_name() %> &lt;=&gt; <%=dto.getC_name1() %> </td>
     <td><%=dto.getFl_sys() %></td>
   </tr>
 <!--   <tr> -->

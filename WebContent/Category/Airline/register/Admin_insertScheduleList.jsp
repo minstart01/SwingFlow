@@ -86,11 +86,11 @@ text-align:center;
   <col width="26" />
   <col width="70" span="6" />
   <tr class="colum" height="30">
-    <td width="70">no.</td>
+    
     <td width="95">항공사</td>
     <td width="70">편명</td>
 
-    <td width="70">출발지</td>
+    <td width="140">출발지</td>
     <td width="140">도착지</td>
     <td width="70">출발시간</td>
     <td width="95">출발일</td>
@@ -102,7 +102,7 @@ text-align:center;
 	dto = dtoL.get(i);
    %> 
   <tr class="colum01"  height="30" >
-    <td> <%=i+1 %></td>
+  
     <td><%=dto.getA_Name() %></td>
     <td><%=dto.getAn_Name() %></td>
 

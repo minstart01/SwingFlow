@@ -341,13 +341,13 @@ text-align:center;
 			        <td class="colum">출 발 일</td>
 			        <td><input type="date" name="s_DepDay" /></td>
 			        <td class="colum">비행시간</td>
-			        <td><input type="time" name="s_FlightTime" /></td>
+			        <td><input type="time" name="s_FlightTime" value="" /></td>
 		          </tr>
 			      <tr>
 			        <td class="colum">출발시간</td>
-			        <td><input type="time" name="s_DeptTime" /></td>
+			        <td><input type="time" name="s_DeptTime" id="s_DeptTime"/></td>
 			        <td class="colum">도착시간</td>
-			        <td><input type="time" name="s_ArrtTime" /></td>
+			        <td><input type="time" name="s_ArrtTime" id="s_ArrtTime"/></td>
 		          </tr>
 			      <tr>
 			        <td colspan="4" align="center">트래블 운임</td>

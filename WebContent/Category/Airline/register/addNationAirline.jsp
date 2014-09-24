@@ -73,8 +73,11 @@
    var nation = $("#nation").val();
    var city = $('#city').val();
    var nCode = $('#nCode').val();
-  
-   //   alert("aa");
+  if($('#city').val()==0){
+     alert("국가가 등록되었습니다.");
+  }else{
+	  alert("도시가 등록되었습니다.")
+  }
    $.ajax({
     url : 'searchair.jsp',
     type : 'GET',
@@ -92,7 +95,7 @@
  function SearchmName(data) {
  
  location.reload();
-  /*  $("#nId").append("<option>" + data +"</option>"); */   
+ 
   }
  
  $(function(e) { 
@@ -101,7 +104,11 @@
 	   var aName = $('#aName').val();
 	   var aCode = $('#aCode').val();
 	  
-	   // alert("aa");
+	   if($('#aName').val()==0){
+		     alert("항공사가 등록되었습니다.");
+		  }else{
+			  alert("편명이 등록되었습니다.")
+		  }
 	   $.ajax({
 	    url : 'searchAirlineNo.jsp',
 	    type : 'GET',

@@ -61,7 +61,7 @@
 <nav id="sidebar" class="column-left">
 		<ul>
         <h4 style="color: white;">항공권 예매</h4>
-			<li class="li"><a href="/SwingFlow/Category/Airline/Index.jsp">국제선</a></li>
+			<li class="li"><a href="/SwingFlow/Category/Airline/Index.jsp">항공편 예약</a></li>
 			<li><a href="#">예약조회</a></li>
 		</ul>
 		<ul>
@@ -77,13 +77,19 @@
 		<h4 style="color: white;">스케줄 조회</h4>
 			<li class="li"><a href="info.jsp">스케줄 조회</a></li>
 		</ul>
-				<ul>
-		<h4 style="color: white;">관리자페이지</h4>
-		<li><a href="/SwingFlow/Category/Airline/register/addNationAirline.jsp">신규노선등록</a></li>
-		  	<li><a href="/SwingFlow/Category/Airline/register/Admin_insertSchedule.jsp">스케줄관리</a></li>
-			 <li><a href="Admin_list.jsp">예약관리</a></li>
-			 <li><a href="Admin_memberlist.jsp">회원관리</a></li>
+<% 
+  String Id = (String)session.getAttribute("MemberId");
+  
+  if(("admin").equals(Id)){
+  %>
+  <ul>
+  <h4 style="color: white;">관리자페이지</h4>
+<li><a href="/SwingFlow/Category/Airline/register/addNationAirline.jsp">신규노선등록</a></li>
+<li><a href="/SwingFlow/Category/Airline/register/Admin_insertSchedule.jsp">스케줄관리</a></li>
+			 <li><a href="#">예약관리</a></li>
+			 <li><a href="#">회원관리</a></li>
 </ul>
+<%}else{} %>
 		
 		</nav>
 </body>

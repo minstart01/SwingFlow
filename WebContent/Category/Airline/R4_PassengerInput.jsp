@@ -53,6 +53,22 @@ String f_time1 = request.getParameter("f_time1");
 <link rel="stylesheet" type="text/css"
 	href="/SwingFlow/Css/Common/Main.css" />
 <style>
+.cnt {
+background: url("/SwingFlow/images/Airline/bl_hType01.gif") ;no-repeat 0 0;
+width: 17px;
+height: 17px;
+text-align: center;
+display: inline-block;
+font-size: 11px;
+color: #fff;
+margin: 0 8px 0 0;
+font-family: '돋움';
+line-height: 20px;
+
+-webkit-margin-before: 1.33em;
+font-weight: bold;
+}
+
 .div_button
 {
 	margin-top:7px;
@@ -1690,14 +1706,8 @@ String f_time1 = request.getParameter("f_time1");
 
 								<section id="containerBody">
 
-								<h3 class="h3_type01">국제선 예매</h3>
-
-
-								<ul class="rv_stepBox">
-									<li class="step03_on">
-										<p class="hidden">현재</p> 3. 여정/탑승자 확인
-									</li>
-								</ul>
+		
+<p><span class="cnt"></span><strong style="color:#5e14cc"> 탑승자 확인</strong></p>
 
 
 								<div class="itineraryBoxPs fareBox">
@@ -1892,7 +1902,7 @@ dto = dao.memberSel(mid);
 																<input name="mNo" title="회원번호"
 																	class="text01 inputFocusin01" id="ffpNo1"
 																	 type="text"
-																	maxlength="9" value="<%=dto.getMno() %>" /> <span class="ffp">FFP</span>
+																	maxlength="9" value="000<%=dto.getMno() %>" /> <span class="ffp"></span>
 																<!-- hover -->
 																<span class="system_warning" id="warningffpNo1"
 																	style="display: none;">회원번호 오류</span>
@@ -2041,7 +2051,7 @@ for(int i=1; i < adult;i++){
 																<input name="passport" title="회원번호"
 																	class="text01 inputFocusin01" id="ffpNo1"
 																	 type="text"
-																	maxlength="9" value="" placeholder="회원인 경우 입력" /> <span class="ffp">FFP</span>
+																	maxlength="9" value="" placeholder="회원인 경우 입력" /> <span class="ffp"></span>
 																<!-- hover -->
 																<span class="system_warning" id="warningffpNo1"
 																	style="display: none;">회원번호 오류</span>
@@ -2187,7 +2197,7 @@ for(int i=0; i < child;i++){
 																<input name="child_passport" title="회원번호"
 																	class="text01 inputFocusin01" id="ffpNo1"
 																	 type="text"
-																	maxlength="9" value="" placeholder="회원인 경우 입력"/> <span class="ffp">FFP</span>
+																	maxlength="9" value="" placeholder="회원인 경우 입력"/> <span class="ffp"></span>
 																<!-- hover -->
 																<span class="system_warning" id="warningffpNo1"
 																	style="display: none;">회원번호 오류</span>
@@ -2331,7 +2341,7 @@ for(int i=0; i<infant; i++){
 																<input name="infant_passport" title="회원번호"
 																	class="text01 inputFocusin01" id="ffpNo1"
 																	 type="text"
-																	maxlength="9" value="" placeholder="회원인 경우 입력"/> <span class="ffp">FFP</span>
+																	maxlength="9" value="" placeholder="회원인 경우 입력"/> <span class="ffp"></span>
 																<!-- hover -->
 																<span class="system_warning" id="warningffpNo1"
 																	style="display: none;">회원번호 오류</span>
