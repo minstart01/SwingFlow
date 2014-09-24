@@ -16,7 +16,7 @@
 	int today = Integer.parseInt((sdf.format(date)).substring(3,5));
 	int iStart = Integer.parseInt(Start.substring(3,5));
 	
-	if(today>iStart && today==iStart){
+	if(today>iStart || today==iStart){
 		Start = Integer.toString(today);
 		if(("0").equals(Start.substring(0, 1))){
 			Start = Start.substring(1, 2);

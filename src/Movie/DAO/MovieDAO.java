@@ -220,6 +220,7 @@ public class MovieDAO {
 		return list;
 	}
 
+	
 	/* 예매 포스터 조회 */
 	public String PosterIMG(String mName) {
 		conn = DbSet.getConnection();
@@ -426,7 +427,7 @@ public class MovieDAO {
 	public MovieInsert SearchDay(String mName, String tName) {
 		MovieInsert dto = new MovieInsert();
 		conn = DbSet.getConnection();
-		sql = "SELECT MI.MINO, M.MNAME, T.TNAME, TO_CHAR(MI.MSTART,'MM-DD'), 			TO_CHAR(MI.MEND,'DD') FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T WHERE M.MCODE = 	MI.MCODE AND MI.TCODE = T.TCODE AND M.MNAME=? AND T.TNAME=?";
+		sql = "SELECT MI.MINO, M.MNAME, T.TNAME, TO_CHAR(MI.MSTART,'MM-DD'), TO_CHAR(MI.MEND,'DD') FROM MOVIEINFO M, MOVIEINSERT MI, THEATERINFO T WHERE M.MCODE = 	MI.MCODE AND MI.TCODE = T.TCODE AND M.MNAME=? AND T.TNAME=?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);

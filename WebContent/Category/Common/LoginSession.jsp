@@ -22,6 +22,8 @@
  		
  		if(("index").equals(gubun)){
  			url = "/SwingFlow/Category/Movie/Index.jsp";
+ 		}else if(("reserve").equals(gubun)){
+ 			url = "/SwingFlow/Category/Movie/Reserve/Reserve.jsp";
  		}else{
 			url = "/SwingFlow/Category/Main/index.jsp";
  		}
