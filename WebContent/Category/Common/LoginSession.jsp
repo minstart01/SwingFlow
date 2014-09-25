@@ -24,6 +24,8 @@
  			url = "/SwingFlow/Category/Movie/Index.jsp";
  		}else if(("reserve").equals(gubun)){
  			url = "/SwingFlow/Category/Movie/Reserve/Reserve.jsp";
+ 		}else if(("indexa").equals(gubun)){
+ 			url = "/SwingFlow/Category/Airline/Index.jsp";
  		}else{
 			url = "/SwingFlow/Category/Main/index.jsp";
  		}

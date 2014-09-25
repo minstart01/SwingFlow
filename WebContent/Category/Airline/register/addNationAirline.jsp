@@ -93,7 +93,7 @@
 });
   
  function SearchmName(data) {
- 
+
  location.reload();
  
   }

@@ -95,7 +95,7 @@ text-align:center;
     <td width="70">출발시간</td>
     <td width="95">출발일</td>
     <td width="70">좌석</td>
-    <td width="95">관리</td>
+    <td width="110">관리</td>
    
   </tr >
    <% for(int i=0;i<dtoL.size();i++){

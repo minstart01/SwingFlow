@@ -341,7 +341,8 @@ text-align:center;
 			        <td class="colum">출 발 일</td>
 			        <td><input type="date" name="s_DepDay" /></td>
 			        <td class="colum">비행시간</td>
-			        <td><input type="time" name="s_FlightTime" value="" /></td>
+			        <td><input type="text" name="s_FlightTime" style="width:134px;""
+			         value="" />&nbsp;시간</td>
 		          </tr>
 			      <tr>
 			        <td class="colum">출발시간</td>

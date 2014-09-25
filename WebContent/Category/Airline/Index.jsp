@@ -413,7 +413,9 @@ function close01(){
 
 <body>
 
-	<%@include file="/Category/Common/top.jsp"%>
+	<jsp:include page="/Category/Common/top.jsp">
+		<jsp:param value="indexa" name="gubun"/>
+	</jsp:include>
 	<div id="wrapper">
 		<jsp:include page="/Category/Airline/sidemenu.jsp"></jsp:include>
 

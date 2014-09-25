@@ -80,7 +80,7 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 	ArrayList<AirlineNo> cDtoL = new ArrayList<>();
 	conn = DbSet.getConnection();
 	
-	sql = "select * from airlineno where a_Code=?";
+	sql = "select * from airlineno where a_Code=? order by an_name asc";
 	try {
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, acode);
@@ -122,7 +122,7 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 	public ArrayList<Nation> nationSel() {
 		ArrayList<Nation> nDtoL = new ArrayList<>();
 		conn = DbSet.getConnection();
-		sql = "select * from nation";
+		sql = "select * from nation order by n_code desc";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -170,7 +170,7 @@ public ArrayList<AirlineNo> airlineNoaCodeSel(int acode) {
 	public ArrayList<AirlineNo> airlineNoSel() {
 		ArrayList<AirlineNo> cDtoL = new ArrayList<>();
 		conn = DbSet.getConnection();
-		sql = "select * from AirlineNo";
+		sql = "select * from AirlineNo order by an_code asc";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();

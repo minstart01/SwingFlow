@@ -7,6 +7,9 @@
 	
 	if(("reserve").equals(gubun)){
 		response.sendRedirect("/SwingFlow/Category/Movie/Reserve/Reserve.jsp");
+	}else if(("indexa").equals(gubun)){
+		response.sendRedirect("/SwingFlow/Category/Airline/Index.jsp");
+	}else{
+ 	response.sendRedirect("/SwingFlow/Category/Main/index.jsp"); 
 	}
-/* 	response.sendRedirect("/SwingFlow/Category/Main/index.jsp"); */
 %>

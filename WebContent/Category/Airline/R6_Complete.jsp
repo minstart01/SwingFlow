@@ -76,7 +76,7 @@ out.print(dto.getC_name());
     <td width="150">예약일자</td>
   </tr>
   <tr>
-    <td><a href="#"><%=dto.getFl_no() %></a></td>
+    <td><%=dto.getFl_no() %></td>
     <td><%=dto.getC_name() %> &lt;=&gt; <%=dto.getC_name1() %> </td>
     <td><%=dto.getFl_sys() %></td>
   </tr>
