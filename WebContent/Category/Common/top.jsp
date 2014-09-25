@@ -69,7 +69,7 @@
 					
 			%>
 			<th><a href="#"><%= Id %>님</a></th>
-			<th><a href="/SwingFlow/Category/Common/LogoutSession.jsp">로그아웃</a></th>
+			<th><a href="/SwingFlow/Category/Common/LogoutSession.jsp?gubun=<%=request.getParameter("gubun")%>">로그아웃</a></th>
 			<%
 				}
 			%>

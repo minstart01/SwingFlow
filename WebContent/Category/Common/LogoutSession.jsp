@@ -2,5 +2,11 @@
     pageEncoding="UTF-8"%>
 <%
 	session.invalidate();
-	response.sendRedirect("/SwingFlow/Category/Main/index.jsp");
+
+	String gubun = request.getParameter("gubun");
+	
+	if(("reserve").equals(gubun)){
+		response.sendRedirect("/SwingFlow/Category/Movie/Reserve/Reserve.jsp");
+	}
+/* 	response.sendRedirect("/SwingFlow/Category/Main/index.jsp"); */
 %>
